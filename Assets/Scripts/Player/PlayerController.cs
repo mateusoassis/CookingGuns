@@ -28,14 +28,18 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Weapons")]
     [SerializeField] private GameObject ironBar;
+    [SerializeField] private Animator ironBarAnim;
     [SerializeField] private GameObject ironAxe;
     [SerializeField] private GameObject pistol;
     [SerializeField] private Rigidbody pistolBulletPrefab;
     private int weaponActive;
+    public bool canAttack;
+    public float attackCooldown;
 
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        canAttack = true;
         ActivateIronBar();
     }
 
@@ -62,6 +66,11 @@ public class PlayerController : MonoBehaviour
         WeaponBehaviour();
     }
 
+    //
+    //
+    // MIRA DO JOGADOR
+    //
+    //
     public void PlayerAim()
     {
         RaycastHit hit;
@@ -79,6 +88,12 @@ public class PlayerController : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(newRotation, transform.rotation, Time.deltaTime * 30);
     }
+
+    //
+    //
+    // ARMAS
+    //
+    //
 
     // 1 = iron bar
     // 2 = iron axe
@@ -134,16 +149,40 @@ public class PlayerController : MonoBehaviour
     {
         if(weaponActive == 1)
         {
-
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                if(canAttack)
+                {
+                    IronBarAttack();
+                }
+            }
         }
         else if(weaponActive == 2)
         {
-
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                
+            }
         }
         else if(weaponActive == 3)
         {
-            
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                
+            }
         }
+    }
+
+    public void IronBarAttack()
+    {
+        canAttack = false;
+        ironBarAnim.SetTrigger("Attack");
+        StartCoroutine(ResetAttackCooldown());
+    }
+    IEnumerator ResetAttackCooldown()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 
     void FixedUpdate()
@@ -151,6 +190,11 @@ public class PlayerController : MonoBehaviour
         HandleMovement();   
     }
 
+    //
+    //
+    // MOVIMENTAÇÃO E DASH
+    //
+    //
     public void HandleMovement()
     {
         // movement

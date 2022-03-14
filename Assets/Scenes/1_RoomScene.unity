@@ -259,11 +259,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811847736}
+  - component: {fileID: 811847737}
   - component: {fileID: 811847735}
   - component: {fileID: 811847734}
   - component: {fileID: 811847733}
   - component: {fileID: 811847732}
-  - component: {fileID: 811847737}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -389,9 +389,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   ironBar: {fileID: 1118851276}
+  ironBarAnim: {fileID: 1118851281}
   ironAxe: {fileID: 1356235875}
   pistol: {fileID: 159503060}
   pistolBulletPrefab: {fileID: -780011900864920927, guid: d46bfd836518f6d408757e7257572726, type: 3}
+  canAttack: 0
+  attackCooldown: 0.6
 --- !u!1 &970032926
 GameObject:
   m_ObjectHideFlags: 0
