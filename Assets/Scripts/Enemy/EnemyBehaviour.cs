@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public Transform playerTransform;
-    private Transform targetTransform;
+    private Vector3 targetPosition;
     public int setBehaviour;
     public bool isPlayerOnRange;
     public Rigidbody enemyBulletPrefab;
@@ -26,6 +26,10 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector3 targetedVector;
     private Vector3 scaleVector;
     public bool explosionCollision;
+
+    [Header("Tiros")]
+    public float timeBetweenShots;
+    private float timeBetweenShotsTimer;
 
     void Start()
     {
@@ -127,5 +131,21 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log("player toma dano");
         }
         Destroy(this.gameObject);
+    }
+
+    public void Shoot()
+    {
+        if(timeBetweenShotsTimer <= 0)
+        {
+            ShootProjectile();
+        }
+        else if(timeBetweenShotsTimer > 0)
+        {
+            timeBetweenShotsTimer -= Time.fixedDeltaTime;
+        }
+    }
+    public void ShootProjectile()
+    {
+        timeBetweenShotsTimer = timeBetweenShots;
     }
 }
