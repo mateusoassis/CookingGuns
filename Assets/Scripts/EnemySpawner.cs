@@ -13,10 +13,13 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesMax;
     public bool roomCleared;
 
+    private int enemyNumberRandomizer;
+
     private int i;
 
     void Start()
     {
+        enemyNumberRandomizer = Random.Range(3,9);
         enemiesKilled = 0;
         roomCleared = false;
         SpawnEnemies();
@@ -24,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (enemiesKilled == 3)
+        if (enemiesKilled == enemyNumberRandomizer)
         {
             roomCleared = true;
         }
@@ -32,9 +35,10 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemies()
     {
-        for(i = 0; i < 4; i++)
+
+        for(i = 0; i < enemyNumberRandomizer; i++)
         {
-            if(enemiesMax < 4){
+            if(enemiesMax < enemyNumberRandomizer){
                 EnemySelector();
             }
         }
