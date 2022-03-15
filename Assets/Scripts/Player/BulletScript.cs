@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    void Start() 
+    {
+        Destroy(this.gameObject, 4f);
+    }
+
     public void OnTriggerEnter(Collider other) 
     {
         if(other.gameObject.tag == "Enemy")

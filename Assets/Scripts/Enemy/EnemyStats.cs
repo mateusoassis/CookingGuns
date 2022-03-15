@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour
     public int enemyMaxHealth;
     public int enemyHealth;
     [SerializeField] private PlayerController playerController;
+    public GameObject powerUpPrefab;
 
     void Start() {
         enemyHealth = enemyMaxHealth;
@@ -19,7 +20,11 @@ public class EnemyStats : MonoBehaviour
         enemyHealth -= damageTaken;
         if(enemyHealth <= 0)
         {
-            Debug.Log("matou o inimigo " + name);
+            int u = Random.Range(1, 11);
+            if(u >= 9)
+            {
+                Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
+            }
             Destroy(this.gameObject);
         }
     }

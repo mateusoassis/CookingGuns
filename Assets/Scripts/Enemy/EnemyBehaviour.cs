@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform playerTransform;
+    private Transform targetTransform;
+    public int setBehaviour;
+    public bool isPlayerOnRange;
+    public Rigidbody enemyBulletPrefab;
+
     void Start()
     {
-        
+        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
+    // 1 = shooting + follow
+    // 2 = shooting + retreat
+    // 3 = follow + explode
+
     void Update()
     {
         

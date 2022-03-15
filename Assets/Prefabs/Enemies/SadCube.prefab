@@ -1030,6 +1030,7 @@ MonoBehaviour:
   enemyMaxHealth: 5
   enemyHealth: 0
   playerController: {fileID: 0}
+  powerUpPrefab: {fileID: 8597415821680169644, guid: 9b0c0a0bf8b780048b32f2e1365552eb, type: 3}
 --- !u!114 &8527385207416296986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1042,6 +1043,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1690f6e3fab4a343af1760a1ffb03db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
+  setBehaviour: 0
+  isPlayerOnRange: 0
+  enemyBulletPrefab: {fileID: 0}
 --- !u!1 &8527385207604185353
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking;
     public float attackCooldown;
 
+    [SerializeField] private WeaponHandler weaponHandler;
+
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
@@ -106,17 +108,23 @@ public class PlayerController : MonoBehaviour
     // 3 = pistol
     public void WeaponHandler()
     {
-        if(Input.GetKeyDown(KeyCode.Keypad1))
+        if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             ActivateIronBar(); 
         }
-        if(Input.GetKeyDown(KeyCode.Keypad2))
+        if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ActivateIronAxe();
+            if(weaponHandler.axeUnlocked)
+            {
+                ActivateIronAxe();
+            }    
         }
-        if(Input.GetKeyDown(KeyCode.Keypad3))
+        if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ActivatePistol(); 
+            if(weaponHandler.pistolUnlocked)
+            {
+                ActivatePistol(); 
+            }
         }
     }
 
