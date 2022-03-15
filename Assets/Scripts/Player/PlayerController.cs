@@ -25,15 +25,21 @@ public class PlayerController : MonoBehaviour
     [Header("Player LookAt Mouse")]
     private Vector3 playerAimPosition;
     [SerializeField] private LayerMask playerAimLayerMask;
+    private Quaternion newRotation;
 
     [Header("Player Weapons")]
     [SerializeField] private GameObject ironBar;
     [SerializeField] private Animator ironBarAnim;
     [SerializeField] private GameObject ironAxe;
+    [SerializeField] private Animator ironAxeAnim;
     [SerializeField] private GameObject pistol;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float bulletShootDelay;
     [SerializeField] private Rigidbody pistolBulletPrefab;
-    private int weaponActive;
+    [SerializeField] private Transform bulletSpawnerTransform;
+    public int weaponActive;
     public bool canAttack;
+    public bool isAttacking;
     public float attackCooldown;
 
     void Start()
@@ -81,7 +87,7 @@ public class PlayerController : MonoBehaviour
             playerAimPosition = new Vector3(hit.point.x, 0f, hit.point.z);
         }
 
-        Quaternion newRotation = Quaternion.LookRotation(playerAimPosition - transform.position, Vector3.up);
+        newRotation = Quaternion.LookRotation(playerAimPosition - transform.position, Vector3.up);
 
         newRotation.x = 0f;
         newRotation.z = 0f;
@@ -161,14 +167,20 @@ public class PlayerController : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
-                
+                if(canAttack)
+                {
+                    IronAxeAttack();
+                }
             }
         }
         else if(weaponActive == 3)
         {
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
-                
+                if(canAttack)
+                {
+                    PistolShoot();
+                }
             }
         }
     }
@@ -176,13 +188,28 @@ public class PlayerController : MonoBehaviour
     public void IronBarAttack()
     {
         canAttack = false;
+        isAttacking = true;
         ironBarAnim.SetTrigger("Attack");
-        StartCoroutine(ResetAttackCooldown());
+        StartCoroutine(ResetAttackCooldown(attackCooldown));
     }
-    IEnumerator ResetAttackCooldown()
+    public void IronAxeAttack()
     {
-        yield return new WaitForSeconds(attackCooldown);
+        canAttack = false;
+        isAttacking = true;
+        ironAxeAnim.SetTrigger("Attack");
+        StartCoroutine(ResetAttackCooldown(attackCooldown));
+    }
+    public void PistolShoot()
+    {
+        Rigidbody rb = Instantiate(pistolBulletPrefab, bulletSpawnerTransform.position, bulletSpawnerTransform.rotation);
+        rb.velocity = (bulletSpawnerTransform.forward).normalized * bulletSpeed;
+        StartCoroutine(ResetAttackCooldown(bulletShootDelay));
+    }
+    IEnumerator ResetAttackCooldown(float cooldown)
+    {
+        yield return new WaitForSeconds(cooldown);
         canAttack = true;
+        isAttacking = false;
     }
 
     void FixedUpdate()
