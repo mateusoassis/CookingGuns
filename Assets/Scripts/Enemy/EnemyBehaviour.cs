@@ -14,7 +14,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float stopDistance;
     public float retreatDistance;
 
-    [Header("Explosão do behaviour 3")]
+    [Header("Behaviour 3")]
     public GameObject explosionObject;
     public Transform explosionObjectTransform;
     public MeshRenderer explosionObjectMesh;
@@ -146,6 +146,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
     public void ShootProjectile()
     {
+        Instantiate(enemyBulletPrefab, transform.position, Quaternion.identity);
         timeBetweenShotsTimer = timeBetweenShots;
     }
 }
