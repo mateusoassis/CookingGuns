@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private int dashCount;
     private float dashCountTimer = 0f;
     [SerializeField] private float dashCountDuration;
+    public Vector3 skewedInput;
 
     [Header("Player LookAt Mouse")]
     private Vector3 playerAimPosition;
@@ -71,11 +72,11 @@ public class PlayerController : MonoBehaviour
         DashCountTimer();
 
         // mouse + raycast player.lookat
-        //PlayerAim();
+        PlayerAim();
         WeaponHandler();
         WeaponBehaviour();
 
-        Look();
+        //Look();
     }
 
     //
@@ -199,7 +200,7 @@ public class PlayerController : MonoBehaviour
 
     public void IronBarAttack()
     {
-        PlayerAim();
+        //PlayerAim();
         canAttack = false;
         isAttacking = true;
         ironBarAnim.SetTrigger("Attack");
@@ -207,7 +208,7 @@ public class PlayerController : MonoBehaviour
     }
     public void IronAxeAttack()
     {
-        PlayerAim();
+        //PlayerAim();
         canAttack = false;
         isAttacking = true;
         ironAxeAnim.SetTrigger("Attack");
@@ -215,7 +216,7 @@ public class PlayerController : MonoBehaviour
     }
     public void PistolShoot()
     {
-        PlayerAim();
+        //PlayerAim();
         Rigidbody rb = Instantiate(pistolBulletPrefab, bulletSpawnerTransform.position, bulletSpawnerTransform.rotation);
         rb.velocity = (bulletSpawnerTransform.forward).normalized * bulletSpeed;
         StartCoroutine(ResetAttackCooldown(bulletShootDelay));
@@ -265,11 +266,12 @@ public class PlayerController : MonoBehaviour
             {
                 isDashing = false;
                 dashTimer = dashDuration;
-                playerRigidbody.velocity = Vector3.zero;
+                //playerRigidbody.velocity = Vector3.zero;
             }
             else
             {
-                playerRigidbody.velocity = direction * dashSpeed;
+                //playerRigidbody.velocity = direction * dashSpeed;
+                
                 
                 dashTimer -= Time.fixedDeltaTime;
             }
@@ -278,9 +280,24 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        playerRigidbody.MovePosition(transform.position + (transform.forward * _input.magnitude) * playerMoveSpeed * Time.deltaTime);
+        if(!isDashing)
+        {
+            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+
+            skewedInput = matrix.MultiplyPoint3x4(_input);
+        
+            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * _input.magnitude) * playerMoveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * _input.magnitude) * dashSpeed * Time.deltaTime);
+        }
+        
+
+        
     }
 
+    /*
     void Look()
     {
         if(_input!= Vector3.zero)
@@ -296,6 +313,7 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
         }
     }
+    */
 
     public void DashCountTimer()
     {
