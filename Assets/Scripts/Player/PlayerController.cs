@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     public bool canAttack;
     public bool isAttacking;
     public float attackCooldown;
+    private Vector3 _input;
+    private float _turnSpeed = 360;
 
     [SerializeField] private WeaponHandler weaponHandler;
 
@@ -69,9 +71,11 @@ public class PlayerController : MonoBehaviour
         DashCountTimer();
 
         // mouse + raycast player.lookat
-        PlayerAim();
+        //PlayerAim();
         WeaponHandler();
         WeaponBehaviour();
+
+        Look();
     }
 
     //
@@ -195,6 +199,7 @@ public class PlayerController : MonoBehaviour
 
     public void IronBarAttack()
     {
+        PlayerAim();
         canAttack = false;
         isAttacking = true;
         ironBarAnim.SetTrigger("Attack");
@@ -202,6 +207,7 @@ public class PlayerController : MonoBehaviour
     }
     public void IronAxeAttack()
     {
+        PlayerAim();
         canAttack = false;
         isAttacking = true;
         ironAxeAnim.SetTrigger("Attack");
@@ -209,6 +215,7 @@ public class PlayerController : MonoBehaviour
     }
     public void PistolShoot()
     {
+        PlayerAim();
         Rigidbody rb = Instantiate(pistolBulletPrefab, bulletSpawnerTransform.position, bulletSpawnerTransform.rotation);
         rb.velocity = (bulletSpawnerTransform.forward).normalized * bulletSpeed;
         StartCoroutine(ResetAttackCooldown(bulletShootDelay));
@@ -223,6 +230,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         HandleMovement();   
+        Move();
     }
 
     //
@@ -235,17 +243,19 @@ public class PlayerController : MonoBehaviour
         // movement
         if(playerRigidbody.velocity.magnitude < playerMoveSpeed * multiplier && !isDashing)
         {
-            vertical = Input.GetAxisRaw("Vertical");
+            _input = new Vector3(Input.GetAxisRaw("Horizontal"),0, Input.GetAxisRaw("Vertical"));
+
+            /*vertical = Input.GetAxisRaw("Vertical");
             if(vertical != 0)
             {
-                playerRigidbody.AddForce(0f, 0f, vertical * Time.fixedDeltaTime * 100f * playerMoveSpeed);
+                playerRigidbody.MovePosition(0f, 0f, vertical * Time.fixedDeltaTime * 100f * playerMoveSpeed);
             }
 
             horizontal = Input.GetAxisRaw("Horizontal");
             if(horizontal != 0)
             {
-                playerRigidbody.AddForce(horizontal * Time.fixedDeltaTime * 100f * playerMoveSpeed, 0f, 0f);
-            }
+                playerRigidbody.MovePosition(horizontal * Time.fixedDeltaTime * 100f * playerMoveSpeed, 0f, 0f);
+            }*/
         }
 
         // check de dash
@@ -263,6 +273,27 @@ public class PlayerController : MonoBehaviour
                 
                 dashTimer -= Time.fixedDeltaTime;
             }
+        }
+    }
+
+    void Move()
+    {
+        playerRigidbody.MovePosition(transform.position + (transform.forward * _input.magnitude) * playerMoveSpeed * Time.deltaTime);
+    }
+
+    void Look()
+    {
+        if(_input!= Vector3.zero)
+        {
+            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+
+            var skewedInput = matrix.MultiplyPoint3x4(_input);
+
+            var relative = (transform.position + skewedInput) - transform.position;
+            
+            var rot = Quaternion.LookRotation(relative, Vector3.up);
+            
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
         }
     }
 
