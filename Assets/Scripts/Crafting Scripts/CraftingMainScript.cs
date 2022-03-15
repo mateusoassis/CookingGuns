@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class CraftingMainScript : MonoBehaviour
 {   
 
-    public List<CraftableItem> itensList;
+    public Inventory inventory;
+    public List<ScriptableObject> Recipe;
+    void Start(){
+        inventory = GameObject.Find("Inventory Manager").GetComponent<Inventory>();
 
-    private _Item currentItem;
-    public Image customCursor;
-
-    void OnMouseDown(_Item item){
-        if(currentItem == null){
-            currentItem = item;
-        }
     }
+
+    public bool CanCraft(){
+        return false;
+    }
+    public void Craft(){
+        
+    }
+
+
 }
