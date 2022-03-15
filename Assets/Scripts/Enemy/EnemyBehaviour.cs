@@ -26,16 +26,18 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector3 targetedVector;
     private Vector3 scaleVector;
     public bool explosionCollision;
+    private EnemySpawner enemySpawner;
 
     [Header("Tiros")]
     public float timeBetweenShots;
-    private float timeBetweenShotsTimer;
+    private float timeBetweenShotsTimer = 5f;
 
     void Start()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         targetedVector = new Vector3(1f * scaleExplosion, 0.25f, 1f * scaleExplosion);
         scaleVector = new Vector3(1f, 0.25f, 1f);
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
     // 1 = shooting + follow
@@ -56,7 +58,6 @@ public class EnemyBehaviour : MonoBehaviour
             else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
             {
                 transform.LookAt(playerTransform.position, Vector3.up);
-                Debug.Log("nada");
             }
             else if(Vector3.Distance(transform.position, playerTransform.position) < retreatDistance)
             {
@@ -64,6 +65,7 @@ public class EnemyBehaviour : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
                 transform.LookAt(playerTransform.position, Vector3.up);
             }
+            Shoot();
         }
         else if(setBehaviour == 2)
         {
@@ -77,7 +79,6 @@ public class EnemyBehaviour : MonoBehaviour
             else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
             {
                 transform.LookAt(playerTransform.position, Vector3.up);
-                Debug.Log("nada");
             }
             else if(Vector3.Distance(transform.position, playerTransform.position) < retreatDistance)
             {
@@ -85,6 +86,7 @@ public class EnemyBehaviour : MonoBehaviour
                 Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
             }
+            Shoot();
         }
         else if(setBehaviour == 3)
         {
@@ -130,6 +132,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Debug.Log("player toma dano");
         }
+        enemySpawner.enemiesKilled++;
         Destroy(this.gameObject);
     }
 
@@ -147,6 +150,7 @@ public class EnemyBehaviour : MonoBehaviour
     public void ShootProjectile()
     {
         Instantiate(enemyBulletPrefab, transform.position, Quaternion.identity);
-        timeBetweenShotsTimer = timeBetweenShots;
+        float u = Random.Range(timeBetweenShots-2f, timeBetweenShots+4f);
+        timeBetweenShotsTimer = u;
     }
 }

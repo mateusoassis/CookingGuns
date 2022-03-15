@@ -15,7 +15,6 @@ public class ExplosionScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("dale");
             enemyBehaviour.explosionCollision = true;
         }
         
@@ -25,7 +24,6 @@ public class ExplosionScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("ih saiu");
             enemyBehaviour.explosionCollision = false;
         }
     }

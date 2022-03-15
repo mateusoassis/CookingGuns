@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesMax;
     public bool roomCleared;
 
-    private int enemyNumberRandomizer;
+    [SerializeField] private int enemyNumberRandomizer;
 
     private int i;
 
@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (enemiesKilled == enemyNumberRandomizer)
+        if (enemiesKilled >= enemyNumberRandomizer)
         {
             roomCleared = true;
         }
@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
 
     void EnemySelector()
     {
-        int enemyIndex = Random.Range(0,2);
+        int enemyIndex = Random.Range(0,3);
 
         if(enemyIndex == 0)
         {

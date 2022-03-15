@@ -7,12 +7,13 @@ public class EnemyBullet : MonoBehaviour
     public float bulletSpeed;
 
     private Transform player;
-    private Vector3 target;
+    [SerializeField] private Vector3 target;
 
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Transform>();
         target = player.position;
+        target.y = transform.position.y;
     }
 
     // Update is called once per frame

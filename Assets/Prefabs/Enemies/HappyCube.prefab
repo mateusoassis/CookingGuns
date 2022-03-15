@@ -371,6 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84c5a942882f57428841df9d47d6358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 0}
   enemyMaxHealth: 10
   enemyHealth: 0
   playerController: {fileID: 0}
@@ -388,9 +389,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  setBehaviour: 0
+  setBehaviour: 2
   isPlayerOnRange: 0
-  enemyBulletPrefab: {fileID: 0}
+  enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
+  enemySpeed: 4
+  stopDistance: 10
+  retreatDistance: 8
+  explosionObject: {fileID: 0}
+  explosionObjectTransform: {fileID: 0}
+  explosionObjectMesh: {fileID: 0}
+  scaleExplosion: 0
+  explosionRange: 0
+  explosionTimerReset: 0
+  explosionTimer: 0
+  explosionSpeed: 0
+  explosionCollision: 0
+  timeBetweenShots: 7
 --- !u!1 &1974482381028469389
 GameObject:
   m_ObjectHideFlags: 0
