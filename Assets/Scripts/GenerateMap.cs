@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 public class GenerateMap : MonoBehaviour
 {
 
+    public EnemySpawner enemySpawner;
+
+    void Start()
+    {
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+    }
+
     void RoomSelector()
     {
         int roomNumber = Random.Range(0,5);
@@ -35,7 +42,7 @@ public class GenerateMap : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Door")
+        if(other.gameObject.tag == "Door" && enemySpawner.roomCleared == true)
         {
             RoomSelector();
         }

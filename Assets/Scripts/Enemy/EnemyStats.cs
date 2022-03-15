@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
+    public EnemySpawner enemySpawner;
     public int enemyMaxHealth;
     public int enemyHealth;
     [SerializeField] private PlayerController playerController;
@@ -13,6 +14,7 @@ public class EnemyStats : MonoBehaviour
     void Start() {
         enemyHealth = enemyMaxHealth;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
     }
     
     public void TakeDamage(int damageTaken)
@@ -26,6 +28,7 @@ public class EnemyStats : MonoBehaviour
                 Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
             }
             Destroy(this.gameObject);
+            enemySpawner.enemiesKilled++;
         }
     }
 

@@ -12,6 +12,7 @@ public class BillboardCanvas : MonoBehaviour
     void Start() 
     {
         SetMaxHealth();
+        cam = GameObject.Find("Main Camera").GetComponent<Transform>();
     }
 
     void Update() 
