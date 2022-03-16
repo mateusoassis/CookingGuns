@@ -27,6 +27,7 @@ public class EnemyBehaviour : MonoBehaviour
     private Vector3 scaleVector;
     public bool explosionCollision;
     private EnemySpawner enemySpawner;
+    [SerializeField] private bool blinking;
 
     [Header("Tiros")]
     public float timeBetweenShots;
@@ -38,6 +39,7 @@ public class EnemyBehaviour : MonoBehaviour
         targetedVector = new Vector3(1f * scaleExplosion, 0.25f, 1f * scaleExplosion);
         scaleVector = new Vector3(1f, 0.25f, 1f);
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        blinking = false;
     }
 
     // 1 = shooting + follow
@@ -121,6 +123,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void StartExplosion()
     {
+        StartCoroutine("BlinkExplosionRange");
         isPlayerOnRange = true;
         explosionObjectMesh.enabled = true;
         explosionTimer = explosionTimerReset;
@@ -152,5 +155,26 @@ public class EnemyBehaviour : MonoBehaviour
         Instantiate(enemyBulletPrefab, transform.position, Quaternion.identity);
         float u = Random.Range(timeBetweenShots-2f, timeBetweenShots+4f);
         timeBetweenShotsTimer = u;
+    }
+
+    public void Blink()
+    {
+        Debug.Log("dale");
+        if(blinking)
+        {
+            explosionObjectMesh.enabled = false;
+            blinking = false;
+        }
+        else if(!blinking)
+        {
+            explosionObjectMesh.enabled = true;
+            blinking = true;
+        }
+    }
+    
+    public IEnumerator BlinkExplosionRange()
+    {
+        InvokeRepeating("Blink", 0.1f, 0.1f);
+        yield return new WaitForSeconds(0.01f);
     }
 }

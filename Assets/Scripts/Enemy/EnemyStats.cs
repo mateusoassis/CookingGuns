@@ -22,11 +22,13 @@ public class EnemyStats : MonoBehaviour
         enemyHealth -= damageTaken;
         if(enemyHealth <= 0)
         {
+            
             int u = Random.Range(1, 11);
-            if(u >= 9)
+            if(u >= 5)
             {
                 Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
             }
+            
             Destroy(this.gameObject);
             enemySpawner.enemiesKilled++;
         }
