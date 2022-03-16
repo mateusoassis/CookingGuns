@@ -23,14 +23,15 @@ public class PowerUp : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             weaponHandler.powerUpCount++;
-            if(weaponHandler.powerUpCount > 0)
+            if(weaponHandler.powerUpCount == 0)
             {
                 weaponHandler.axeUnlocked = true;
             }
-            else if(weaponHandler.powerUpCount > 1)
+            else if(weaponHandler.powerUpCount == 1)
             {
                 weaponHandler.pistolUnlocked = true;
             }
+            weaponHandler.powerUpCount++;
             Destroy(this.gameObject);
         }
     }

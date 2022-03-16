@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         canAttack = true;
         ActivateIronBar();
+        weaponHandler = GameObject.Find("WeaponIcons").GetComponent<WeaponHandler>();
     }
 
     void Update()
