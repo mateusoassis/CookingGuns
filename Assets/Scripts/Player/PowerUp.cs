@@ -22,7 +22,7 @@ public class PowerUp : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            weaponHandler.powerUpCount++;
+            //weaponHandler.powerUpCount++;
             if(weaponHandler.powerUpCount == 0)
             {
                 weaponHandler.axeUnlocked = true;

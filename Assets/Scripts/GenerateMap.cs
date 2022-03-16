@@ -40,7 +40,7 @@ public class GenerateMap : MonoBehaviour
 
     }    
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Door" && enemySpawner.roomCleared == true)
         {
