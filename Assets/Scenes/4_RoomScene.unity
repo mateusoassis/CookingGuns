@@ -543,11 +543,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7734d5da01430da47915be8d2c0db904, type: 3}
---- !u!4 &363632096 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4094708200118808845, guid: 7734d5da01430da47915be8d2c0db904, type: 3}
-  m_PrefabInstance: {fileID: 363632095}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &426464514
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,7 +2401,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
 --- !u!114 &1671881792
 MonoBehaviour:
@@ -2453,7 +2448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b8a88283ff15246b7edc5b85af9b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 363632096}
+  player: {fileID: 0}
   fixedDistanceFromPlayer: {x: 0, y: 0, z: 0}
 --- !u!1 &1954852189
 GameObject:
@@ -2619,7 +2614,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 3, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2011630242
 MeshRenderer:

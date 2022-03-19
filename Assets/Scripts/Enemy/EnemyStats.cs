@@ -21,14 +21,7 @@ public class EnemyStats : MonoBehaviour
     {
         enemyHealth -= damageTaken;
         if(enemyHealth <= 0)
-        {
-            
-            int u = Random.Range(1, 11);
-            if(u >= 5)
-            {
-                Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
-            }
-            
+        {            
             Destroy(this.gameObject);
             enemySpawner.enemiesKilled++;
         }
@@ -36,9 +29,15 @@ public class EnemyStats : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Weapon")
+        if(other.gameObject.tag == "PlayerBullet")
         {
-            Debug.Log("tag");
+            if((other.gameObject.TryGetComponent(out BulletScript bulletScript)))
+            {
+                Debug.Log("dano");
+                TakeDamage(bulletScript.damageDone);
+                
+            }
+            /*Debug.Log("tag");
             if(playerController.isAttacking || playerController.weaponActive == 3)
             {
                 Debug.Log("weapon active");
@@ -47,7 +46,7 @@ public class EnemyStats : MonoBehaviour
                     Debug.Log("dano");
                     TakeDamage(otherCollision.damageDone);
                 }
-            }
+            //}*/
             
         }
     }

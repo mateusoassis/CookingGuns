@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+    public int damageDone;
     void Start() 
     {
         Destroy(this.gameObject, 4f);

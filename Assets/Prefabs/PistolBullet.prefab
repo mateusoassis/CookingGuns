@@ -13,11 +13,10 @@ GameObject:
   - component: {fileID: 8482837174614600155}
   - component: {fileID: 6359725213804492523}
   - component: {fileID: 7528384632545218632}
-  - component: {fileID: -7903646623254106675}
   - component: {fileID: -780011900864920927}
   m_Layer: 0
   m_Name: PistolBullet
-  m_TagString: Weapon
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,21 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d56162cfbde7b419d37c211c048d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7903646623254106675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375973836160515176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2abc053184d9a6c42bedfdfea3e958c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  damageDone: 1
-  hitParticle: {fileID: 0}
+  damageDone: 2
 --- !u!54 &-780011900864920927
 Rigidbody:
   m_ObjectHideFlags: 0
