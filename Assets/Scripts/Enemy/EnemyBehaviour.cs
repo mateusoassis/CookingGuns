@@ -159,7 +159,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Blink()
     {
-        Debug.Log("dale");
         if(blinking)
         {
             explosionObjectMesh.enabled = false;

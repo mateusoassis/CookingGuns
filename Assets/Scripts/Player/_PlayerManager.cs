@@ -7,6 +7,7 @@ public class _PlayerManager : MonoBehaviour
     private _PlayerMovement playerMovement;
     private _AnimationHandler animationHandler;
     private _PlayerWeaponHandler playerWeaponHandler;
+    private PetHandler petHandler;
 
     [Header("Player Flags")]
     public bool isShooting;
@@ -18,6 +19,7 @@ public class _PlayerManager : MonoBehaviour
         playerMovement = GetComponent<_PlayerMovement>();
         animationHandler = GetComponent<_AnimationHandler>();   
         playerWeaponHandler = GetComponent<_PlayerWeaponHandler>();
+        petHandler = GetComponent<PetHandler>();
 
         playerWeaponHandler.ActivatePistol();
     }
@@ -38,6 +40,7 @@ public class _PlayerManager : MonoBehaviour
         }
         playerMovement.RollCountTimer();
         playerMovement.PlayerAim();
+        petHandler.HandlePet();
     }
 
     void FixedUpdate()
