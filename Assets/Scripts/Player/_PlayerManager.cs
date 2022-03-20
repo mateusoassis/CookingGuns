@@ -12,6 +12,7 @@ public class _PlayerManager : MonoBehaviour
     [Header("Player Flags")]
     public bool isShooting;
     public bool isRolling;
+    // public bool isOnCombat; à implementar no futuro, para travar a interação com a airfryer pra somente quando terminar a batalha (?)
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,10 @@ public class _PlayerManager : MonoBehaviour
         }
         playerMovement.RollCountTimer();
         playerMovement.PlayerAim();
+    }
+
+    void LateUpdate()
+    {
         petHandler.HandlePet();
     }
 

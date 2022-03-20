@@ -9,7 +9,7 @@ public class EnemyStats : MonoBehaviour
     public int enemyMaxHealth;
     public int enemyHealth;
     [SerializeField] private PlayerController playerController;
-    public GameObject powerUpPrefab;
+    public GameObject dropPrefab;
 
     void Start() {
         enemyHealth = enemyMaxHealth;
@@ -24,6 +24,12 @@ public class EnemyStats : MonoBehaviour
         {            
             Destroy(this.gameObject);
             enemySpawner.enemiesKilled++;
+
+            int u = Random.Range(0, 11);
+            if(u >= 7)
+            {
+                Instantiate(dropPrefab, transform.position, Quaternion.identity);
+            }
         }
     }
 
