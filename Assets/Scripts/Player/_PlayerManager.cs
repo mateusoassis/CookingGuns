@@ -7,7 +7,7 @@ public class _PlayerManager : MonoBehaviour
     private _PlayerMovement playerMovement;
     private _AnimationHandler animationHandler;
     private _PlayerWeaponHandler playerWeaponHandler;
-    [SerializeField] private GameManager gameManager;
+    public GameManager gameManager;
     private PetHandler petHandler;
 
     [Header("Player Flags")]
@@ -29,6 +29,8 @@ public class _PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // roll
         if(Input.GetKeyDown(KeyCode.Space) && !isRolling)
         {
             if(playerMovement.rollCount < playerMovement.maxRoll)
@@ -39,6 +41,7 @@ public class _PlayerManager : MonoBehaviour
             }
         }
 
+        // pause
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(gameManager.confirmationWindowOpen)
@@ -58,13 +61,14 @@ public class _PlayerManager : MonoBehaviour
             }
             
         }
+
+        // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
         if(!gameManager.pausedGame)
         {
             playerWeaponHandler.WeaponBehaviour();
             playerMovement.RollCountTimer();
             playerMovement.PlayerAim();
         }
-        
     }
 
     void LateUpdate()

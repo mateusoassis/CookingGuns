@@ -23,7 +23,10 @@ public class PetHandler : MonoBehaviour
         Vector3 moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
         petNavMeshAgent.SetDestination(moveTowards);
 
-        Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
-        pet.transform.position += sinMovement;
+        if(!GetComponent<_PlayerManager>().gameManager.pausedGame) // referenciando o gamemanager que está no PLAYERMANAGER
+        {
+            Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
+            pet.transform.position += sinMovement;
+        }
     }
 }
