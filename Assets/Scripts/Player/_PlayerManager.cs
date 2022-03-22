@@ -9,6 +9,7 @@ public class _PlayerManager : MonoBehaviour
     private _PlayerWeaponHandler playerWeaponHandler;
     public GameManager gameManager;
     private PetHandler petHandler;
+    public PlayerInfo playerInfo;
 
     [Header("Player Flags")]
     public bool isShooting;
@@ -29,7 +30,6 @@ public class _PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // roll
         if(Input.GetKeyDown(KeyCode.Space) && !isRolling)
         {
@@ -38,6 +38,7 @@ public class _PlayerManager : MonoBehaviour
                 isRolling = true;
                 playerMovement.rollTimer = playerMovement.rollDuration;
                 playerMovement.rollCount++;
+                playerInfo.totalTimesRolled++;
             }
         }
 

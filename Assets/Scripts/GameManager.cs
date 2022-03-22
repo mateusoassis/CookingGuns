@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject restartConfirmationWindow;
     [SerializeField] private GameObject quitConfirmationWindow;
+    [SerializeField] private TextMeshProUGUI timeHolderText;
+    private float elapsedTime;
+    public int hours;
+    public int minutes;
+    public int seconds;
     
     public bool pausedGame;
     public bool confirmationWindowOpen;
@@ -16,6 +22,42 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         confirmationWindowOpen = false;
+        elapsedTime = 0f;
+    }
+
+    void Update()
+    {
+        ConvertElapsedTimeToHMS();
+        OverwriteTimestamp();
+    }
+
+    public void ConvertElapsedTimeToHMS()
+    {
+        if(!pausedGame)
+        {
+            elapsedTime += Time.deltaTime;
+            hours = (int)elapsedTime/3600;
+            minutes = (int)(elapsedTime - (hours * 3600))/60;
+            seconds = (int)(elapsedTime - (hours * 3600) - (minutes * 60));
+        }
+    }
+
+    public void OverwriteTimestamp()
+    {
+        if(hours > 0)
+        {
+            timeHolderText.SetText(hours.ToString("D2") + "h " + minutes.ToString("D2") + "m " + seconds.ToString("D2") + "s");
+            return;
+        }
+        else if(minutes > 0)
+        {
+            timeHolderText.SetText(minutes.ToString("D2") + "m " + seconds.ToString("D2") + "s");
+            return;
+        }
+        else
+        {
+            timeHolderText.SetText(seconds.ToString("D2") + "s");
+        }
     }
 
     public void PauseGame()
