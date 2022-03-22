@@ -7,6 +7,7 @@ public class _PlayerManager : MonoBehaviour
     private _PlayerMovement playerMovement;
     private _AnimationHandler animationHandler;
     private _PlayerWeaponHandler playerWeaponHandler;
+    [SerializeField] private GameManager gameManager;
     private PetHandler petHandler;
 
     [Header("Player Flags")]
@@ -28,8 +29,6 @@ public class _PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerWeaponHandler.WeaponBehaviour();
-
         if(Input.GetKeyDown(KeyCode.Space) && !isRolling)
         {
             if(playerMovement.rollCount < playerMovement.maxRoll)
@@ -39,8 +38,33 @@ public class _PlayerManager : MonoBehaviour
                 playerMovement.rollCount++;
             }
         }
-        playerMovement.RollCountTimer();
-        playerMovement.PlayerAim();
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(gameManager.confirmationWindowOpen)
+            {
+                gameManager.CloseAllConfirmationWindows();
+            }
+            else if(!gameManager.confirmationWindowOpen)
+            {
+                if(!gameManager.pausedGame)
+                {
+                    gameManager.PauseGame();
+                }
+                else if(gameManager.pausedGame)
+                {
+                    gameManager.ResumeGame();
+                }
+            }
+            
+        }
+        if(!gameManager.pausedGame)
+        {
+            playerWeaponHandler.WeaponBehaviour();
+            playerMovement.RollCountTimer();
+            playerMovement.PlayerAim();
+        }
+        
     }
 
     void LateUpdate()
