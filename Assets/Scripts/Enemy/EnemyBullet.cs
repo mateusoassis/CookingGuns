@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public float bulletSpeed;
+    public int damageOnPlayer;
 
     private Transform player;
     [SerializeField] private Vector3 target;
@@ -31,7 +32,10 @@ public class EnemyBullet : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("player tomou dano do tiro");
+            if((other.gameObject.TryGetComponent(out _PlayerStats playerStats)))
+            {
+                playerStats.TakeHPDamage(damageOnPlayer);
+            }
             Destroy(this.gameObject);
         }
     }

@@ -10,6 +10,7 @@ public class EnemyStats : MonoBehaviour
     public int enemyHealth;
     [SerializeField] private PlayerController playerController;
     public GameObject dropPrefab;
+    public float dropChance;
 
     void Start() {
         enemyHealth = enemyMaxHealth;
@@ -25,8 +26,9 @@ public class EnemyStats : MonoBehaviour
             Destroy(this.gameObject);
             enemySpawner.enemiesKilled++;
 
-            int u = Random.Range(0, 11);
-            if(u >= 7)
+            float realDropChance = 100 - dropChance;
+            int u = Random.Range(0, 101);
+            if(u >= realDropChance)
             {
                 Instantiate(dropPrefab, transform.position, Quaternion.identity);
             }
@@ -39,21 +41,8 @@ public class EnemyStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out BulletScript bulletScript)))
             {
-                Debug.Log("dano");
                 TakeDamage(bulletScript.damageDone);
-                
             }
-            /*Debug.Log("tag");
-            if(playerController.isAttacking || playerController.weaponActive == 3)
-            {
-                Debug.Log("weapon active");
-                if((other.gameObject.TryGetComponent(out CollisionDetection otherCollision)))
-                {
-                    Debug.Log("dano");
-                    TakeDamage(otherCollision.damageDone);
-                }
-            //}*/
-            
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExplosionScript : MonoBehaviour
 {
     public EnemyBehaviour enemyBehaviour;
+    public Transform playerTransform;
 
     void Start() 
     {
@@ -15,6 +16,7 @@ public class ExplosionScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            playerTransform = other.gameObject.transform;
             enemyBehaviour.explosionCollision = true;
         }
         
@@ -25,6 +27,15 @@ public class ExplosionScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             enemyBehaviour.explosionCollision = false;
+        }
+    }
+
+    public void OnDestroy()
+    {
+        if(enemyBehaviour.explosionCollision)
+        {
+            Debug.Log("dentro");
+            playerTransform.GetComponent<_PlayerStats>().TakeHPDamage(enemyBehaviour.explosionDamage);
         }
     }
 }

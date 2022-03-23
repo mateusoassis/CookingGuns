@@ -44,4 +44,23 @@ public class _PlayerStats : MonoBehaviour
         playerHealthSlider.maxValue = playerMaxHealth;
         playerHealthSlider.value = playerCurrentHealth;
     }
+
+    /*
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "EnemyBullet")
+        {
+            if((other.gameObject.TryGetComponent(out EnemyBullet enemyBullet)))
+            {
+                TakeHPDamage(enemyBullet.damageOnPlayer);
+            }
+        }
+    }
+    */
+
+    public void TakeHPDamage(int damage)
+    {
+        playerCurrentHealth -= damage;
+        UpdateHealthValues();
+    }
 }

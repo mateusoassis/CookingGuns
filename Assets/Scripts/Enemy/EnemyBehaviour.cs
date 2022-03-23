@@ -28,6 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
     public bool explosionCollision;
     private EnemySpawner enemySpawner;
     [SerializeField] private bool blinking;
+    public int explosionDamage;
 
     [Header("Tiros")]
     public float timeBetweenShots;

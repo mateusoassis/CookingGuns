@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBehaviour: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!1 &3009582623110389538
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +440,7 @@ MonoBehaviour:
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropChance: 0
 --- !u!114 &3009582623307898820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +470,7 @@ MonoBehaviour:
   explosionSpeed: 4
   explosionCollision: 0
   blinking: 0
+  explosionDamage: 2
   timeBetweenShots: 0
 --- !u!1 &3009582623593722128
 GameObject:
