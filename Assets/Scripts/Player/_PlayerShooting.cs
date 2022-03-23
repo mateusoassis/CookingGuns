@@ -5,6 +5,8 @@ using UnityEngine;
 public class _PlayerShooting : MonoBehaviour
 {
     public GameObject bullet;
+
+    public GameObject granade;
     //bullet force
     public float shootForce, upwardForce;
     //gun stats
@@ -17,6 +19,7 @@ public class _PlayerShooting : MonoBehaviour
     //bools
     bool shooting, readyToShoot, reloading; 
 
+    [HideInInspector]
     public Vector3 directionWithSpread;
 
     //reference
@@ -59,6 +62,8 @@ public class _PlayerShooting : MonoBehaviour
             bulletsShot = 0;
 
             Shoot();
+
+            //Granade();
         }
     }
 
@@ -106,6 +111,26 @@ public class _PlayerShooting : MonoBehaviour
         {
             Invoke("Shoot", timeBetweenShots);
         }
+    }
+
+    public void Granade()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hit;
+
+        Vector3 granadePoint;
+
+        if(Physics.Raycast(ray, out hit))
+        {
+            granadePoint = hit.point;
+        }else
+        {
+            granadePoint = ray.GetPoint(75);
+        }
+
+        GameObject currentGranade = Instantiate(granade, firePoint.position, Quaternion.identity);
+        currentGranade.transform.position = Vector3.MoveTowards(currentGranade.transform.position, granadePoint, 100* Time.deltaTime);
     }
 
     private void ResetShot()
