@@ -7,6 +7,7 @@ public class _PlayerManager : MonoBehaviour
     private _PlayerMovement playerMovement;
     private _AnimationHandler animationHandler;
     private _PlayerWeaponHandler playerWeaponHandler;
+    public _PlayerShooting playerShooting;
     public GameManager gameManager;
     private PetHandler petHandler;
     public PlayerInfo playerInfo;
@@ -19,6 +20,7 @@ public class _PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerShooting = GameObject.Find("Gun").GetComponent<_PlayerShooting>();
         playerMovement = GetComponent<_PlayerMovement>();
         animationHandler = GetComponent<_AnimationHandler>();   
         playerWeaponHandler = GetComponent<_PlayerWeaponHandler>();
@@ -66,7 +68,8 @@ public class _PlayerManager : MonoBehaviour
         // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
         if(!gameManager.pausedGame)
         {
-            playerWeaponHandler.WeaponBehaviour();
+            //playerWeaponHandler.WeaponBehaviour();
+            playerShooting.MyInput();
             playerMovement.RollCountTimer();
             playerMovement.PlayerAim();
         }

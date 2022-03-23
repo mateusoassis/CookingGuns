@@ -40,7 +40,7 @@ public class _PlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, float.MaxValue, playerAimLayerMask))
         {
-            playerAimPosition = new Vector3(hit.point.x, 0f, hit.point.z);
+            playerAimPosition = new Vector3(hit.point.x , 0f, hit.point.z);
         }
 
         newRotation = Quaternion.LookRotation(playerAimPosition - transform.position, Vector3.up);
