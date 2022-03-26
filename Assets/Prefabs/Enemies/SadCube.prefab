@@ -1033,6 +1033,7 @@ MonoBehaviour:
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropChance: 0
 --- !u!114 &8527385207416296986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,7 +1052,7 @@ MonoBehaviour:
   enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
   enemySpeed: 4
   stopDistance: 3
-  retreatDistance: 99
+  retreatDistance: 0
   explosionObject: {fileID: 0}
   explosionObjectTransform: {fileID: 0}
   explosionObjectMesh: {fileID: 0}
@@ -1062,6 +1063,7 @@ MonoBehaviour:
   explosionSpeed: 0
   explosionCollision: 0
   blinking: 0
+  explosionDamage: 0
   timeBetweenShots: 2
 --- !u!1 &8527385207604185353
 GameObject:

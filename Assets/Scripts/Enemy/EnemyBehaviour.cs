@@ -52,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
         // stop bem baixo para o inimigo nunca parar de ir pra cima do jogador, e retreat muito alto
         if(setBehaviour == 1)
         {
-            if(Vector3.Distance(transform.position, playerTransform.position) > stopDistance)
+            if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
             {
                 Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
