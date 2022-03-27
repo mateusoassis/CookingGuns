@@ -8,13 +8,20 @@ public class CraftingMainScript : MonoBehaviour
 {   
 
     public Inventory inventory;
-    public List<ScriptableObject> Recipe;
+    //public List<Scriptable Object> Recipes;
+    
+    public List<string> plo;
+
+    int inventorySize;
     void Start(){
-        inventory = GameObject.Find("Inventory Manager").GetComponent<Inventory>();
-
+        inventory = GameObject.Find("InventoryHandler").GetComponent<Inventory>();
+        inventorySize = inventory.InventSize;
     }
-
+    
     public bool CanCraft(){
+        /*for(int i = 0; i < inventorySize; i++){
+
+        }*/
         return false;
     }
     public void Craft(){

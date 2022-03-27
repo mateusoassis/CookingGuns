@@ -25,7 +25,7 @@ public class _PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask playerAimLayerMask;
     private Quaternion newRotation;
     private Vector3 _input;
-    private float _turnSpeed = 360;
+    //private float _turnSpeed = 360;
 
     void Start() 
     {

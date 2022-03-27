@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking;
     public float attackCooldown;
     private Vector3 _input;
-    private float _turnSpeed = 360;
+    //private float _turnSpeed = 360;
 
     [SerializeField] private WeaponHandler weaponHandler;
 

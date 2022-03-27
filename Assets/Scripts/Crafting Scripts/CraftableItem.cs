@@ -15,7 +15,7 @@ public class CraftableItem : ScriptableObject
 {
     public Ingredients Recipe;   
     public string Result;
-    public GameObject ResultObj;
-    public Image Icon;
+    //public GameObject ResultObj;
+    //public Image Icon;
 
 }
