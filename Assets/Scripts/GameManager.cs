@@ -21,8 +21,11 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        ResumeGame();
+        Time.timeScale = 1;
         confirmationWindowOpen = false;
         elapsedTime = 0f;
+
     }
 
     void Update()

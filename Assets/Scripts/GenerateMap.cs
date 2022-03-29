@@ -7,6 +7,7 @@ public class GenerateMap : MonoBehaviour
 {
 
     public EnemySpawner enemySpawner;
+    public bool test;
 
     void Start()
     {
@@ -40,11 +41,23 @@ public class GenerateMap : MonoBehaviour
 
     }    
 
+    public void TestRoomSelector()
+    {
+        SceneManager.LoadScene("1_RoomScene");
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Door" && enemySpawner.roomCleared == true)
         {
-            RoomSelector();
+            if(!test)
+            {
+                RoomSelector();
+            }
+            else if(test)
+            {
+                TestRoomSelector();
+            }
         }
     }
 }
