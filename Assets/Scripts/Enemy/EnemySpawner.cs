@@ -17,19 +17,23 @@ public class EnemySpawner : MonoBehaviour
 
     private int i;
 
+    public PetBillboard petBillboard;
+
     void Start()
     {
         enemyNumberRandomizer = Random.Range(3,9);
         enemiesKilled = 0;
         roomCleared = false;
         SpawnEnemies();
+        petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
     }
 
     void Update()
     {
-        if (enemiesKilled >= enemyNumberRandomizer)
+        if (enemiesKilled >= enemyNumberRandomizer && !roomCleared)
         {
             roomCleared = true;
+            petBillboard.lockOnPlayer = true;
         }
     }
 
