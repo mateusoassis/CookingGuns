@@ -8,15 +8,14 @@ public class PetBillboard : MonoBehaviour
     public Transform cam;
     public GameObject activateOnEnemiesKilled;
     public bool lockOnPlayer;
-    private bool isItLocked;
+    public bool isItLocked;
     public EnemySpawner enemySpawner;
 
     void Start() 
     {
         lockOnPlayer = false;
         isItLocked = false;
-        cam = GameObject.Find("Main Camera").GetComponent<Transform>();
-        
+        cam = GameObject.Find("Main Camera").GetComponent<Transform>(); 
     }  
 
     void LateUpdate()
@@ -25,7 +24,6 @@ public class PetBillboard : MonoBehaviour
         {
             if(lockOnPlayer)
             {
-                activateOnEnemiesKilled.SetActive(true);
                 isItLocked = true;
             }
         }
@@ -35,5 +33,9 @@ public class PetBillboard : MonoBehaviour
     public void DeactivateOnEnemiesKilled()
     {
         activateOnEnemiesKilled.SetActive(false);
+    }
+    public void ActivateOnEnemiesKilled()
+    {
+        activateOnEnemiesKilled.SetActive(true);
     }
 }

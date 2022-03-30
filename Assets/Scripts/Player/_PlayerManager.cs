@@ -17,7 +17,6 @@ public class _PlayerManager : MonoBehaviour
     public bool isRolling;
     // public bool isOnCombat; à implementar no futuro, para travar a interação com a airfryer pra somente quando terminar a batalha (?)
 
-    // Start is called before the first frame update
     void Start()
     {
         playerShooting = GameObject.Find("Gun").GetComponent<_PlayerShooting>();
@@ -29,7 +28,6 @@ public class _PlayerManager : MonoBehaviour
         playerWeaponHandler.ActivatePistol();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // roll

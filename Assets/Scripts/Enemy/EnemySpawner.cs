@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     private int i;
 
     public PetBillboard petBillboard;
+    public PetHandler petHandler;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
         roomCleared = false;
         SpawnEnemies();
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
+        petHandler = GameObject.Find("Player").GetComponent<PetHandler>();
     }
 
     void Update()
@@ -34,6 +36,11 @@ public class EnemySpawner : MonoBehaviour
         {
             roomCleared = true;
             petBillboard.lockOnPlayer = true;
+            if(petBillboard.lockOnPlayer)
+            {
+                petHandler.MoveTowardsPlayer();
+                petBillboard.lockOnPlayer = false;
+            }
         }
     }
 
