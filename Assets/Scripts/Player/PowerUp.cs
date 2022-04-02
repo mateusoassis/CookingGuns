@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
+    /*
     [SerializeField] private Vector3 rotationVector;
     private WeaponHandler weaponHandler;
     [SerializeField] private float rotationMultiplier;
@@ -22,7 +23,8 @@ public class PowerUp : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            //weaponHandler.powerUpCount++;
+            
+            weaponHandler.powerUpCount++;
             if(weaponHandler.powerUpCount == 0)
             {
                 weaponHandler.axeUnlocked = true;
@@ -32,7 +34,9 @@ public class PowerUp : MonoBehaviour
                 weaponHandler.pistolUnlocked = true;
             }
             weaponHandler.powerUpCount++;
+            
             Destroy(this.gameObject);
         }
     }
+    */
 }

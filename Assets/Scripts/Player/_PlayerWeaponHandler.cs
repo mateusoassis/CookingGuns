@@ -14,12 +14,12 @@ public class _PlayerWeaponHandler : MonoBehaviour
     public int weaponActive;
     public bool canShoot;
     public float shootCooldown;
-    [SerializeField] private WeaponHandler weaponHandler;
+    [SerializeField] private _PlayerWeaponHandler weaponHandler;
 
     void Start() 
     {
         playerManager = GetComponent<_PlayerManager>();
-        weaponHandler = GameObject.Find("WeaponIcons").GetComponent<WeaponHandler>();
+        weaponHandler = GameObject.Find("WeaponIcons").GetComponent<_PlayerWeaponHandler>();
     }
 
     // 1 = pistola
@@ -27,6 +27,7 @@ public class _PlayerWeaponHandler : MonoBehaviour
     // 3 = metralhadora
     public void WeaponHandler()
     {
+        /*
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             if(weaponHandler.pistolUnlocked)
@@ -34,6 +35,7 @@ public class _PlayerWeaponHandler : MonoBehaviour
                 ActivatePistol(); 
             }
         }
+        */
     }
 
     /*public void ActivateIronBar()

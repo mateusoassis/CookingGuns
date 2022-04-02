@@ -45,14 +45,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 _input;
     //private float _turnSpeed = 360;
 
-    [SerializeField] private WeaponHandler weaponHandler;
+    [SerializeField] private _WeaponHandler weaponHandler;
 
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         canAttack = true;
         ActivateIronBar();
-        weaponHandler = GameObject.Find("WeaponIcons").GetComponent<WeaponHandler>();
+        weaponHandler = GameObject.Find("WeaponIcons").GetComponent<_WeaponHandler>();
     }
 
     void Update()
@@ -120,17 +120,21 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Alpha2))
         {
+            /*
             if(weaponHandler.axeUnlocked)
             {
                 ActivateIronAxe();
-            }    
+            } 
+            */   
         }
         if(Input.GetKeyDown(KeyCode.Alpha3))
         {
+            /*
             if(weaponHandler.pistolUnlocked)
             {
                 ActivatePistol(); 
             }
+            */
         }
     }
 

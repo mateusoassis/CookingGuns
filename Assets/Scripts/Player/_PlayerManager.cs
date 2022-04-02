@@ -6,26 +6,36 @@ public class _PlayerManager : MonoBehaviour
 {
     private _PlayerMovement playerMovement;
     private _AnimationHandler animationHandler;
-    private _PlayerWeaponHandler playerWeaponHandler;
-    public _PlayerShooting playerShooting;
+    public _PlayerShooting playerShootingPistol;
+    public _PlayerShooting playerShootingShotgun;
+    public _PlayerShooting playerShootingMachineGun;
+    public _WeaponHandler playerWeaponHandler;
     public GameManager gameManager;
     private PetHandler petHandler;
     public PlayerInfo playerInfo;
 
+    
+      
+
     [Header("Player Flags")]
     public bool isShooting;
     public bool isRolling;
+    
     // public bool isOnCombat; à implementar no futuro, para travar a interação com a airfryer pra somente quando terminar a batalha (?)
 
     void Start()
     {
-        playerShooting = GameObject.Find("Gun").GetComponent<_PlayerShooting>();
+        playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
+        playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
+        playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
         playerMovement = GetComponent<_PlayerMovement>();
         animationHandler = GetComponent<_AnimationHandler>();   
-        playerWeaponHandler = GetComponent<_PlayerWeaponHandler>();
+        playerWeaponHandler = GetComponent<_WeaponHandler>();
         petHandler = GetComponent<PetHandler>();
 
-        playerWeaponHandler.ActivatePistol();
+        //playerWeaponHandler.ActivatePistol();
+        playerWeaponHandler.ActivatePistol_();
+        playerWeaponHandler.WeaponManager(playerWeaponHandler.weaponEquipped);
     }
 
     void Update()
@@ -67,10 +77,24 @@ public class _PlayerManager : MonoBehaviour
         if(!gameManager.pausedGame)
         {
             //playerWeaponHandler.WeaponBehaviour();
-            playerShooting.MyInput();
+            if(playerWeaponHandler.weaponEquipped == 0)
+            {
+                playerShootingPistol.MyInput();
+            }
+            else if(playerWeaponHandler.weaponEquipped == 1)
+            {
+                playerShootingShotgun.MyInput();
+            }
+            else if(playerWeaponHandler.weaponEquipped == 2)
+            {
+                playerShootingMachineGun.MyInput();
+            }
+            
             playerMovement.RollCountTimer();
             playerMovement.PlayerAim();
         }
+
+        playerWeaponHandler.SwitchGuns();
     }
 
     void LateUpdate()
