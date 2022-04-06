@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3599968852338111864}
   - component: {fileID: 1590157494356115890}
   - component: {fileID: 941713708355821670}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Donut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 8415438693131041655}
   - component: {fileID: 8415438693131041653}
   - component: {fileID: 8415438693131041654}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 8415438693279201955}
   - component: {fileID: 8415438693279201953}
   - component: {fileID: 8415438693279201954}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 8415438693480328748}
   - component: {fileID: 8415438693480328754}
   - component: {fileID: 8415438693480328755}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 8415438694613439840}
   - component: {fileID: 8415438694613439846}
   - component: {fileID: 8415438694613439845}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: DonutHolder
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -405,6 +405,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   lookingAtPlayer: 0
   cooldown: 1
+  cooldownFromHittingPlayer: 3
   cooldownTimer: 0
   timeToStartRolling: 2
   isCooldown: 0
@@ -442,7 +443,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 2
 --- !u!65 &8415438694613439845
 BoxCollider:
@@ -468,7 +469,7 @@ GameObject:
   - component: {fileID: 8415438694817471409}
   - component: {fileID: 8415438694817471415}
   - component: {fileID: 8415438694817471408}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

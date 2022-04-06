@@ -26,6 +26,7 @@ public class DonutBehaviour : MonoBehaviour
     public bool lookingAtPlayer;
 
     public float cooldown;
+    public float cooldownFromHittingPlayer;
     public float cooldownTimer;
     public float timeToStartRolling;
     public bool isCooldown;
@@ -36,6 +37,8 @@ public class DonutBehaviour : MonoBehaviour
     public bool rolling;
     public float rollSpeed;
     public Vector3 rollDirection;
+
+    public float backwardForce;
 
     public bool reset;
 
@@ -154,7 +157,7 @@ public class DonutBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Wall" && rolling)
         {
-            GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * 80f, ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce, ForceMode.VelocityChange);
             Debug.Log("parede caralho");
             StopAllCoroutines();
             donutAnimation.StopRoll();
@@ -170,11 +173,14 @@ public class DonutBehaviour : MonoBehaviour
 
         if(other.gameObject.tag == "Player" && rolling)
         {
-            Debug.Log("player porra");
+            GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
+            other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
+            Debug.Log("player ARREMESSADO para trás e toma dano porra");
             StopAllCoroutines();
             donutAnimation.StopRoll();
             //other.GetComponent<Rigidbody>().AddForce(new Vector3(transform.position.x, other.transform.position.y, transform.position.z) * rollSpeed, ForceMode.Impulse);
             //canWalk = true;
+            cooldownTimer = cooldownFromHittingPlayer;
             canWalk = true;
         }
     }

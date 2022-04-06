@@ -8554,6 +8554,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 941713708355821671, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415438693131041648, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415438693279201948, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415438693480328749, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8415438694613439841, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -8602,12 +8618,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: DonutHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 8415438694613439842, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 8415438694613439846, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
       propertyPath: m_Drag
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
       propertyPath: rollSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: backwardForce
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
@@ -8621,6 +8645,10 @@ PrefabInstance:
     - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
       propertyPath: minRangeToLockTarget
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415438694817471410, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
