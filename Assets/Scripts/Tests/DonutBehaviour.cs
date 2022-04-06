@@ -92,7 +92,10 @@ public class DonutBehaviour : MonoBehaviour
                 float randomRangeZ = Random.Range(-2f, 2f);
                 targetWalk = transform.position + new Vector3(randomRangeX, 0f, randomRangeZ);
                 transform.LookAt(targetWalk, transform.up);
-                StartCoroutine(WalkTowards(targetWalk));
+                if(!isCooldown)
+                {
+                    StartCoroutine(WalkTowards(targetWalk));
+                }
                 canWalk = false;
             }
         }
@@ -151,15 +154,16 @@ public class DonutBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Wall" && rolling)
         {
+            GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * 80f, ForceMode.VelocityChange);
             Debug.Log("parede caralho");
             StopAllCoroutines();
             donutAnimation.StopRoll();
-            GetComponent<Rigidbody>().AddForce(-rollDirection * rollSpeed, ForceMode.Impulse);
             //canWalk = true;
             canWalk = true;
         }
         else if(other.gameObject.tag == "Wall" && !rolling)
         {
+            //GetComponent<Rigidbody>().AddForce(-transform.forward * rollSpeed, ForceMode.Impulse);
             //GetComponent<Rigidbody>().AddForce(-rollDirection * rollSpeed/10f, ForceMode.Impulse);
             Debug.Log("encostou normal na parede");
         }
