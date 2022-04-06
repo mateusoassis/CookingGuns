@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class _PlayerMovement : MonoBehaviour
 {
+    public Transform playerTransform;
     private _PlayerManager playerManager;
     [Header("Player Stats")]
     public float playerMoveSpeed;
@@ -31,6 +32,7 @@ public class _PlayerMovement : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody>();
         playerManager = GetComponent<_PlayerManager>();
+        playerTransform = GetComponent<Transform>();
     }
 
     public void PlayerAim()

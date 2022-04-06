@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class _PlayerManager : MonoBehaviour
 {
-    private _PlayerMovement playerMovement;
-    private _AnimationHandler animationHandler;
+    public _PlayerMovement playerMovement;
+    public _AnimationHandler animationHandler;
     public _PlayerShooting playerShootingPistol;
     public _PlayerShooting playerShootingShotgun;
     public _PlayerShooting playerShootingMachineGun;
     public _WeaponHandler playerWeaponHandler;
     public GameManager gameManager;
-    private PetHandler petHandler;
+    public PetHandler petHandler;
     public PlayerInfo playerInfo;
 
     

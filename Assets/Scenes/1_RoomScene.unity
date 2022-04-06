@@ -185,6 +185,7 @@ MonoBehaviour:
   firePoint: {fileID: 574167699}
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
+  playerManager: {fileID: 0}
 --- !u!1 &18807824
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +582,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 80, y: 0}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &221016994
@@ -987,7 +988,7 @@ MonoBehaviour:
   shootForce: 40
   upwardForce: 0
   timeBetweenShooting: 0.1
-  spread: 1
+  spread: 0.2
   reloadTime: 1.5
   timeBetweenShots: 0
   magazineSize: 30
@@ -998,6 +999,7 @@ MonoBehaviour:
   firePoint: {fileID: 975379948}
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
+  playerManager: {fileID: 0}
 --- !u!1 &486301736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,7 +2024,7 @@ MonoBehaviour:
   shootForce: 40
   upwardForce: 0
   timeBetweenShooting: 0.8
-  spread: 2
+  spread: 0.5
   reloadTime: 1
   timeBetweenShots: 0
   magazineSize: 15
@@ -2033,6 +2035,7 @@ MonoBehaviour:
   firePoint: {fileID: 927501393}
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
+  playerManager: {fileID: 0}
 --- !u!4 &684738876
 Transform:
   m_ObjectHideFlags: 0
@@ -4102,6 +4105,7 @@ MonoBehaviour:
   firePoint: {fileID: 1575547342}
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
+  playerManager: {fileID: 0}
 --- !u!4 &982170395
 Transform:
   m_ObjectHideFlags: 0
@@ -4581,6 +4585,7 @@ MonoBehaviour:
   firePoint: {fileID: 1586082480}
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
+  playerManager: {fileID: 0}
 --- !u!4 &1087663678
 Transform:
   m_ObjectHideFlags: 0
@@ -8496,6 +8501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423237816b0bd3045a339b23e4f3b5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
   playerMoveSpeed: 5
   playerRigidbody: {fileID: 0}
   multiplier: 1
@@ -8522,11 +8528,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a34d3f245c9704bb82a7e4dfd30cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 0}
+  animationHandler: {fileID: 0}
   playerShootingPistol: {fileID: 0}
   playerShootingShotgun: {fileID: 0}
   playerShootingMachineGun: {fileID: 0}
   playerWeaponHandler: {fileID: 0}
   gameManager: {fileID: 1112370941}
+  petHandler: {fileID: 0}
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   isShooting: 0
   isRolling: 0
@@ -8597,5 +8606,9 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 811847736}
+    - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: minRangeToLockTarget
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}

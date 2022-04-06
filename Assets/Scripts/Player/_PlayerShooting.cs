@@ -30,11 +30,14 @@ public class _PlayerShooting : MonoBehaviour
     //bug fix
     public bool allowInvoke = true;
 
+    public _PlayerManager playerManager;
+
     private void Awake()
     {   
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        playerManager = GetComponentInParent<_PlayerManager>();
     }
 
     public void MyInput()
@@ -96,7 +99,8 @@ public class _PlayerShooting : MonoBehaviour
 
         currentBullet.transform.forward = directionWithSpread.normalized;
 
-        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
+        Vector3 forwardShooting = new Vector3(transform.forward.x, 0f, transform.forward.z) + new Vector3(x, 0, z);
+        currentBullet.GetComponent<Rigidbody>().AddForce(/*directionWithSpread.normalized*/forwardShooting.normalized * shootForce, ForceMode.Impulse);
         //currentBullet.GetComponent<RigidBody>().AddForce(isometricCam.transform.up * upwardForce, ForceMode.Impulse);
 
         bulletsLeft--;
