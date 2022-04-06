@@ -8602,10 +8602,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: DonutHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 8415438694613439846, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: m_Drag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: rollSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 811847736}
+    - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
+      propertyPath: timeToStartRolling
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8415438694613439847, guid: c00c5d0e41d5cb34d8d3cc127ad2eb81, type: 3}
       propertyPath: minRangeToLockTarget
       value: 8
