@@ -34,18 +34,11 @@ public class Inventory : MonoBehaviour
 
         for(int i = 0; i < InventSize; i++){
             if (item == Invent[i].Name){
-
                 Invent[i].Quantity++;
                 Debug.Log("Você tem " + Invent[i].Quantity + " " + Invent[i].Name);
                 UpdateItem();
                 return;
-            } /*else if (i == InventSize - 1){
-                BaseItem Adder = temp;
-                Adder.Name = item;
-                Adder.Quantity = 1;
-                Debug.Log("Você tem problemas cara");
-                Invent.Add(Adder);
-            }*/
+            }
         }
 
     }
@@ -74,7 +67,7 @@ public class Inventory : MonoBehaviour
     }
     
     public void UpdateItem(){
-        for(int i = 0; i < InventSize; i++){
+        for(int i = 0; i < InventoryQuantityText.Count; i++){
             InventoryQuantityText[i].text = Invent[i].Quantity.ToString() + " x " + Invent[i].Name;
         }
     }
