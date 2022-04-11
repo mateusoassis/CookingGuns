@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class _WeaponHandler : MonoBehaviour
+public class T_WeaponHandler : MonoBehaviour
 {
     // 0 = pistola
     // 1 = shotgun
     // 2 = machinegun
     public int weaponEquipped;
-    public _PlayerManager playerManager;
+    public T_PlayerManager tutorialPlayerManager;
     public Transform[] weaponIcons;
     public Image[] weaponImages;
     public bool[] unlockedWeapons;
@@ -18,21 +18,23 @@ public class _WeaponHandler : MonoBehaviour
 
     void Awake()
     {
-        playerManager = GetComponent<_PlayerManager>();
-        weaponIcons = new Transform[3];
-        weaponImages = new Image[3];
+        tutorialPlayerManager = GetComponent<T_PlayerManager>();
+        //weaponIcons = new Transform[3];
+        //weaponImages = new Image[3];
         unlockedWeapons = new bool[3];        
     }
 
     void Start()
     {   
-        weaponIcons[0] = GameObject.Find("PistolIcon").GetComponent<Transform>();
-        weaponIcons[1] = GameObject.Find("ShotgunIcon").GetComponent<Transform>();
-        weaponIcons[2] = GameObject.Find("MachineGunIcon").GetComponent<Transform>();
+        /*
+        weaponIcons[0] = GameObject.Find("TutorialPistolIcon").GetComponent<Transform>();
+        weaponIcons[1] = GameObject.Find("TutorialShotgunIcon").GetComponent<Transform>();
+        weaponIcons[2] = GameObject.Find("TutorialMachineGunIcon").GetComponent<Transform>();
         
-        weaponImages[0] = GameObject.Find("PistolIcon").GetComponent<Image>();
-        weaponImages[1] = GameObject.Find("ShotgunIcon").GetComponent<Image>();
-        weaponImages[2] = GameObject.Find("MachineGunIcon").GetComponent<Image>();
+        weaponImages[0] = GameObject.Find("TutorialPistolIcon").GetComponent<Image>();
+        weaponImages[1] = GameObject.Find("TutorialShotgunIcon").GetComponent<Image>();
+        weaponImages[2] = GameObject.Find("TutorialMachineGunIcon").GetComponent<Image>();
+        */
 
 
         /*
@@ -96,15 +98,18 @@ public class _WeaponHandler : MonoBehaviour
     public void ActivatePistol_()
     {
         weaponEquipped = 0;
+        //WeaponManager(weaponEquipped);
     }
     public void ActivateShotgun_()
     {
         weaponEquipped = 1;
+        //WeaponManager(weaponEquipped);
         // falta adicionar shotgun
     }
     public void ActivateMachineGun_()
     {
         weaponEquipped = 2;  
+        //WeaponManager(weaponEquipped);
     }
 
     public void UnlockPistol()

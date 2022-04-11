@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeartContainerManager : MonoBehaviour
+public class TutorialHeartContainer : MonoBehaviour
 {
     public GameObject heartPrefab;
     public _PlayerStats playerStats;
@@ -11,7 +11,7 @@ public class HeartContainerManager : MonoBehaviour
 
     private void Awake()
     {
-        //playerStats = GameObject.Find("Player").GetComponent<_PlayerStats>();
+        playerStats = GameObject.Find("TutorialPlayer").GetComponent<_PlayerStats>();
     }
 
     private void OnEnable()
@@ -67,3 +67,4 @@ public class HeartContainerManager : MonoBehaviour
         hearts = new List<_PlayerHeartManager>();
     }
 }
+
