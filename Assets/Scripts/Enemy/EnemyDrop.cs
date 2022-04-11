@@ -42,7 +42,6 @@ public class EnemyDrop : MonoBehaviour
             transform.position = Vector3.Lerp(currentPos, playerTransform.position, t);
             yield return null;    
         }
-        //Destroy(this.gameObject);
     }
 
     void OnTriggerEnter(Collider other)

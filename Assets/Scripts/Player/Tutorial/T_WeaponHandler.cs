@@ -85,20 +85,6 @@ public class T_WeaponHandler : MonoBehaviour
                 {
                     weaponImages[i].color = Color.red;
                 }
-                /*
-                if(!unlockedWeapons[n])
-                {
-                    Debug.Log("não");
-                    weaponObjects[i].SetActive(false);
-                    weaponImages[i].color = Color.white;
-                }
-                else if(unlockedWeapons[n])
-                {
-                    Debug.Log("sim");
-                    weaponObjects[i].SetActive(false);
-                    weaponImages[i].color = Color.red;
-                }
-                */
             }
         }
     }
@@ -133,18 +119,14 @@ public class T_WeaponHandler : MonoBehaviour
     public void ActivatePistol_()
     {
         weaponEquipped = 0;
-        //WeaponManager(weaponEquipped);
     }
     public void ActivateShotgun_()
     {
         weaponEquipped = 1;
-        //WeaponManager(weaponEquipped);
-        // falta adicionar shotgun
     }
     public void ActivateMachineGun_()
     {
         weaponEquipped = 2;  
-        //WeaponManager(weaponEquipped);
     }
 
     public void UnlockPistol()

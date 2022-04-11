@@ -31,19 +31,11 @@ public class T_PlayerManager : MonoBehaviour
         playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
         playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
         tutorialPlayerMovement = GetComponent<TutorialPlayerMovement>();
-        animationHandler = GetComponent<_AnimationHandler>(); 
-        //tutorialPlayerWeaponHandler.ActivatePistol_();
-        
+        animationHandler = GetComponent<_AnimationHandler>();         
     }
     void Start()
     {
-          
-        
-        //petHandler = GetComponent<PetHandler>();
 
-        //playerWeaponHandler.ActivatePistol();
-        //tutorialPlayerWeaponHandler.ActivatePistol_();
-        //tutorialPlayerWeaponHandler.WeaponManager(tutorialPlayerWeaponHandler.weaponEquipped);
     }
 
     void Update()
@@ -57,6 +49,7 @@ public class T_PlayerManager : MonoBehaviour
                 tutorialPlayerMovement.rollTimer = tutorialPlayerMovement.rollDuration;
                 tutorialPlayerMovement.rollCount++;
                 playerInfo.totalTimesRolled++;
+                tutorialPlayerMovement.playerRigidbody.useGravity = false;
             }
         }
 
@@ -107,7 +100,7 @@ public class T_PlayerManager : MonoBehaviour
 
     void LateUpdate()
     {
-        //petHandler.HandlePet();
+        
     }
 
     void FixedUpdate()
@@ -120,7 +113,7 @@ public class T_PlayerManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Door")
         {
-
+            // botar pra ir pra parte 2
         }
     }
 }

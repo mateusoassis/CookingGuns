@@ -26,7 +26,6 @@ public class TutorialPlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask playerAimLayerMask;
     private Quaternion newRotation;
     private Vector3 _input;
-    //private float _turnSpeed = 360;
 
     void Start() 
     {
@@ -59,18 +58,6 @@ public class TutorialPlayerMovement : MonoBehaviour
         if(playerRigidbody.velocity.magnitude < playerMoveSpeed * multiplier && !tutorialPlayerManager.isRolling)
         {
             _input = new Vector3(Input.GetAxisRaw("Horizontal"),0, Input.GetAxisRaw("Vertical"));
-
-            /*vertical = Input.GetAxisRaw("Vertical");
-            if(vertical != 0)
-            {
-                playerRigidbody.MovePosition(0f, 0f, vertical * Time.fixedDeltaTime * 100f * playerMoveSpeed);
-            }
-
-            horizontal = Input.GetAxisRaw("Horizontal");
-            if(horizontal != 0)
-            {
-                playerRigidbody.MovePosition(horizontal * Time.fixedDeltaTime * 100f * playerMoveSpeed, 0f, 0f);
-            }*/
         }
 
         // check de dash
@@ -80,13 +67,10 @@ public class TutorialPlayerMovement : MonoBehaviour
             {
                 tutorialPlayerManager.isRolling = false;
                 rollTimer = rollDuration;
-                //playerRigidbody.velocity = Vector3.zero;
+                playerRigidbody.useGravity = true;
             }
             else
-            {
-                //playerRigidbody.velocity = direction * dashSpeed;
-                
-                
+            {            
                 rollTimer -= Time.fixedDeltaTime;
             }
         }
@@ -120,5 +104,25 @@ public class TutorialPlayerMovement : MonoBehaviour
             rollCountTimer -= Time.deltaTime;
         }
     }
+
+    /*
+    public void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Ground")
+        {
+            tutorialPlayerManager.isGrounded = false;
+            playerRigidbody.useGravity = false;
+        }
+    }
+
+    public void OnCollisionExit(Collision other)
+    {
+        if(other.gameObject.tag == "Ground" && !tutorialPlayerManager.isRolling)
+        {
+            tutorialPlayerManager.isGrounded = true;
+            playerRigidbody.useGravity = true;
+        }
+    }
+    */
 }
 
