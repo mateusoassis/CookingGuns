@@ -20,6 +20,7 @@ public class T_PlayerManager : MonoBehaviour
     [Header("Player Flags")]
     public bool isShooting;
     public bool isRolling;
+    public bool isGrounded;
     
     // public bool isOnCombat; à implementar no futuro, para travar a interação com a airfryer pra somente quando terminar a batalha (?)
 

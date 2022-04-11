@@ -18,6 +18,8 @@ public class TutorialManager : MonoBehaviour
     
     public bool pausedGame;
     public bool confirmationWindowOpen;
+
+    public T_PlayerManager tutorialPlayerManager;
     
     void Start()
     {
@@ -25,7 +27,7 @@ public class TutorialManager : MonoBehaviour
         Time.timeScale = 1;
         confirmationWindowOpen = false;
         elapsedTime = 0f;
-
+        tutorialPlayerManager = GameObject.Find("TutorialPlayer").GetComponent<T_PlayerManager>();
     }
 
     void Update()

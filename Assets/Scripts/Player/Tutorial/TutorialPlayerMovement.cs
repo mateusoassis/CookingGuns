@@ -99,12 +99,12 @@ public class TutorialPlayerMovement : MonoBehaviour
             var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
 
             skewedInput = matrix.MultiplyPoint3x4(_input);
-        
-            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * _input.magnitude) * playerMoveSpeed * Time.deltaTime);
+            
+            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * playerMoveSpeed * Time.deltaTime));
         }
         else
         {
-            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * _input.magnitude) * rollSpeed * Time.deltaTime);
+            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * rollSpeed * Time.deltaTime));
         }  
     }
 
