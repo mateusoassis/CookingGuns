@@ -41,8 +41,8 @@ public class T_PlayerManager : MonoBehaviour
         //petHandler = GetComponent<PetHandler>();
 
         //playerWeaponHandler.ActivatePistol();
-        tutorialPlayerWeaponHandler.ActivatePistol_();
-        tutorialPlayerWeaponHandler.WeaponManager(tutorialPlayerWeaponHandler.weaponEquipped);
+        //tutorialPlayerWeaponHandler.ActivatePistol_();
+        //tutorialPlayerWeaponHandler.WeaponManager(tutorialPlayerWeaponHandler.weaponEquipped);
     }
 
     void Update()
@@ -113,5 +113,13 @@ public class T_PlayerManager : MonoBehaviour
     {
         tutorialPlayerMovement.HandleMovement();   
         tutorialPlayerMovement.Move();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Door")
+        {
+
+        }
     }
 }

@@ -21,7 +21,7 @@ public class T_WeaponHandler : MonoBehaviour
         tutorialPlayerManager = GetComponent<T_PlayerManager>();
         //weaponIcons = new Transform[3];
         //weaponImages = new Image[3];
-        unlockedWeapons = new bool[3];        
+        //unlockedWeapons = new bool[3];        
     }
 
     void Start()
@@ -43,7 +43,9 @@ public class T_WeaponHandler : MonoBehaviour
         axeUnlocked = false;
         pistolUnlocked = false;
         */
-        UnlockPistol();
+        //UnlockPistol();
+        DisableAll();
+        
     }
 
     void Update()
@@ -66,13 +68,37 @@ public class T_WeaponHandler : MonoBehaviour
         {
             if(i == n)
             {
-                weaponObjects[i].SetActive(true);
-                weaponImages[i].color = Color.green;
+                if(unlockedWeapons[n])
+                {
+                    weaponObjects[i].SetActive(true);
+                    weaponImages[i].color = Color.green;
+                }
             }
-            else
+            else if(i != n)
             {
                 weaponObjects[i].SetActive(false);
-                weaponImages[i].color = Color.white;
+                if(unlockedWeapons[i])
+                {
+                    weaponImages[i].color = Color.white;
+                }
+                else
+                {
+                    weaponImages[i].color = Color.red;
+                }
+                /*
+                if(!unlockedWeapons[n])
+                {
+                    Debug.Log("não");
+                    weaponObjects[i].SetActive(false);
+                    weaponImages[i].color = Color.white;
+                }
+                else if(unlockedWeapons[n])
+                {
+                    Debug.Log("sim");
+                    weaponObjects[i].SetActive(false);
+                    weaponImages[i].color = Color.red;
+                }
+                */
             }
         }
     }
@@ -81,18 +107,27 @@ public class T_WeaponHandler : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ActivatePistol_();
-            WeaponManager(weaponEquipped);
+            if(unlockedWeapons[0])
+            {
+                ActivatePistol_();
+                WeaponManager(weaponEquipped);
+            }  
         }
         else if(Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ActivateShotgun_();
-            WeaponManager(weaponEquipped);
+            if(unlockedWeapons[1])
+            {
+                ActivateShotgun_();
+                WeaponManager(weaponEquipped);
+            }     
         }
         else if(Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ActivateMachineGun_();
-            WeaponManager(weaponEquipped);
+            if(unlockedWeapons[2])
+            {
+                ActivateMachineGun_();
+                WeaponManager(weaponEquipped);
+            }
         } 
     }
     public void ActivatePistol_()
@@ -115,27 +150,55 @@ public class T_WeaponHandler : MonoBehaviour
     public void UnlockPistol()
     {
         unlockedWeapons[0] = true;
+        UpdateGuns();
     }
     public void DisablePistol()
     {
         unlockedWeapons[0] = false;
+        UpdateGuns();
     }
 
     public void UnlockShotgun()
     {
         unlockedWeapons[1] = true;
+        UpdateGuns();
     }
     public void DisableShotgun()
     {
         unlockedWeapons[1] = false;
+        UpdateGuns();
     }
 
     public void UnlockMachineGun()
     {
         unlockedWeapons[2] = true;
+        UpdateGuns();
     }
     public void DisableMachineGun()
     {
         unlockedWeapons[2] = false;
+        UpdateGuns();
     } 
+    public void DisableAll()
+    {
+        for(int i = 0; i < weaponObjects.Length; i++)
+        {
+            weaponImages[i].color = Color.red;
+            weaponObjects[i].SetActive(false);
+        }
+    }
+    public void UpdateGuns()
+    {
+        for(int i = 0; i < weaponObjects.Length; i++)
+        {
+            if(unlockedWeapons[i])
+            {
+                weaponImages[i].color = Color.white;
+            }
+            else
+            {
+                weaponImages[i].color = Color.red;
+            }
+        }
+    }
 }
