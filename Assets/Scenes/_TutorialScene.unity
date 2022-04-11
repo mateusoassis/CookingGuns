@@ -6696,6 +6696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5173506019713497178}
   - component: {fileID: 5173506019713497170}
+  - component: {fileID: 5173506019713497177}
   - component: {fileID: 5184924386491333487}
   - component: {fileID: 5173506019713497176}
   - component: {fileID: 9189681999456016904}
@@ -6867,6 +6868,18 @@ MonoBehaviour:
   playerAimLayerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &5173506019713497177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5173506019713497169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2d9ba9362887c42ab1946349b7c347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5173506019713497178
 Transform:
   m_ObjectHideFlags: 0
