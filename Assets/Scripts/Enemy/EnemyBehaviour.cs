@@ -36,6 +36,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public Animator enemyAnimator;
 
+    public bool canMove;
+
     void Start()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
@@ -44,6 +46,7 @@ public class EnemyBehaviour : MonoBehaviour
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         blinking = false;
         enemyAnimator = GetComponent<Animator>();
+        canMove = true;
     }
 
     // 1 = shooting + follow
@@ -55,42 +58,49 @@ public class EnemyBehaviour : MonoBehaviour
         // stop bem baixo para o inimigo nunca parar de ir pra cima do jogador, e retreat muito alto
         if(setBehaviour == 1)
         {
-            if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+            if(canMove)
             {
-                Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
-                transform.LookAt(playerTransform.position, Vector3.up);
+                if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+                {
+                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                    transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
+                    transform.LookAt(playerTransform.position, Vector3.up);
+                }
+                else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
+                {
+                    transform.LookAt(playerTransform.position, Vector3.up);
+                }
+                else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
+                {
+                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                    transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
+                    transform.LookAt(playerTransform.position, Vector3.up);
+                }
             }
-            else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
-            {
-                transform.LookAt(playerTransform.position, Vector3.up);
-            }
-            else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
-            {
-                Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
-                transform.LookAt(playerTransform.position, Vector3.up);
-            }
+            
             Shoot();
         }
         else if(setBehaviour == 2)
         {
-            // retreat bem baixo pra o inimigo nunca parar de "recuar", e stop muito alto
-            if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+            if(canMove)
             {
-                Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
-                transform.LookAt(playerTransform.position, Vector3.up);
-            }
-            else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
-            {
-                transform.LookAt(playerTransform.position, Vector3.up);
-            }
-            else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
-            {
-                transform.LookAt(playerTransform.position, Vector3.up);
-                Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
+                // retreat bem baixo pra o inimigo nunca parar de "recuar", e stop muito alto
+                if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+                {
+                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                    transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
+                    transform.LookAt(playerTransform.position, Vector3.up);
+                }
+                else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
+                {
+                    transform.LookAt(playerTransform.position, Vector3.up);
+                }
+                else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
+                {
+                    transform.LookAt(playerTransform.position, Vector3.up);
+                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                    transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
+                }
             }
             Shoot();
         }
@@ -146,11 +156,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Shoot()
     {
-        if(timeBetweenShotsTimer <= 0)
+        if(timeBetweenShotsTimer <= 0 && canMove)
         {
-            ShootProjectile();
+            canMove = false;
+            enemyAnimator.SetTrigger("Shoot");
         }
-        else if(timeBetweenShotsTimer > 0)
+        else if(timeBetweenShotsTimer > 0 && canMove)
         {
             timeBetweenShotsTimer -= Time.fixedDeltaTime;
         }
@@ -160,6 +171,7 @@ public class EnemyBehaviour : MonoBehaviour
         Instantiate(enemyBulletPrefab, transform.position, Quaternion.identity);
         float u = Random.Range(timeBetweenShots-2f, timeBetweenShots+4f);
         timeBetweenShotsTimer = u;
+        canMove = true;
     }
 
     public void Blink()
