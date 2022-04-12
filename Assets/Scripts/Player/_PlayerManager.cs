@@ -39,7 +39,7 @@ public class _PlayerManager : MonoBehaviour
     void Update()
     {
         // roll
-        if(Input.GetKeyDown(KeyCode.Space) && !isRolling)
+        if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen)
         {
             if(playerMovement.rollCount < playerMovement.maxRoll)
             {
@@ -62,18 +62,32 @@ public class _PlayerManager : MonoBehaviour
             {
                 if(!gameManager.pausedGame)
                 {
-                    gameManager.PauseGame();
+                    if(petHandler.craftingWindowOpen)
+                    {
+                        petHandler.CloseCraftingWindow();
+                    }
+                    else if(!petHandler.craftingWindowOpen)
+                    {
+                        gameManager.PauseGame();
+                    }
                 }
                 else if(gameManager.pausedGame)
                 {
                     gameManager.ResumeGame();
                 }
             }
-            
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if(petHandler.playerOnArea)
+            {
+                petHandler.OpenCraftingWindow();
+            }
         }
 
         // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
-        if(!gameManager.pausedGame)
+        if(!gameManager.pausedGame && !petHandler.craftingWindowOpen)
         {
             //playerWeaponHandler.WeaponBehaviour();
             if(playerWeaponHandler.weaponEquipped == 0)
@@ -93,7 +107,10 @@ public class _PlayerManager : MonoBehaviour
             playerMovement.PlayerAim();
         }
 
-        playerWeaponHandler.SwitchGuns();
+        if(!petHandler.craftingWindowOpen)
+        {
+            playerWeaponHandler.SwitchGuns();
+        }
     }
 
     void LateUpdate()
@@ -103,7 +120,10 @@ public class _PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        playerMovement.HandleMovement();   
-        playerMovement.Move();
+        if(!petHandler.craftingWindowOpen)
+        {
+            playerMovement.HandleMovement();   
+            playerMovement.Move();
+        }
     }
 }

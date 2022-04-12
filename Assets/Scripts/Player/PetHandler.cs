@@ -10,6 +10,9 @@ public class PetHandler : MonoBehaviour
     public NavMeshAgent petNavMeshAgent;
     public float sinRadius;
     private PetBillboard petBillboard;
+    public bool playerOnArea;
+    public bool craftingWindowOpen;
+    public GameObject craftingWindowObject;
 
     void Start()
     {
@@ -17,7 +20,8 @@ public class PetHandler : MonoBehaviour
         pet.transform.parent = null;
         petChild = pet.transform.GetChild(0);
         petNavMeshAgent = GameObject.Find("Pet").GetComponent<NavMeshAgent>();
-        petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();        
+        petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
+        playerOnArea = false;    
     }
 
     public void HandlePet()
@@ -34,5 +38,32 @@ public class PetHandler : MonoBehaviour
         Vector3 moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
         petNavMeshAgent.SetDestination(moveTowards);
         petBillboard.ActivateOnEnemiesKilled();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Pet")
+        {
+            playerOnArea = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Pet")
+        {
+            playerOnArea = false;
+        }
+    }
+
+    public void OpenCraftingWindow()
+    {
+        craftingWindowOpen = true;
+        craftingWindowObject.SetActive(true);
+    }
+    public void CloseCraftingWindow()
+    {
+        craftingWindowOpen = false;
+        craftingWindowObject.SetActive(false);
     }
 }
