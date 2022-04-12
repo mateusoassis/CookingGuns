@@ -11,6 +11,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     public GameObject dropPrefab;
     public float dropChance;
+    public PlayerInfo playerInfo;
 
     void Start() {
         enemyHealth = enemyMaxHealth;
@@ -23,6 +24,7 @@ public class EnemyStats : MonoBehaviour
         enemyHealth -= damageTaken;
         if(enemyHealth <= 0)
         {            
+            playerInfo.totalEnemiesKilled++;
             Destroy(this.gameObject);
             enemySpawner.enemiesKilled++;
 

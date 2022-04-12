@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1974482380579761394}
   - component: {fileID: 1974482380579761395}
   m_Layer: 8
-  m_Name: HappyCube
+  m_Name: LongeCube
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,6 +378,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
   dropChance: 0
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
 --- !u!114 &1974482380579761395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +410,7 @@ MonoBehaviour:
   blinking: 0
   explosionDamage: 0
   timeBetweenShots: 7
+  enemyAnimator: {fileID: 0}
 --- !u!1 &1974482381028469389
 GameObject:
   m_ObjectHideFlags: 0
