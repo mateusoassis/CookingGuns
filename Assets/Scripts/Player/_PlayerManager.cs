@@ -14,6 +14,10 @@ public class _PlayerManager : MonoBehaviour
     public PetHandler petHandler;
     public PlayerInfo playerInfo;
     public CapsuleCollider playerCapsuleCollider;
+
+    public CraftingMainScript craftingHandlerInPlayer;
+    public GameObject InventoryHandler;
+    public Inventory inventory;
     
     [Header("Player Flags")]
     public bool isShooting;
@@ -31,6 +35,9 @@ public class _PlayerManager : MonoBehaviour
         playerWeaponHandler = GetComponent<_WeaponHandler>();
         petHandler = GetComponent<PetHandler>();
         playerCapsuleCollider = GetComponent<CapsuleCollider>();
+
+        craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
+        inventory = GetComponent<Inventory>();
 
         playerWeaponHandler.ActivatePistol_();
         playerWeaponHandler.WeaponManager(playerWeaponHandler.weaponEquipped);
@@ -83,6 +90,7 @@ public class _PlayerManager : MonoBehaviour
             if(petHandler.playerOnArea)
             {
                 petHandler.OpenCraftingWindow();
+                craftingHandlerInPlayer.ShowCraftOptions();
             }
         }
 
