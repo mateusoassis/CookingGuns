@@ -34,6 +34,8 @@ public class EnemyBehaviour : MonoBehaviour
     public float timeBetweenShots;
     private float timeBetweenShotsTimer = 5f;
 
+    public Animator enemyAnimator;
+
     void Start()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
@@ -41,6 +43,7 @@ public class EnemyBehaviour : MonoBehaviour
         scaleVector = new Vector3(1f, 0.25f, 1f);
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         blinking = false;
+        enemyAnimator = GetComponent<Animator>();
     }
 
     // 1 = shooting + follow
@@ -62,7 +65,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 transform.LookAt(playerTransform.position, Vector3.up);
             }
-            else if(Vector3.Distance(transform.position, playerTransform.position) < retreatDistance)
+            else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
             {
                 Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
@@ -73,7 +76,7 @@ public class EnemyBehaviour : MonoBehaviour
         else if(setBehaviour == 2)
         {
             // retreat bem baixo pra o inimigo nunca parar de "recuar", e stop muito alto
-            if(Vector3.Distance(transform.position, playerTransform.position) > stopDistance)
+            if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
             {
                 Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                 transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
@@ -83,7 +86,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 transform.LookAt(playerTransform.position, Vector3.up);
             }
-            else if(Vector3.Distance(transform.position, playerTransform.position) < retreatDistance)
+            else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
             {
                 transform.LookAt(playerTransform.position, Vector3.up);
                 Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
@@ -124,6 +127,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void StartExplosion()
     {
+        enemyAnimator.SetTrigger("Explode");
         StartCoroutine("BlinkExplosionRange");
         isPlayerOnRange = true;
         explosionObjectMesh.enabled = true;

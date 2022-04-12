@@ -13,10 +13,8 @@ public class _PlayerManager : MonoBehaviour
     public GameManager gameManager;
     public PetHandler petHandler;
     public PlayerInfo playerInfo;
-
+    public CapsuleCollider playerCapsuleCollider;
     
-      
-
     [Header("Player Flags")]
     public bool isShooting;
     public bool isRolling;
@@ -32,8 +30,8 @@ public class _PlayerManager : MonoBehaviour
         animationHandler = GetComponent<_AnimationHandler>();   
         playerWeaponHandler = GetComponent<_WeaponHandler>();
         petHandler = GetComponent<PetHandler>();
+        playerCapsuleCollider = GetComponent<CapsuleCollider>();
 
-        //playerWeaponHandler.ActivatePistol();
         playerWeaponHandler.ActivatePistol_();
         playerWeaponHandler.WeaponManager(playerWeaponHandler.weaponEquipped);
     }
@@ -46,6 +44,7 @@ public class _PlayerManager : MonoBehaviour
             if(playerMovement.rollCount < playerMovement.maxRoll)
             {
                 isRolling = true;
+                playerCapsuleCollider.enabled = false;
                 playerMovement.rollTimer = playerMovement.rollDuration;
                 playerMovement.rollCount++;
                 playerInfo.totalTimesRolled++;

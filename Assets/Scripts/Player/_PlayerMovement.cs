@@ -59,18 +59,6 @@ public class _PlayerMovement : MonoBehaviour
         if(playerRigidbody.velocity.magnitude < playerMoveSpeed * multiplier && !playerManager.isRolling)
         {
             _input = new Vector3(Input.GetAxisRaw("Horizontal"),0, Input.GetAxisRaw("Vertical"));
-
-            /*vertical = Input.GetAxisRaw("Vertical");
-            if(vertical != 0)
-            {
-                playerRigidbody.MovePosition(0f, 0f, vertical * Time.fixedDeltaTime * 100f * playerMoveSpeed);
-            }
-
-            horizontal = Input.GetAxisRaw("Horizontal");
-            if(horizontal != 0)
-            {
-                playerRigidbody.MovePosition(horizontal * Time.fixedDeltaTime * 100f * playerMoveSpeed, 0f, 0f);
-            }*/
         }
 
         // check de dash
@@ -79,14 +67,11 @@ public class _PlayerMovement : MonoBehaviour
             if(rollTimer <= 0)
             {
                 playerManager.isRolling = false;
+                playerManager.playerCapsuleCollider.enabled = true;
                 rollTimer = rollDuration;
-                //playerRigidbody.velocity = Vector3.zero;
             }
             else
-            {
-                //playerRigidbody.velocity = direction * dashSpeed;
-                
-                
+            { 
                 rollTimer -= Time.fixedDeltaTime;
             }
         }
@@ -100,11 +85,11 @@ public class _PlayerMovement : MonoBehaviour
 
             skewedInput = matrix.MultiplyPoint3x4(_input);
         
-            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * _input.magnitude) * playerMoveSpeed * Time.deltaTime);
+            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * playerMoveSpeed * Time.deltaTime);
         }
         else
         {
-            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * _input.magnitude) * rollSpeed * Time.deltaTime);
+            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
         }  
     }
 
