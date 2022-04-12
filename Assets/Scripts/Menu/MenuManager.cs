@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject optionsPanel;
     public GameObject creditsPanel;
+    public PlayerInfo playerInfo;
 
     public bool isOnMenu;
 
@@ -15,12 +16,20 @@ public class MenuManager : MonoBehaviour
     {
         isOnMenu = true;
     }
-    
+
     public void StartGame()
     {
         if(isOnMenu)
         {
-            SceneManager.LoadScene("1_RoomScene", LoadSceneMode.Single);
+            if(!playerInfo.hasPlayedTutorial)
+            {
+                SceneManager.LoadScene("_TutorialScene", LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadScene("1_RoomScene", LoadSceneMode.Single);
+            }
+            
         }
     }
     

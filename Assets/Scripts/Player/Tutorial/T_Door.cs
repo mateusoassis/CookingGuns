@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class T_Door : MonoBehaviour
 {
@@ -35,6 +36,14 @@ public class T_Door : MonoBehaviour
         if(door.position == doorTarget.position)
         {
             doorInPlace = true;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene("1_RoomScene", LoadSceneMode.Single);
         }
     }
 }
