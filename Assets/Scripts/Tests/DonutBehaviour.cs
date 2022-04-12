@@ -48,6 +48,7 @@ public class DonutBehaviour : MonoBehaviour
         cooldownTimer = cooldown;
         canWalk = true;
         state = 1;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
