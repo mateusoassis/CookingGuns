@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 800714704}
   - component: {fileID: 800714703}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: CraftMousseGunButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1654,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
-  recipess:
+  recipes:
   - Ingredients:
     - Banana
     - IceCream
@@ -1667,6 +1667,10 @@ MonoBehaviour:
     - Donut
     - IceCream
     Result: Yo-Yo
+  RecipesButton:
+  - {fileID: 1141465482}
+  - {fileID: 800714703}
+  - {fileID: 1648792699}
   MadeWeapons: []
   recipeSize: 000000000000000000000000
 --- !u!4 &1129184746
@@ -1696,7 +1700,7 @@ GameObject:
   - component: {fileID: 1141465483}
   - component: {fileID: 1141465482}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CraftBananaSplitGnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2544,7 +2548,7 @@ GameObject:
   - component: {fileID: 1648792700}
   - component: {fileID: 1648792699}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: CraftYoYoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,6 +12,9 @@ public class EnemyDrop : MonoBehaviour
     public float distanceFromPlayer;
     public bool canGoToPlayer;
 
+    [Header("Nome do Item")]
+    public string ItemName;
+    
     void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
@@ -49,6 +52,7 @@ public class EnemyDrop : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Debug.Log("ganhou material tal");
+            other.gameObject.GetComponent<Inventory>().AddItem(ItemName);
             Destroy(this.gameObject);
         }
     }
