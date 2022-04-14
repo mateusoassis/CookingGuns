@@ -21,6 +21,7 @@ public class T_PlayerManager : MonoBehaviour
     public bool isShooting;
     public bool isRolling;
     public bool isGrounded;
+    public bool isFading;
     
     // public bool isOnCombat; à implementar no futuro, para travar a interação com a airfryer pra somente quando terminar a batalha (?)
 
@@ -40,62 +41,66 @@ public class T_PlayerManager : MonoBehaviour
 
     void Update()
     {
-        // roll
-        if(Input.GetKeyDown(KeyCode.Space) && !isRolling)
+        if(!isFading)
         {
-            if(tutorialPlayerMovement.rollCount < tutorialPlayerMovement.maxRoll)
+            // roll
+            if(Input.GetKeyDown(KeyCode.Space) && !isRolling)
             {
-                isRolling = true;
-                tutorialPlayerMovement.rollTimer = tutorialPlayerMovement.rollDuration;
-                tutorialPlayerMovement.rollCount++;
-                playerInfo.totalTimesRolled++;
-                tutorialPlayerMovement.playerRigidbody.useGravity = false;
-            }
-        }
-
-        // pause
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(tutorialManager.confirmationWindowOpen)
-            {
-                tutorialManager.CloseAllConfirmationWindows();
-            }
-            else if(!tutorialManager.confirmationWindowOpen)
-            {
-                if(!tutorialManager.pausedGame)
+                if(tutorialPlayerMovement.rollCount < tutorialPlayerMovement.maxRoll)
                 {
-                    tutorialManager.PauseGame();
-                }
-                else if(tutorialManager.pausedGame)
-                {
-                    tutorialManager.ResumeGame();
+                    isRolling = true;
+                    tutorialPlayerMovement.rollTimer = tutorialPlayerMovement.rollDuration;
+                    tutorialPlayerMovement.rollCount++;
+                    playerInfo.totalTimesRolled++;
+                    tutorialPlayerMovement.playerRigidbody.useGravity = false;
                 }
             }
-            
-        }
 
-        // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
-        if(!tutorialManager.pausedGame)
-        {
-            //tutorialPlayerWeaponHandler.WeaponBehaviour();
-            if(tutorialPlayerWeaponHandler.weaponEquipped == 0)
+            // pause
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
-                playerShootingPistol.MyInput();
+                if(tutorialManager.confirmationWindowOpen)
+                {
+                    tutorialManager.CloseAllConfirmationWindows();
+                }
+                else if(!tutorialManager.confirmationWindowOpen)
+                {
+                    if(!tutorialManager.pausedGame)
+                    {
+                        tutorialManager.PauseGame();
+                    }
+                    else if(tutorialManager.pausedGame)
+                    {
+                        tutorialManager.ResumeGame();
+                    }
+                }
+                
             }
-            else if(tutorialPlayerWeaponHandler.weaponEquipped == 1)
-            {
-                playerShootingShotgun.MyInput();
-            }
-            else if(tutorialPlayerWeaponHandler.weaponEquipped == 2)
-            {
-                playerShootingMachineGun.MyInput();
-            }
-            
-            tutorialPlayerMovement.RollCountTimer();
-            tutorialPlayerMovement.PlayerAim();
-        }
 
-        tutorialPlayerWeaponHandler.SwitchGuns();
+            // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
+            if(!tutorialManager.pausedGame)
+            {
+                //tutorialPlayerWeaponHandler.WeaponBehaviour();
+                if(tutorialPlayerWeaponHandler.weaponEquipped == 0)
+                {
+                    playerShootingPistol.MyInput();
+                }
+                else if(tutorialPlayerWeaponHandler.weaponEquipped == 1)
+                {
+                    playerShootingShotgun.MyInput();
+                }
+                else if(tutorialPlayerWeaponHandler.weaponEquipped == 2)
+                {
+                    playerShootingMachineGun.MyInput();
+                }
+                
+                tutorialPlayerMovement.RollCountTimer();
+                tutorialPlayerMovement.PlayerAim();
+            }
+
+            tutorialPlayerWeaponHandler.SwitchGuns();
+        }
+        
     }
 
     void LateUpdate()
@@ -105,8 +110,11 @@ public class T_PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        tutorialPlayerMovement.HandleMovement();   
-        tutorialPlayerMovement.Move();
+        if(!isFading)
+        {
+            tutorialPlayerMovement.HandleMovement();   
+            tutorialPlayerMovement.Move();
+        }
     }
 
     public void OnTriggerEnter(Collider other)

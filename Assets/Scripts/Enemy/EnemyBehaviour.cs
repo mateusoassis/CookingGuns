@@ -55,81 +55,85 @@ public class EnemyBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        // stop bem baixo para o inimigo nunca parar de ir pra cima do jogador, e retreat muito alto
-        if(setBehaviour == 1)
+
+        if(!playerTransform.GetComponent<_PlayerManager>().isFading)
         {
-            if(canMove)
+            // stop bem baixo para o inimigo nunca parar de ir pra cima do jogador, e retreat muito alto
+            if(setBehaviour == 1)
             {
-                if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+                if(canMove)
                 {
-                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
-                    transform.LookAt(playerTransform.position, Vector3.up);
+                    if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+                    {
+                        Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
+                        transform.LookAt(playerTransform.position, Vector3.up);
+                    }
+                    else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
+                    {
+                        transform.LookAt(playerTransform.position, Vector3.up);
+                    }
+                    else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
+                    {
+                        Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
+                        transform.LookAt(playerTransform.position, Vector3.up);
+                    }
                 }
-                else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
-                {
-                    transform.LookAt(playerTransform.position, Vector3.up);
-                }
-                else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
-                {
-                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
-                    transform.LookAt(playerTransform.position, Vector3.up);
-                }
+                
+                Shoot();
             }
-            
-            Shoot();
-        }
-        else if(setBehaviour == 2)
-        {
-            if(canMove)
+            else if(setBehaviour == 2)
             {
-                // retreat bem baixo pra o inimigo nunca parar de "recuar", e stop muito alto
-                if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+                if(canMove)
                 {
-                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
-                    transform.LookAt(playerTransform.position, Vector3.up);
+                    // retreat bem baixo pra o inimigo nunca parar de "recuar", e stop muito alto
+                    if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+                    {
+                        Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
+                        transform.LookAt(playerTransform.position, Vector3.up);
+                    }
+                    else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
+                    {
+                        transform.LookAt(playerTransform.position, Vector3.up);
+                    }
+                    else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
+                    {
+                        transform.LookAt(playerTransform.position, Vector3.up);
+                        Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
+                    }
                 }
-                else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
-                {
-                    transform.LookAt(playerTransform.position, Vector3.up);
-                }
-                else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
-                {
-                    transform.LookAt(playerTransform.position, Vector3.up);
-                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
-                }
+                Shoot();
             }
-            Shoot();
-        }
-        else if(setBehaviour == 3)
-        {
-            if(!isPlayerOnRange)
+            else if(setBehaviour == 3)
             {
-                if(Vector3.Distance(transform.position, playerTransform.position) > explosionRange)
+                if(!isPlayerOnRange)
                 {
-                    Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                    transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
-                    transform.LookAt(playerTransform.position, Vector3.up);
+                    if(Vector3.Distance(transform.position, playerTransform.position) > explosionRange)
+                    {
+                        Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
+                        transform.LookAt(playerTransform.position, Vector3.up);
+                    }
+                    else if(Vector3.Distance(transform.position, playerTransform.position) <= explosionRange)
+                    {
+                        StartExplosion();
+                    }
                 }
-                else if(Vector3.Distance(transform.position, playerTransform.position) <= explosionRange)
+                else if(isPlayerOnRange)
                 {
-                    StartExplosion();
-                }
-            }
-            else if(isPlayerOnRange)
-            {
-                if(explosionTimer <= 0)
-                {
-                    Explode();
-                }
-                else if(explosionTimer > 0f)
-                {
-                    explosionTimer -= Time.deltaTime;
-                    scaleVector = Vector3.MoveTowards(scaleVector, targetedVector, explosionSpeed * Time.fixedDeltaTime);
-                    explosionObjectTransform.localScale = scaleVector;
+                    if(explosionTimer <= 0)
+                    {
+                        Explode();
+                    }
+                    else if(explosionTimer > 0f)
+                    {
+                        explosionTimer -= Time.deltaTime;
+                        scaleVector = Vector3.MoveTowards(scaleVector, targetedVector, explosionSpeed * Time.fixedDeltaTime);
+                        explosionObjectTransform.localScale = scaleVector;
+                    }
                 }
             }
         }

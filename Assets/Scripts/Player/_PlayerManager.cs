@@ -22,6 +22,7 @@ public class _PlayerManager : MonoBehaviour
     [Header("Player Flags")]
     public bool isShooting;
     public bool isRolling;
+    public bool isFading;
     
     // public bool isOnCombat; à implementar no futuro, para travar a interação com a airfryer pra somente quando terminar a batalha (?)
 
@@ -45,90 +46,97 @@ public class _PlayerManager : MonoBehaviour
 
     void Update()
     {
-        // roll
-        if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen)
+        if(!isFading)
         {
-            if(playerMovement.rollCount < playerMovement.maxRoll)
+            // roll
+            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen)
             {
-                isRolling = true;
-                playerCapsuleCollider.enabled = false;
-                playerMovement.rollTimer = playerMovement.rollDuration;
-                playerMovement.rollCount++;
-                playerInfo.totalTimesRolled++;
-            }
-        }
-
-        // pause
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(gameManager.confirmationWindowOpen)
-            {
-                gameManager.CloseAllConfirmationWindows();
-            }
-            else if(!gameManager.confirmationWindowOpen)
-            {
-                if(!gameManager.pausedGame)
+                if(playerMovement.rollCount < playerMovement.maxRoll)
                 {
-                    if(petHandler.craftingWindowOpen)
-                    {
-                        petHandler.CloseCraftingWindow();
-                    }
-                    else if(!petHandler.craftingWindowOpen)
-                    {
-                        gameManager.PauseGame();
-                    }
-                }
-                else if(gameManager.pausedGame)
-                {
-                    gameManager.ResumeGame();
+                    isRolling = true;
+                    playerCapsuleCollider.enabled = false;
+                    playerMovement.rollTimer = playerMovement.rollDuration;
+                    playerMovement.rollCount++;
+                    playerInfo.totalTimesRolled++;
                 }
             }
-        }
 
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            if(petHandler.playerOnArea)
+            // pause
+            if(Input.GetKeyDown(KeyCode.Escape))
             {
-                petHandler.OpenCraftingWindow();
-                craftingHandlerInPlayer.ShowCraftOptions();
+                if(gameManager.confirmationWindowOpen)
+                {
+                    gameManager.CloseAllConfirmationWindows();
+                }
+                else if(!gameManager.confirmationWindowOpen)
+                {
+                    if(!gameManager.pausedGame)
+                    {
+                        if(petHandler.craftingWindowOpen)
+                        {
+                            petHandler.CloseCraftingWindow();
+                        }
+                        else if(!petHandler.craftingWindowOpen)
+                        {
+                            gameManager.PauseGame();
+                        }
+                    }
+                    else if(gameManager.pausedGame)
+                    {
+                        gameManager.ResumeGame();
+                    }
+                }
             }
-        }
 
-        // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
-        if(!gameManager.pausedGame && !petHandler.craftingWindowOpen)
-        {
-            //playerWeaponHandler.WeaponBehaviour();
-            if(playerWeaponHandler.weaponEquipped == 0)
+            if(Input.GetKeyDown(KeyCode.E))
             {
-                playerShootingPistol.MyInput();
+                if(petHandler.playerOnArea)
+                {
+                    petHandler.OpenCraftingWindow();
+                    craftingHandlerInPlayer.ShowCraftOptions();
+                }
             }
-            else if(playerWeaponHandler.weaponEquipped == 1)
-            {
-                playerShootingShotgun.MyInput();
-            }
-            else if(playerWeaponHandler.weaponEquipped == 2)
-            {
-                playerShootingMachineGun.MyInput();
-            }
-            
-            playerMovement.RollCountTimer();
-            playerMovement.PlayerAim();
-        }
 
-        if(!petHandler.craftingWindowOpen)
-        {
-            playerWeaponHandler.SwitchGuns();
+            // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
+            if(!gameManager.pausedGame && !petHandler.craftingWindowOpen)
+            {
+                //playerWeaponHandler.WeaponBehaviour();
+                if(playerWeaponHandler.weaponEquipped == 0)
+                {
+                    playerShootingPistol.MyInput();
+                }
+                else if(playerWeaponHandler.weaponEquipped == 1)
+                {
+                    playerShootingShotgun.MyInput();
+                }
+                else if(playerWeaponHandler.weaponEquipped == 2)
+                {
+                    playerShootingMachineGun.MyInput();
+                }
+                
+                playerMovement.RollCountTimer();
+                playerMovement.PlayerAim();
+            }
+
+            if(!petHandler.craftingWindowOpen)
+            {
+                playerWeaponHandler.SwitchGuns();
+            }
         }
     }
 
     void LateUpdate()
     {
-        petHandler.HandlePet();
+        if(!isFading)
+        {
+            petHandler.HandlePet();
+        }
+        
     }
 
     void FixedUpdate()
     {
-        if(!petHandler.craftingWindowOpen)
+        if(!petHandler.craftingWindowOpen && !isFading)
         {
             playerMovement.HandleMovement();   
             playerMovement.Move();
