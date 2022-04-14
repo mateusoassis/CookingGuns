@@ -213,6 +213,11 @@ MonoBehaviour:
   isPlayerInside: 0
   tutorialButtons: {fileID: 1303225231}
   playerLeft: 0
+  WASDButtons:
+  - {fileID: 1446475670}
+  - {fileID: 607017442}
+  - {fileID: 666669153}
+  - {fileID: 2095156281}
 --- !u!65 &40601668
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1221,7 +1226,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh225086
+  m_Name: pb_Mesh255346
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3017,7 +3022,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh225336
+  m_Name: pb_Mesh255610
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3356,6 +3361,7 @@ MonoBehaviour:
   isPlayerInside: 0
   tutorialButtons: {fileID: 1812741548}
   playerLeft: 0
+  WASDButtons: []
 --- !u!65 &537394880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3863,7 +3869,7 @@ Animator:
   m_GameObject: {fileID: 607017439}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 793f9e459ff97454d933014eb5afb655, type: 2}
+  m_Controller: {fileID: 9100000, guid: 76e44b6b65d78c540bb4c48a3aa16da5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4350,7 +4356,7 @@ Animator:
   m_GameObject: {fileID: 666669150}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 793f9e459ff97454d933014eb5afb655, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8b4b38b24eb1334488fe802ac1fc24ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4594,7 +4600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &692005719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5933,7 +5939,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh225058
+  m_Name: pb_Mesh255318
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6568,13 +6574,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1303225232}
+  - component: {fileID: 1303225233}
   m_Layer: 5
   m_Name: WASDButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1303225232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6598,6 +6605,24 @@ RectTransform:
   m_AnchoredPosition: {x: 525, y: -91}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1303225233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303225231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31c818200a817a4c8069286aa51ee32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childButtons:
+  - {fileID: 1446475670}
+  - {fileID: 607017442}
+  - {fileID: 666669153}
+  - {fileID: 2095156281}
+  disableTransform: {fileID: 0}
 --- !u!1 &1361694130
 GameObject:
   m_ObjectHideFlags: 0
@@ -7111,6 +7136,7 @@ GameObject:
   - component: {fileID: 1446475671}
   - component: {fileID: 1446475670}
   - component: {fileID: 1446475669}
+  - component: {fileID: 1446475673}
   m_Layer: 5
   m_Name: W
   m_TagString: Untagged
@@ -7148,7 +7174,7 @@ Animator:
   m_GameObject: {fileID: 1446475667}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 793f9e459ff97454d933014eb5afb655, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3150e6ea77d4c264a8d737b3cd8a2b87, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7239,6 +7265,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446475667}
   m_CullTransparentMesh: 1
+--- !u!114 &1446475673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446475667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31c818200a817a4c8069286aa51ee32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childButtons: []
+  disableTransform: {fileID: 1303225232}
 --- !u!850595691 &1448225982
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -11541,7 +11581,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh225460
+  m_Name: pb_Mesh255734
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12554,7 +12594,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh225138
+  m_Name: pb_Mesh255412
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13652,7 +13692,7 @@ Animator:
   m_GameObject: {fileID: 2095156278}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 793f9e459ff97454d933014eb5afb655, type: 2}
+  m_Controller: {fileID: 9100000, guid: 98789c363d69bfc49b5a4034df8286a8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
