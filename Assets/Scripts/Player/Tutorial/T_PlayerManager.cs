@@ -130,12 +130,5 @@ public class T_PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         isFading = false;
         tutorialFadeOut.startCheckpointCollider.enabled = true;
-        Debug.Log("corotina termina");
     }
-    /*
-    public void RunFadeOut()
-    {
-        StartCoroutine(WaitFadeout());
-    }
-    */
 }

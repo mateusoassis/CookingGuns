@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class TutorialCheckpoints : MonoBehaviour
 {
     public bool isPlayerInside;
-    public GameObject tutorialButtons;
+    public GameObject enableButtons;
     public bool playerLeft;
-    public Button[] WASDButtons;
+    public Button[] disableButtons;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class TutorialCheckpoints : MonoBehaviour
             isPlayerInside = true;
             if(!playerLeft && isPlayerInside)
             {
-                tutorialButtons.SetActive(true);
+                enableButtons.SetActive(true);
             }
         }
         
@@ -40,14 +40,13 @@ public class TutorialCheckpoints : MonoBehaviour
         {
             isPlayerInside = false;
             playerLeft = true;
-            for(int i = 0; i < WASDButtons.Length; i++)
+            for(int i = 0; i < disableButtons.Length; i++)
             {
-                if(WASDButtons[i] != null)
+                if(disableButtons[i] != null)
                 {
-                    WASDButtons[i].interactable = false;
+                    disableButtons[i].interactable = false;
                 }
             }
-            //tutorialButtons.SetActive(false);
         }
     }
 }

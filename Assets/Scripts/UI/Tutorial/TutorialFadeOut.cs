@@ -18,13 +18,10 @@ public class TutorialFadeOut : MonoBehaviour
 
     public void CoroutineToDisable()
     {
-        Debug.Log("corotina começa");
-        StartCoroutine(tutorialPlayerManager.WaitFadeout());
-             
+        StartCoroutine(tutorialPlayerManager.WaitFadeout());  
     }
     public void DisableThisObject()
     {
-        Debug.Log("disable");
         this.gameObject.SetActive(false);
     }
 }

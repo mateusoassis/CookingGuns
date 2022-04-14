@@ -12,7 +12,7 @@ public class T_EnemyStats : MonoBehaviour
     public float dropChance;
     public T_Door doorScript;
 
-    public GameObject leftMouseClickButton;
+    public Button leftMouseClickButton;
     
 
     void Start() {
@@ -27,7 +27,7 @@ public class T_EnemyStats : MonoBehaviour
         if(enemyHealth <= 0)
         {     
             doorScript.enemyKilled = true;     
-            leftMouseClickButton.SetActive(false);
+            leftMouseClickButton.interactable = false;
             Destroy(this.gameObject);
 
             Instantiate(dropPrefab, transform.position, Quaternion.identity);

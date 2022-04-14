@@ -18,6 +18,8 @@ public class _PlayerManager : MonoBehaviour
     public CraftingMainScript craftingHandlerInPlayer;
     public GameObject InventoryHandler;
     public Inventory inventory;
+    public GameFadeout gameFadeOut;
+
     
     [Header("Player Flags")]
     public bool isShooting;
@@ -36,6 +38,7 @@ public class _PlayerManager : MonoBehaviour
         playerWeaponHandler = GetComponent<_WeaponHandler>();
         petHandler = GetComponent<PetHandler>();
         playerCapsuleCollider = GetComponent<CapsuleCollider>();
+        gameFadeOut = GameObject.Find("FadeInFadeOut").GetComponent<GameFadeout>();
 
         craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
         inventory = GetComponent<Inventory>();
@@ -141,5 +144,10 @@ public class _PlayerManager : MonoBehaviour
             playerMovement.HandleMovement();   
             playerMovement.Move();
         }
+    }
+    public IEnumerator WaitFadeout()
+    {
+        yield return new WaitForSeconds(1f);
+        isFading = false;
     }
 }

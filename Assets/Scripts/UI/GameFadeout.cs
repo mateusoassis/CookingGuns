@@ -6,16 +6,21 @@ public class GameFadeout : MonoBehaviour
 {
     public _PlayerManager playerManager;
 
-
     void Start()
     {
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         playerManager.isFading = true;
     }
 
-    public void DisableObject()
+    public void CoroutineToDisable()
     {
-        playerManager.isFading = false;
+        Debug.Log("corotina começa");
+        StartCoroutine(playerManager.WaitFadeout());
+             
+    }
+    public void DisableThisObject()
+    {
+        Debug.Log("disable");
         this.gameObject.SetActive(false);
     }
 }
