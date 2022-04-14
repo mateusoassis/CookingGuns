@@ -11,7 +11,7 @@ public class HeartContainerManager : MonoBehaviour
 
     private void Awake()
     {
-        //playerStats = GameObject.Find("Player").GetComponent<_PlayerStats>();
+        playerStats = GameObject.Find("Player").GetComponent<_PlayerStats>();
     }
 
     private void OnEnable()
@@ -32,19 +32,11 @@ public class HeartContainerManager : MonoBehaviour
     public void DrawHearts()
     {
         ClearHearts();
-
-        float maxHealthRemainder = playerStats.playerMaxHealth % 2;
-        int heartsToMake = (int)((playerStats.playerMaxHealth/ 2)  + maxHealthRemainder);
-
-        for(int i = 0;i<heartsToMake;i++)
+        
+        int heartsToMake = (int)playerStats.playerCurrentHealth;
+        for(int i = 0; i < heartsToMake; i++)
         {
             CreateEmptyHeart();
-        }
-
-        for(int i = 0; i < hearts.Count ;i++)
-        {
-            int heartStatusRemainder = (int )Mathf.Clamp(playerStats.playerCurrentHealth - (i*2), 0, 2);
-            hearts[i].SetHeartImage((_PlayerHeartManager.HeartStatus)heartStatusRemainder);
         }
     }
 
@@ -52,10 +44,6 @@ public class HeartContainerManager : MonoBehaviour
     {
         GameObject newHeart = Instantiate(heartPrefab);
         newHeart.transform.SetParent(transform);
-
-        _PlayerHeartManager heartComponent = newHeart.GetComponent<_PlayerHeartManager>();
-        heartComponent.SetHeartImage(_PlayerHeartManager.HeartStatus.Empty);
-        hearts.Add(heartComponent);
     }
 
     public void ClearHearts()

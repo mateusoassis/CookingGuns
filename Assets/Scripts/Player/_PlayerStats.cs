@@ -13,8 +13,6 @@ public class _PlayerStats : MonoBehaviour
     public int playerCurrentHealth;
     public int playerHealthFromPreviousRoom;
     public int playerMaxHealth;
-    
-    [SerializeField] private Slider playerHealthSlider;
 
     private void Awake()
     {
@@ -31,32 +29,17 @@ public class _PlayerStats : MonoBehaviour
         {
             playerCurrentHealth = playerHealthFromPreviousRoom;
         }
-        playerHealthSlider.minValue = 0;
-        playerHealthSlider.maxValue = playerMaxHealth;
-        playerHealthSlider.value = playerCurrentHealth;
     }
 
     public void TestHeal()
     {
-        playerCurrentHealth += 10;
-        UpdateHealthValues();
-    }
-    public void TestMaxHP()
-    {
-        playerMaxHealth += 10;
-        UpdateHealthValues();
-    }
-
-    public void UpdateHealthValues()
-    {
-        playerHealthSlider.maxValue = playerMaxHealth;
-        playerHealthSlider.value = playerCurrentHealth;
+        playerCurrentHealth = playerMaxHealth;
+        OnPlayerDamaged?.Invoke();
     }
 
     public void TakeHPDamage(int damage)
     {
-        OnPlayerDamaged?.Invoke();
         playerCurrentHealth -= damage;
-        UpdateHealthValues();
+        OnPlayerDamaged?.Invoke();
     }
 }
