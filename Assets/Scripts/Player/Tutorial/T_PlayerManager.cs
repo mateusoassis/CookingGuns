@@ -13,7 +13,7 @@ public class T_PlayerManager : MonoBehaviour
     public TutorialManager tutorialManager;
     //public PetHandler petHandler;
     public PlayerInfo playerInfo;
-
+    public TutorialFadeOut tutorialFadeOut;
     
       
 
@@ -33,6 +33,7 @@ public class T_PlayerManager : MonoBehaviour
         playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
         tutorialPlayerMovement = GetComponent<TutorialPlayerMovement>();
         animationHandler = GetComponent<_AnimationHandler>();         
+        tutorialFadeOut = GetComponent<TutorialFadeOut>();
     }
     void Start()
     {
@@ -124,4 +125,17 @@ public class T_PlayerManager : MonoBehaviour
             // botar pra ir pra parte 2
         }
     }
+    public IEnumerator WaitFadeout()
+    {
+        yield return new WaitForSeconds(1f);
+        isFading = false;
+        tutorialFadeOut.startCheckpointCollider.enabled = true;
+        Debug.Log("corotina termina");
+    }
+    /*
+    public void RunFadeOut()
+    {
+        StartCoroutine(WaitFadeout());
+    }
+    */
 }

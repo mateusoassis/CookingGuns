@@ -222,7 +222,7 @@ BoxCollider:
   m_GameObject: {fileID: 40601665}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 20.147072, y: 1, z: 16.282349}
   m_Center: {x: 1.1357064, y: 0, z: 0.8192272}
@@ -4728,6 +4728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialPlayerManager: {fileID: 0}
+  startCheckpointCollider: {fileID: 0}
 --- !u!1 &719755151
 GameObject:
   m_ObjectHideFlags: 0
@@ -13474,7 +13475,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -1.5
+  near clip plane: -10
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -16078,6 +16079,7 @@ GameObject:
   - component: {fileID: 5173506019713497174}
   - component: {fileID: 5173506019713497171}
   - component: {fileID: 5173506019713497179}
+  - component: {fileID: 5173506019713497180}
   m_Layer: 0
   m_Name: TutorialPlayer
   m_TagString: Player
@@ -16105,6 +16107,7 @@ MonoBehaviour:
   tutorialPlayerWeaponHandler: {fileID: 0}
   tutorialManager: {fileID: 559999290}
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
+  tutorialFadeOut: {fileID: 0}
   isShooting: 0
   isRolling: 0
   isGrounded: 0
@@ -16288,6 +16291,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.854228, y: 0.8712195, z: 0.8198221}
   m_Center: {x: -0.09623003, y: -0.56439024, z: 0.0025156736}
+--- !u!114 &5173506019713497180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5173506019713497169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63df9d8ec4b6524988fefd3af0a9b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialPlayerManager: {fileID: 0}
+  startCheckpointCollider: {fileID: 0}
 --- !u!1 &5173506019877123465
 GameObject:
   m_ObjectHideFlags: 0
