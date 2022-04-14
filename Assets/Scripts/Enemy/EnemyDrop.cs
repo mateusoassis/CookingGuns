@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyDrop : MonoBehaviour
 {
@@ -52,7 +53,10 @@ public class EnemyDrop : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Debug.Log("ganhou material tal");
-            other.gameObject.GetComponent<Inventory>().AddItem(ItemName);
+            if(SceneManager.GetActiveScene().buildIndex != 1) // checando se o jogo está ou não no TUTORIAL
+            {
+                other.gameObject.GetComponent<Inventory>().AddItem(ItemName);
+            }
             Destroy(this.gameObject);
         }
     }

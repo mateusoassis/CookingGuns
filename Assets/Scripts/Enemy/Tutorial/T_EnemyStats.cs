@@ -12,6 +12,9 @@ public class T_EnemyStats : MonoBehaviour
     public float dropChance;
     public T_Door doorScript;
 
+    public GameObject leftMouseClickButton;
+    
+
     void Start() {
         enemyHealth = enemyMaxHealth;
         playerController = GameObject.Find("TutorialPlayer").GetComponent<PlayerController>();
@@ -23,7 +26,8 @@ public class T_EnemyStats : MonoBehaviour
         enemyHealth -= damageTaken;
         if(enemyHealth <= 0)
         {     
-            doorScript.enemyKilled = true;       
+            doorScript.enemyKilled = true;     
+            leftMouseClickButton.SetActive(false);
             Destroy(this.gameObject);
 
             Instantiate(dropPrefab, transform.position, Quaternion.identity);

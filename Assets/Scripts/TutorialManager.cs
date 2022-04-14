@@ -20,6 +20,8 @@ public class TutorialManager : MonoBehaviour
     public bool confirmationWindowOpen;
 
     public T_PlayerManager tutorialPlayerManager;
+
+    
     
     void Start()
     {
