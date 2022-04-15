@@ -163,7 +163,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         if(other.gameObject.tag == "Wall" && rolling)
         {
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce, ForceMode.VelocityChange);
-            Debug.Log("parede caralho");
+            Debug.Log(name + "toma knockback");
             StopAllCoroutines();
             chargeJujubaAnimator.StopRoll();
             //canWalk = true;
@@ -173,14 +173,14 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         {
             //GetComponent<Rigidbody>().AddForce(-transform.forward * rollSpeed, ForceMode.Impulse);
             //GetComponent<Rigidbody>().AddForce(-rollDirection * rollSpeed/10f, ForceMode.Impulse);
-            Debug.Log("encostou normal na parede");
+            Debug.Log(name + " não toma knockback");
         }
 
         if(other.gameObject.tag == "Player" && rolling)
         {
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
             other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
-            Debug.Log("player ARREMESSADO para trás e toma dano porra");
+            Debug.Log(name + " acerta o player");
             StopAllCoroutines();
             chargeJujubaAnimator.StopRoll();
             //other.GetComponent<Rigidbody>().AddForce(new Vector3(transform.position.x, other.transform.position.y, transform.position.z) * rollSpeed, ForceMode.Impulse);
