@@ -25,7 +25,10 @@ public class EnemyStats : MonoBehaviour
         if(enemyHealth <= 0)
         {            
             Destroy(this.gameObject);
-            enemySpawner.enemiesKilled++;
+            if(GetComponent<MinusOnDestroy>() == null)
+            {
+                enemySpawner.enemiesKilled++;
+            }
             playerInfo.totalEnemiesKilled++;
 
             float realDropChance = 100 - dropChance;

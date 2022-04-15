@@ -481,6 +481,7 @@ GameObject:
   - component: {fileID: 7918184545519580853}
   - component: {fileID: 7918184545519580852}
   - component: {fileID: 7918184545519580855}
+  - component: {fileID: 1317452808437045660}
   m_Layer: 8
   m_Name: JujubaAzulIgualPudim
   m_TagString: Enemy
@@ -639,6 +640,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1317452808437045660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918184545519580854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eebff99057db8743aa4aa540d89f94e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7918184546180473032
 PrefabInstance:
   m_ObjectHideFlags: 0

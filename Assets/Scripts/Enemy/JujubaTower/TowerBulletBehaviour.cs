@@ -45,7 +45,7 @@ public class TowerBulletBehaviour : MonoBehaviour
         Vector3 relativeStart = transform.position - centerPivot;
         Vector3 relativeEnd = savedSlerpPosition - centerPivot;
 
-        transform.position = Vector3.Slerp(relativeStart, relativeEnd, slerpSpeed) + centerPivot;
+        transform.position = Vector3.Slerp(relativeStart, relativeEnd, (currentSlerpTime*currentSlerpTime)/5) + centerPivot;
         //transform.position = Vector3.Slerp(transform.position, parent.gameObject.GetComponent<TowerBehaviour>().slerpTarget.position, Time.deltaTime);
     }
 
@@ -64,7 +64,8 @@ public class TowerBulletBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Ground")
         {
-            Instantiate(parent.gameObject.GetComponent<TowerBehaviour>().spawnObject, transform.position + new Vector3(0f, 0.67f, 0f), parent.rotation);
+            GameObject jujuba = Instantiate(parent.gameObject.GetComponent<TowerBehaviour>().spawnObject, transform.position + new Vector3(0f, 0.67f, 0f), parent.rotation);
+            jujuba.transform.SetParent(parent);
             Destroy(this.gameObject);
         }
     }
