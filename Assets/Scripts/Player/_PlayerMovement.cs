@@ -50,7 +50,7 @@ public class _PlayerMovement : MonoBehaviour
         newRotation.x = 0f;
         newRotation.z = 0f;
 
-        transform.rotation = Quaternion.Slerp(newRotation, transform.rotation, Time.deltaTime * 30);
+        transform.rotation = Quaternion.Slerp(newRotation, transform.rotation, Time.deltaTime);
     }
 
     public void HandleMovement()

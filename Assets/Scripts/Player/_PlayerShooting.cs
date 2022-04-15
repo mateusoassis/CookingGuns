@@ -31,6 +31,7 @@ public class _PlayerShooting : MonoBehaviour
     public bool allowInvoke = true;
 
     public _PlayerManager playerManager;
+    public _WeaponHandler weaponHandler;
 
     private void Awake()
     {   
@@ -38,6 +39,7 @@ public class _PlayerShooting : MonoBehaviour
         bulletsLeft = magazineSize;
         readyToShoot = true;
         playerManager = GetComponentInParent<_PlayerManager>();
+        weaponHandler = GetComponentInParent<_WeaponHandler>();
     }
 
     public void MyInput()
@@ -45,9 +47,18 @@ public class _PlayerShooting : MonoBehaviour
         if(allowButtonHold)
         {
             shooting = Input.GetKey(KeyCode.Mouse0);
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                playerManager.playerMovement.PlayerAim();
+            }
+            
         }else
         {
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                playerManager.playerMovement.PlayerAim();
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
@@ -64,7 +75,26 @@ public class _PlayerShooting : MonoBehaviour
         {
             bulletsShot = 0;
 
-            Shoot();
+            /*
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                playerManager.playerMovement.PlayerAim();
+            }
+            */
+            if(weaponHandler.weaponEquipped != 2)
+            {
+                Shoot();
+            }
+            else
+            {
+                Shoot();
+                if(Input.GetKey(KeyCode.Mouse0))
+                {
+                    playerManager.playerMovement.PlayerAim();
+                }
+            }
+            
+            
 
             //Granade();
         }

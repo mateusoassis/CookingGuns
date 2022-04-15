@@ -119,7 +119,7 @@ public class _PlayerManager : MonoBehaviour
                 }
                 
                 playerMovement.RollCountTimer();
-                playerMovement.PlayerAim();
+                //playerMovement.PlayerAim();
             }
 
             if(!petHandler.craftingWindowOpen)
