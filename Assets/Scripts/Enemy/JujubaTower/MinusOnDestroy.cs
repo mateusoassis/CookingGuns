@@ -5,14 +5,23 @@ using UnityEngine;
 public class MinusOnDestroy : MonoBehaviour
 {
     public Transform parent;
+    public ChargeJujubaBehaviour chargeJujubaBehaviour;
 
     void Start()
     {
-        parent = transform.parent.GetComponent<Transform>();
+        chargeJujubaBehaviour = GetComponent<ChargeJujubaBehaviour>();
+        if(!chargeJujubaBehaviour.playerTransform.GetComponent<_PlayerManager>().testing)
+        {
+            parent = transform.parent.GetComponent<Transform>();
+        }
+        
     }
 
     void OnDestroy()
     {
-        parent.GetComponent<TowerBehaviour>().amountSpawned--;
+        if(!chargeJujubaBehaviour.playerTransform.GetComponent<_PlayerManager>().testing)
+        {
+            parent.GetComponent<TowerBehaviour>().amountSpawned--;
+        }
     }
 }
