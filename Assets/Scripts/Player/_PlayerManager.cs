@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class _PlayerManager : MonoBehaviour
 {
+    public bool testing;
     public _PlayerMovement playerMovement;
     public _AnimationHandler animationHandler;
     public _PlayerShooting playerShootingPistol;

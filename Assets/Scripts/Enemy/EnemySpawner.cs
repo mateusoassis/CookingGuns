@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public _PlayerManager playerManager;
     public GameObject enemy1Prefab;
     public GameObject enemy2Prefab;
     public GameObject enemy3Prefab;
@@ -21,27 +22,42 @@ public class EnemySpawner : MonoBehaviour
     public PetBillboard petBillboard;
     public PetHandler petHandler;
 
+    void Awake()
+    {
+        playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
+    }
+
     void Start()
     {
         enemyNumberRandomizer = Random.Range(3,9);
         enemiesKilled = 0;
         roomCleared = false;
-        SpawnEnemies();
+        if(!playerManager.testing)
+        {
+            SpawnEnemies();
+        }
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         petHandler = GameObject.Find("Player").GetComponent<PetHandler>();
     }
 
     void Update()
     {
-        if (enemiesKilled >= enemyNumberRandomizer && !roomCleared)
+        if(!playerManager.testing)
+        {
+            if (enemiesKilled >= enemyNumberRandomizer && !roomCleared)
+            {
+                roomCleared = true;
+                petBillboard.lockOnPlayer = true;
+                if(petBillboard.lockOnPlayer)
+                {
+                    petHandler.MoveTowardsPlayer();
+                    petBillboard.lockOnPlayer = false;
+                }
+            }
+        }
+        else if(playerManager.testing && !roomCleared)
         {
             roomCleared = true;
-            petBillboard.lockOnPlayer = true;
-            if(petBillboard.lockOnPlayer)
-            {
-                petHandler.MoveTowardsPlayer();
-                petBillboard.lockOnPlayer = false;
-            }
         }
     }
 
