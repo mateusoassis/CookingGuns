@@ -138,6 +138,7 @@ public class _PlayerShooting : MonoBehaviour
 
         if(allowInvoke)
         {
+            playerManager.isShooting = true;
             Invoke("ResetShot", timeBetweenShooting);
         }
 
@@ -171,6 +172,7 @@ public class _PlayerShooting : MonoBehaviour
     {
         readyToShoot = true;
         allowInvoke = true;
+        playerManager.isShooting = false;
     }
 
     private void Reload()

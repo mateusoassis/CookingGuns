@@ -8,6 +8,7 @@ public class _PlayerMovement : MonoBehaviour
     private _PlayerManager playerManager;
     [Header("Player Stats")]
     public float playerMoveSpeed;
+    public float playerMaxMoveSpeed;
     public Rigidbody playerRigidbody;
 
     [Header("Roll")]
@@ -26,6 +27,7 @@ public class _PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask playerAimLayerMask;
     private Quaternion newRotation;
     private Vector3 _input;
+    private Vector3 lastInput;
     //private float _turnSpeed = 360;
 
     void Start() 
@@ -33,6 +35,7 @@ public class _PlayerMovement : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         playerManager = GetComponent<_PlayerManager>();
         playerTransform = GetComponent<Transform>();
+        playerMoveSpeed = playerMaxMoveSpeed;
     }
 
     public void PlayerAim()
@@ -59,6 +62,10 @@ public class _PlayerMovement : MonoBehaviour
         if(playerRigidbody.velocity.magnitude < playerMoveSpeed * multiplier && !playerManager.isRolling)
         {
             _input = new Vector3(Input.GetAxisRaw("Horizontal"),0, Input.GetAxisRaw("Vertical"));
+            if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                lastInput = _input;
+            }
         }
 
         // check de dash
@@ -79,18 +86,24 @@ public class _PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        if(!playerManager.isRolling)
+        if(!playerManager.isShooting)
         {
-            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+            if(!playerManager.isRolling)
+            {
+                var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
 
-            skewedInput = matrix.MultiplyPoint3x4(_input);
-        
-            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * playerMoveSpeed * Time.deltaTime);
+                skewedInput = matrix.MultiplyPoint3x4(_input);
+                Vector3 skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+            
+                playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * playerMoveSpeed * Time.deltaTime);
+                transform.forward = skewedLastInput.normalized;
+            }
+            else
+            {
+                playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
+            }  
         }
-        else
-        {
-            playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
-        }  
+        
     }
 
     public void RollCountTimer()

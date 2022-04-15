@@ -4399,6 +4399,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
   playerManager: {fileID: 0}
+  weaponHandler: {fileID: 0}
 --- !u!4 &982170395
 Transform:
   m_ObjectHideFlags: 0
@@ -4908,6 +4909,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
   playerManager: {fileID: 0}
+  weaponHandler: {fileID: 0}
 --- !u!4 &1087663678
 Transform:
   m_ObjectHideFlags: 0
@@ -8827,6 +8829,14 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1112370941}
+    - target: {fileID: 6810141674621902156, guid: 7734d5da01430da47915be8d2c0db904, type: 3}
+      propertyPath: playerMoveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810141674621902156, guid: 7734d5da01430da47915be8d2c0db904, type: 3}
+      propertyPath: playerMaxMoveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7734d5da01430da47915be8d2c0db904, type: 3}
 --- !u!1001 &3325013370408885563
