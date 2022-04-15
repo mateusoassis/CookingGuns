@@ -70,17 +70,17 @@ public class EnemyBehaviour : MonoBehaviour
                     {
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                         transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
-                        transform.LookAt(playerTransform.position, Vector3.up);
+                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
                     {
-                        transform.LookAt(playerTransform.position, Vector3.up);
+                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
                     {
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                         transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
-                        transform.LookAt(playerTransform.position, Vector3.up);
+                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                 }
                 
@@ -95,15 +95,15 @@ public class EnemyBehaviour : MonoBehaviour
                     {
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                         transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
-                        transform.LookAt(playerTransform.position, Vector3.up);
+                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
                     {
-                        transform.LookAt(playerTransform.position, Vector3.up);
+                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
                     {
-                        transform.LookAt(playerTransform.position, Vector3.up);
+                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                         transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
                     }
@@ -118,7 +118,7 @@ public class EnemyBehaviour : MonoBehaviour
                     {
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                         transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
-                        transform.LookAt(playerTransform.position, Vector3.up);
+                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) <= explosionRange)
                     {
@@ -157,7 +157,10 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Debug.Log("player toma dano");
         }
-        enemySpawner.enemiesKilled++;
+        if(GetComponent<MinusOnDestroy>() == null)
+        {
+            enemySpawner.enemiesKilled++;
+        }
         Destroy(this.gameObject);
     }
 

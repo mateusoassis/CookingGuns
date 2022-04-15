@@ -14,6 +14,7 @@ public class TowerBulletBehaviour : MonoBehaviour
     public float slerpTime;
     public float currentSlerpTime;
     public float slerpSpeed;
+    public float spawnYOffset;
     // 1 = azul
     // 2 = verde
     // 3 = vermelha
@@ -53,7 +54,7 @@ public class TowerBulletBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Ground")
         {
-            GameObject jujuba = Instantiate(parent.gameObject.GetComponent<TowerBehaviour>().spawnObject, transform.position + new Vector3(0f, 0.67f, 0f), parent.rotation);
+            GameObject jujuba = Instantiate(parent.gameObject.GetComponent<TowerBehaviour>().spawnObject, new Vector3(transform.position.x, 0f, transform.position.z), parent.rotation);
             jujuba.transform.SetParent(parent);
             Destroy(this.gameObject);
         }

@@ -27,6 +27,7 @@ public class EnemyStats : MonoBehaviour
             Destroy(this.gameObject);
             if(GetComponent<MinusOnDestroy>() == null)
             {
+                Debug.Log(name);
                 enemySpawner.enemiesKilled++;
             }
             playerInfo.totalEnemiesKilled++;

@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy2Prefab;
     public GameObject enemy3Prefab;
     public GameObject enemy4Prefab;
+    public GameObject enemy5Prefab;
 
     [HideInInspector]
     public int enemiesKilled;
@@ -74,11 +75,11 @@ public class EnemySpawner : MonoBehaviour
 
     void EnemySelector()
     {
-        int enemyIndex = Random.Range(0,4);
+        int enemyIndex = Random.Range(0,5);
 
         if(enemyIndex == 0)
         {
-            Instantiate(enemy1Prefab, new Vector3(Random.Range(-13,13), 0f, Random.Range(-13,13)), Quaternion.identity);
+            Instantiate(enemy1Prefab, new Vector3(Random.Range(-13,13), 1.3f, Random.Range(-13,13)), Quaternion.identity);
             enemiesMax++;
         }
         else if(enemyIndex == 1)
@@ -88,12 +89,17 @@ public class EnemySpawner : MonoBehaviour
         }
         else if(enemyIndex == 2)
         {
-            Instantiate(enemy3Prefab, new Vector3(Random.Range(-13,13), 1.3f, Random.Range(-13,13)), Quaternion.identity);
+            Instantiate(enemy3Prefab, new Vector3(Random.Range(-13,13), 0f, Random.Range(-13,13)), Quaternion.identity);
             enemiesMax++;
         }
         else if(enemyIndex == 3)
         {
             Instantiate(enemy4Prefab, new Vector3(Random.Range(-13,13), 0f, Random.Range(-13,13)), Quaternion.identity);
+            enemiesMax++;
+        }
+        else if(enemyIndex == 4)
+        {
+            Instantiate(enemy5Prefab, new Vector3(Random.Range(-13,13), 0f, Random.Range(-13,13)), Quaternion.identity);
             enemiesMax++;
         }
     }

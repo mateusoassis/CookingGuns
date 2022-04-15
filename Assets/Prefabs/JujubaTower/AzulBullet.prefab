@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 4930038595164756812}
   - component: {fileID: 4930038595164756803}
   m_Layer: 0
-  m_Name: AzulTowerBullet
+  m_Name: AzulBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -312,7 +312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3974208373781145331}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -6.156, y: 4.911, z: -6.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 7378472684901550451}
@@ -335,7 +335,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
   m_Center: {x: 0, y: -0.2, z: 0}
 --- !u!54 &4930038595164756812
 Rigidbody:
@@ -369,9 +369,11 @@ MonoBehaviour:
   centerOffset: -5
   parent: {fileID: 0}
   jujubaType: 1
+  savedSlerpPosition: {x: 0, y: 0, z: 0}
   slerpTime: 45
   currentSlerpTime: 0
   slerpSpeed: 0
+  spawnYOffset: 0.33
 --- !u!1 &5602791807833012881
 GameObject:
   m_ObjectHideFlags: 0
