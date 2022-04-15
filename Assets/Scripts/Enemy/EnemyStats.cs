@@ -24,9 +24,9 @@ public class EnemyStats : MonoBehaviour
         enemyHealth -= damageTaken;
         if(enemyHealth <= 0)
         {            
-            playerInfo.totalEnemiesKilled++;
             Destroy(this.gameObject);
             enemySpawner.enemiesKilled++;
+            playerInfo.totalEnemiesKilled++;
 
             float realDropChance = 100 - dropChance;
             int u = Random.Range(0, 101);

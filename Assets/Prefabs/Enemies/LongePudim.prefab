@@ -555,7 +555,7 @@ MonoBehaviour:
   setBehaviour: 2
   isPlayerOnRange: 0
   enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
-  enemySpeed: 4
+  enemyMaxSpeed: 7
   stopDistance: 10
   retreatDistance: 8
   explosionObject: {fileID: 0}
@@ -569,7 +569,7 @@ MonoBehaviour:
   explosionCollision: 0
   blinking: 0
   explosionDamage: 0
-  timeBetweenShots: 7
+  timeBetweenShots: 5
   enemyAnimator: {fileID: 0}
   canMove: 0
 --- !u!114 &1245032554988754909

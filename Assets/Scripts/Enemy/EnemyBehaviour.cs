@@ -11,6 +11,8 @@ public class EnemyBehaviour : MonoBehaviour
     public Rigidbody enemyBulletPrefab;
 
     public float enemySpeed;
+    public float enemyMaxSpeed;
+    
     public float stopDistance;
     public float retreatDistance;
 
@@ -47,6 +49,7 @@ public class EnemyBehaviour : MonoBehaviour
         blinking = false;
         enemyAnimator = GetComponent<Animator>();
         canMove = true;
+        enemySpeed = enemyMaxSpeed;
     }
 
     // 1 = shooting + follow
@@ -196,5 +199,14 @@ public class EnemyBehaviour : MonoBehaviour
     {
         InvokeRepeating("Blink", 0.1f, 0.1f);
         yield return new WaitForSeconds(0.01f);
+    }
+
+    public void ZeroMovespeed()
+    {
+        enemySpeed = 0f;
+    }
+    public void NormalMovespeed()
+    {
+        enemySpeed = enemyMaxSpeed;
     }
 }
