@@ -20,18 +20,7 @@ public class TowerBulletBehaviour : MonoBehaviour
 
     void Start()
     {
-        if(jujubaType == 1)
-        {
-            parent = GameObject.Find("JujubãoAzul").GetComponent<Transform>();
-        }
-        else if(jujubaType == 2)
-        {
-            parent = GameObject.Find("JujubãoVerde").GetComponent<Transform>();
-        }
-        else if(jujubaType == 3)
-        {
-            parent = GameObject.Find("JujubãoVermelho").GetComponent<Transform>();
-        }
+        parent = transform.parent.GetComponent<Transform>();
         currentSlerpTime = 0f;
         savedSlerpPosition = parent.gameObject.GetComponent<TowerBehaviour>().slerpTarget.position;
     }

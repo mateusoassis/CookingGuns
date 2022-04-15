@@ -78,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
         if(enemyIndex == 0)
         {
-            Instantiate(enemy1Prefab, new Vector3(Random.Range(-13,13), 1.5f, Random.Range(-13,13)), Quaternion.identity);
+            Instantiate(enemy1Prefab, new Vector3(Random.Range(-13,13), 0f, Random.Range(-13,13)), Quaternion.identity);
             enemiesMax++;
         }
         else if(enemyIndex == 1)
@@ -93,7 +93,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if(enemyIndex == 3)
         {
-            Instantiate(enemy4Prefab, new Vector3(Random.Range(-13,13), 2.6f, Random.Range(-13,13)), Quaternion.identity);
+            Instantiate(enemy4Prefab, new Vector3(Random.Range(-13,13), 0f, Random.Range(-13,13)), Quaternion.identity);
             enemiesMax++;
         }
     }
