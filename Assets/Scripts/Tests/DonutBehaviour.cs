@@ -53,30 +53,34 @@ public class DonutBehaviour : MonoBehaviour
 
     void Update()
     {
-        HandleState();
-
-        if(rolling)
+        if(!playerTransform.GetComponent<_PlayerManager>().isFading)
         {
-            transform.position += rollDirection.normalized * rollSpeed * Time.deltaTime;
-        }
+            HandleState();
 
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-        if(distanceToPlayer < minRangeToLockTarget)
-        {
-            state = 2;
+            if(rolling)
+            {
+                transform.position += rollDirection.normalized * rollSpeed * Time.deltaTime;
+            }
+
+            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+            if(distanceToPlayer < minRangeToLockTarget)
+            {
+                state = 2;
+            }
+            
+            /*
+            if(!canWalk && !reset && !lookingAtPlayer && !isCooldown && !rolling && !reset)
+            {
+                StartCoroutine(CanWalkAgain());
+            }
+            */
+
+            if(isCooldown)
+            {
+                DoRollCooldown();
+            } 
         }
         
-        /*
-        if(!canWalk && !reset && !lookingAtPlayer && !isCooldown && !rolling && !reset)
-        {
-            StartCoroutine(CanWalkAgain());
-        }
-        */
-
-        if(isCooldown)
-        {
-            DoRollCooldown();
-        } 
     }
 
     public void HandleState()

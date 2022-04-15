@@ -7,6 +7,7 @@ public class WASD : MonoBehaviour
 {
     public Button[] childButtons;
     public Transform disableTransform;
+    public Animator nextButtonAnimator;
 
     void Start()
     {
@@ -16,5 +17,10 @@ public class WASD : MonoBehaviour
     public void DisableButton()
     {
         disableTransform.gameObject.SetActive(false);
+    }
+
+    public void NextButtonPress()
+    {
+        nextButtonAnimator.SetTrigger("RepeatIdle");
     }
 }
