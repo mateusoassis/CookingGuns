@@ -91,6 +91,13 @@ public class _PlayerShooting : MonoBehaviour
                 if(Input.GetKey(KeyCode.Mouse0))
                 {
                     playerManager.playerMovement.PlayerAim();
+                    /*
+                    Vector3 lookTowards = playerManager.GetComponent<Transform>().transform.forward;
+                    lookTowards.x = 0f;
+                    lookTowards.z = 0f;
+            
+                    playerManager.playerMovement.lastInput = lookTowards.normalized;
+                    */
                 }
             }
             
@@ -139,11 +146,14 @@ public class _PlayerShooting : MonoBehaviour
         if(allowInvoke)
         {
             playerManager.isShooting = true;
+
             Invoke("ResetShot", timeBetweenShooting);
         }
 
         if(bulletsShot < bulletPerTap && bulletsLeft > 0)
         {
+            playerManager.isShooting = true;
+
             Invoke("Shoot", timeBetweenShots);
         }
     }

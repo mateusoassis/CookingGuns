@@ -27,7 +27,7 @@ public class _PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask playerAimLayerMask;
     private Quaternion newRotation;
     private Vector3 _input;
-    private Vector3 lastInput;
+    public Vector3 lastInput;
     //private float _turnSpeed = 360;
 
     void Start() 
@@ -54,6 +54,7 @@ public class _PlayerMovement : MonoBehaviour
         newRotation.z = 0f;
 
         transform.rotation = Quaternion.Slerp(newRotation, transform.rotation, Time.deltaTime);
+        //lastInput = new Vector3(transform.forward.x, 0f, transform.forward.y);
     }
 
     public void HandleMovement()
@@ -86,23 +87,27 @@ public class _PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        if(!playerManager.isShooting)
+        if(_input.x != 0 || _input.z != 0)
         {
-            if(!playerManager.isRolling)
+            if(!playerManager.isShooting)
             {
-                var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+                if(!playerManager.isRolling)
+                {
+                    var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
 
-                skewedInput = matrix.MultiplyPoint3x4(_input);
-                Vector3 skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
-            
-                playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * playerMoveSpeed * Time.deltaTime);
-                transform.forward = skewedLastInput.normalized;
+                    skewedInput = matrix.MultiplyPoint3x4(_input);
+                    Vector3 skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+                
+                    playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * playerMoveSpeed * Time.deltaTime);
+                    transform.forward = skewedLastInput.normalized;
+                }
+                else
+                {
+                    playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
+                }  
             }
-            else
-            {
-                playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
-            }  
         }
+        
         
     }
 
@@ -116,6 +121,17 @@ public class _PlayerMovement : MonoBehaviour
         else
         {
             rollCountTimer -= Time.deltaTime;
+        }
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            Debug.Log("encostou no escudo");
+            var dir = other.gameObject.GetComponent<Rigidbody>().velocity;
+            // dir = -dir;
+            playerRigidbody.velocity = dir * 10f;
         }
     }
 }
