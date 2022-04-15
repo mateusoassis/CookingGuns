@@ -532,7 +532,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3696089712701070413}
-  - component: {fileID: 3696089712701070411}
   - component: {fileID: 3696089712701070412}
   - component: {fileID: 3696089712701070410}
   - component: {fileID: 3696089712701070409}
@@ -560,39 +559,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3696089712701070411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3696089712701070414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd5117a903bcac347bbd85cf8934dc99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 1
-  timerToWalk: 0
-  timeToWalk: 2
-  canWalk: 0
-  targetWalk: {x: 0, y: 0, z: 0}
-  thisTransformUp: {x: 0, y: 0, z: 0}
-  minRangeToLockTarget: 8
-  playerTransform: {fileID: 0}
-  lookingAtPlayer: 0
-  cooldown: 1
-  cooldownFromHittingPlayer: 3
-  cooldownTimer: 0
-  timeToStartRolling: 0.6
-  isCooldown: 0
-  rollDuration: 5
-  donutAnimation: {fileID: 3696089712701070412}
-  rolling: 0
-  rollSpeed: 20
-  rollDirection: {x: 0, y: 0, z: 0}
-  backwardForce: 25
-  reset: 0
 --- !u!114 &3696089712701070412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,7 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 5373675364657473866}
-  donutBehaviour: {fileID: 3696089712701070411}
+  donutBehaviour: {fileID: 0}
 --- !u!54 &3696089712701070410
 Rigidbody:
   m_ObjectHideFlags: 0

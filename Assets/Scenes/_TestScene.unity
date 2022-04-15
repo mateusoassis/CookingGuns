@@ -1837,6 +1837,7 @@ MonoBehaviour:
   setBehaviour: 1
   isPlayerOnRange: 0
   enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
+  enemySpeed: 0
   enemyMaxSpeed: 5
   stopDistance: 10
   retreatDistance: 8
@@ -9659,7 +9660,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 255514052432303627}
-  - {fileID: 4310567172038631045}
   - {fileID: 9026235145712971773}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -9720,11 +9720,11 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255514052807337046}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: 3ebdf411c4265f048a042166eefb0fec, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &255514052807337046
 GameObject:
@@ -9739,15 +9739,64 @@ GameObject:
   - component: {fileID: 255514052807337043}
   - component: {fileID: 255514052807337044}
   - component: {fileID: 255514052807337040}
-  - component: {fileID: 255514052807337055}
   - component: {fileID: 255514052807337049}
-  m_Layer: 8
+  - component: {fileID: 255514052807337048}
+  - component: {fileID: 255514052807337047}
+  - component: {fileID: 255514052807337050}
+  m_Layer: 11
   m_Name: JujubaVerde
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &255514052807337047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255514052807337046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 938061eb9ebd133408ae0271026c9dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 1
+  timerToWalk: 0
+  timeToWalk: 2
+  canWalk: 0
+  targetWalk: {x: 0, y: 0, z: 0}
+  thisTransformUp: {x: 0, y: 0, z: 0}
+  minRangeToLockTarget: 8
+  playerTransform: {fileID: 0}
+  lookingAtPlayer: 0
+  cooldown: 1
+  cooldownFromHittingPlayer: 3
+  cooldownTimer: 0
+  timeToStartCharging: 0.6
+  isCooldown: 0
+  rollDuration: 5
+  chargeJujubaAnimator: {fileID: 255514052807337048}
+  rolling: 0
+  rollSpeed: 20
+  rollDirection: {x: 0, y: 0, z: 0}
+  backwardForce: 25
+  reset: 0
+--- !u!114 &255514052807337048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255514052807337046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80a52ebd51bbb148b021606d71066a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 255514052807337049}
+  chargeJujubaBehaviour: {fileID: 255514052807337047}
 --- !u!95 &255514052807337049
 Animator:
   serializedVersion: 3
@@ -9758,7 +9807,7 @@ Animator:
   m_GameObject: {fileID: 255514052807337046}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c072995f42455de4dbf35dd019cbe1d0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3ab17f6b950f65f4b96e76547143d77b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9767,39 +9816,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &255514052807337055
-MonoBehaviour:
+--- !u!54 &255514052807337050
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255514052807337046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1690f6e3fab4a343af1760a1ffb03db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  setBehaviour: 3
-  isPlayerOnRange: 0
-  enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
-  enemyMaxSpeed: 0
-  stopDistance: 2
-  retreatDistance: 1
-  explosionObject: {fileID: 3082439751323990026}
-  explosionObjectTransform: {fileID: 4310567172038631045}
-  explosionObjectMesh: {fileID: 8677001919151953167}
-  scaleExplosion: 6
-  explosionRange: 2
-  explosionTimerReset: 1.5
-  explosionTimer: 0
-  explosionSpeed: 4
-  explosionCollision: 0
-  blinking: 0
-  explosionDamage: 2
-  timeBetweenShots: 0
-  enemyAnimator: {fileID: 0}
-  canMove: 0
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 5
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 2
 --- !u!222 &255514053138048134
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10053,40 +10085,6 @@ PrefabInstance:
       objectReference: {fileID: 1112370941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7734d5da01430da47915be8d2c0db904, type: 3}
---- !u!64 &3037405328759645900
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3082439751323990026}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &3082439751323990026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4310567172038631045}
-  - component: {fileID: 8106280069056324703}
-  - component: {fileID: 8677001919151953167}
-  - component: {fileID: 3037405328759645900}
-  - component: {fileID: 4729445994360266365}
-  m_Layer: 8
-  m_Name: Explosion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1001 &3325013370408885563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10152,34 +10150,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5328ced2301fcb74b9b646b978b0ada4, type: 3}
---- !u!4 &4310567172038631045
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3082439751323990026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2, z: 0}
-  m_LocalScale: {x: 1, y: 0.25, z: 1}
-  m_Children: []
-  m_Father: {fileID: 255514052807337041}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4729445994360266365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3082439751323990026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c332cda862edf648bd51cf9a61b77a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyBehaviour: {fileID: 0}
-  playerTransform: {fileID: 0}
 --- !u!114 &4966216983938578328 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5239861433372928601, guid: 7734d5da01430da47915be8d2c0db904, type: 3}
@@ -10191,55 +10161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70759de1ab47024080c274be3e39182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!33 &8106280069056324703
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3082439751323990026}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8677001919151953167
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3082439751323990026}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 2db5de2c65a9c464392bdef74d4a2c33, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &9026235145712971772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10357,7 +10278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7622987937013685510, guid: 4af2a1a3e76b7ca4da1601102ad36bce, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000029504295
+      value: 0.0000038541166
       objectReference: {fileID: 0}
     - target: {fileID: 7622987937013685510, guid: 4af2a1a3e76b7ca4da1601102ad36bce, type: 3}
       propertyPath: m_LocalRotation.x
