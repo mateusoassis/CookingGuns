@@ -21,6 +21,7 @@ public class _PlayerMovement : MonoBehaviour
     public float rollCountTimer = 0f;
     public float rollCountDuration;
     public Vector3 skewedInput;
+    public Vector3 dir;
 
     [Header("Player LookAt Mouse")]
     private Vector3 playerAimPosition;
@@ -126,12 +127,14 @@ public class _PlayerMovement : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
+        /*
         if(other.gameObject.tag == "Enemy")
         {
-            Debug.Log("encostou no escudo");
-            var dir = other.gameObject.GetComponent<Rigidbody>().velocity;
+            Debug.Log("encostou no inimigo " + other.gameObject.name);
+            dir = other.gameObject.GetComponent<Rigidbody>().velocity;
             // dir = -dir;
             playerRigidbody.velocity = dir * 10f;
         }
+        */
     }
 }
