@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShieldGirl : MonoBehaviour
 {
     public int state;
+    // 0 = parado sem olhar pra nada
     // 1 = parado + olhando para o player
     // 2 = andando + olhando para o player
 
@@ -21,6 +22,9 @@ public class ShieldGirl : MonoBehaviour
 
     public Transform player;
     public bool canMove;
+    public bool sitStill;
+
+    public MeshRenderer areaDamageMesh;
 
     void Start()
     {
@@ -61,19 +65,26 @@ public class ShieldGirl : MonoBehaviour
     public void WalkToPlayer()
     {
         Vector3 moveTowards = new Vector3(player.position.x, transform.position.y, player.position.z);
-        selfRigidbody.MovePosition(transform.position + moveTowards * moveSpeed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, moveTowards, moveSpeed * Time.fixedDeltaTime);
     }
 
     public void CheckPlayerDistance()
     {
-        if(Vector3.Distance(transform.position, player.position) < minDistance)
+        if(!sitStill)
         {
-            state = 1;
+            if(Vector3.Distance(transform.position, player.position) < minDistance)
+            {
+                state = 1;
+            }
+            else
+            {
+                state = 2;
+            }
         }
         else
         {
-            state = 2;
-        }
+            state = 0;
+        } 
     }
 
     public void ShieldyWasHit()
