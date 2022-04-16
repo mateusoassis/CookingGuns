@@ -124,17 +124,4 @@ public class _PlayerMovement : MonoBehaviour
             rollCountTimer -= Time.deltaTime;
         }
     }
-
-    public void OnCollisionEnter(Collision other)
-    {
-        /*
-        if(other.gameObject.tag == "Enemy")
-        {
-            Debug.Log("encostou no inimigo " + other.gameObject.name);
-            dir = other.gameObject.GetComponent<Rigidbody>().velocity;
-            // dir = -dir;
-            playerRigidbody.velocity = dir * 10f;
-        }
-        */
-    }
 }

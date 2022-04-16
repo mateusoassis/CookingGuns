@@ -7,6 +7,7 @@ public class ShieldGuyBehaviour : MonoBehaviour
     public int state;
     // 1 = parado + olhando para o player
     // 2 = andando + olhando para o player
+    public Rigidbody self;
     public float turnSpeed;
     public float maxTurnSpeed;
     public float moveSpeed;
@@ -18,9 +19,12 @@ public class ShieldGuyBehaviour : MonoBehaviour
     public Quaternion selfRotation;
     public Transform[] allies;
 
+    public bool canMove = true;
+
 
     void Start()
     {
+        self = GetComponent<Rigidbody>();
         player = GameObject.Find("Player").GetComponent<Transform>();
         moveSpeed = maxMoveSpeed;
         turnSpeed = maxTurnSpeed;
@@ -29,14 +33,19 @@ public class ShieldGuyBehaviour : MonoBehaviour
     void Update()
     {
         CheckPlayerDistance();
-
+    }
+    void FixedUpdate()
+    {
         if(state == 1)
         {
             LookAtPlayer();
         }
         else if(state == 2)
         {
-            WalkAndLookAtPlayer();
+            if(canMove)
+            {
+                WalkAndLookAtPlayer();
+            }
         }
     }
 
@@ -59,7 +68,7 @@ public class ShieldGuyBehaviour : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, selfRotation, turnSpeed);
 
         Vector3 movePosition = new Vector3(player.position.x, transform.position.y, player.position.z);
-        transform.position = Vector3.MoveTowards(transform.position, movePosition, moveSpeed * Time.deltaTime);
+        self.MovePosition(transform.position + (movePosition * moveSpeed * Time.deltaTime));
     }
     public void CheckPlayerDistance()
     {
@@ -71,5 +80,17 @@ public class ShieldGuyBehaviour : MonoBehaviour
         {
             state = 2;
         }
+    }
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Debug.Log(transform.position + " " + other.gameObject.transform.position);
+            Debug.Log("encostou no player");
+            Vector3 dir = self.GetComponent<Rigidbody>().velocity;
+            // dir = -dir;
+            other.gameObject.GetComponent<Rigidbody>().AddForce(dir * 10f, ForceMode.Impulse);
+            canMove = false;
+        }  
     }
 }

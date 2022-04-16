@@ -14,6 +14,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     // no preparamento pra rolar, tem o trigger pra ativar animação
     // após acabar a duração do rolamento, para a animação de rolar e volta pro idle
 
+    public int damage;
     public int state;
     public float timerToWalk;
     public float timeToWalk;
@@ -56,16 +57,27 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         //playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
+    void FixedUpdate()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if(rolling && !playerTransform.GetComponent<_PlayerManager>().isFading)
+        {
+            rb.MovePosition(transform.position + rollDirection.normalized * rollSpeed * Time.deltaTime);
+        }
+
+    }
     void Update()
     {
         if(!playerTransform.GetComponent<_PlayerManager>().isFading)
         {
             HandleState();
 
+            /*
             if(rolling)
             {
                 transform.position += rollDirection.normalized * rollSpeed * Time.deltaTime;
             }
+            */
 
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if(distanceToPlayer < minRangeToLockTarget)
@@ -174,22 +186,15 @@ public class ChargeJujubaBehaviour : MonoBehaviour
             //canWalk = true;
             canWalk = true;
         }
-        else if(other.gameObject.tag == "Wall" && !rolling)
-        {
-            //GetComponent<Rigidbody>().AddForce(-transform.forward * rollSpeed, ForceMode.Impulse);
-            //GetComponent<Rigidbody>().AddForce(-rollDirection * rollSpeed/10f, ForceMode.Impulse);
-            Debug.Log(name + " não toma knockback");
-        }
-
-        if(other.gameObject.tag == "Player" && rolling)
+        else if(other.gameObject.tag == "Player" && rolling)
         {
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
             other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
-            Debug.Log(name + " acerta o player");
+
+            other.gameObject.GetComponent<_PlayerStats>().TakeHPDamage(damage);
+
             StopAllCoroutines();
             chargeJujubaAnimator.StopRoll();
-            //other.GetComponent<Rigidbody>().AddForce(new Vector3(transform.position.x, other.transform.position.y, transform.position.z) * rollSpeed, ForceMode.Impulse);
-            //canWalk = true;
             cooldownTimer = cooldownFromHittingPlayer;
             canWalk = true;
         }
