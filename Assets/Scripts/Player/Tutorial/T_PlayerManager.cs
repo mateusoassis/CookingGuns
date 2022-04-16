@@ -131,4 +131,10 @@ public class T_PlayerManager : MonoBehaviour
         isFading = false;
         tutorialFadeOut.startCheckpointCollider.enabled = true;
     }
+
+    public IEnumerator WaitFadeoutTutorial2()
+    {
+        yield return new WaitForSeconds(1f);
+        isFading = false;
+    }
 }
