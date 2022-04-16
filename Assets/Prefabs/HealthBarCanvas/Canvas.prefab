@@ -66,11 +66,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 3
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.488
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 4522085815077935942}
   - component: {fileID: 4522085815077935943}
   - component: {fileID: 4522085815077935940}
+  - component: {fileID: 3047266321429166758}
   m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4522085815077935943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,3 +356,20 @@ MonoBehaviour:
   cam: {fileID: 0}
   healthSlider: {fileID: 4522085814325068224}
   enemyStats: {fileID: 0}
+--- !u!114 &3047266321429166758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4522085815077935938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34868951aa1706c4ebbda720876226f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  selfImage: {fileID: 4522085814175099337}
+  timeToVanish: 3
+  timerToVanish: 0
+  startCount: 0
