@@ -124,11 +124,21 @@ public class T_PlayerManager : MonoBehaviour
         {
             // botar pra ir pra parte 2
         }
+        else if(other.gameObject.tag == "Pet")
+        {
+            
+        }
     }
     public IEnumerator WaitFadeout()
     {
         yield return new WaitForSeconds(1f);
         isFading = false;
         tutorialFadeOut.startCheckpointCollider.enabled = true;
+    }
+
+    public IEnumerator WaitFadeoutTutorial2()
+    {
+        yield return new WaitForSeconds(1f);
+        isFading = false;
     }
 }
