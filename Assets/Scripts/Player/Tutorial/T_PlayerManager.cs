@@ -124,6 +124,10 @@ public class T_PlayerManager : MonoBehaviour
         {
             // botar pra ir pra parte 2
         }
+        else if(other.gameObject.tag == "Pet")
+        {
+            
+        }
     }
     public IEnumerator WaitFadeout()
     {
