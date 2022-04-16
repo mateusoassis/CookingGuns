@@ -54,7 +54,6 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         cooldownTimer = cooldown;
         canWalk = true;
         state = 1;
-        //playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void FixedUpdate()
@@ -72,25 +71,11 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         {
             HandleState();
 
-            /*
-            if(rolling)
-            {
-                transform.position += rollDirection.normalized * rollSpeed * Time.deltaTime;
-            }
-            */
-
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
             if(distanceToPlayer < minRangeToLockTarget)
             {
                 state = 2;
             }
-            
-            /*
-            if(!canWalk && !reset && !lookingAtPlayer && !isCooldown && !rolling && !reset)
-            {
-                StartCoroutine(CanWalkAgain());
-            }
-            */
 
             if(isCooldown)
             {
@@ -166,7 +151,6 @@ public class ChargeJujubaBehaviour : MonoBehaviour
 
     public IEnumerator WaitAFewSeconds()
     {
-        //lookingAtPlayer = false;
         yield return new WaitForSeconds(timeToStartCharging);
         chargeJujubaAnimator.StartRoll();
         yield return new WaitForSeconds(0.2f);
@@ -183,7 +167,6 @@ public class ChargeJujubaBehaviour : MonoBehaviour
             Debug.Log(name + "toma knockback");
             StopAllCoroutines();
             chargeJujubaAnimator.StopRoll();
-            //canWalk = true;
             canWalk = true;
         }
         else if(other.gameObject.tag == "Player" && rolling)
