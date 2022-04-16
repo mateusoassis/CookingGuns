@@ -17,11 +17,5 @@ public class BulletScript : MonoBehaviour
             Debug.Log("inimigo de nome " + other.name);
             Destroy(this.gameObject);
         }
-        else if(other.gameObject.tag == "EnemyShield")
-        {
-            Debug.Log("inimigo de nome " + other.name);
-            Destroy(this.gameObject);
-        }
-
     }
 }

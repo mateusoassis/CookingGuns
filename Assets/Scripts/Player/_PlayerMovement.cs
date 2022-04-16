@@ -124,4 +124,12 @@ public class _PlayerMovement : MonoBehaviour
             rollCountTimer -= Time.deltaTime;
         }
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.transform.tag == "EnemyShield")
+        {
+            Debug.Log("encostei no shield");
+        }
+    }
 }
