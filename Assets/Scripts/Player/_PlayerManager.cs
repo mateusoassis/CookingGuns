@@ -10,6 +10,7 @@ public class _PlayerManager : MonoBehaviour
     public _PlayerShooting playerShootingPistol;
     public _PlayerShooting playerShootingShotgun;
     public _PlayerShooting playerShootingMachineGun;
+    public _PlayerShooting playerShootingGranadeLauncher;
     public _WeaponHandler playerWeaponHandler;
     public GameManager gameManager;
     public PetHandler petHandler;
@@ -34,6 +35,7 @@ public class _PlayerManager : MonoBehaviour
         playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
         playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
         playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
+        playerShootingGranadeLauncher = GameObject.Find("GranadeLauncher").GetComponent<_PlayerShooting>();
         playerMovement = GetComponent<_PlayerMovement>();
         animationHandler = GetComponent<_AnimationHandler>();   
         playerWeaponHandler = GetComponent<_WeaponHandler>();
@@ -116,6 +118,9 @@ public class _PlayerManager : MonoBehaviour
                 else if(playerWeaponHandler.weaponEquipped == 2)
                 {
                     playerShootingMachineGun.MyInput();
+                }else if(playerWeaponHandler.weaponEquipped == 3)
+                {
+                    playerShootingGranadeLauncher.MyInput();
                 }
                 
                 playerMovement.RollCountTimer();

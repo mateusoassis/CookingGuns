@@ -19,9 +19,9 @@ public class _WeaponHandler : MonoBehaviour
     void Awake()
     {
         playerManager = GetComponent<_PlayerManager>();
-        weaponIcons = new Transform[3];
-        weaponImages = new Image[3];
-        unlockedWeapons = new bool[3];        
+        weaponIcons = new Transform[4];
+        weaponImages = new Image[4];
+        unlockedWeapons = new bool[4];        
     }
 
     void Start()
@@ -29,10 +29,12 @@ public class _WeaponHandler : MonoBehaviour
         weaponIcons[0] = GameObject.Find("PistolIcon").GetComponent<Transform>();
         weaponIcons[1] = GameObject.Find("ShotgunIcon").GetComponent<Transform>();
         weaponIcons[2] = GameObject.Find("MachineGunIcon").GetComponent<Transform>();
+        weaponIcons[3] = GameObject.Find("GranadeLauncherIcon").GetComponent<Transform>();
         
         weaponImages[0] = GameObject.Find("PistolIcon").GetComponent<Image>();
         weaponImages[1] = GameObject.Find("ShotgunIcon").GetComponent<Image>();
         weaponImages[2] = GameObject.Find("MachineGunIcon").GetComponent<Image>();
+        weaponImages[3] = GameObject.Find("GranadeLauncherIcon").GetComponent<Image>();
 
 
         /*
@@ -91,6 +93,10 @@ public class _WeaponHandler : MonoBehaviour
         {
             ActivateMachineGun_();
             WeaponManager(weaponEquipped);
+        }else if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ActivateGranadeLauncher_();
+            WeaponManager(weaponEquipped);
         } 
     }
     public void ActivatePistol_()
@@ -105,6 +111,11 @@ public class _WeaponHandler : MonoBehaviour
     public void ActivateMachineGun_()
     {
         weaponEquipped = 2;  
+    }
+
+    public void ActivateGranadeLauncher_()
+    {
+        weaponEquipped = 3;  
     }
 
     public void UnlockPistol()

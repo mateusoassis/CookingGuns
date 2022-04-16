@@ -6,7 +6,9 @@ public class _PlayerShooting : MonoBehaviour
 {
     public GameObject bullet;
 
-    public GameObject granade;
+    public GameObject granadeLauncherTarget;
+
+    //public GameObject granade;
     //bullet force
     public float shootForce, upwardForce;
     //gun stats
@@ -40,6 +42,7 @@ public class _PlayerShooting : MonoBehaviour
         readyToShoot = true;
         playerManager = GetComponentInParent<_PlayerManager>();
         weaponHandler = GetComponentInParent<_WeaponHandler>();
+        granadeLauncherTarget = GameObject.Find("SlerpTarget");
     }
 
     public void MyInput()
@@ -58,7 +61,13 @@ public class _PlayerShooting : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
                 playerManager.playerMovement.PlayerAim();
-            }
+
+                /*if(weaponHandler.weaponEquipped == 3)
+                {
+                    granadeLauncherTarget.transform.position = playerManager.playerMovement.playerAimPosition;
+                    Debug.Log("troca porra");
+                }*/
+            }     
         }
 
         if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
@@ -133,6 +142,11 @@ public class _PlayerShooting : MonoBehaviour
         directionWithSpread = directionWithoutSpread + new Vector3(x, 0, z);
 
         GameObject currentBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
+        
+        if(weaponHandler.weaponEquipped == 3)
+        {
+            currentBullet.transform.SetParent(granadeLauncherTarget.transform);
+        }
 
         currentBullet.transform.forward = directionWithSpread.normalized;
 
@@ -158,7 +172,7 @@ public class _PlayerShooting : MonoBehaviour
         }
     }
 
-    public void Granade()
+    /*public void Granade()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -176,7 +190,7 @@ public class _PlayerShooting : MonoBehaviour
 
         GameObject currentGranade = Instantiate(granade, firePoint.position, Quaternion.identity);
         currentGranade.transform.position = Vector3.MoveTowards(currentGranade.transform.position, granadePoint, 100* Time.deltaTime);
-    }
+    }*/
 
     private void ResetShot()
     {

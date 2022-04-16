@@ -24,7 +24,7 @@ public class _PlayerMovement : MonoBehaviour
     public Vector3 dir;
 
     [Header("Player LookAt Mouse")]
-    private Vector3 playerAimPosition;
+    public Vector3 playerAimPosition;
     [SerializeField] private LayerMask playerAimLayerMask;
     private Quaternion newRotation;
     private Vector3 _input;
@@ -46,7 +46,12 @@ public class _PlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, float.MaxValue, playerAimLayerMask))
         {
-            playerAimPosition = new Vector3(hit.point.x , 0f, hit.point.z);
+            playerAimPosition = new Vector3(hit.point.x , 0f, hit.point.z); 
+
+            if(playerManager.playerWeaponHandler.weaponEquipped == 3)
+            {
+                playerManager.playerShootingGranadeLauncher.granadeLauncherTarget.transform.position = new Vector3 (playerAimPosition.x , 1f ,playerAimPosition.z);
+            }
         }
 
         newRotation = Quaternion.LookRotation(playerAimPosition - transform.position, Vector3.up);
