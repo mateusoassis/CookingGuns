@@ -61,12 +61,6 @@ public class _PlayerShooting : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
                 playerManager.playerMovement.PlayerAim();
-
-                /*if(weaponHandler.weaponEquipped == 3)
-                {
-                    granadeLauncherTarget.transform.position = playerManager.playerMovement.playerAimPosition;
-                    Debug.Log("troca porra");
-                }*/
             }     
         }
 
@@ -84,12 +78,6 @@ public class _PlayerShooting : MonoBehaviour
         {
             bulletsShot = 0;
 
-            /*
-            if(Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                playerManager.playerMovement.PlayerAim();
-            }
-            */
             if(weaponHandler.weaponEquipped != 2)
             {
                 Shoot();
@@ -97,22 +85,11 @@ public class _PlayerShooting : MonoBehaviour
             else
             {
                 Shoot();
-                if(Input.GetKey(KeyCode.Mouse0))
+                if(Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     playerManager.playerMovement.PlayerAim();
-                    /*
-                    Vector3 lookTowards = playerManager.GetComponent<Transform>().transform.forward;
-                    lookTowards.x = 0f;
-                    lookTowards.z = 0f;
-            
-                    playerManager.playerMovement.lastInput = lookTowards.normalized;
-                    */
                 }
             }
-            
-            
-
-            //Granade();
         }
     }
 
@@ -151,8 +128,7 @@ public class _PlayerShooting : MonoBehaviour
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         Vector3 forwardShooting = new Vector3(transform.forward.x, 0f, transform.forward.z) + new Vector3(x, 0, z);
-        currentBullet.GetComponent<Rigidbody>().AddForce(/*directionWithSpread.normalized*/forwardShooting.normalized * shootForce, ForceMode.Impulse);
-        //currentBullet.GetComponent<RigidBody>().AddForce(isometricCam.transform.up * upwardForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(forwardShooting.normalized * shootForce, ForceMode.Impulse);
 
         bulletsLeft--;
         bulletsShot++;
@@ -174,26 +150,6 @@ public class _PlayerShooting : MonoBehaviour
             Invoke("Shoot", timeBetweenShots);
         }
     }
-
-    /*public void Granade()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit hit;
-
-        Vector3 granadePoint;
-
-        if(Physics.Raycast(ray, out hit))
-        {
-            granadePoint = hit.point;
-        }else
-        {
-            granadePoint = ray.GetPoint(75);
-        }
-
-        GameObject currentGranade = Instantiate(granade, firePoint.position, Quaternion.identity);
-        currentGranade.transform.position = Vector3.MoveTowards(currentGranade.transform.position, granadePoint, 100* Time.deltaTime);
-    }*/
 
     private void ResetShot()
     {
