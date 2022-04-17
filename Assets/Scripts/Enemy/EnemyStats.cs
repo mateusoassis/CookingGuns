@@ -12,16 +12,34 @@ public class EnemyStats : MonoBehaviour
     public GameObject dropPrefab;
     public float dropChance;
     public PlayerInfo playerInfo;
+    public bool hitRecently;
+    public HealthbarBehaviour healthbarScript;
+    public bool underOneFourthHP;
 
     void Start() {
         enemyHealth = enemyMaxHealth;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        healthbarScript = GetComponentInChildren<HealthbarBehaviour>();
     }
     
     public void TakeDamage(int damageTaken)
     {
         enemyHealth -= damageTaken;
+        if((float)enemyMaxHealth/4 > (float)enemyHealth)
+        {
+            underOneFourthHP = true;
+        }
+
+        if(underOneFourthHP)
+        {
+            healthbarScript.PermanentlyShowHP();
+        }
+        else
+        {
+            healthbarScript.StartCount();
+        }
+        
         if(enemyHealth <= 0)
         {            
             Destroy(this.gameObject);

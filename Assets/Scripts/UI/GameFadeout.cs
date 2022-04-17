@@ -14,13 +14,11 @@ public class GameFadeout : MonoBehaviour
 
     public void CoroutineToDisable()
     {
-        Debug.Log("corotina começa");
         StartCoroutine(playerManager.WaitFadeout());
              
     }
     public void DisableThisObject()
     {
-        Debug.Log("disable");
         this.gameObject.SetActive(false);
     }
 }
