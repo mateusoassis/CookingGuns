@@ -36,28 +36,12 @@ public class _WeaponHandler : MonoBehaviour
         weaponImages[2] = GameObject.Find("MachineGunIcon").GetComponent<Image>();
         weaponImages[3] = GameObject.Find("GranadeLauncherIcon").GetComponent<Image>();
 
-
-        /*
-        axeImage.color = Color.red;
-        pistolImage.color = Color.red;
-        axeUnlocked = false;
-        pistolUnlocked = false;
-        */
         UnlockPistol();
     }
 
     void Update()
     {
-        /*
-        if(axeUnlocked)
-        {
-            axeImage.color = Color.white;
-        }
-        if(pistolUnlocked)
-        {
-            pistolImage.color = Color.white;
-        }
-        */
+        
     }
 
     public void WeaponManager(int n)
@@ -106,7 +90,6 @@ public class _WeaponHandler : MonoBehaviour
     public void ActivateShotgun_()
     {
         weaponEquipped = 1;
-        // falta adicionar shotgun
     }
     public void ActivateMachineGun_()
     {
