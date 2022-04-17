@@ -310,7 +310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 684738876}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &27231512
 GameObject:
@@ -1302,7 +1302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 684738876}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &218784269
 GameObject:
@@ -1934,10 +1934,9 @@ Transform:
   m_GameObject: {fileID: 309368213}
   m_LocalRotation: {x: -0, y: -0.939812, z: -0, w: -0.34169212}
   m_LocalPosition: {x: 0.1870001, y: -0.1960001, z: -1.1150005}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 585748216}
-  - {fileID: 975379948}
   m_Father: {fileID: 981982420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2102,6 +2101,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 574167699}
+  - {fileID: 927501393}
+  - {fileID: 975379948}
   - {fileID: 543450652977390549}
   - {fileID: 1901446589}
   - {fileID: 981982420}
@@ -3661,7 +3662,7 @@ Transform:
   m_GameObject: {fileID: 585748215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 2}
   m_Children: []
   m_Father: {fileID: 309368214}
   m_RootOrder: 0
@@ -4402,7 +4403,6 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1939488489}
-  - {fileID: 927501393}
   - {fileID: 19619381}
   - {fileID: 215739084}
   m_Father: {fileID: 1901446589}
@@ -5869,7 +5869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 842398291}
   m_Layer: 0
-  m_Name: GrenadeLauncherTest
+  m_Name: GrenadeLauncherModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6526,7 +6526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927501393}
   m_Layer: 0
-  m_Name: FirePoint
+  m_Name: ShotgunFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6539,11 +6539,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927501392}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.624}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15638882, y: -0.110000014, z: 1.2213709}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 684738876}
+  m_Father: {fileID: 335983822}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955270199
@@ -7209,7 +7209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975379948}
   m_Layer: 0
-  m_Name: FirePoint
+  m_Name: MachineGunFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7222,12 +7222,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975379947}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.624}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15638894, y: -0.110000014, z: 1.206}
+  m_LocalScale: {x: 0.10000004, y: 0.1, z: 1}
   m_Children: []
-  m_Father: {fileID: 309368214}
-  m_RootOrder: 1
+  m_Father: {fileID: 335983822}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &981982419
 GameObject:
@@ -7269,7 +7269,7 @@ Transform:
   - {fileID: 146155278}
   - {fileID: 334932625}
   m_Father: {fileID: 335983822}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 219.96, z: 0}
 --- !u!114 &981982421
 MonoBehaviour:
@@ -12916,7 +12916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1901446589
 Transform:
   m_ObjectHideFlags: 0
@@ -12938,7 +12938,7 @@ Transform:
   - {fileID: 238310606}
   - {fileID: 1097139479}
   m_Father: {fileID: 335983822}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 219.96, z: 0}
 --- !u!114 &1901446590
 MonoBehaviour:
@@ -14854,7 +14854,7 @@ Transform:
   - {fileID: 5833962072232212541}
   - {fileID: 6073394285538048452}
   m_Father: {fileID: 335983822}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 219.96, z: 0}
 --- !u!4 &543450653600128516
 Transform:
@@ -14883,7 +14883,7 @@ Transform:
   - {fileID: 2219177373614172191}
   - {fileID: 6073394284843762709}
   m_Father: {fileID: 335983822}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &592232395487736023
 Transform:
@@ -14980,7 +14980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &919132148703410544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15010,7 +15010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &919132149129036991
 Animator:
   serializedVersion: 3
