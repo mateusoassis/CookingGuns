@@ -63,21 +63,21 @@ public class _WeaponHandler : MonoBehaviour
 
     public void SwitchGuns()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetKeyDown(KeyCode.Alpha1) && !playerManager.isShooting)
         {
             ActivatePistol_();
             WeaponManager(weaponEquipped);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        else if(Input.GetKeyDown(KeyCode.Alpha2) && !playerManager.isShooting)
         {
             ActivateShotgun_();
             WeaponManager(weaponEquipped);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha3))
+        else if(Input.GetKeyDown(KeyCode.Alpha3) && !playerManager.isShooting)
         {
             ActivateMachineGun_();
             WeaponManager(weaponEquipped);
-        }else if(Input.GetKeyDown(KeyCode.Alpha4))
+        }else if(Input.GetKeyDown(KeyCode.Alpha4) && !playerManager.isShooting)
         {
             ActivateGranadeLauncher_();
             WeaponManager(weaponEquipped);

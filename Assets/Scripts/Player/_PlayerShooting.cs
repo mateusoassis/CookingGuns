@@ -160,6 +160,8 @@ public class _PlayerShooting : MonoBehaviour
         if(allowInvoke)
         {
             playerManager.isShooting = true;
+            playerManager.animationHandler.GetWeaponInt();
+            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
 
             Invoke("ResetShot", timeBetweenShooting);
         }
@@ -167,7 +169,8 @@ public class _PlayerShooting : MonoBehaviour
         if(bulletsShot < bulletPerTap && bulletsLeft > 0)
         {
             playerManager.isShooting = true;
-
+            playerManager.animationHandler.GetWeaponInt();
+            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
             Invoke("Shoot", timeBetweenShots);
         }
     }

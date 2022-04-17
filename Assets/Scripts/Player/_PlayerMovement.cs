@@ -83,6 +83,8 @@ public class _PlayerMovement : MonoBehaviour
                 playerManager.isRolling = false;
                 playerManager.playerCapsuleCollider.enabled = true;
                 rollTimer = rollDuration;
+                playerManager.animationHandler.GetWeaponInt();
+                playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Rolling", false);
             }
             else
             { 
@@ -99,6 +101,8 @@ public class _PlayerMovement : MonoBehaviour
             {
                 if(!playerManager.isRolling)
                 {
+                    playerManager.animationHandler.GetWeaponInt();
+                    playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
                     var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
 
                     skewedInput = matrix.MultiplyPoint3x4(_input);
@@ -110,8 +114,17 @@ public class _PlayerMovement : MonoBehaviour
                 else
                 {
                     playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
+                    playerManager.animationHandler.GetWeaponInt();
+                    playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+                    playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Rolling", true);
                 }  
             }
+        }
+        else if(_input.x == 0 || _input.z == 0 && !playerManager.isRolling)
+        {
+            playerManager.isWalking = false;
+            playerManager.animationHandler.GetWeaponInt();
+            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
         }
         
         
