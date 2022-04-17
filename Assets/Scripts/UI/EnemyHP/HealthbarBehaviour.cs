@@ -35,10 +35,6 @@ public class HealthbarBehaviour : MonoBehaviour
 
             if(timerToVanish < 0)
             {
-<<<<<<< HEAD
-=======
-                //selfImage.enabled = false;
->>>>>>> Vacilo
                 StartCoroutine(ChangeImageAlpha(1f, 0f, 1f));
                 startCount = false;
             }
