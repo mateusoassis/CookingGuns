@@ -5,8 +5,8 @@ using UnityEngine;
 public class _PlayerManager : MonoBehaviour
 {
     public bool testing;
-    public _PlayerMovement playerMovement;
     public _AnimationHandler animationHandler;
+    public _PlayerMovement playerMovement;
     public _PlayerShooting playerShootingPistol;
     public _PlayerShooting playerShootingShotgun;
     public _PlayerShooting playerShootingMachineGun;
@@ -27,17 +27,18 @@ public class _PlayerManager : MonoBehaviour
     public bool isShooting;
     public bool isRolling;
     public bool isFading;
+    public bool isWalking;
     
     // public bool isOnCombat; à implementar no futuro, para travar a interação com a airfryer pra somente quando terminar a batalha (?)
 
     void Start()
     {
+        animationHandler = GetComponent<_AnimationHandler>();
         playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
         playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
         playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
         playerShootingGranadeLauncher = GameObject.Find("GranadeLauncher").GetComponent<_PlayerShooting>();
-        playerMovement = GetComponent<_PlayerMovement>();
-        animationHandler = GetComponent<_AnimationHandler>();   
+        playerMovement = GetComponent<_PlayerMovement>();  
         playerWeaponHandler = GetComponent<_WeaponHandler>();
         petHandler = GetComponent<PetHandler>();
         playerCapsuleCollider = GetComponent<CapsuleCollider>();

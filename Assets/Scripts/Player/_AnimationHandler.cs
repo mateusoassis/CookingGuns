@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class _AnimationHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public _PlayerManager playerManager;
+    public int weapon;
+    public Animator[] anim;
+
+    void Awake()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    void Start()
+    { 
+        GetWeaponInt();
+    }
+    
+    public void GetWeaponInt()
     {
-        
+        weapon = playerManager.playerWeaponHandler.weaponEquipped;
     }
 }

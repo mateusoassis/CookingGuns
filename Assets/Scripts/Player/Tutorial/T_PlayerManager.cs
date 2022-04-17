@@ -5,7 +5,6 @@ using UnityEngine;
 public class T_PlayerManager : MonoBehaviour
 {
     public TutorialPlayerMovement tutorialPlayerMovement;
-    public _AnimationHandler animationHandler;
     public _PlayerShooting playerShootingPistol;
     public _PlayerShooting playerShootingShotgun;
     public _PlayerShooting playerShootingMachineGun;
@@ -31,8 +30,7 @@ public class T_PlayerManager : MonoBehaviour
         playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
         playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
         playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
-        tutorialPlayerMovement = GetComponent<TutorialPlayerMovement>();
-        animationHandler = GetComponent<_AnimationHandler>();         
+        tutorialPlayerMovement = GetComponent<TutorialPlayerMovement>();        
         tutorialFadeOut = GetComponent<TutorialFadeOut>();
     }
     void Start()
