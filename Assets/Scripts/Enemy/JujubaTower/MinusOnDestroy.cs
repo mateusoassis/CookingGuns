@@ -6,11 +6,17 @@ public class MinusOnDestroy : MonoBehaviour
 {
     public Transform parent;
     public ChargeJujubaBehaviour chargeJujubaBehaviour;
+    public Transform playerTransform;
+
+    void Awake()
+    {
+        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+    }
 
     void Start()
     {
-        chargeJujubaBehaviour = GetComponent<ChargeJujubaBehaviour>();
-        if(!chargeJujubaBehaviour.playerTransform.GetComponent<_PlayerManager>().testing)
+        //chargeJujubaBehaviour = GetComponent<ChargeJujubaBehaviour>();
+        if(!playerTransform.GetComponent<_PlayerManager>().testing)
         {
             parent = transform.parent.GetComponent<Transform>();
         }
@@ -19,7 +25,7 @@ public class MinusOnDestroy : MonoBehaviour
 
     void OnDestroy()
     {
-        if(!chargeJujubaBehaviour.playerTransform.GetComponent<_PlayerManager>().testing)
+        if(!playerTransform.GetComponent<_PlayerManager>().testing)
         {
             parent.GetComponent<TowerBehaviour>().amountSpawned--;
         }
