@@ -3962,7 +3962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &670966320
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12908,6 +12908,7 @@ GameObject:
   - component: {fileID: 1901446592}
   - component: {fileID: 1901446591}
   - component: {fileID: 1901446590}
+  - component: {fileID: 1901446593}
   m_Layer: 0
   m_Name: Gato_Idle_Shotgun
   m_TagString: Untagged
@@ -13013,6 +13014,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1901446593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901446588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b6363dc597baf43a330fa2db5a8dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgunScript: {fileID: 684738875}
 --- !u!1 &1924840730
 GameObject:
   m_ObjectHideFlags: 0
@@ -14958,6 +14972,7 @@ GameObject:
   - component: {fileID: 756450392}
   - component: {fileID: 756450390}
   - component: {fileID: 756450391}
+  - component: {fileID: 919132148703410544}
   m_Layer: 0
   m_Name: Gato_Idle_Pistol
   m_TagString: Untagged
@@ -14965,6 +14980,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148703410544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148703410543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e37b6aef507414f9b1df567b0ee00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistolScript: {fileID: 6036147}
 --- !u!1 &919132149129036990
 GameObject:
   m_ObjectHideFlags: 0
@@ -16941,7 +16969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a34d3f245c9704bb82a7e4dfd30cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testing: 0
+  testing: 1
   animationHandler: {fileID: 0}
   playerMovement: {fileID: 0}
   playerShootingPistol: {fileID: 0}

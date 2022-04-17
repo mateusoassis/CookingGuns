@@ -80,10 +80,15 @@ public class _PlayerShooting : MonoBehaviour
 
             if(weaponHandler.weaponEquipped != 2)
             {
+                //playerManager.animationHandler.GetWeaponInt();
+                //playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
+                playerManager.playerMovement.PlayerAim();
                 Shoot();
             }
             else
             {
+                //playerManager.animationHandler.GetWeaponInt();
+                //playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
                 Shoot();
                 if(Input.GetKeyDown(KeyCode.Mouse0))
                 {
@@ -117,6 +122,8 @@ public class _PlayerShooting : MonoBehaviour
         float z = Random.Range(-spread, spread);
 
         directionWithSpread = directionWithoutSpread + new Vector3(x, 0, z);
+        
+        
 
         GameObject currentBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
         
@@ -137,7 +144,12 @@ public class _PlayerShooting : MonoBehaviour
         {
             playerManager.isShooting = true;
             playerManager.animationHandler.GetWeaponInt();
+            if(weaponHandler.weaponEquipped == 1)
+            {
+                playerManager.animationHandler.anim[playerManager.animationHandler.weapon].Play("ShootShotgun");
+            }
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
+            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
 
             Invoke("ResetShot", timeBetweenShooting);
         }
@@ -146,7 +158,13 @@ public class _PlayerShooting : MonoBehaviour
         {
             playerManager.isShooting = true;
             playerManager.animationHandler.GetWeaponInt();
+            if(weaponHandler.weaponEquipped == 1)
+            {
+                playerManager.animationHandler.anim[playerManager.animationHandler.weapon].Play("ShootShotgun");
+            }
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
+            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+
             Invoke("Shoot", timeBetweenShots);
         }
     }
