@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3441143134874793601}
   m_Layer: 0
   m_Name: 2_VerdeTower
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +56,7 @@ MonoBehaviour:
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropPrefabYOffset: 1.5
   dropChance: 50
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   hitRecently: 0

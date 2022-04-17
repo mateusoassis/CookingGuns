@@ -10,6 +10,7 @@ public class EnemyStats : MonoBehaviour
     public int enemyHealth;
     [SerializeField] private PlayerController playerController;
     public GameObject dropPrefab;
+    public float dropPrefabYOffset;
     public float dropChance;
     public PlayerInfo playerInfo;
     public bool hitRecently;
@@ -54,7 +55,7 @@ public class EnemyStats : MonoBehaviour
             int u = Random.Range(0, 101);
             if(u >= realDropChance)
             {
-                Instantiate(dropPrefab, transform.position, Quaternion.identity);
+                Instantiate(dropPrefab, transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
             }
         }
     }
