@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro; 
 
 public class CraftingMainScript : MonoBehaviour
 {   
@@ -13,7 +13,10 @@ public class CraftingMainScript : MonoBehaviour
     
     public List<Recipes> recipes;
     public List<Button> RecipesButton;
+    public List<TextMeshProUGUI> RecipesTexts;
     public List<string> MadeWeapons;
+    public _WeaponHandler weaponHandler;
+    
 
     int inventorySize;
     public List<int> recipeSize;
@@ -29,6 +32,7 @@ public class CraftingMainScript : MonoBehaviour
     }
     void Start(){
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
+        weaponHandler = GameObject.Find("Player").GetComponent<_WeaponHandler>(); 
         inventorySize = inventory.InventSize;
         for(int i = 0; i < recipes.Count; i++){
             recipeSize[i] = recipes[i].Ingredients.Count;
@@ -68,8 +72,15 @@ public class CraftingMainScript : MonoBehaviour
 
                 }
             }
-
-            MadeWeapons.Add(Item);
+            int index = 0;
+            for(int i = 0; i < recipes.Count; i++){
+                if(Item != recipes[i].Result){
+                    index++;
+                } else {
+                    return;
+                }
+            }
+            weaponHandler.unlockedWeapons[index] = true;
         } else {
             Debug.Log("Não pode Craftar!");
         }
@@ -81,4 +92,13 @@ public class CraftingMainScript : MonoBehaviour
         }
     }
 
+    public void ShowRecipeIngredients(){
+        for(int i = 0; i < recipes.Count; i++){
+            for(int j = 0; j < recipeSize[i]; j++){
+                RecipesTexts[i].text = RecipesTexts[i].text +"<br>"+ recipes[i].Ingredients[j];
+            
+            }
+        }
+        
+    }
 }

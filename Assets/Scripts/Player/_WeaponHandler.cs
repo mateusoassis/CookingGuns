@@ -21,7 +21,12 @@ public class _WeaponHandler : MonoBehaviour
         playerManager = GetComponent<_PlayerManager>();
         weaponIcons = new Transform[4];
         weaponImages = new Image[4];
-        unlockedWeapons = new bool[4];        
+        unlockedWeapons = new bool[4];
+        if(playerManager.testing){
+            for(int i = 0; i < 4; i++){
+                unlockedWeapons[i] = true;
+            }
+        }    
     }
 
     void Start()
@@ -68,16 +73,16 @@ public class _WeaponHandler : MonoBehaviour
             ActivatePistol_();
             WeaponManager(weaponEquipped);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha2) && !playerManager.isShooting)
+        else if(Input.GetKeyDown(KeyCode.Alpha2) && !playerManager.isShooting && unlockedWeapons[1])
         {
             ActivateShotgun_();
             WeaponManager(weaponEquipped);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha3) && !playerManager.isShooting)
+        else if(Input.GetKeyDown(KeyCode.Alpha3) && !playerManager.isShooting && unlockedWeapons[2])
         {
             ActivateMachineGun_();
             WeaponManager(weaponEquipped);
-        }else if(Input.GetKeyDown(KeyCode.Alpha4) && !playerManager.isShooting)
+        }else if(Input.GetKeyDown(KeyCode.Alpha4) && !playerManager.isShooting && unlockedWeapons[3])
         {
             ActivateGranadeLauncher_();
             WeaponManager(weaponEquipped);
@@ -127,4 +132,5 @@ public class _WeaponHandler : MonoBehaviour
     {
         unlockedWeapons[2] = false;
     } 
+    
 }

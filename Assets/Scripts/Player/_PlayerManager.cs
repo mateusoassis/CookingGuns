@@ -49,6 +49,12 @@ public class _PlayerManager : MonoBehaviour
 
         playerWeaponHandler.ActivatePistol_();
         playerWeaponHandler.WeaponManager(playerWeaponHandler.weaponEquipped);
+        /*if(testing){
+            for(int i = 0; i < 4; i++){
+                playerWeaponHandler.unlockedWeapons[i] = true;
+            }
+        }*/
+        
     }
 
     void Update()
@@ -101,6 +107,7 @@ public class _PlayerManager : MonoBehaviour
                 {
                     petHandler.OpenCraftingWindow();
                     craftingHandlerInPlayer.ShowCraftOptions();
+                    craftingHandlerInPlayer.ShowRecipeIngredients();
                 }
             }
 
