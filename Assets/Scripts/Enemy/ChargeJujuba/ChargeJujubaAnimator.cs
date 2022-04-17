@@ -9,7 +9,6 @@ public class ChargeJujubaAnimator : MonoBehaviour
 
     public void StartRoll()
     {
-        Debug.Log("inicia o roll");
         anim.SetTrigger("StartAttack");
         chargeJujubaBehaviour.rolling = true;
         chargeJujubaBehaviour.lookingAtPlayer = false;
@@ -17,11 +16,9 @@ public class ChargeJujubaAnimator : MonoBehaviour
 
     public void StopRoll()
     {
-        Debug.Log("para o roll");
         anim.SetTrigger("StopAttack");
         chargeJujubaBehaviour.rolling = false;
         chargeJujubaBehaviour.isCooldown = true;
         chargeJujubaBehaviour.state = 1;
-        //donutBehaviour.canWalk = true;
     }
 }
