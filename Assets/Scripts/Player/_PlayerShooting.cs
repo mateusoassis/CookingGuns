@@ -116,7 +116,7 @@ public class _PlayerShooting : MonoBehaviour
             targetPoint = ray.GetPoint(75);
         }
 
-        Vector3 directionWithoutSpread = targetPoint - firePoint.position;
+        Vector3 directionWithoutSpread = firePoint.forward;
 
         float x = Random.Range(-spread, spread);
         float z = Random.Range(-spread, spread);
@@ -135,7 +135,7 @@ public class _PlayerShooting : MonoBehaviour
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         Vector3 forwardShooting = new Vector3(transform.forward.x, 0f, transform.forward.z) + new Vector3(x, 0, z);
-        currentBullet.GetComponent<Rigidbody>().AddForce(forwardShooting.normalized * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(firePoint.forward.normalized * shootForce, ForceMode.Impulse);
 
         bulletsLeft--;
         bulletsShot++;
