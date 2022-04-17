@@ -16,7 +16,7 @@ public class CraftingMainScript : MonoBehaviour
     public List<TextMeshProUGUI> RecipesTexts;
     public List<string> MadeWeapons;
     public _WeaponHandler weaponHandler;
-    
+    bool showedWeapons;
 
     int inventorySize;
     public List<int> recipeSize;
@@ -93,11 +93,13 @@ public class CraftingMainScript : MonoBehaviour
     }
 
     public void ShowRecipeIngredients(){
-        for(int i = 0; i < recipes.Count; i++){
-            for(int j = 0; j < recipeSize[i]; j++){
-                RecipesTexts[i].text = RecipesTexts[i].text +"<br>"+ recipes[i].Ingredients[j];
-            
+        if(!showedWeapons){
+            for(int i = 0; i < recipes.Count; i++){
+                for(int j = 0; j < recipeSize[i]; j++){
+                    RecipesTexts[i].text = RecipesTexts[i].text +"<br>"+ recipes[i].Ingredients[j];
+                }
             }
+            showedWeapons = true;
         }
         
     }
