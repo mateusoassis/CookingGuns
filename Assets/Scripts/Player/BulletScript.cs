@@ -14,7 +14,6 @@ public class BulletScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            Debug.Log("inimigo de nome " + other.name);
             Destroy(this.gameObject);
         }
     }
