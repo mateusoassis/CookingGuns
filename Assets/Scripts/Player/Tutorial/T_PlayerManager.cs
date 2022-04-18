@@ -5,6 +5,7 @@ using UnityEngine;
 public class T_PlayerManager : MonoBehaviour
 {
     public TutorialPlayerMovement tutorialPlayerMovement;
+    public Animator animationHandler;
     public _PlayerShooting playerShootingPistol;
     public _PlayerShooting playerShootingShotgun;
     public _PlayerShooting playerShootingMachineGun;

@@ -21,7 +21,6 @@ public class _PlayerMovement : MonoBehaviour
     public float rollCountTimer = 0f;
     public float rollCountDuration;
     public Vector3 skewedInput;
-    public Vector3 dir;
 
     [Header("Player LookAt Mouse")]
     public Vector3 playerAimPosition;
@@ -60,7 +59,6 @@ public class _PlayerMovement : MonoBehaviour
         newRotation.z = 0f;
 
         transform.rotation = Quaternion.Slerp(newRotation, transform.rotation, Time.deltaTime);
-        //lastInput = new Vector3(transform.forward.x, 0f, transform.forward.y);
     }
 
     public void HandleMovement()
@@ -81,6 +79,10 @@ public class _PlayerMovement : MonoBehaviour
             if(rollTimer <= 0)
             {
                 playerManager.isRolling = false;
+                if(playerManager.sceneIndex == 1 || playerManager.sceneIndex == 2)
+                {
+                    playerManager.playerRigidbody.useGravity = true;
+                }
                 playerManager.playerCapsuleCollider.enabled = true;
                 rollTimer = rollDuration;
                 playerManager.animationHandler.GetWeaponInt();
@@ -116,7 +118,6 @@ public class _PlayerMovement : MonoBehaviour
                     playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
                     playerManager.animationHandler.GetWeaponInt();
                     playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
-                    playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Rolling", true);
                 }  
             }
         }
@@ -137,7 +138,7 @@ public class _PlayerMovement : MonoBehaviour
             rollCount = 0;
             rollCountTimer = rollCountDuration;
         }
-        else
+        else if(rollCount != 0)
         {
             rollCountTimer -= Time.deltaTime;
         }

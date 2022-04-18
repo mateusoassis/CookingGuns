@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class _PlayerManager : MonoBehaviour
 {
     public bool testing;
+    public Rigidbody playerRigidbody;
     public _AnimationHandler animationHandler;
     public _PlayerStats playerStats;
     public _PlayerMovement playerMovement;
@@ -23,6 +25,8 @@ public class _PlayerManager : MonoBehaviour
     public Inventory inventory;
     public GameFadeout gameFadeOut;
 
+    public int sceneIndex;
+
     
     [Header("Player Flags")]
     public bool isShooting;
@@ -30,8 +34,14 @@ public class _PlayerManager : MonoBehaviour
     public bool isFading;
     public bool isWalking;
 
+    void Awake()
+    {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+    
     void Start()
     {
+        playerRigidbody = GetComponent<Rigidbody>();
         animationHandler = GetComponent<_AnimationHandler>();
         playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
         playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
@@ -60,10 +70,15 @@ public class _PlayerManager : MonoBehaviour
                 if(playerMovement.rollCount < playerMovement.maxRoll)
                 {
                     isRolling = true;
-                    playerCapsuleCollider.enabled = false;
+                    playerRigidbody.useGravity = false;
+                    if(sceneIndex != 1 && sceneIndex != 2)
+                    {
+                        playerCapsuleCollider.enabled = false;
+                    }
                     playerMovement.rollTimer = playerMovement.rollDuration;
                     playerMovement.rollCount++;
                     playerInfo.totalTimesRolled++;
+                    animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
                 }
             }
 

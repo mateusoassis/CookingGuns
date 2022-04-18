@@ -13,9 +13,11 @@ public class PetHandler : MonoBehaviour
     public bool playerOnArea;
     public bool craftingWindowOpen;
     public GameObject craftingWindowObject;
+    public _PlayerManager playerManager;
 
     void Start()
     {
+        playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         pet = GameObject.Find("Pet").GetComponent<Transform>();
         pet.transform.parent = null;
         petChild = pet.transform.GetChild(0);
@@ -35,9 +37,12 @@ public class PetHandler : MonoBehaviour
 
     public void MoveTowardsPlayer()
     {
-        Vector3 moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
-        petNavMeshAgent.SetDestination(moveTowards);
-        petBillboard.ActivateOnEnemiesKilled();
+        if(playerManager.sceneIndex != 1 && playerManager.sceneIndex != 2)
+        {
+            Vector3 moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
+            petNavMeshAgent.SetDestination(moveTowards);
+            petBillboard.ActivateOnEnemiesKilled();
+        }  
     }
 
     public void OnTriggerEnter(Collider other)

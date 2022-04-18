@@ -19,6 +19,7 @@ public class T_WeaponHandler : MonoBehaviour
     void Awake()
     {
         tutorialPlayerManager = GetComponent<T_PlayerManager>();
+        DisableAll();
         //weaponIcons = new Transform[3];
         //weaponImages = new Image[3];
         //unlockedWeapons = new bool[3];        
@@ -43,8 +44,8 @@ public class T_WeaponHandler : MonoBehaviour
         axeUnlocked = false;
         pistolUnlocked = false;
         */
-        //UnlockPistol();
-        DisableAll();
+        UnlockPistol();
+        //DisableAll();
         
     }
 

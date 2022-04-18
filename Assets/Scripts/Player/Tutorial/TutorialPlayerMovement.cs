@@ -26,6 +26,7 @@ public class TutorialPlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask playerAimLayerMask;
     private Quaternion newRotation;
     private Vector3 _input;
+    public Vector3 lastInput;
 
     void Start() 
     {
@@ -41,7 +42,7 @@ public class TutorialPlayerMovement : MonoBehaviour
 
         if(Physics.Raycast(ray, out hit, float.MaxValue, playerAimLayerMask))
         {
-            playerAimPosition = new Vector3(hit.point.x , 0f, hit.point.z);
+            playerAimPosition = new Vector3(hit.point.x , 0f, hit.point.z); 
         }
 
         newRotation = Quaternion.LookRotation(playerAimPosition - transform.position, Vector3.up);
@@ -49,7 +50,7 @@ public class TutorialPlayerMovement : MonoBehaviour
         newRotation.x = 0f;
         newRotation.z = 0f;
 
-        transform.rotation = Quaternion.Slerp(newRotation, transform.rotation, Time.deltaTime * 30);
+        transform.rotation = Quaternion.Slerp(newRotation, transform.rotation, Time.deltaTime);
     }
 
     public void HandleMovement()
@@ -58,6 +59,10 @@ public class TutorialPlayerMovement : MonoBehaviour
         if(playerRigidbody.velocity.magnitude < playerMoveSpeed * multiplier && !tutorialPlayerManager.isRolling)
         {
             _input = new Vector3(Input.GetAxisRaw("Horizontal"),0, Input.GetAxisRaw("Vertical"));
+            if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                lastInput = _input;
+            }
         }
 
         // check de dash
@@ -89,7 +94,7 @@ public class TutorialPlayerMovement : MonoBehaviour
         else
         {
             playerRigidbody.MovePosition(transform.position + (skewedInput.normalized * rollSpeed * Time.deltaTime));
-        }  
+        }
     }
 
     public void RollCountTimer()

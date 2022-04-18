@@ -22,15 +22,25 @@ public class _WeaponHandler : MonoBehaviour
         weaponIcons = new Transform[4];
         weaponImages = new Image[4];
         unlockedWeapons = new bool[4];
-        if(playerManager.testing){
-            for(int i = 0; i < 4; i++){
-                unlockedWeapons[i] = true;
-            }
-        }    
+            
     }
 
     void Start()
     {   
+        if(playerManager.testing)
+        {
+            if(playerManager.sceneIndex != 1 && playerManager.sceneIndex != 2)
+            for(int i = 0; i < 4; i++){
+                unlockedWeapons[i] = true;
+            }
+            else
+            {
+                unlockedWeapons[0] = true;
+                unlockedWeapons[1] = false;
+                unlockedWeapons[2] = false;
+                unlockedWeapons[3] = false;
+            }
+        }
         weaponIcons[0] = GameObject.Find("PistolIcon").GetComponent<Transform>();
         weaponIcons[1] = GameObject.Find("ShotgunIcon").GetComponent<Transform>();
         weaponIcons[2] = GameObject.Find("MachineGunIcon").GetComponent<Transform>();

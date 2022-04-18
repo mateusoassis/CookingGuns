@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class T_BillBoardCanvas : MonoBehaviour
 {
+    /*
     public Transform cam;
     public Slider healthSlider;
-    public T_EnemyStats tutorialEnemyStats;
+    public _EnemyStats tutorialEnemyStats;
 
     void Start() 
     {
@@ -30,4 +31,5 @@ public class T_BillBoardCanvas : MonoBehaviour
     {
         transform.LookAt(transform.position + cam.forward);
     }
+    */
 }
