@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy4Prefab;
     public GameObject enemy5Prefab;
 
+    public Transform[] roomPositions;
+
     [HideInInspector]
     public int enemiesKilled;
     private int enemiesMax;

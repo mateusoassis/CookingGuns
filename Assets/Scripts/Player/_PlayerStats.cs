@@ -14,6 +14,8 @@ public class _PlayerStats : MonoBehaviour
     public int playerHealthFromPreviousRoom;
     public int playerMaxHealth;
 
+    public Animator playerTakeDamage;
+
     private void Awake()
     {
         playerCurrentHealth = playerMaxHealth;
@@ -29,6 +31,8 @@ public class _PlayerStats : MonoBehaviour
         {
             playerCurrentHealth = playerHealthFromPreviousRoom;
         }
+
+        playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
     }
 
     public void TestHeal()
@@ -41,5 +45,6 @@ public class _PlayerStats : MonoBehaviour
     {
         playerCurrentHealth -= damage;
         OnPlayerDamaged?.Invoke();
+        playerTakeDamage.SetTrigger("Pressed");
     }
 }
