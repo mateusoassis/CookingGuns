@@ -18,7 +18,15 @@ public class GameManager : MonoBehaviour
     
     public bool pausedGame;
     public bool confirmationWindowOpen;
-    
+
+    void Awake()
+    {
+        pauseUI = GameObject.Find("PauseUI");
+        restartConfirmationWindow = GameObject.Find("RestartConfirmationWindow");
+        quitConfirmationWindow = GameObject.Find("QuitConfirmationWindow");
+        timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
+    }
+
     void Start()
     {
         ResumeGame();

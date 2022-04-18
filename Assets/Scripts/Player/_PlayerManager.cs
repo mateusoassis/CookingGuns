@@ -55,6 +55,7 @@ public class _PlayerManager : MonoBehaviour
         playerStats = GetComponent<_PlayerStats>();
         craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
         inventory = GetComponent<Inventory>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         playerWeaponHandler.ActivatePistol_();
         playerWeaponHandler.WeaponManager(playerWeaponHandler.weaponEquipped);

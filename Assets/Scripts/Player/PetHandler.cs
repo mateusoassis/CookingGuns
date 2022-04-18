@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class PetHandler : MonoBehaviour
 {
+    public GameObject mainUI;
     public Transform pet;
     public Transform petChild;
     public NavMeshAgent petNavMeshAgent;
@@ -14,9 +15,11 @@ public class PetHandler : MonoBehaviour
     public bool craftingWindowOpen;
     public GameObject craftingWindowObject;
     public _PlayerManager playerManager;
+    
 
     void Start()
     {
+        mainUI = GameObject.Find("MainUI");
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         pet = GameObject.Find("Pet").GetComponent<Transform>();
         pet.transform.parent = null;
@@ -24,6 +27,7 @@ public class PetHandler : MonoBehaviour
         petNavMeshAgent = GameObject.Find("Pet").GetComponent<NavMeshAgent>();
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         playerOnArea = false;    
+        craftingWindowObject = mainUI.transform.Find("CraftingWindow").gameObject;
     }
 
     public void HandlePet()
