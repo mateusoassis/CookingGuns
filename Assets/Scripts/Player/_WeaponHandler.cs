@@ -55,13 +55,23 @@ public class _WeaponHandler : MonoBehaviour
         {
             if(i == n)
             {
-                weaponObjects[i].SetActive(true);
-                weaponImages[i].color = Color.green;
+                if(unlockedWeapons[n])
+                {
+                    weaponObjects[i].SetActive(true);
+                    weaponImages[i].color = Color.green;
+                }
             }
-            else
+            else if(i != n)
             {
                 weaponObjects[i].SetActive(false);
-                weaponImages[i].color = Color.white;
+                if(unlockedWeapons[i])
+                {
+                    weaponImages[i].color = Color.white;
+                }
+                else
+                {
+                    weaponImages[i].color = Color.red;
+                }
             }
         }
     }
@@ -144,7 +154,6 @@ public class _WeaponHandler : MonoBehaviour
                 WeaponManager(weaponEquipped);
             }
         }
-        
     }
 
     public void HealFromEatingWeapon()

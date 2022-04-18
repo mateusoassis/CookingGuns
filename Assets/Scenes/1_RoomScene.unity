@@ -5667,7 +5667,6 @@ GameObject:
   - component: {fileID: 6191805193554323490}
   - component: {fileID: 17857247806657293}
   - component: {fileID: 5971295899269316749}
-  - component: {fileID: 4054281204342289002}
   - component: {fileID: 4616386569446831370}
   - component: {fileID: 811847737}
   - component: {fileID: 4966216983938578328}
@@ -16700,27 +16699,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00005209446, y: 0.0146237565, z: 0.004657182}
     m_Extent: {x: 0.02546103, y: 0.0040604146, z: 0.0049057296}
   m_DirtyAABB: 0
---- !u!114 &4054281204342289002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811847731}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7231449fb5f62f348b4901a16ba4736c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pistol: {fileID: 0}
-  bulletSpeed: 40
-  bulletShootDelay: 0.2
-  pistolBulletPrefab: {fileID: -780011900864920927, guid: d46bfd836518f6d408757e7257572726, type: 3}
-  bulletSpawnerTransform: {fileID: 0}
-  weaponActive: 0
-  canShoot: 0
-  shootCooldown: 0
-  weaponHandler: {fileID: 0}
 --- !u!1 &4396829853473776288
 GameObject:
   m_ObjectHideFlags: 0
