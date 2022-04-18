@@ -10,14 +10,13 @@ public class HeartContainerManager : MonoBehaviour
     List<_PlayerHeartManager> hearts = new List<_PlayerHeartManager>();
 
     public GameObject[] heartsObjects;
-    public int heartController;
     public int hpLost;
     private int index;
 
     void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<_PlayerStats>();
-        heartsObjects = new GameObject[playerStats.playerMaxHealth];
+        //heartsObjects = new GameObject[playerStats.playerMaxHealth];
     }
 
     void Update()
@@ -54,9 +53,10 @@ public class HeartContainerManager : MonoBehaviour
 
     private void Start()
     {
-        DrawHearts();
+        //DrawHearts();
         hpLost = playerStats.playerMaxHealth - playerStats.playerCurrentHealth;
-        heartController = -hpLost;
+        //UpdateAllHearts();
+        /*
         if(hpLost == 0)
         {
             return;
@@ -68,6 +68,15 @@ public class HeartContainerManager : MonoBehaviour
                 UpdateHPonUI(playerStats.playerMaxHealth - heartController);
                 heartController--;
             }
+        }
+        */
+    }
+
+    public void UpdateAllHearts()
+    {
+        for(int i = 0; i < playerStats.playerMaxHealth; i++)
+        {
+            heartsObjects[i].GetComponent<HeartAnimatorScript>().CheckIfActiveOrNot();
         }
     }
 

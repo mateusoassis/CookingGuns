@@ -23,10 +23,6 @@ public class _PlayerStats : MonoBehaviour
     {
         playerCurrentHealth = playerMaxHealth;
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
-    }
-
-    void Start()
-    {
         if(playerHealthFromPreviousRoom == 0)
         {
             playerCurrentHealth = playerMaxHealth;
@@ -35,6 +31,19 @@ public class _PlayerStats : MonoBehaviour
         {
             playerCurrentHealth = playerHealthFromPreviousRoom;
         }
+    }
+
+    void Start()
+    {
+        /*
+        if(playerHealthFromPreviousRoom == 0)
+        {
+            playerCurrentHealth = playerMaxHealth;
+        }
+        else
+        {
+            playerCurrentHealth = playerHealthFromPreviousRoom;
+        }*/
 
         playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
     }
@@ -51,6 +60,7 @@ public class _PlayerStats : MonoBehaviour
     {
         playerCurrentHealth -= damage;
         heartScript.hpLost += damage;
+        heartScript.UpdateAllHearts();
         /*
         int loops = 0;
         while (loops < damage)
@@ -62,6 +72,7 @@ public class _PlayerStats : MonoBehaviour
         }
         */
 
+        /*
         if(heartScript.hpLost == 0)
         {
             return;
@@ -75,6 +86,7 @@ public class _PlayerStats : MonoBehaviour
                 
             }
         }
+        */
         //heartScript.UpdateHPonUI(playerCurrentHealth);
         //playerCurrentHealth -= damage;
         //OnPlayerDamaged?.Invoke();
