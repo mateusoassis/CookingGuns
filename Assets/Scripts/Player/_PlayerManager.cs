@@ -6,6 +6,7 @@ public class _PlayerManager : MonoBehaviour
 {
     public bool testing;
     public _AnimationHandler animationHandler;
+    public _PlayerStats playerStats;
     public _PlayerMovement playerMovement;
     public _PlayerShooting playerShootingPistol;
     public _PlayerShooting playerShootingShotgun;
@@ -28,8 +29,6 @@ public class _PlayerManager : MonoBehaviour
     public bool isRolling;
     public bool isFading;
     public bool isWalking;
-    
-    // public bool isOnCombat; à implementar no futuro, para travar a interação com a airfryer pra somente quando terminar a batalha (?)
 
     void Start()
     {
@@ -43,7 +42,7 @@ public class _PlayerManager : MonoBehaviour
         petHandler = GetComponent<PetHandler>();
         playerCapsuleCollider = GetComponent<CapsuleCollider>();
         gameFadeOut = GameObject.Find("FadeInFadeOut").GetComponent<GameFadeout>();
-
+        playerStats = GetComponent<_PlayerStats>();
         craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
         inventory = GetComponent<Inventory>();
 
@@ -122,6 +121,11 @@ public class _PlayerManager : MonoBehaviour
                 }else if(playerWeaponHandler.weaponEquipped == 3)
                 {
                     playerShootingGranadeLauncher.MyInput();
+                }
+
+                if(Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    playerWeaponHandler.HealFromEatingWeapon();
                 }
                 
                 playerMovement.RollCountTimer();

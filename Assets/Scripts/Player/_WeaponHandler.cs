@@ -68,7 +68,7 @@ public class _WeaponHandler : MonoBehaviour
 
     public void SwitchGuns()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1) && !playerManager.isShooting)
+        if(Input.GetKeyDown(KeyCode.Alpha1) && !playerManager.isShooting && unlockedWeapons[0])
         {
             ActivatePistol_();
             WeaponManager(weaponEquipped);
@@ -133,4 +133,50 @@ public class _WeaponHandler : MonoBehaviour
         unlockedWeapons[2] = false;
     } 
     
+    public void EatWeapon(int n)
+    {
+        if(CountBool(unlockedWeapons, true) >= 2)
+        {
+            if(unlockedWeapons[n])
+            {
+                unlockedWeapons[n] = false;
+                weaponEquipped = FindFirstTrueIndex(unlockedWeapons);
+                WeaponManager(weaponEquipped);
+            }
+        }
+        
+    }
+
+    public void HealFromEatingWeapon()
+    {
+        EatWeapon(weaponEquipped);
+    }
+
+    public static int CountBool(bool[] array, bool flag)
+    {
+        int n = 0;
+
+        for(int i = 0; i < array.Length; i++)
+        {
+            if(array[i] == flag)
+            {
+                n++;
+            }
+        }
+        return n;
+    }
+
+    public static int FindFirstTrueIndex(bool[] array)
+    {
+        int index = -1;
+        for(int i = 0; i < array.Length; i++)
+        {
+            if(array[i] == true)
+            {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
 }
