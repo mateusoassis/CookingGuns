@@ -11,12 +11,16 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
     
     public Vector3 rotationVector;
     public float rotationMultiplier;
-
-    [SerializeField] private float delayTimer;
-    private float durationTimer;
-    public float delayBetweenAnimations;
-    public float durationOfAnimations;
     public int lastAnimation;
+
+    [Header("Entre animações")]
+    [SerializeField] private float delayTimer;
+    public float delayBetweenAnimations;
+
+    [Header("Entre modelos")]
+    [SerializeField] private float durationTimer;
+    public float durationOfModels;
+    
     // 0 = walking
     // 1 = shooting
 
@@ -37,16 +41,18 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
         }
 
         delayTimer = delayBetweenAnimations;
+        durationTimer = durationOfModels;
     }
 
     void Update()
     {
         transform.Rotate(rotationVector * Time.deltaTime * rotationMultiplier);
 
-        UseAnimationWhenTimeZero();
+        UseAnimationWhenTimerZero();
+        SwapModelWhenTimerZero();
     }
 
-    public void UseAnimationWhenTimeZero()
+    public void UseAnimationWhenTimerZero()
     {
         if(delayTimer < 0 && lastAnimation == 0)
         {
@@ -59,7 +65,7 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
             {
                 anim[modelIndex].SetTrigger("Shoot");
             }
-            delayTimer = delayBetweenAnimations;
+            delayTimer = delayBetweenAnimations + Random.Range(0, 6);
             lastAnimation = 1;
         }
         else
@@ -70,13 +76,38 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
         if(delayTimer < 0 && lastAnimation == 1)
         {
             anim[modelIndex].SetBool("Walking", true);
-            delayTimer = delayBetweenAnimations;
+            delayTimer = delayBetweenAnimations + Random.Range(0, 6);
             lastAnimation = 0;
         }
         else
         {
             delayTimer -= Time.deltaTime;
         }
+    }
 
+    public void SwapModelWhenTimerZero()
+    {
+        if(durationTimer < 0)
+        {
+            modelIndex = Random.Range(0, characterModels.Length);
+
+            for(int n = 0; n < characterModels.Length; n++)
+            {
+                if(n == modelIndex)
+                {
+                    characterModels[n].SetActive(true);
+                }
+                else
+                {
+                    characterModels[n].SetActive(false);
+                }
+            }
+            durationTimer = durationOfModels;
+            delayTimer = 6f;
+        }
+        else
+        {
+            durationTimer -= Time.deltaTime;
+        }
     }
 }

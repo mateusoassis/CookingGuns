@@ -133,7 +133,7 @@ public class _PlayerShooting : MonoBehaviour
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         Vector3 forwardShooting = new Vector3(transform.forward.x, 0f, transform.forward.z) + new Vector3(x, 0, z);
-        currentBullet.GetComponent<Rigidbody>().AddForce(firePoint.forward.normalized * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce((firePoint.forward.normalized + directionWithSpread.normalized) * shootForce, ForceMode.Impulse);
 
         bulletsLeft--;
         bulletsShot++;
