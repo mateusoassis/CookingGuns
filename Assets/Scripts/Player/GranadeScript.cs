@@ -6,6 +6,8 @@ public class GranadeScript : MonoBehaviour
 {
     public Vector3 savedSlerpPosition;
 
+    public GameObject explosionArea;
+
     public Vector3 centerPivot;
     public float centerOffset;
     public Transform parent;
@@ -48,5 +50,14 @@ public class GranadeScript : MonoBehaviour
 
         slerpSpeed = currentSlerpTime / slerpTime;
         transform.SetParent(null);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Ground")
+        {
+            transform.rotation = Quaternion.identity;
+            explosionArea.SetActive(true);
+        }
     }
 }

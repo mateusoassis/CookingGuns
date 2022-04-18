@@ -68,6 +68,14 @@ public class EnemyStats : MonoBehaviour
             {
                 TakeDamage(bulletScript.damageDone);
             }
+
+        }
+        if(other.gameObject.tag == "PlayerGranade")
+        {
+            if((other.gameObject.TryGetComponent(out GranadeAreaDamage granadeAreaDamage)))
+            {
+                TakeDamage(granadeAreaDamage.damageDone);
+            }
         }
     }
 }

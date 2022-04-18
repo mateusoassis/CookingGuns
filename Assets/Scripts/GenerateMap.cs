@@ -16,7 +16,7 @@ public class GenerateMap : MonoBehaviour
 
     void RoomSelector()
     {
-        int roomNumber = Random.Range(0,5);
+        int roomNumber = Random.Range(0,6);
 
         if(roomNumber == 1)
         {

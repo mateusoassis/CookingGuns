@@ -122,8 +122,6 @@ public class _PlayerShooting : MonoBehaviour
         float z = Random.Range(-spread, spread);
 
         directionWithSpread = directionWithoutSpread + new Vector3(x, 0, z);
-        
-        
 
         GameObject currentBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
         
