@@ -23,7 +23,8 @@ public class MenuManager : MonoBehaviour
         {
             if(!playerInfo.hasPlayedTutorial)
             {
-                SceneManager.LoadScene("_TutorialScene", LoadSceneMode.Single);
+                playerInfo.hasPlayedTutorial = true;
+                SceneManager.LoadScene("0_1_Tutorial", LoadSceneMode.Single);
             }
             else
             {
