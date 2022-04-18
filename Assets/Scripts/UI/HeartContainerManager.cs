@@ -127,6 +127,7 @@ public class HeartContainerManager : MonoBehaviour
             if(n < i)
             {
                 heartsObjects[i].GetComponent<Animator>().SetTrigger("Normal");
+                heartsObjects[i].GetComponent<HeartAnimatorScript>().state = 0;
             }
         }
     }
