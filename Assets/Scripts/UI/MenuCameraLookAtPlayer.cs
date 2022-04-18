@@ -39,9 +39,10 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
                 characterModels[n].SetActive(false);
             }
         }
-
         delayTimer = delayBetweenAnimations;
         durationTimer = durationOfModels;
+
+        transform.Rotate((rotationVector * rotationMultiplier * Random.Range(-5, 6)) + (Random.Range(-rotationMultiplier, rotationMultiplier) * rotationVector));
     }
 
     void Update()
