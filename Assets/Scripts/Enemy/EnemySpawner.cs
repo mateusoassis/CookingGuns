@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
         roomCleared = false;
         if(!playerManager.testing)
         {
-            SpawnEnemies();
+            //SpawnEnemies();
         }
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         petHandler = GameObject.Find("Player").GetComponent<PetHandler>();
