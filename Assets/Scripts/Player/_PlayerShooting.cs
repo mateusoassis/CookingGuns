@@ -50,7 +50,7 @@ public class _PlayerShooting : MonoBehaviour
         if(allowButtonHold)
         {
             shooting = Input.GetKey(KeyCode.Mouse0);
-            if(Input.GetKeyDown(KeyCode.Mouse0))
+            if(Input.GetKey(KeyCode.Mouse0)&& bulletsLeft > 0)
             {
                 playerManager.playerMovement.PlayerAim();
             }
@@ -58,7 +58,7 @@ public class _PlayerShooting : MonoBehaviour
         }else
         {
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
-            if(Input.GetKeyDown(KeyCode.Mouse0))
+            if(Input.GetKeyDown(KeyCode.Mouse0) && bulletsLeft > 0)
             {
                 playerManager.playerMovement.PlayerAim();
             }     
@@ -141,11 +141,13 @@ public class _PlayerShooting : MonoBehaviour
         if(allowInvoke)
         {
             playerManager.isShooting = true;
+            StartCoroutine("ResetWalk");
             playerManager.animationHandler.GetWeaponInt();
             if(weaponHandler.weaponEquipped == 1)
             {
                 playerManager.animationHandler.anim[playerManager.animationHandler.weapon].Play("ShootShotgun");
             }
+            
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
 
@@ -155,14 +157,16 @@ public class _PlayerShooting : MonoBehaviour
         if(bulletsShot < bulletPerTap && bulletsLeft > 0)
         {
             playerManager.isShooting = true;
+            StartCoroutine("ResetWalk");
             playerManager.animationHandler.GetWeaponInt();
+            
             if(weaponHandler.weaponEquipped == 1)
             {
                 playerManager.animationHandler.anim[playerManager.animationHandler.weapon].Play("ShootShotgun");
             }
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
-
+    
             Invoke("Shoot", timeBetweenShots);
         }
     }
@@ -178,6 +182,12 @@ public class _PlayerShooting : MonoBehaviour
     {
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
+    }
+
+    public IEnumerator ResetWalk()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerManager.isShooting = false;
     }
 
     private void ReloadFinished()
