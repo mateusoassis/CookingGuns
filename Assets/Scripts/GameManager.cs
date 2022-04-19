@@ -30,9 +30,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        pauseUI = GameObject.Find("PauseUI");
+        /*pauseUI = GameObject.Find("PauseUI");
         restartConfirmationWindow = GameObject.Find("RestartConfirmationWindow");
-        quitConfirmationWindow = GameObject.Find("QuitConfirmationWindow");
+        quitConfirmationWindow = GameObject.Find("QuitConfirmationWindow");*/
         timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
