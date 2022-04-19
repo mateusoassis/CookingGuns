@@ -441,8 +441,12 @@ MonoBehaviour:
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropPrefabYOffset: 0
   dropChance: 0
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
+  hitRecently: 0
+  healthbarScript: {fileID: 0}
+  underOneFourthHP: 0
 --- !u!114 &2215548598762305807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   chargeJujubaBehaviour: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!54 &-5475905030273591589
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -575,7 +580,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031838239753069914}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
