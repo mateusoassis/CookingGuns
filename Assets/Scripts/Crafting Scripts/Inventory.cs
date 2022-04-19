@@ -13,9 +13,9 @@ public class Inventory : MonoBehaviour
 
     //public BaseItem temp;
 
-    public List<TextMeshProUGUI> InventoryQuantityText;
+    public TextMeshProUGUI InventoryQuantityText;
 
-    void Update(){
+    void Start(){
         InventSize = Invent.Count;
     }
     
@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
             if (item == Invent[i].Name){
                 Invent[i].Quantity++;
                 Debug.Log("Você tem " + Invent[i].Quantity + " " + Invent[i].Name);
-                UpdateItem();
+                //UpdateItem();
                 return;
             }
         }
@@ -67,8 +67,9 @@ public class Inventory : MonoBehaviour
     }
     
     public void UpdateItem(){
-        for(int i = 0; i < InventoryQuantityText.Count; i++){
-            InventoryQuantityText[i].text = Invent[i].Quantity.ToString() + " x " + Invent[i].Name;
+        InventoryQuantityText.text = "";
+        for(int i = 0; i < InventSize-1; i++){
+            InventoryQuantityText.text = InventoryQuantityText.text +"\n" +Invent[i].Quantity.ToString() + " x " + Invent[i].Name;
         }
     }
 
