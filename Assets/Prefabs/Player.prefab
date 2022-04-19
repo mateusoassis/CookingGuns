@@ -781,7 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1375973836160515176, guid: d46bfd836518f6d408757e7257572726, type: 3}
-  granade: {fileID: 0}
+  granadeLauncherTarget: {fileID: 0}
   shootForce: 40
   upwardForce: 0
   timeBetweenShooting: 0.1
@@ -797,6 +797,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
   playerManager: {fileID: 0}
+  weaponHandler: {fileID: 0}
 --- !u!1 &890646469711180265
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1375973836160515176, guid: d46bfd836518f6d408757e7257572726, type: 3}
-  granade: {fileID: 1375973836160515176, guid: d46bfd836518f6d408757e7257572726, type: 3}
+  granadeLauncherTarget: {fileID: 0}
   shootForce: 30
   upwardForce: 0
   timeBetweenShooting: 0.2
@@ -921,6 +922,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
   playerManager: {fileID: 0}
+  weaponHandler: {fileID: 0}
 --- !u!1 &890646469858017228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1097,7 @@ GameObject:
   - component: {fileID: 890646470074437111}
   - component: {fileID: 890646470074437108}
   - component: {fileID: 890646470074437109}
+  - component: {fileID: 3013335676725232086}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1135,18 +1138,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a34d3f245c9704bb82a7e4dfd30cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
+  testing: 0
+  playerRigidbody: {fileID: 0}
   animationHandler: {fileID: 0}
+  playerStats: {fileID: 0}
+  playerMovement: {fileID: 0}
   playerShootingPistol: {fileID: 0}
   playerShootingShotgun: {fileID: 0}
   playerShootingMachineGun: {fileID: 0}
+  playerShootingGranadeLauncher: {fileID: 0}
   playerWeaponHandler: {fileID: 0}
   gameManager: {fileID: 0}
   petHandler: {fileID: 0}
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   playerCapsuleCollider: {fileID: 0}
+  playerWallCollider: {fileID: 0}
+  craftingHandlerInPlayer: {fileID: 0}
+  InventoryHandler: {fileID: 0}
+  inventory: {fileID: 0}
+  gameFadeOut: {fileID: 0}
+  sceneIndex: 0
   isShooting: 0
   isRolling: 0
+  isFading: 0
+  isWalking: 0
 --- !u!114 &892635406887243468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,7 +1177,8 @@ MonoBehaviour:
   playerCurrentHealth: 0
   playerHealthFromPreviousRoom: 0
   playerMaxHealth: 8
-  playerHealthSlider: {fileID: 0}
+  playerTakeDamage: {fileID: 0}
+  heartScript: {fileID: 0}
 --- !u!114 &6810141674621902156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,6 +1193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   playerMoveSpeed: 5
+  playerMaxMoveSpeed: 0
   playerRigidbody: {fileID: 0}
   multiplier: 1
   rollSpeed: 10
@@ -1187,9 +1204,11 @@ MonoBehaviour:
   rollCountTimer: 0
   rollCountDuration: 1
   skewedInput: {x: 0, y: 0, z: 0}
+  playerAimPosition: {x: 0, y: 0, z: 0}
   playerAimLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  lastInput: {x: 0, y: 0, z: 0}
 --- !u!114 &3755867366991376299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,6 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70759de1ab47024080c274be3e39182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainUI: {fileID: 0}
   pet: {fileID: 0}
   petChild: {fileID: 0}
   petNavMeshAgent: {fileID: 0}
@@ -1265,6 +1285,7 @@ MonoBehaviour:
   playerOnArea: 0
   craftingWindowOpen: 0
   craftingWindowObject: {fileID: 0}
+  playerManager: {fileID: 0}
 --- !u!114 &890646470074437115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1358,6 +1379,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 1
+--- !u!136 &3013335676725232086
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890646470074437106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &890646470246449194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,7 +1786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1375973836160515176, guid: d46bfd836518f6d408757e7257572726, type: 3}
-  granade: {fileID: 0}
+  granadeLauncherTarget: {fileID: 0}
   shootForce: 40
   upwardForce: 0
   timeBetweenShooting: 0.8
@@ -1767,6 +1802,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   allowInvoke: 1
   playerManager: {fileID: 0}
+  weaponHandler: {fileID: 0}
 --- !u!1 &890646470486866452
 GameObject:
   m_ObjectHideFlags: 0

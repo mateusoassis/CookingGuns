@@ -71,10 +71,11 @@ public class _PlayerManager : MonoBehaviour
                 if(playerMovement.rollCount < playerMovement.maxRoll)
                 {
                     isRolling = true;
+                    gameObject.layer = 12;
                     playerRigidbody.useGravity = false;
                     if(sceneIndex != 1 && sceneIndex != 2)
                     {
-                        playerCapsuleCollider.enabled = false;
+                        //playerCapsuleCollider.enabled = false;
                     }
                     playerMovement.rollTimer = playerMovement.rollDuration;
                     playerMovement.rollCount++;
