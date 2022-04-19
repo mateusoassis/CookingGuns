@@ -7,7 +7,7 @@ using TMPro;
 public class CraftingMainScript : MonoBehaviour
 {   
 
-    public static CraftingMainScript instance;
+    //public static CraftingMainScript instance;
     public Inventory inventory;
     //public List<Scriptable Object> Recipes;
     
@@ -21,7 +21,7 @@ public class CraftingMainScript : MonoBehaviour
     int inventorySize;
     public List<int> recipeSize;
 
-    void Awake(){
+    /*void Awake(){
         if(instance == null){
             instance = this;
         } else {
@@ -29,7 +29,7 @@ public class CraftingMainScript : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-    }
+    }*/
     void Start(){
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
         weaponHandler = GameObject.Find("Player").GetComponent<_WeaponHandler>(); 

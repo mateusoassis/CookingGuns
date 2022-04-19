@@ -14,6 +14,7 @@ public class PetHandler : MonoBehaviour
     public bool playerOnArea;
     public bool craftingWindowOpen;
     public GameObject craftingWindowObject;
+    public Inventory inventorytxt;
     public _PlayerManager playerManager;
     public bool move;
     
@@ -22,13 +23,14 @@ public class PetHandler : MonoBehaviour
     {
         mainUI = GameObject.Find("MainUI");
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
+        inventorytxt = GameObject.Find("Player").GetComponent<Inventory>();
         pet = GameObject.Find("Pet").GetComponent<Transform>();
         pet.transform.parent = null;
         petChild = pet.transform.GetChild(0);
         petNavMeshAgent = GameObject.Find("Pet").GetComponent<NavMeshAgent>();
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         playerOnArea = false;    
-        craftingWindowObject = mainUI.transform.Find("CraftingWindow").gameObject;
+        //craftingWindowObject = mainUI.transform.Find("CraftingWindow").gameObject;
     }
 
     public void HandlePet()
@@ -90,6 +92,7 @@ public class PetHandler : MonoBehaviour
     {
         craftingWindowOpen = true;
         craftingWindowObject.SetActive(true);
+        inventorytxt.UpdateItem();
     }
     public void CloseCraftingWindow()
     {
