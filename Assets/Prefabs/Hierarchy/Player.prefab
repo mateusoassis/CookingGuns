@@ -5180,7 +5180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a34d3f245c9704bb82a7e4dfd30cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testing: 1
+  testing: 0
   playerRigidbody: {fileID: 0}
   animationHandler: {fileID: 0}
   playerStats: {fileID: 0}
@@ -5219,6 +5219,7 @@ MonoBehaviour:
   playerHealthFromPreviousRoom: 0
   playerMaxHealth: 7
   playerTakeDamage: {fileID: 0}
+  heartScript: {fileID: 0}
 --- !u!114 &687828141336132091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5297,14 +5298,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70759de1ab47024080c274be3e39182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainUI: {fileID: 0}
   pet: {fileID: 0}
   petChild: {fileID: 0}
   petNavMeshAgent: {fileID: 0}
-  sinRadius: 0.5
+  sinRadius: 0.02
   playerOnArea: 0
   craftingWindowOpen: 0
   craftingWindowObject: {fileID: 0}
   playerManager: {fileID: 0}
+  move: 0
 --- !u!114 &6581419280599443788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5396,7 +5399,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 2
 --- !u!114 &6581419280770699776
 MonoBehaviour:
