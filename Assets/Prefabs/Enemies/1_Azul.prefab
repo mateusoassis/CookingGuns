@@ -609,6 +609,7 @@ MonoBehaviour:
   hitRecently: 0
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
+  flashEffect: {fileID: 0}
 --- !u!114 &7918184545519580852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,6 +905,10 @@ PrefabInstance:
     - target: {fileID: 4522085815077935941, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522085815077935942, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}

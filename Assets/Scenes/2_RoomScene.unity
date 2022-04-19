@@ -278,7 +278,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23446
+  m_Name: pb_Mesh179848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -526,6 +526,7 @@ MonoBehaviour:
   playerOnArea: 0
   craftingWindowOpen: 0
   craftingWindowObject: {fileID: 0}
+  inventorytxt: {fileID: 0}
   playerManager: {fileID: 0}
   move: 0
 --- !u!1 &611207510 stripped
@@ -733,7 +734,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23472
+  m_Name: pb_Mesh179874
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -897,7 +898,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23490
+  m_Name: pb_Mesh179892
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1154,7 +1155,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23516
+  m_Name: pb_Mesh179922
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1374,11 +1375,11 @@ PrefabInstance:
     - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: InventoryQuantityText.Array.data[0]
       value: 
-      objectReference: {fileID: 1711962411}
+      objectReference: {fileID: 0}
     - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: InventoryQuantityText.Array.data[1]
       value: 
-      objectReference: {fileID: 1236405092}
+      objectReference: {fileID: 0}
     - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: InventoryQuantityText.Array.data[2]
       value: 
@@ -1386,7 +1387,7 @@ PrefabInstance:
     - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: InventoryQuantityText.Array.data[3]
       value: 
-      objectReference: {fileID: 1752691619}
+      objectReference: {fileID: 0}
     - target: {fileID: 6587241120315746939, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: playerCurrentHealth
       value: 0
@@ -1642,17 +1643,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4778793461042536127, guid: 3a876f70eb97a6f4e8e2d9cae8c53414, type: 3}
   m_PrefabInstance: {fileID: 2104494603}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1236405092 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2648325733777399650, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
-  m_PrefabInstance: {fileID: 1711962409}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1250803173 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2517117800913651764, guid: 685a5f72eb78f574d9ed5d64dd1a88f9, type: 3}
@@ -1685,7 +1675,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-3932
+  m_Name: pb_Mesh-385638
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1915,14 +1905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2003180216}
     m_Modifications:
-    - target: {fileID: 2648325733772602648, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 607438413}
-    - target: {fileID: 2648325733772602648, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseCraftingWindow
-      objectReference: {fileID: 0}
     - target: {fileID: 2173238206205410723, guid: cad0a33778f774546a0af1e47e676a10, type: 3}
       propertyPath: m_Name
       value: 6_ShieldGirl
@@ -1978,6 +1960,14 @@ PrefabInstance:
     - target: {fileID: 4924260897366773455, guid: cad0a33778f774546a0af1e47e676a10, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648325733772602648, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 607438413}
+    - target: {fileID: 2648325733772602648, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseCraftingWindow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad0a33778f774546a0af1e47e676a10, type: 3}
@@ -2826,6 +2816,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2648325733217773673, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7077170376587045364, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2999,28 +2993,6 @@ PrefabInstance:
 --- !u!114 &1711962410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2648325733756645038, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
-  m_PrefabInstance: {fileID: 1711962409}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1711962411 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2648325734960559521, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
-  m_PrefabInstance: {fileID: 1711962409}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1752691619 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2648325733779572049, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
   m_PrefabInstance: {fileID: 1711962409}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
