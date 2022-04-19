@@ -169,6 +169,7 @@ public class _WeaponHandler : MonoBehaviour
     public void HealFromEatingWeapon()
     {
         EatWeapon(weaponEquipped);
+        playerManager.playerStats.heartScript.FullHeal();
     }
 
     public static int CountBool(bool[] array, bool flag)

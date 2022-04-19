@@ -38,7 +38,7 @@ public class HeartAnimatorScript : MonoBehaviour
             if(index <= parent.gameObject.GetComponent<HeartContainerManager>().hpLost)
             {
                 GetComponent<Animator>().SetTrigger("Disabled");
-                state = 0;
+                state = 1;
             }
         }
         else if(state == 1)
@@ -46,8 +46,14 @@ public class HeartAnimatorScript : MonoBehaviour
             if(index > parent.gameObject.GetComponent<HeartContainerManager>().hpLost)
             {
                 GetComponent<Animator>().SetTrigger("Normal");
-                state = 1;
+                state = 0;
             }
         }
+    }
+
+    public void HealThisHeart()
+    {
+        GetComponent<Animator>().SetTrigger("Normal");
+        state = 1;
     }
 }
