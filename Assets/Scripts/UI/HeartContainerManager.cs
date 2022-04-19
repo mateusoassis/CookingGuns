@@ -27,27 +27,11 @@ public class HeartContainerManager : MonoBehaviour
     private void OnEnable()
     {
         //_PlayerStats.OnPlayerDamaged += DrawHearts;
-        /*for(int i = 0; i < playerStats.playerMaxHealth; i++)
-        {
-            if(i > playerStats.playerCurrentHealth)
-            {
-                heartsObjects[i].GetComponent<Animator>().SetTrigger("Normal");
-            }
-            
-        }*/
     }
 
     private void OnDisable()
     {
         //_PlayerStats.OnPlayerDamaged -= DrawHearts;
-        /*for(int i = 0; i < playerStats.playerMaxHealth; i++)
-        {
-            if(i > playerStats.playerCurrentHealth)
-            {
-                heartsObjects[i].GetComponent<Animator>().SetTrigger("Disabled");
-            }
-            
-        }*/
     }
 
     private void Start()
@@ -62,7 +46,17 @@ public class HeartContainerManager : MonoBehaviour
             heartsObjects[i].GetComponent<HeartAnimatorScript>().CheckIfActiveOrNot();
         }
     }
+    public void FullHeal()
+    {
+        playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
+        hpLost = 0;
+        for(int i = 0; i < playerStats.playerMaxHealth; i++)
+        {
+            heartsObjects[i].GetComponent<HeartAnimatorScript>().HealThisHeart();
+        }
+    }
 
+    /*
     public void DrawHearts()
     {
         ClearHearts();
@@ -90,21 +84,8 @@ public class HeartContainerManager : MonoBehaviour
         }
         hearts = new List<_PlayerHeartManager>();
     }
-
-    public void UpdateHPonUI(int n)
-    {
-        heartsObjects[n-1].GetComponent<Animator>().SetTrigger("Disabled");
-    }
-
-    public void FullHeal(int n)
-    {
-        for(int i = 0; i < playerStats.playerMaxHealth; i++)
-        {
-            if(n < i)
-            {
-                heartsObjects[i].GetComponent<Animator>().SetTrigger("Normal");
-                heartsObjects[i].GetComponent<HeartAnimatorScript>().state = 0;
-            }
-        }
-    }
+    */
+    
+    
+    
 }

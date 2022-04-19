@@ -35,25 +35,17 @@ public class _PlayerStats : MonoBehaviour
 
     void Start()
     {
-        /*
-        if(playerHealthFromPreviousRoom == 0)
-        {
-            playerCurrentHealth = playerMaxHealth;
-        }
-        else
-        {
-            playerCurrentHealth = playerHealthFromPreviousRoom;
-        }*/
-
         playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
     }
 
     public void TestHeal()
     {
+        /*
         heartScript.FullHeal(playerCurrentHealth);
         playerCurrentHealth = playerMaxHealth;
         //OnPlayerDamaged?.Invoke();
-        //heartScript.FullHeal();
+        heartScript.FullHeal();
+        */
     }
 
     public void TakeHPDamage(int damage)
