@@ -1302,6 +1302,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: unlockedWeapons.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: InventoryQuantityText.Array.data[0]
       value: 
@@ -1320,6 +1324,10 @@ PrefabInstance:
       objectReference: {fileID: 1752691619}
     - target: {fileID: 6587241120315746939, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: playerCurrentHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587241120315746939, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: playerHealthFromPreviousRoom
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

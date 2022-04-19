@@ -1099,6 +1099,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: canWalk
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: testing
       value: 0
       objectReference: {fileID: 0}
@@ -1150,6 +1154,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6581419280762816960, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: allowInvoke
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280762816960, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: allowButtonHold
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280762816960, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: InventoryQuantityText.Array.data[0]
       value: 
@@ -1166,6 +1182,14 @@ PrefabInstance:
       propertyPath: InventoryQuantityText.Array.data[3]
       value: 
       objectReference: {fileID: 1752691619}
+    - target: {fileID: 6581419281013731405, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: allowInvoke
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419281013731405, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6587241120315746939, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: playerCurrentHealth
       value: 0
