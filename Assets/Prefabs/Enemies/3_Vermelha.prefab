@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 2215548598762305801}
   - component: {fileID: -732748201913823489}
   - component: {fileID: -5475905030273591589}
+  - component: {fileID: 5192488122940860531}
   m_Layer: 8
   m_Name: 3_Vermelha
   m_TagString: Enemy
@@ -479,6 +480,8 @@ MonoBehaviour:
   blinking: 0
   explosionDamage: 2
   timeBetweenShots: 0
+  timeBetweenShotsTimer: 0
+  randomExtraTimeBetweenShots: 0
   enemyAnimator: {fileID: 0}
   canMove: 0
 --- !u!95 &2215548598762305801
@@ -531,6 +534,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 3
+--- !u!195 &5192488122940860531
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2215548598762305798}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4031838239753069914
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 430105550708223428}
   - component: {fileID: 430105550708223037}
   - component: {fileID: 2206429547494785333}
+  - component: {fileID: 4978485224554764636}
   m_Layer: 8
   m_Name: 5_PertoPudim
   m_TagString: Enemy
@@ -173,6 +174,7 @@ MonoBehaviour:
   blinking: 0
   explosionDamage: 0
   timeBetweenShots: 5
+  timeBetweenShotsTimer: 0
   randomExtraTimeBetweenShots: 2
   enemyAnimator: {fileID: 0}
   canMove: 0
@@ -207,6 +209,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &4978485224554764636
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430105550708223039}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &460955951449732940
 PrefabInstance:
   m_ObjectHideFlags: 0

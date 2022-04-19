@@ -507,7 +507,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-132024
+  m_Name: pb_Mesh37290
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -739,13 +739,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2645421694369788084, guid: e71ac9999efecc444b55a83e48d4383d, type: 3}
   m_PrefabInstance: {fileID: 676477876}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &676477878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7504140966557598561, guid: e71ac9999efecc444b55a83e48d4383d, type: 3}
+  m_PrefabInstance: {fileID: 676477876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &676477879
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676477878}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!43 &691431143
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh147300
+  m_Name: pb_Mesh37262
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1465,7 +1486,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-136204
+  m_Name: pb_Mesh37210
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1634,7 +1655,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-251430
+  m_Name: pb_Mesh-60344
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2310,6 +2331,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1609629192}
+  - component: {fileID: 1609629193}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -2335,6 +2357,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1609629193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609629191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: 6c886c8d97864154986f4d0e6bac257a, type: 2}
 --- !u!1001 &1634593888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3372,6 +3423,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2645421694369788084, guid: e71ac9999efecc444b55a83e48d4383d, type: 3}
   m_PrefabInstance: {fileID: 2017042049}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2017042051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7504140966557598561, guid: e71ac9999efecc444b55a83e48d4383d, type: 3}
+  m_PrefabInstance: {fileID: 2017042049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &2017042052
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017042051}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &2104494603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3890,7 +3962,7 @@ PrefabInstance:
     - target: {fileID: 1250803169, guid: 685a5f72eb78f574d9ed5d64dd1a88f9, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: e6c3e75f5e624a842804769457ced707, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2517117800913651760, guid: 685a5f72eb78f574d9ed5d64dd1a88f9, type: 3}
       propertyPath: m_Mesh
       value: 
