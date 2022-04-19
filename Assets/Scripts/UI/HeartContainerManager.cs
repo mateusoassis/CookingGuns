@@ -35,11 +35,11 @@ public class HeartContainerManager : MonoBehaviour
             }
             
         }*/
-        
     }
 
     private void OnDisable()
     {
+        //_PlayerStats.OnPlayerDamaged -= DrawHearts;
         /*for(int i = 0; i < playerStats.playerMaxHealth; i++)
         {
             if(i > playerStats.playerCurrentHealth)
@@ -48,28 +48,11 @@ public class HeartContainerManager : MonoBehaviour
             }
             
         }*/
-        
     }
 
     private void Start()
     {
-        //DrawHearts();
         hpLost = playerStats.playerMaxHealth - playerStats.playerCurrentHealth;
-        //UpdateAllHearts();
-        /*
-        if(hpLost == 0)
-        {
-            return;
-        }
-        else
-        {
-            while(hpLost - heartController != 0)
-            {
-                UpdateHPonUI(playerStats.playerMaxHealth - heartController);
-                heartController--;
-            }
-        }
-        */
     }
 
     public void UpdateAllHearts()
@@ -110,14 +93,7 @@ public class HeartContainerManager : MonoBehaviour
 
     public void UpdateHPonUI(int n)
     {
-        //for(int i = 0; i < playerStats.playerMaxHealth; i++)
-        //{
-            //if(i+1 > playerStats.playerCurrentHealth)
-            //{
-                //Debug.Log("disable " + i);
-                heartsObjects[n-1].GetComponent<Animator>().SetTrigger("Disabled");
-            //}
-        //}
+        heartsObjects[n-1].GetComponent<Animator>().SetTrigger("Disabled");
     }
 
     public void FullHeal(int n)
