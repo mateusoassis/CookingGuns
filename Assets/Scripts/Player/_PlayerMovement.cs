@@ -49,7 +49,7 @@ public class _PlayerMovement : MonoBehaviour
 
             if(playerManager.playerWeaponHandler.weaponEquipped == 3)
             {
-                playerManager.playerShootingGranadeLauncher.granadeLauncherTarget.transform.position = new Vector3 (playerAimPosition.x , 1f ,playerAimPosition.z);
+                playerManager.playerShootingGranadeLauncher.granadeLauncherTarget.transform.position = new Vector3 (playerAimPosition.x , 0.5f, playerAimPosition.z);
             }
         }
 
@@ -79,11 +79,9 @@ public class _PlayerMovement : MonoBehaviour
             if(rollTimer <= 0)
             {
                 playerManager.isRolling = false;
-                if(playerManager.sceneIndex == 1 || playerManager.sceneIndex == 2)
-                {
-                    playerManager.playerRigidbody.useGravity = true;
-                }
-                playerManager.playerCapsuleCollider.enabled = true;
+                gameObject.layer = 0;                
+                playerManager.playerRigidbody.useGravity = true;
+                //playerManager.playerCapsuleCollider.enabled = true;
                 rollTimer = rollDuration;
                 playerManager.animationHandler.GetWeaponInt();
                 playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Rolling", false);

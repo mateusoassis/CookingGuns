@@ -21,7 +21,7 @@ public class GranadeScript : MonoBehaviour
     {
         parent = transform.parent;
         currentSlerpTime = 0f;
-        savedSlerpPosition = parent.gameObject.GetComponent<Transform>().position;
+        savedSlerpPosition = parent.gameObject.GetComponent<Transform>().position + new Vector3(0f, spawnYOffset, 0f);
     }
 
     void Update()

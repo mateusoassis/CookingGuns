@@ -96,7 +96,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-4289561310629953442
 MonoBehaviour:
@@ -118,7 +118,7 @@ MonoBehaviour:
   slerpTime: 45
   currentSlerpTime: 0
   slerpSpeed: 0
-  spawnYOffset: 0
+  spawnYOffset: 0.15
   projectileSpeed: 15
 --- !u!54 &-780011900864920927
 Rigidbody:
