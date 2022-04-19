@@ -55,9 +55,13 @@ MonoBehaviour:
   enemyMaxHealth: 20
   enemyHealth: 0
   playerController: {fileID: 0}
-  dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropPrefab:
+  - {fileID: 6058910667991397440, guid: 44dd17cae5ece8f46809fbce81204796, type: 3}
+  - {fileID: 6058910667991397440, guid: 18ebb2dcbb0ad1744b571e4286f1ccfb, type: 3}
   dropPrefabYOffset: 1.5
-  dropChance: 50
+  dropChance:
+  - 100
+  - 100
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   hitRecently: 0
   healthbarScript: {fileID: 0}

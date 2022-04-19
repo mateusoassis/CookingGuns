@@ -9,9 +9,10 @@ public class EnemyStats : MonoBehaviour
     public int enemyMaxHealth;
     public int enemyHealth;
     [SerializeField] private PlayerController playerController;
-    public GameObject dropPrefab;
+    public List<GameObject> dropPrefab;
     public float dropPrefabYOffset;
-    public float dropChance;
+    public List<float> dropChance;
+    public bool isPudim;
     public PlayerInfo playerInfo;
     public bool hitRecently;
     public HealthbarBehaviour healthbarScript;
@@ -52,13 +53,25 @@ public class EnemyStats : MonoBehaviour
                 enemySpawner.enemiesKilled++;
             }
             playerInfo.totalEnemiesKilled++;
-
-            float realDropChance = 100 - dropChance;
-            int u = Random.Range(0, 101);
-            if(u >= realDropChance)
-            {
-                Instantiate(dropPrefab, transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
+            if(!isPudim){
+                for(int i = 0; i < dropPrefab.Count; i++){
+                    float realDropChance = 100 - dropChance[i];
+                    int u = Random.Range(0, 101);
+                    if(u >= realDropChance)
+                    {
+                        Instantiate(dropPrefab[i], transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
+                    }
+                }
+            } else {
+                int u = Random.Range(0, 100);
+                if(u > 50){
+                    Instantiate(dropPrefab[0], transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
+                } else {
+                    Instantiate(dropPrefab[1], transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
+                }
             }
+            
+            
         }
     }
 
