@@ -100,8 +100,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2223878, y: 1, z: 2.0234041}
-  m_Center: {x: 0.03147489, y: 0, z: 0.035503387}
+  m_Size: {x: 2.2223878, y: 1.6453133, z: 2.0234041}
+  m_Center: {x: 0.03147483, y: 0.58757496, z: 0.035503387}
 --- !u!54 &1245032554988754910
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -135,8 +135,12 @@ MonoBehaviour:
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropPrefabYOffset: 0
   dropChance: 0
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
+  hitRecently: 0
+  healthbarScript: {fileID: 0}
+  underOneFourthHP: 0
 --- !u!114 &1245032554988754468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a9c366dd45fd564c9efc8aa047cd4fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1a9c366dd45fd564c9efc8aa047cd4fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -398,6 +402,10 @@ PrefabInstance:
     - target: {fileID: 4522085815077935941, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522085815077935942, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
