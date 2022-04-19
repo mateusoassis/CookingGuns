@@ -21,7 +21,6 @@ public class ShieldGirl : MonoBehaviour
     public float minDistance;
 
     public Transform player;
-    public bool canMove;
     public bool sitStill;
 
     public MeshRenderer areaDamageMesh;
@@ -32,7 +31,6 @@ public class ShieldGirl : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Transform>();
         moveSpeed = maxMoveSpeed;
         turnSpeed = maxTurnSpeed;
-        canMove = true;
     }
 
     void Update()

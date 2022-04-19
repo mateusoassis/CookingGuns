@@ -15,6 +15,7 @@ public class PetHandler : MonoBehaviour
     public bool craftingWindowOpen;
     public GameObject craftingWindowObject;
     public _PlayerManager playerManager;
+    public bool move;
     
 
     void Start()
@@ -36,16 +37,36 @@ public class PetHandler : MonoBehaviour
         {
             Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
             pet.transform.position += sinMovement;
+
+            if(move)
+            {
+                Vector3 moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
+                if(Vector3.Distance(pet.transform.position, transform.position) > 3f)
+                {
+                    pet.transform.position = Vector3.Lerp(pet.transform.position, transform.position, Time.deltaTime * Time.deltaTime * Vector3.Distance(pet.transform.position, transform.position));    
+                }
+            }
         }
     }
 
     public void MoveTowardsPlayer()
     {
+        
         if(playerManager.sceneIndex != 1 && playerManager.sceneIndex != 2)
         {
-            Vector3 moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
-            petNavMeshAgent.SetDestination(moveTowards);
+            //Vector3 moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
+            //petNavMeshAgent.SetDestination(moveTowards);
+            //if(Vector3.Distance(transform.position, moveTowards) > 3f)
+            //{
+            //     transform.position = Vector3.Lerp(transform.position, moveTowards.normalized, Time.deltaTime * Time.deltaTime * Vector3.Distance(transform.position, moveTowards));    
+            //}
+            //else
+            //{
+            //move = false;
+            //}
+            //transform.position = Vector3.Lerp(transform.position, moveTowards.normalized, Time.deltaTime * Time.deltaTime * Vector3.Distance(transform.position, moveTowards));
             petBillboard.ActivateOnEnemiesKilled();
+            move = true;
         }  
     }
 

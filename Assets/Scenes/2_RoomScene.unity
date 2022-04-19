@@ -233,9 +233,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   enemiesKilled: 0
+<<<<<<< HEAD
   enemiesMax: 8
   roomCleared: 0
   totalEnemies: 8
+=======
+  enemiesMax: 0
+  roomCleared: 0
+  totalEnemies: 0
+>>>>>>> f7d13544978ec11bf1473c28c6118447ae615e3c
   petBillboard: {fileID: 0}
   petHandler: {fileID: 0}
 --- !u!4 &486301738
@@ -1304,7 +1310,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+<<<<<<< HEAD
 --- !u!1 &1118734879
+=======
+--- !u!114 &607438413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2287382207225990894, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+  m_PrefabInstance: {fileID: 607438412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70759de1ab47024080c274be3e39182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &613326494
+>>>>>>> f7d13544978ec11bf1473c28c6118447ae615e3c
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1878,6 +1899,14 @@ PrefabInstance:
     - target: {fileID: 4924260897366773455, guid: cad0a33778f774546a0af1e47e676a10, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648325733772602648, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 607438413}
+    - target: {fileID: 2648325733772602648, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseCraftingWindow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cad0a33778f774546a0af1e47e676a10, type: 3}
