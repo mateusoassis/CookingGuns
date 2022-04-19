@@ -12,6 +12,7 @@ public class ChargeJujubaAnimator : MonoBehaviour
         anim.SetTrigger("StartAttack");
         chargeJujubaBehaviour.rolling = true;
         chargeJujubaBehaviour.lookingAtPlayer = false;
+        gameObject.layer = 11;
     }
 
     public void StopRoll()
@@ -20,5 +21,6 @@ public class ChargeJujubaAnimator : MonoBehaviour
         chargeJujubaBehaviour.rolling = false;
         chargeJujubaBehaviour.isCooldown = true;
         chargeJujubaBehaviour.state = 1;
+        gameObject.layer = 8;
     }
 }
