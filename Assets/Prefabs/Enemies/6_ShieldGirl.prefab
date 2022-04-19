@@ -262,11 +262,11 @@ MonoBehaviour:
   turnSpeed: 0
   maxTurnSpeed: 0.2
   moveSpeed: 0
-  maxMoveSpeed: 2
+  maxMoveSpeed: 0
   minDistance: 3
   player: {fileID: 0}
   canMove: 0
-  sitStill: 1
+  sitStill: 0
   areaDamageMesh: {fileID: 0}
 --- !u!114 &2173238206205410730
 MonoBehaviour:
@@ -285,8 +285,12 @@ MonoBehaviour:
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropPrefabYOffset: 0
   dropChance: 50
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
+  hitRecently: 0
+  healthbarScript: {fileID: 0}
+  underOneFourthHP: 0
 --- !u!1 &4394465919244473732
 GameObject:
   m_ObjectHideFlags: 0

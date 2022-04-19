@@ -13,9 +13,9 @@ public class EnemySpawner : MonoBehaviour
 
     public Transform[] roomPositions;
 
-    [HideInInspector]
+    //[HideInInspector]
     public int enemiesKilled;
-    public int enemiesMax;
+    private int enemiesMax;
     public bool roomCleared;
 
     [SerializeField] private int totalEnemies;
