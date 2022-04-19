@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 4459417430785882522}
   - component: {fileID: 4459417430785882519}
   - component: {fileID: -1358439703333012812}
-  m_Layer: 11
+  m_Layer: 8
   m_Name: 2_Verde
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -441,10 +441,12 @@ MonoBehaviour:
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropPrefabYOffset: 0
   dropChance: 0
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   hitRecently: 0
   healthbarScript: {fileID: 0}
+  underOneFourthHP: 0
 --- !u!95 &4459417430785882516
 Animator:
   serializedVersion: 3
@@ -542,6 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   chargeJujubaBehaviour: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!1 &6578864797234244079
 GameObject:
   m_ObjectHideFlags: 0
