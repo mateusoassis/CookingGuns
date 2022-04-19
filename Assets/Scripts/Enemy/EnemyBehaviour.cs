@@ -34,7 +34,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("Tiros")]
     public float timeBetweenShots;
-    private float timeBetweenShotsTimer = 5f;
+    public float timeBetweenShotsTimer;
+    [SerializeField] private float randomExtraTimeBetweenShots;
 
     public Animator enemyAnimator;
 
@@ -50,6 +51,7 @@ public class EnemyBehaviour : MonoBehaviour
         enemyAnimator = GetComponent<Animator>();
         canMove = true;
         enemySpeed = enemyMaxSpeed;
+        timeBetweenShotsTimer = timeBetweenShots + Random.Range(-randomExtraTimeBetweenShots, -randomExtraTimeBetweenShots);
     }
 
     // 1 = shooting + follow
@@ -179,7 +181,7 @@ public class EnemyBehaviour : MonoBehaviour
     public void ShootProjectile()
     {
         Instantiate(enemyBulletPrefab, transform.position, Quaternion.identity);
-        float u = Random.Range(timeBetweenShots-2f, timeBetweenShots+4f);
+        float u = Random.Range(timeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
         timeBetweenShotsTimer = u;
         canMove = true;
     }

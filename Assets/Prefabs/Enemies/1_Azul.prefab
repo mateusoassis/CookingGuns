@@ -602,8 +602,12 @@ MonoBehaviour:
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropPrefabYOffset: 0
   dropChance: 0
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
+  hitRecently: 0
+  healthbarScript: {fileID: 0}
+  underOneFourthHP: 0
 --- !u!114 &7918184545519580852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +640,7 @@ MonoBehaviour:
   blinking: 0
   explosionDamage: 2
   timeBetweenShots: 5
+  randomExtraTimeBetweenShots: 2
   enemyAnimator: {fileID: 0}
   canMove: 0
 --- !u!95 &7918184545519580855
@@ -671,6 +676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   chargeJujubaBehaviour: {fileID: 0}
+  playerTransform: {fileID: 0}
 --- !u!54 &-821690826035586293
 Rigidbody:
   m_ObjectHideFlags: 0
