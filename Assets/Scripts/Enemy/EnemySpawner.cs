@@ -15,10 +15,10 @@ public class EnemySpawner : MonoBehaviour
 
     [HideInInspector]
     public int enemiesKilled;
-    private int enemiesMax;
+    public int enemiesMax;
     public bool roomCleared;
 
-    [SerializeField] private int enemyNumberRandomizer;
+    [SerializeField] private int totalEnemies;
 
     private int i;
 
@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        enemyNumberRandomizer = Random.Range(3,9);
+        //totalEnemies = Random.Range(3,9);
         enemiesKilled = 0;
         roomCleared = false;
         if(!playerManager.testing)
@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if(!playerManager.testing)
         {
-            if (enemiesKilled >= enemyNumberRandomizer && !roomCleared)
+            if (enemiesKilled >= totalEnemies && !roomCleared)
             {
                 roomCleared = true;
                 petBillboard.lockOnPlayer = true;
@@ -67,9 +67,9 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemies()
     {
 
-        for(i = 0; i < enemyNumberRandomizer; i++)
+        for(i = 0; i < totalEnemies; i++)
         {
-            if(enemiesMax < enemyNumberRandomizer){
+            if(enemiesMax < totalEnemies){
                 EnemySelector();
             }
         }
