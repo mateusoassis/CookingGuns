@@ -16,12 +16,14 @@ public class EnemyStats : MonoBehaviour
     public bool hitRecently;
     public HealthbarBehaviour healthbarScript;
     public bool underOneFourthHP;
+    public DamageFlash flashEffect;
 
-    void Start() {
+    void Start(){
         enemyHealth = enemyMaxHealth;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         healthbarScript = GetComponentInChildren<HealthbarBehaviour>();
+        flashEffect = GetComponent<DamageFlash>();
     }
     
     public void TakeDamage(int damageTaken)
@@ -66,6 +68,7 @@ public class EnemyStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out BulletScript bulletScript)))
             {
+                //flashEffect.FlashStart();
                 TakeDamage(bulletScript.damageDone);
             }
 
@@ -74,6 +77,7 @@ public class EnemyStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out GranadeAreaDamage granadeAreaDamage)))
             {
+                //flashEffect.FlashStart();
                 TakeDamage(granadeAreaDamage.damageDone);
             }
         }
