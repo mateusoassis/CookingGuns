@@ -24,7 +24,6 @@ public class _PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        //playerCurrentHealth = playerMaxHealth;
         playerManager = GetComponent<_PlayerManager>();
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
         if(playerManager.playerInfo.healthFromLastRoom > 0)
@@ -45,12 +44,7 @@ public class _PlayerStats : MonoBehaviour
 
     public void TestHeal()
     {
-        /*
-        heartScript.FullHeal(playerCurrentHealth);
-        playerCurrentHealth = playerMaxHealth;
-        //OnPlayerDamaged?.Invoke();
-        heartScript.FullHeal();
-        */
+        
     }
 
     public void TakeHPDamage(int damage)
@@ -66,36 +60,7 @@ public class _PlayerStats : MonoBehaviour
             playerManager.playerInfo.healthFromLastRoom = 0;
             playerManager.playerInfo.playerCurrentRoom = 0;
         }
-        /*
-        int loops = 0;
-        while (loops < damage)
-        {
-            heartScript.UpdateHPonUI(playerCurrentHealth-loops);
-            playerCurrentHealth--;
-            loops++;
-            return;
-        }
-        */
-
-        /*
-        if(heartScript.hpLost == 0)
-        {
-            return;
-        }
-        else
-        {
-            while(heartScript.hpLost - heartScript.heartController != 0)
-            {
-                heartScript.UpdateHPonUI(playerMaxHealth - heartScript.heartController);
-                heartScript.heartController--;
-                
-            }
-        }
-        */
-        //heartScript.UpdateHPonUI(playerCurrentHealth);
-        //playerCurrentHealth -= damage;
-        //OnPlayerDamaged?.Invoke();
-        //heartScript.UpdateHPonUI();
+        
         playerTakeDamage.SetTrigger("Pressed");
     }
 }

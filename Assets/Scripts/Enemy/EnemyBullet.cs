@@ -15,6 +15,7 @@ public class EnemyBullet : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Transform>();
         target = player.position;
         target.y = transform.position.y;
+        Destroy(this.gameObject, 3f);
     }
 
     // Update is called once per frame
@@ -37,6 +38,11 @@ public class EnemyBullet : MonoBehaviour
                 playerStats.TakeHPDamage(damageOnPlayer);
             }
             Destroy(this.gameObject);
+        }
+
+        if(other.gameObject.tag == "Wall")
+        {
+            //Destroy(this.gameObject);
         }
     }
 }

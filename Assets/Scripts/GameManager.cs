@@ -126,7 +126,6 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        Debug.Log("PORRA MERMÃO");
         if(pausedGame)
         {
             pausedGame = false;
