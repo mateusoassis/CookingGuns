@@ -10319,8 +10319,8 @@ MonoBehaviour:
   quitConfirmationWindow: {fileID: 899632289}
   timeHolderText: {fileID: 1578177397}
   enemySpawner: {fileID: 0}
-  slowdownDuration: 0
-  slowdownFactor: 0
+  slowdownDuration: 3
+  slowdownFactor: 0.05
   slowdown: 0
   slowdownEnded: 0
   hours: 0
@@ -18452,13 +18452,16 @@ MonoBehaviour:
   enemyMaxHealth: 10
   enemyHealth: 0
   playerController: {fileID: 0}
-  dropPrefab: {fileID: 0}
+  dropPrefab:
+  - {fileID: 0}
   dropPrefabYOffset: 0
-  dropChance: 0
+  dropChance: []
+  isPudim: 0
   playerInfo: {fileID: 0}
   hitRecently: 0
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
+  flashEffect: {fileID: 0}
 --- !u!54 &1653676057
 Rigidbody:
   m_ObjectHideFlags: 0
