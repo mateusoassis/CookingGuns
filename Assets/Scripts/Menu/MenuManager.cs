@@ -46,7 +46,7 @@ public class MenuManager : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("4_RoomScene", LoadSceneMode.Single);
+                SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
                 playerInfo.playerCurrentRoom = 1;
                 playerInfo.healthFromLastRoom = 0;
             }
@@ -57,23 +57,23 @@ public class MenuManager : MonoBehaviour
     {
         if(playerInfo.playerCurrentRoom == 1)
         {
-            SceneManager.LoadScene("4_RoomScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
         }
         else if(playerInfo.playerCurrentRoom == 2)
         {
-            SceneManager.LoadScene("5_RoomScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("_2_RoomScene", LoadSceneMode.Single);
         }
         else if(playerInfo.playerCurrentRoom == 3)
         {
-            SceneManager.LoadScene("3_RoomScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("_3_RoomScene", LoadSceneMode.Single);
         }
         else if(playerInfo.playerCurrentRoom == 4)
         {
-            SceneManager.LoadScene("2_RoomScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("_4_RoomScene", LoadSceneMode.Single);
         }
         else if(playerInfo.playerCurrentRoom == 5)
         {
-            SceneManager.LoadScene("1_RoomScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("_5_RoomScene", LoadSceneMode.Single);
         }
     }
     

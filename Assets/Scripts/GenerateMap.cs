@@ -29,8 +29,8 @@ public class GenerateMap : MonoBehaviour
 
         if(enemySpawner.playerInfo.playerCurrentRoom == 1) // cena 4
         {
-            SceneManager.LoadScene("5_RoomScene");
-            enemySpawner.playerInfo.playerCurrentRoom = 2;
+            SceneManager.LoadScene("_2_RoomScene");
+            //enemySpawner.playerInfo.playerCurrentRoom = 2;
             if(!healEveryRoom)
             {
                 enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
@@ -42,8 +42,8 @@ public class GenerateMap : MonoBehaviour
         }
         else if(enemySpawner.playerInfo.playerCurrentRoom == 2) // cena 5
         {
-            SceneManager.LoadScene("3_RoomScene");
-            enemySpawner.playerInfo.playerCurrentRoom = 3;
+            SceneManager.LoadScene("_3_RoomScene");
+            //enemySpawner.playerInfo.playerCurrentRoom = 3;
             if(!healEveryRoom)
             {
                 enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
@@ -55,8 +55,8 @@ public class GenerateMap : MonoBehaviour
         }
         else if(enemySpawner.playerInfo.playerCurrentRoom == 3) // cena 3
         {
-            SceneManager.LoadScene("2_RoomScene");
-            enemySpawner.playerInfo.playerCurrentRoom = 4;
+            SceneManager.LoadScene("_4_RoomScene");
+            //enemySpawner.playerInfo.playerCurrentRoom = 4;
             if(!healEveryRoom)
             {
                 enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
@@ -68,8 +68,8 @@ public class GenerateMap : MonoBehaviour
         }
         else if(enemySpawner.playerInfo.playerCurrentRoom == 4) // cena 2
         {
-            SceneManager.LoadScene("1_RoomScene");
-            enemySpawner.playerInfo.playerCurrentRoom = 5;
+            SceneManager.LoadScene("_5_RoomScene");
+            //enemySpawner.playerInfo.playerCurrentRoom = 5;
             if(!healEveryRoom)
             {
                 enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;

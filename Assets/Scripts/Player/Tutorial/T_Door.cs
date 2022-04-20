@@ -50,8 +50,7 @@ public class T_Door : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("4_RoomScene", LoadSceneMode.Single);
-            enemySpawner.playerInfo.playerCurrentRoom = 1;
+            SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
         }
     }
 }

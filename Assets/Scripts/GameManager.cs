@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
 
-        
+        playerManager.playerInfo.playerCurrentRoom = playerManager.playerInfo.currentSceneIndex - 2;
     }
 
     void Start()

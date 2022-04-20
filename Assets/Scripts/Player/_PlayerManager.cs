@@ -44,10 +44,10 @@ public class _PlayerManager : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody>();
         animationHandler = GetComponent<_AnimationHandler>();
-        playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
-        playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
-        playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
-        playerShootingGranadeLauncher = GameObject.Find("GranadeLauncher").GetComponent<_PlayerShooting>();
+        //playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
+        //playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
+        //playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
+        //playerShootingGranadeLauncher = GameObject.Find("GranadeLauncher").GetComponent<_PlayerShooting>();
         playerMovement = GetComponent<_PlayerMovement>();  
         playerWeaponHandler = GetComponent<_WeaponHandler>();
         petHandler = GetComponent<PetHandler>();
@@ -57,9 +57,6 @@ public class _PlayerManager : MonoBehaviour
         craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
         inventory = GetComponent<Inventory>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
-        playerWeaponHandler.ActivatePistol_();
-        playerWeaponHandler.WeaponManager(playerWeaponHandler.weaponEquipped);
     }
 
     void Update()

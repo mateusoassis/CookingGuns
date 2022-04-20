@@ -16,6 +16,8 @@ public class EnemyBehaviour : MonoBehaviour
     public float stopDistance;
     public float retreatDistance;
 
+    public Transform firePoint;
+
     [Header("Behaviour 3")]
     public GameObject explosionObject;
     public Transform explosionObjectTransform;
@@ -180,7 +182,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
     public void ShootProjectile()
     {
-        Instantiate(enemyBulletPrefab, transform.position, Quaternion.identity);
+        Instantiate(enemyBulletPrefab, firePoint.position, Quaternion.identity);
         float u = Random.Range(timeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
         timeBetweenShotsTimer = u;
         canMove = true;
