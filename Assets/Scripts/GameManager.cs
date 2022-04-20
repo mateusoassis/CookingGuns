@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
         timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
+
+        
     }
 
     void Start()
@@ -158,7 +160,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("0_MenuScene");
+        SceneManager.LoadScene("0_MenuScene", LoadSceneMode.Single);
     }
 
     public void CloseAllConfirmationWindows()

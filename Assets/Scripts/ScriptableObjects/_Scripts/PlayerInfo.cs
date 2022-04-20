@@ -27,6 +27,8 @@ public class PlayerInfo : ScriptableObject
     public int playerCurrentRoom;
     public int healthFromLastRoom;
 
+    public int currentSceneIndex;
+
     public void ResetThisObject()
     {
         hasPlayedTutorial = false;

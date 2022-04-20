@@ -37,6 +37,7 @@ public class _PlayerManager : MonoBehaviour
     void Awake()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        playerInfo.currentSceneIndex = sceneIndex;
     }
     
     void Start()

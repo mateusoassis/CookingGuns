@@ -25,9 +25,12 @@ public class MinusOnDestroy : MonoBehaviour
 
     void OnDestroy()
     {
-        if(!playerTransform.GetComponent<_PlayerManager>().testing)
+        if(playerTransform != null)
         {
-            parent.GetComponent<TowerBehaviour>().amountSpawned--;
-        }
+            if(!playerTransform.GetComponent<_PlayerManager>().testing)
+            {
+                parent.GetComponent<TowerBehaviour>().amountSpawned--;
+            }
+        }  
     }
 }

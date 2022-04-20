@@ -9,6 +9,8 @@ public class _PlayerStats : MonoBehaviour
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
 
+    public YouLose youLoseScript;
+
     [Header("Player Stats")]
     [Range(0,7)]
     public int playerCurrentHealth;
@@ -18,24 +20,27 @@ public class _PlayerStats : MonoBehaviour
     public Animator playerTakeDamage;
 
     public HeartContainerManager heartScript;
+    public _PlayerManager playerManager;
 
     private void Awake()
     {
-        playerCurrentHealth = playerMaxHealth;
+        //playerCurrentHealth = playerMaxHealth;
+        playerManager = GetComponent<_PlayerManager>();
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
-        if(playerHealthFromPreviousRoom == 0)
+        if(playerManager.playerInfo.healthFromLastRoom > 0)
         {
-            playerCurrentHealth = playerMaxHealth;
+            playerCurrentHealth = playerManager.playerInfo.healthFromLastRoom;
         }
         else
         {
-            playerCurrentHealth = playerHealthFromPreviousRoom;
+            playerCurrentHealth = playerMaxHealth;
         }
     }
 
     void Start()
     {
         playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
+        youLoseScript = GameObject.Find("MainCanvas").GetComponent<YouLose>();
     }
 
     public void TestHeal()
@@ -53,6 +58,14 @@ public class _PlayerStats : MonoBehaviour
         playerCurrentHealth -= damage;
         heartScript.hpLost += damage;
         heartScript.UpdateAllHearts();
+
+        if(playerCurrentHealth <= 0)
+        {
+            playerManager.gameManager.PauseGame();
+            youLoseScript.PlayerLost();
+            playerManager.playerInfo.healthFromLastRoom = 0;
+            playerManager.playerInfo.playerCurrentRoom = 0;
+        }
         /*
         int loops = 0;
         while (loops < damage)

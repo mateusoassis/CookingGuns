@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if(!playerManager.testing)
+        if(!playerManager.testing || playerManager.testing) // mudar de volta pra ser somente o !testing depois
         {
             if (enemiesKilled >= totalEnemies && !roomCleared)
             {
@@ -69,10 +69,6 @@ public class EnemySpawner : MonoBehaviour
                     petBillboard.lockOnPlayer = false;
                 }
             }
-        }
-        else if(playerManager.testing && !roomCleared)
-        {
-            
         }
     }
 

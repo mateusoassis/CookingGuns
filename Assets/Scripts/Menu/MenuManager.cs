@@ -14,6 +14,11 @@ public class MenuManager : MonoBehaviour
 
     public bool isOnMenu;
 
+    void Awake()
+    {
+        Time.timeScale = 1f;
+    }
+
     void Start() 
     {
         isOnMenu = true;
@@ -37,11 +42,13 @@ public class MenuManager : MonoBehaviour
                 playerInfo.hasPlayedTutorial = true;
                 SceneManager.LoadScene("0_1_Tutorial", LoadSceneMode.Single);
                 playerInfo.playerCurrentRoom = 0;
+                playerInfo.healthFromLastRoom = 0;
             }
             else
             {
                 SceneManager.LoadScene("4_RoomScene", LoadSceneMode.Single);
                 playerInfo.playerCurrentRoom = 1;
+                playerInfo.healthFromLastRoom = 0;
             }
         }
     }

@@ -34,8 +34,10 @@ public class ExplosionScript : MonoBehaviour
     {
         if(enemyBehaviour.explosionCollision)
         {
-            Debug.Log("dentro");
-            playerTransform.GetComponent<_PlayerStats>().TakeHPDamage(enemyBehaviour.explosionDamage);
+            if(playerTransform != null)
+            {
+                playerTransform.GetComponent<_PlayerStats>().TakeHPDamage(enemyBehaviour.explosionDamage);
+            }
         }
     }
 }

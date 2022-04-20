@@ -8,6 +8,8 @@ public class HeartContainerManager : MonoBehaviour
     public GameObject heartPrefab;
     public _PlayerStats playerStats;
     List<_PlayerHeartManager> hearts = new List<_PlayerHeartManager>();
+    
+    public int sceneIndex;
 
     public GameObject[] heartsObjects;
     public int hpLost;
@@ -16,6 +18,7 @@ public class HeartContainerManager : MonoBehaviour
     void Awake()
     {
         playerStats = GameObject.Find("Player").GetComponent<_PlayerStats>();
+        
         //heartsObjects = new GameObject[playerStats.playerMaxHealth];
     }
 
@@ -37,14 +40,22 @@ public class HeartContainerManager : MonoBehaviour
     private void Start()
     {
         hpLost = playerStats.playerMaxHealth - playerStats.playerCurrentHealth;
+        
+        if(playerStats.playerManager.playerInfo.currentSceneIndex != 1)
+        {
+            UpdateAllHearts();
+        }
     }
 
     public void UpdateAllHearts()
     {
-        for(int i = 0; i < playerStats.playerMaxHealth; i++)
+        if(playerStats.playerCurrentHealth > 0)
         {
-            heartsObjects[i].GetComponent<HeartAnimatorScript>().CheckIfActiveOrNot();
-        }
+            for(int i = 0; i < playerStats.playerMaxHealth; i++)
+            {
+                heartsObjects[i].GetComponent<HeartAnimatorScript>().CheckIfActiveOrNot();
+            }
+        } 
     }
     public void FullHeal()
     {
