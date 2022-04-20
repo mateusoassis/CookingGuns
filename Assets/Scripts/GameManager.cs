@@ -7,9 +7,9 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseUI;
-    [SerializeField] private GameObject restartConfirmationWindow;
-    [SerializeField] private GameObject quitConfirmationWindow;
+   public GameObject pauseUI;
+    public GameObject restartConfirmationWindow;
+    public GameObject quitConfirmationWindow;
     [SerializeField] private TextMeshProUGUI timeHolderText;
 
     [Header("Slowdown ao finalizar sala")]
@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        Debug.Log("PORRA MERMÃO");
         if(pausedGame)
         {
             pausedGame = false;
