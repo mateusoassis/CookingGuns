@@ -293,11 +293,13 @@ MonoBehaviour:
   - 100
   - 100
   - 100
+  isPudim: 0
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   hitRecently: 0
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
+  enemyType: 3
 --- !u!195 &7121455048909591687
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -317,7 +319,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 1.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &4394465919244473732

@@ -24,6 +24,9 @@ public class PlayerInfo : ScriptableObject
     public int totalPlayedTime;
     public int fastestRunSoFar;
 
+    public int playerCurrentRoom;
+    public int healthFromLastRoom;
+
     public void ResetThisObject()
     {
         hasPlayedTutorial = false;
@@ -39,5 +42,8 @@ public class PlayerInfo : ScriptableObject
 
         totalPlayedTime = 0;
         fastestRunSoFar = 0;
+
+        playerCurrentRoom = -1;
+        healthFromLastRoom = -1;
     }
 }

@@ -1152,7 +1152,6 @@ MonoBehaviour:
   petHandler: {fileID: 0}
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   playerCapsuleCollider: {fileID: 0}
-  playerWallCollider: {fileID: 0}
   craftingHandlerInPlayer: {fileID: 0}
   InventoryHandler: {fileID: 0}
   inventory: {fileID: 0}
@@ -1192,11 +1191,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  playerMoveSpeed: 5
-  playerMaxMoveSpeed: 0
+  playerMoveSpeed: 0
+  playerMaxMoveSpeed: 8
   playerRigidbody: {fileID: 0}
   multiplier: 1
-  rollSpeed: 10
+  rollSpeed: 15
   rollTimer: 0
   rollDuration: 0.5
   maxRoll: 2
@@ -1285,7 +1284,9 @@ MonoBehaviour:
   playerOnArea: 0
   craftingWindowOpen: 0
   craftingWindowObject: {fileID: 0}
+  inventorytxt: {fileID: 0}
   playerManager: {fileID: 0}
+  move: 0
 --- !u!114 &890646470074437115
 MonoBehaviour:
   m_ObjectHideFlags: 0

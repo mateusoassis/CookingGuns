@@ -4354,7 +4354,9 @@ MonoBehaviour:
   - {fileID: 0}
   enemiesKilled: 0
   roomCleared: 0
-  totalEnemies: 0
+  currentRoom: 0
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
+  totalEnemies: 1
   petBillboard: {fileID: 0}
   petHandler: {fileID: 0}
 --- !u!4 &486301738
@@ -19145,11 +19147,12 @@ MonoBehaviour:
   dropPrefabYOffset: 0
   dropChance: []
   isPudim: 0
-  playerInfo: {fileID: 0}
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   hitRecently: 0
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
+  enemyType: 0
 --- !u!54 &1653676057
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21278,6 +21281,7 @@ MonoBehaviour:
   doorTime: 5
   currentLerpTime: 0
   perc: 0
+  enemySpawner: {fileID: 0}
 --- !u!1 &1862289208
 GameObject:
   m_ObjectHideFlags: 0
@@ -26476,10 +26480,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   playerMoveSpeed: 0
-  playerMaxMoveSpeed: 5
+  playerMaxMoveSpeed: 8
   playerRigidbody: {fileID: 0}
   multiplier: 1
-  rollSpeed: 12
+  rollSpeed: 15
   rollTimer: 0
   rollDuration: 0.5
   maxRoll: 1

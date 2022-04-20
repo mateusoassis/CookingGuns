@@ -18,12 +18,24 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesMax;
     public bool roomCleared;
 
+    public int currentRoom;
+    // 0 = tutorial
+    // 1 = sala 4
+    // 2 = sala 5
+    // 3 = sala 3
+    // 4 = sala 2
+    // 5 = sala 1
+
+    public PlayerInfo playerInfo;
+
     [SerializeField] private int totalEnemies;
 
     private int i;
 
     public PetBillboard petBillboard;
     public PetHandler petHandler;
+
+    public GameObject thankYouForPlaying;
 
     void Awake()
     {

@@ -441,14 +441,19 @@ MonoBehaviour:
   enemyMaxHealth: 10
   enemyHealth: 0
   playerController: {fileID: 0}
-  dropPrefab: {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  dropPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   dropPrefabYOffset: 0
-  dropChance: 0
+  dropChance: []
+  isPudim: 0
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   hitRecently: 0
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
+  enemyType: 1
 --- !u!95 &4459417430785882516
 Animator:
   serializedVersion: 3
@@ -566,7 +571,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: -0.4
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &6578864797234244079

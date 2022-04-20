@@ -14,6 +14,13 @@ public class T_Door : MonoBehaviour
     public float currentLerpTime;
     public float perc;
 
+    public EnemySpawner enemySpawner;
+
+    void Awake()
+    {
+        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+    }
+
     public void Start()
     {
         doorInPlace = false;
@@ -26,7 +33,7 @@ public class T_Door : MonoBehaviour
         {
             return;
         }
-        else if(!doorInPlace && enemyKilled)
+        else if(!doorInPlace && enemySpawner.roomCleared)
         {
             currentLerpTime += Time.deltaTime;
             perc = currentLerpTime / doorTime;
@@ -43,7 +50,8 @@ public class T_Door : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("1_RoomScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("4_RoomScene", LoadSceneMode.Single);
+            enemySpawner.playerInfo.playerCurrentRoom = 1;
         }
     }
 }
