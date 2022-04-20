@@ -72,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if(playerManager.testing && !roomCleared)
         {
-            roomCleared = true;
+            
         }
     }
 

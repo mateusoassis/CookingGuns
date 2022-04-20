@@ -67,7 +67,7 @@ public class PetHandler : MonoBehaviour
             //move = false;
             //}
             //transform.position = Vector3.Lerp(transform.position, moveTowards.normalized, Time.deltaTime * Time.deltaTime * Vector3.Distance(transform.position, moveTowards));
-            petBillboard.ActivateOnEnemiesKilled();
+            //petBillboard.ActivateOnEnemiesKilled();
             move = true;
         }  
     }

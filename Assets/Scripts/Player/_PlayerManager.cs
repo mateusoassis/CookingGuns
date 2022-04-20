@@ -111,6 +111,7 @@ public class _PlayerManager : MonoBehaviour
                 }
             }
 
+            /*
             if(Input.GetKeyDown(KeyCode.E))
             {
                 if(petHandler.playerOnArea)
@@ -119,6 +120,7 @@ public class _PlayerManager : MonoBehaviour
                     craftingHandlerInPlayer.ShowCraftOptions();
                 }
             }
+            */
 
             // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
             if(!gameManager.pausedGame && !petHandler.craftingWindowOpen)

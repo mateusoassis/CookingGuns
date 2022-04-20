@@ -3,18 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
     public GameObject optionsPanel;
     public GameObject creditsPanel;
     public PlayerInfo playerInfo;
+    public Button continueButton;
 
     public bool isOnMenu;
 
     void Start() 
     {
         isOnMenu = true;
+
+        if(playerInfo.playerCurrentRoom > 0)
+        {
+            continueButton.interactable = true;
+        }
+        else if(playerInfo.playerCurrentRoom <= 0)
+        {
+            continueButton.interactable = false;
+        }
     }
 
     public void StartGame()
@@ -25,12 +36,37 @@ public class MenuManager : MonoBehaviour
             {
                 playerInfo.hasPlayedTutorial = true;
                 SceneManager.LoadScene("0_1_Tutorial", LoadSceneMode.Single);
+                playerInfo.playerCurrentRoom = 0;
             }
             else
             {
-                SceneManager.LoadScene("1_RoomScene", LoadSceneMode.Single);
+                SceneManager.LoadScene("4_RoomScene", LoadSceneMode.Single);
+                playerInfo.playerCurrentRoom = 1;
             }
-            
+        }
+    }
+
+    public void ContinueGame()
+    {
+        if(playerInfo.playerCurrentRoom == 1)
+        {
+            SceneManager.LoadScene("4_RoomScene", LoadSceneMode.Single);
+        }
+        else if(playerInfo.playerCurrentRoom == 2)
+        {
+            SceneManager.LoadScene("5_RoomScene", LoadSceneMode.Single);
+        }
+        else if(playerInfo.playerCurrentRoom == 3)
+        {
+            SceneManager.LoadScene("3_RoomScene", LoadSceneMode.Single);
+        }
+        else if(playerInfo.playerCurrentRoom == 4)
+        {
+            SceneManager.LoadScene("2_RoomScene", LoadSceneMode.Single);
+        }
+        else if(playerInfo.playerCurrentRoom == 5)
+        {
+            SceneManager.LoadScene("1_RoomScene", LoadSceneMode.Single);
         }
     }
     
