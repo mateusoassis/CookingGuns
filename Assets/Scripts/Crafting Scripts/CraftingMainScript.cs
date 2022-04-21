@@ -77,7 +77,7 @@ public class CraftingMainScript : MonoBehaviour
                 if(Item != recipes[i].Result){
                     index++;
                 } else {
-                    return;
+
                 }
             }
             weaponHandler.unlockedWeapons[index] = true;

@@ -21,7 +21,6 @@ public class _PlayerManager : MonoBehaviour
     public CapsuleCollider playerCapsuleCollider;
 
     public CraftingMainScript craftingHandlerInPlayer;
-    public GameObject InventoryHandler;
     public Inventory inventory;
     public GameFadeout gameFadeOut;
 
@@ -109,7 +108,7 @@ public class _PlayerManager : MonoBehaviour
                 }
             }
 
-            /*
+            
             if(Input.GetKeyDown(KeyCode.E))
             {
                 if(petHandler.playerOnArea)
@@ -118,7 +117,7 @@ public class _PlayerManager : MonoBehaviour
                     craftingHandlerInPlayer.ShowCraftOptions();
                 }
             }
-            */
+            
 
             // normal behaviour quando O JOGO NÃO ESTÁ PAUSADO
             if(!gameManager.pausedGame && !petHandler.craftingWindowOpen)

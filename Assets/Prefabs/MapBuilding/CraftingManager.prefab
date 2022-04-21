@@ -46,21 +46,26 @@ MonoBehaviour:
   inventory: {fileID: 0}
   recipes:
   - Ingredients:
-    - Banana
-    - IceCream
+    - Chocolate
+    - Marshmallow
     Result: BananaSplitGun
   - Ingredients:
-    - Milk
-    - IceCream
+    - Chocolate
+    - Marshmallow
+    - Biscoito
     Result: MousseGun
   - Ingredients:
+    - SugarCane
+    - Caramel
+    - Biscoito
     - Donut
-    - Banana
     Result: Yo-Yo
   - Ingredients:
-    - Milk
-    - Banana
+    - Apple
+    - IceCream
     - Donut
+    - Chocolate
+    - Biscoito
     Result: 4th Gun
   RecipesButton:
   - {fileID: 0}
