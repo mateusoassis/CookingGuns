@@ -1661,6 +1661,38 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1711962410}
     - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: Invent.Array.data[0].Quantity
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: Invent.Array.data[1].Quantity
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: Invent.Array.data[2].Quantity
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: Invent.Array.data[3].Quantity
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: Invent.Array.data[4].Quantity
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: Invent.Array.data[5].Quantity
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: Invent.Array.data[6].Quantity
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: Invent.Array.data[7].Quantity
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: InventoryQuantityText.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -3303,6 +3335,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: CloseAllConfirmationWindows
       objectReference: {fileID: 0}
+    - target: {fileID: 2648325733652538447, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1711962415}
+    - target: {fileID: 2648325733652538447, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Craft
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648325733652538447, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Pistol
+      objectReference: {fileID: 0}
     - target: {fileID: 2648325733772602648, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3347,6 +3391,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
       objectReference: {fileID: 0}
+    - target: {fileID: 2648325734455819173, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Granade Launcher
+      objectReference: {fileID: 0}
     - target: {fileID: 2648325734573679476, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3354,6 +3402,30 @@ PrefabInstance:
     - target: {fileID: 2648325734573679476, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitConfirmation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648325734935166522, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648325734958720997, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: MachineGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732881422406713448, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: recipes.Array.data[0].Result
+      value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732881422406713448, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: recipes.Array.data[1].Result
+      value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732881422406713448, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: recipes.Array.data[2].Result
+      value: MachineGun
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732881422406713448, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: recipes.Array.data[3].Result
+      value: Granade Launcher
       objectReference: {fileID: 0}
     - target: {fileID: 7077170376587045364, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_AnchorMax.y

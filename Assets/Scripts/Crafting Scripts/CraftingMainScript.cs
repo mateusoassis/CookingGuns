@@ -46,7 +46,7 @@ public class CraftingMainScript : MonoBehaviour
         for(int j = 0; j < recipes.Count; j++){
             int craftCounter = 0;
             if(position != recipes[j].Result){
-                index++;
+                index = j;
             } else {
                 for(int i = 0; i <recipeSize[index]; i++){
                     if(inventory.GetItem(recipes[index].Ingredients[i]) >= 1){
@@ -55,8 +55,8 @@ public class CraftingMainScript : MonoBehaviour
                             return true;
                         }
                    
+                    }
                 }
-            }
             
             }
         }        
@@ -69,15 +69,12 @@ public class CraftingMainScript : MonoBehaviour
                     for(int i = 0; i < recipeSize[j]; i++){
                         inventory.RemoveItem(recipes[j].Ingredients[i]);
                     }
-
                 }
             }
             int index = 0;
             for(int i = 0; i < recipes.Count; i++){
-                if(Item != recipes[i].Result){
-                    index++;
-                } else {
-
+                if(Item == recipes[i].Result){
+                    index = i;
                 }
             }
             weaponHandler.unlockedWeapons[index] = true;
