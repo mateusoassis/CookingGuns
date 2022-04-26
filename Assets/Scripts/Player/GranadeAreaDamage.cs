@@ -8,12 +8,12 @@ public class GranadeAreaDamage : MonoBehaviour
     public GameObject particleEffect;
     public GameObject granade;
     public int damageDone;
-    public MeshCollider meshCollider;
+    public CapsuleCollider capsuleCollider;
 
     void Awake()
     {
-        meshCollider = GetComponent<MeshCollider>();
-        meshCollider.enabled = false;
+        capsuleCollider = GetComponent<CapsuleCollider>();
+        capsuleCollider.enabled = false;
         transform.rotation = Quaternion.identity;
     }
 
@@ -26,7 +26,7 @@ public class GranadeAreaDamage : MonoBehaviour
     {
         yield return new WaitForSeconds(bombTimer);
         particleEffect.SetActive(true);
-        meshCollider.enabled = true;
+        capsuleCollider.enabled = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
         Destroy(granade);

@@ -9873,7 +9873,7 @@ GameObject:
   - component: {fileID: 3782193505671925825}
   - component: {fileID: 6901507101466257896}
   - component: {fileID: 7909948856521308933}
-  - component: {fileID: 4145699290945998652}
+  - component: {fileID: 773704564361763010}
   m_Layer: 0
   m_Name: ExplosionArea
   m_TagString: PlayerGranade
@@ -9962,8 +9962,8 @@ MonoBehaviour:
   granade: {fileID: 1375973836160515176}
   damageDone: 7
   meshCollider: {fileID: 0}
---- !u!64 &4145699290945998652
-MeshCollider:
+--- !u!136 &773704564361763010
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9972,7 +9972,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Radius: 0.5304038
+  m_Height: 722.2409
+  m_Direction: 1
+  m_Center: {x: -0.030403655, y: 185.6869, z: -0.00000007947286}

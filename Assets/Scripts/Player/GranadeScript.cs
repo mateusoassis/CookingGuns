@@ -59,5 +59,6 @@ public class GranadeScript : MonoBehaviour
             transform.rotation = Quaternion.identity;
             explosionArea.SetActive(true);
         }
+        
     }
 }

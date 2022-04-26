@@ -42,7 +42,7 @@ public class EnemyBullet : MonoBehaviour
 
         if(other.gameObject.tag == "Wall")
         {
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
