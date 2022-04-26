@@ -5,8 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerInfo", menuName = "Cooking Guns/PlayerInfo", order = 5)]
 public class PlayerInfo : ScriptableObject
 {
-    // tutorial
+    [Header("Usable Variables")]
     public bool hasPlayedTutorial;
+    public int playerCurrentRoom;
+    public int healthFromLastRoom;
+    public int lastWeaponEquipped;
+
+    public int currentSceneIndex;
+
+    [Header("Estatisticas")]
+    // tutorial
+    
     public int timeSpentOnTutorial;
 
     // armas
@@ -24,10 +33,7 @@ public class PlayerInfo : ScriptableObject
     public int totalPlayedTime;
     public int fastestRunSoFar;
 
-    public int playerCurrentRoom;
-    public int healthFromLastRoom;
 
-    public int currentSceneIndex;
 
     public void ResetThisObject()
     {
@@ -47,5 +53,14 @@ public class PlayerInfo : ScriptableObject
 
         playerCurrentRoom = -1;
         healthFromLastRoom = -1;
+
+        lastWeaponEquipped = -1;
+    }
+
+    public void NewGameReset()
+    {
+        playerCurrentRoom = -1;
+        healthFromLastRoom = -1;
+        lastWeaponEquipped = -1;
     }
 }
