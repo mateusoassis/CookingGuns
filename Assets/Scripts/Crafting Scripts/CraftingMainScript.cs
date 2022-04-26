@@ -47,17 +47,15 @@ public class CraftingMainScript : MonoBehaviour
             int craftCounter = 0;
             if(position != recipes[j].Result){
                 index = j;
-            } else {
+            }else{
                 for(int i = 0; i <recipeSize[index]; i++){
                     if(inventory.GetItem(recipes[index].Ingredients[i]) >= 1){
                         craftCounter++;
                         if(craftCounter == recipeSize[index]){
                             return true;
                         }
-                   
                     }
                 }
-            
             }
         }        
         return false;
