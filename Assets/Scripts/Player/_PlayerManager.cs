@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class _PlayerManager : MonoBehaviour
@@ -126,20 +127,24 @@ public class _PlayerManager : MonoBehaviour
                 if(playerWeaponHandler.weaponEquipped == 0)
                 {
                     playerShootingPistol.MyInput();
+                    //playerShootingPistol.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingPistol.AmmoDisplayUpdate();
                 }
                 else if(playerWeaponHandler.weaponEquipped == 1)
                 {
                     playerShootingShotgun.MyInput();
+                    //playerShootingShotgun.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingShotgun.AmmoDisplayUpdate();
                 }
                 else if(playerWeaponHandler.weaponEquipped == 2)
                 {
                     playerShootingMachineGun.MyInput();
+                    //playerShootingMachineGun.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingMachineGun.AmmoDisplayUpdate();
                 }else if(playerWeaponHandler.weaponEquipped == 3)
                 {
                     playerShootingGranadeLauncher.MyInput();
+                    //playerShootingGranadeLauncher.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingGranadeLauncher.AmmoDisplayUpdate();
                 }
 
