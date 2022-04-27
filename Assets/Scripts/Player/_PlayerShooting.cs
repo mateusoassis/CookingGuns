@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class _PlayerShooting : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class _PlayerShooting : MonoBehaviour
     public int magazineSize, bulletPerTap;
     public bool allowButtonHold;
 
+    public float reloadTimeCounter;
+
     int bulletsLeft, bulletsShot;
 
     //bools
@@ -29,6 +33,8 @@ public class _PlayerShooting : MonoBehaviour
     public Transform firePoint;
     //Graphics
     public GameObject muzzleFlash;
+    public TextMeshProUGUI ammoDisplay;
+    public Slider reloadDisplay;
     //bug fix
     public bool allowInvoke = true;
 
@@ -42,6 +48,7 @@ public class _PlayerShooting : MonoBehaviour
         readyToShoot = true;
         playerManager = GetComponentInParent<_PlayerManager>();
         weaponHandler = GetComponentInParent<_WeaponHandler>();
+        ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
         granadeLauncherTarget = GameObject.Find("SlerpTarget");
     }
 
@@ -181,6 +188,9 @@ public class _PlayerShooting : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+        reloadDisplay.gameObject.SetActive(true);
+        reloadTimeCounter += Time.deltaTime;
+        reloadDisplay.value = reloadTimeCounter/reloadTime;
         Invoke("ReloadFinished", reloadTime);
     }
 
@@ -192,7 +202,17 @@ public class _PlayerShooting : MonoBehaviour
 
     private void ReloadFinished()
     {
+        reloadTimeCounter = 0;
+        reloadDisplay.gameObject.SetActive(false);
         bulletsLeft = magazineSize;
         reloading = false;
+    }
+
+    public void AmmoDisplayUpdate()
+    {
+        if(ammoDisplay != null)
+        {
+            ammoDisplay.SetText(bulletsLeft/bulletPerTap + " / " + magazineSize/bulletPerTap);
+        }
     }
 }

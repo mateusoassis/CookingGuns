@@ -126,17 +126,21 @@ public class _PlayerManager : MonoBehaviour
                 if(playerWeaponHandler.weaponEquipped == 0)
                 {
                     playerShootingPistol.MyInput();
+                    playerShootingPistol.AmmoDisplayUpdate();
                 }
                 else if(playerWeaponHandler.weaponEquipped == 1)
                 {
                     playerShootingShotgun.MyInput();
+                    playerShootingShotgun.AmmoDisplayUpdate();
                 }
                 else if(playerWeaponHandler.weaponEquipped == 2)
                 {
                     playerShootingMachineGun.MyInput();
+                    playerShootingMachineGun.AmmoDisplayUpdate();
                 }else if(playerWeaponHandler.weaponEquipped == 3)
                 {
                     playerShootingGranadeLauncher.MyInput();
+                    playerShootingGranadeLauncher.AmmoDisplayUpdate();
                 }
 
                 if(Input.GetKeyDown(KeyCode.Mouse1))
