@@ -167,22 +167,27 @@ public class _PlayerManager : MonoBehaviour
 
                 if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading)
                 {
-                    if(!rmbHeldDown)
+                    playerWeaponHandler.UpdateAmountUnlocked();
+                    if(playerWeaponHandler.amountUnlocked > 1)
                     {
-                        playerEatingWeaponBar.SetActive(true);
-                        playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
-                        isEatingWeapon = true;
-                        eatingWeaponTimer += Time.deltaTime;
-                        animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
-
-                        if(eatingWeaponTimer >= eatingWeaponDuration)
+                        if(!rmbHeldDown)
                         {
-                            playerWeaponHandler.HealFromEatingWeapon();
-                            isEatingWeapon = false;
-                            rmbHeldDown = true;
-                            playerEatingWeaponBar.SetActive(false);
-                        }
-                    } 
+                            playerEatingWeaponBar.SetActive(true);
+                            playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
+                            isEatingWeapon = true;
+                            eatingWeaponTimer += Time.deltaTime;
+                            animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
+
+                            if(eatingWeaponTimer >= eatingWeaponDuration)
+                            {
+                                playerWeaponHandler.HealFromEatingWeapon();
+                                isEatingWeapon = false;
+                                rmbHeldDown = true;
+                                playerEatingWeaponBar.SetActive(false);
+                            }
+                        } 
+                    }
+                    
                 }
                 if(Input.GetKeyUp(KeyCode.Mouse1))
                 {

@@ -14,6 +14,7 @@ public class _WeaponHandler : MonoBehaviour
     public Transform[] weaponIcons;
     public Image[] weaponImages;
     public bool[] unlockedWeapons;
+    public int amountUnlocked;
     public GameObject[] weaponObjects;  
 
     void Awake()
@@ -53,6 +54,7 @@ public class _WeaponHandler : MonoBehaviour
 
         ActivatePistol_();
         WeaponManager(weaponEquipped);
+        UpdateAmountUnlocked();
     }
 
     void Update()
@@ -171,6 +173,11 @@ public class _WeaponHandler : MonoBehaviour
     {
         EatWeapon(weaponEquipped);
         playerManager.playerStats.heartScript.FullHeal();
+    }
+
+    public void UpdateAmountUnlocked()
+    {
+        amountUnlocked = CountBool(unlockedWeapons, true);
     }
 
     public static int CountBool(bool[] array, bool flag)
