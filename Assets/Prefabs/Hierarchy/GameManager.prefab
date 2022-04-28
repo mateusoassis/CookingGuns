@@ -48,8 +48,8 @@ MonoBehaviour:
   quitConfirmationWindow: {fileID: 0}
   timeHolderText: {fileID: 0}
   enemySpawner: {fileID: 0}
-  slowdownDuration: 0
-  slowdownFactor: 0
+  slowdownDuration: 3
+  slowdownFactor: 0.05
   slowdown: 0
   slowdownEnded: 0
   hours: 0
@@ -58,3 +58,4 @@ MonoBehaviour:
   pausedGame: 0
   confirmationWindowOpen: 0
   playerManager: {fileID: 0}
+  levelCounterText: {fileID: 0}

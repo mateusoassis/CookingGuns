@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public bool pausedGame;
     public bool confirmationWindowOpen;
     public _PlayerManager playerManager;
+    public TextMeshProUGUI levelCounterText;
 
     void Awake()
     {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
         timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
+        levelCounterText = GameObject.Find("LevelCounterText").GetComponent<TextMeshProUGUI>();
 
         playerManager.playerInfo.playerCurrentRoom = playerManager.playerInfo.currentSceneIndex - 2;
     }
@@ -47,6 +49,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         confirmationWindowOpen = false;
         elapsedTime = 0f;
+        if(playerManager.playerInfo.playerCurrentRoom != 1 || playerManager.playerInfo.playerCurrentRoom != 2)
+        {
+            levelCounterText.text = ("Room " + playerManager.playerInfo.playerCurrentRoom.ToString());
+        }
+        else
+        {
+            levelCounterText.text = ("Tutorial");
+        }
     }
 
     void Update()
