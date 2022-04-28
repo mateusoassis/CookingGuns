@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &151471789267598186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3639722463019046557}
+  m_Layer: 8
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3639722463019046557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151471789267598186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.088, z: 0.757}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1245032554988754906}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1245032554988754911
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,6 +68,7 @@ Transform:
   m_Children:
   - {fileID: 148159938473872262}
   - {fileID: 754770554506684721}
+  - {fileID: 3639722463019046557}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,12 +195,12 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   setBehaviour: 2
   isPlayerOnRange: 0
-  enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
+  enemyBulletPrefab: {fileID: 1078755390312954117, guid: 79c2499adc585ff48aab4fff516cad94, type: 3}
   enemySpeed: 0
   enemyMaxSpeed: 7
   stopDistance: 10
   retreatDistance: 8
-  firePoint: {fileID: 1245032554988754906}
+  firePoint: {fileID: 3639722463019046557}
   explosionObject: {fileID: 0}
   explosionObjectTransform: {fileID: 0}
   explosionObjectMesh: {fileID: 0}

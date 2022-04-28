@@ -60,4 +60,16 @@ public class _PlayerStats : MonoBehaviour
             playerTakeDamage.SetTrigger("Pressed");
         }  
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "EnemyGranade")
+        {
+            if((other.gameObject.TryGetComponent(out PudimAreaDamage pudimAreaDamage)))
+            {
+                //flashEffect.FlashStart();
+                TakeHPDamage(pudimAreaDamage.damageDone);
+            }
+        }
+    }
 }

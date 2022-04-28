@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GranadeScript : MonoBehaviour
+public class PudimBullet : MonoBehaviour
 {
     public Vector3 savedSlerpPosition;
 
@@ -10,18 +10,22 @@ public class GranadeScript : MonoBehaviour
 
     public Vector3 centerPivot;
     public float centerOffset;
-    public Transform parent;
+    public Vector3 target;
     public float slerpTime;
     public float currentSlerpTime;
     public float slerpSpeed;
     public float spawnYOffset;
     public float projectileSpeed;
 
+    void Awake()
+    {
+        target = GameObject.Find("Player").GetComponent<Transform>().position;
+    }
+
     void Start()
     {
-        parent = transform.parent;
         currentSlerpTime = 0f;
-        savedSlerpPosition = parent.gameObject.GetComponent<Transform>().position + new Vector3(0f, spawnYOffset, 0f);
+        savedSlerpPosition = target + new Vector3(0f, spawnYOffset, 0f);
     }
 
     void Update()
@@ -37,6 +41,7 @@ public class GranadeScript : MonoBehaviour
         float finalSpeed = (distance / projectileSpeed);
 
         transform.position = Vector3.Slerp(relativeStart, relativeEnd, Time.deltaTime/finalSpeed) + centerPivot;
+        
     }
 
     public void SlerpTimer()
@@ -57,6 +62,7 @@ public class GranadeScript : MonoBehaviour
         {
             transform.rotation = Quaternion.identity;
             explosionArea.SetActive(true);
-        } 
+        }
+        
     }
 }
