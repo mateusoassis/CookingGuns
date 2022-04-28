@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject creditsPanel;
     public PlayerInfo playerInfo;
-    public Button continueButton;
+    public GameObject continueButton;
 
     public bool isOnMenu;
 
@@ -25,11 +25,11 @@ public class MenuManager : MonoBehaviour
 
         if(playerInfo.playerCurrentRoom > 0)
         {
-            continueButton.interactable = true;
+            continueButton.SetActive(true);
         }
         else if(playerInfo.playerCurrentRoom <= 0)
         {
-            continueButton.interactable = false;
+            continueButton.SetActive(false);
         }
     }
 

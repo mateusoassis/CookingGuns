@@ -42,11 +42,6 @@ public class _PlayerStats : MonoBehaviour
         youLoseScript = GameObject.Find("MainCanvas").GetComponent<YouLose>();
     }
 
-    public void TestHeal()
-    {
-        
-    }
-
     public void TakeHPDamage(int damage)
     {
         if(!playerManager.isFading)
@@ -62,7 +57,6 @@ public class _PlayerStats : MonoBehaviour
                 playerManager.playerInfo.healthFromLastRoom = 0;
                 playerManager.playerInfo.playerCurrentRoom = 0;
             }
-            
             playerTakeDamage.SetTrigger("Pressed");
         }  
     }

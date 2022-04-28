@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class _PlayerShooting : MonoBehaviour
 {
@@ -41,14 +42,20 @@ public class _PlayerShooting : MonoBehaviour
     public _PlayerManager playerManager;
     public _WeaponHandler weaponHandler;
 
+    public int sceneInt;
+
     private void Awake()
     {   
+        sceneInt = SceneManager.GetActiveScene().buildIndex;
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
         playerManager = GetComponentInParent<_PlayerManager>();
         weaponHandler = GetComponentInParent<_WeaponHandler>();
-        ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
+        if(sceneInt != 0 && sceneInt != 1)
+        {
+            ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
+        }
         granadeLauncherTarget = GameObject.Find("SlerpTarget");
     }
 
