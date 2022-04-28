@@ -45,6 +45,7 @@ public class CheckpointCollider : MonoBehaviour
                 playerStatsReal = playerStats;
                 playerStatsReal.TakeHPDamage(damage);
                 isPlayerInside = true;
+                FindObjectOfType<SoundManager>().PlayOneShot("WaterFall");
                 fadeoutFadeinFadeoutWindow.SetActive(true);
                 playerStatsReal.gameObject.GetComponent<_AnimationHandler>().anim[playerStatsReal.gameObject.GetComponent<_AnimationHandler>().weapon].SetBool("Walking", false);
             }
