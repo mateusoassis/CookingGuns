@@ -16,7 +16,7 @@ public class _PlayerManager : MonoBehaviour
     public _PlayerShooting playerShootingMachineGun;
     public _PlayerShooting playerShootingGranadeLauncher;
     public _WeaponHandler playerWeaponHandler;
-    public Slider playerReloadBar;
+    public GameObject playerReloadBar;
     public GameManager gameManager;
     public PetHandler petHandler;
     public PlayerInfo playerInfo;
@@ -186,5 +186,15 @@ public class _PlayerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         isFading = false;
+    }
+
+    public void ReloadDisplayUpdate()
+    {
+        playerReloadBar.SetActive(true);
+    }
+
+    public void ReloadEndDisplay()
+    {
+        playerReloadBar.SetActive(false);
     }
 }

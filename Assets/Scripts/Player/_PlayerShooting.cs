@@ -188,9 +188,10 @@ public class _PlayerShooting : MonoBehaviour
     private void Reload()
     {
         reloading = true;
-        reloadDisplay.gameObject.SetActive(true);
-        reloadTimeCounter += Time.deltaTime;
-        reloadDisplay.value = reloadTimeCounter/reloadTime;
+        playerManager.ReloadDisplayUpdate();
+        //reloadDisplay.gameObject.SetActive(true);
+        //reloadTimeCounter += Time.deltaTime;
+        //reloadDisplay.value = reloadTimeCounter/reloadTime;
         Invoke("ReloadFinished", reloadTime);
     }
 
@@ -203,7 +204,8 @@ public class _PlayerShooting : MonoBehaviour
     private void ReloadFinished()
     {
         reloadTimeCounter = 0;
-        reloadDisplay.gameObject.SetActive(false);
+        playerManager.ReloadEndDisplay();
+        //reloadDisplay.gameObject.SetActive(false);
         bulletsLeft = magazineSize;
         reloading = false;
     }
