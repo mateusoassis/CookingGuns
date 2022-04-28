@@ -6,6 +6,35 @@ public class CheckpointCollider : MonoBehaviour
 {
     public Transform checkpoint;
     public int damage;
+    public GameObject fadeoutFadeinFadeoutWindow;
+    public bool isPlayerInside;
+    public float playerInsideDuration;
+    public float playerInsideTimer;
+    private _PlayerStats playerStatsReal;
+
+    void Awake()
+    {
+        fadeoutFadeinFadeoutWindow.SetActive(false);
+    }
+
+    void Start()
+    {
+        playerInsideTimer = playerInsideDuration;
+    }
+
+    void Update()
+    {
+        if(isPlayerInside)
+        {
+            playerInsideTimer -= Time.deltaTime;
+            if(playerInsideTimer < 0)
+            {
+                playerStatsReal.gameObject.transform.position = checkpoint.position;
+                playerInsideTimer = playerInsideDuration;
+                isPlayerInside = false;
+            }
+        }
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -13,9 +42,12 @@ public class CheckpointCollider : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out _PlayerStats playerStats)))
             {
-                playerStats.TakeHPDamage(damage);
+                playerStatsReal = playerStats;
+                playerStatsReal.TakeHPDamage(damage);
+                isPlayerInside = true;
+                fadeoutFadeinFadeoutWindow.SetActive(true);
+                playerStatsReal.gameObject.GetComponent<_AnimationHandler>().anim[playerStatsReal.gameObject.GetComponent<_AnimationHandler>().weapon].SetBool("Walking", false);
             }
-            other.transform.position = checkpoint.position;
         }
     }
 }

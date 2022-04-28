@@ -49,18 +49,21 @@ public class _PlayerStats : MonoBehaviour
 
     public void TakeHPDamage(int damage)
     {
-        playerCurrentHealth -= damage;
-        heartScript.hpLost += damage;
-        heartScript.UpdateAllHearts();
-
-        if(playerCurrentHealth <= 0)
+        if(!playerManager.isFading)
         {
-            playerManager.gameManager.PauseGame();
-            youLoseScript.PlayerLost();
-            playerManager.playerInfo.healthFromLastRoom = 0;
-            playerManager.playerInfo.playerCurrentRoom = 0;
-        }
-        
-        playerTakeDamage.SetTrigger("Pressed");
+            playerCurrentHealth -= damage;
+            heartScript.hpLost += damage;
+            heartScript.UpdateAllHearts();
+
+            if(playerCurrentHealth <= 0)
+            {
+                playerManager.gameManager.PauseGame();
+                youLoseScript.PlayerLost();
+                playerManager.playerInfo.healthFromLastRoom = 0;
+                playerManager.playerInfo.playerCurrentRoom = 0;
+            }
+            
+            playerTakeDamage.SetTrigger("Pressed");
+        }  
     }
 }
