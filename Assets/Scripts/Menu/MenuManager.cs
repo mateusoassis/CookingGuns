@@ -46,9 +46,9 @@ public class MenuManager : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
                 playerInfo.playerCurrentRoom = 1;
                 playerInfo.healthFromLastRoom = 0;
+                SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
             }
         }
     }

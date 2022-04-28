@@ -33,21 +33,17 @@ public class HeartAnimatorScript : MonoBehaviour
 
     public void CheckIfActiveOrNot()
     {
-        if(state == 0)
+        
+        if(index <= parent.gameObject.GetComponent<HeartContainerManager>().hpLost)
         {
-            if(index <= parent.gameObject.GetComponent<HeartContainerManager>().hpLost)
-            {
-                GetComponent<Animator>().SetTrigger("Disabled");
-                state = 1;
-            }
+            GetComponent<Animator>().SetTrigger("Disabled");
+            state = 1;
         }
-        else if(state == 1)
+        
+        if(index > parent.gameObject.GetComponent<HeartContainerManager>().hpLost)
         {
-            if(index > parent.gameObject.GetComponent<HeartContainerManager>().hpLost)
-            {
-                GetComponent<Animator>().SetTrigger("Normal");
-                state = 0;
-            }
+            GetComponent<Animator>().SetTrigger("Normal");
+            state = 0;
         }
     }
 

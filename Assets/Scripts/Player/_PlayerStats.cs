@@ -40,6 +40,7 @@ public class _PlayerStats : MonoBehaviour
     {
         playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
         youLoseScript = GameObject.Find("MainCanvas").GetComponent<YouLose>();
+        StartHPDamage();
     }
 
     public void TakeHPDamage(int damage)
@@ -71,5 +72,10 @@ public class _PlayerStats : MonoBehaviour
                 TakeHPDamage(pudimAreaDamage.damageDone);
             }
         }
+    }
+
+    public void StartHPDamage()
+    {
+        heartScript.UpdateAllHearts();
     }
 }

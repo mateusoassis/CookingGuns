@@ -8,8 +8,6 @@ public class HeartContainerManager : MonoBehaviour
     public GameObject heartPrefab;
     public _PlayerStats playerStats;
     List<_PlayerHeartManager> hearts = new List<_PlayerHeartManager>();
-    
-    public int sceneIndex;
 
     public GameObject[] heartsObjects;
     public int hpLost;
@@ -22,9 +20,21 @@ public class HeartContainerManager : MonoBehaviour
         //heartsObjects = new GameObject[playerStats.playerMaxHealth];
     }
 
+    void Start()
+    {
+        //hpLost = playerStats.playerMaxHealth - playerStats.playerCurrentHealth;
+        hpLost = playerStats.playerMaxHealth - playerStats.playerManager.playerInfo.healthFromLastRoom;
+        
+        if(playerStats.playerManager.playerInfo.currentSceneIndex > 2)
+        {
+            //UpdateAllHearts();
+        }
+    }
+
     void Update()
     {
         hpLost = playerStats.playerMaxHealth - playerStats.playerCurrentHealth;
+        UpdateAllHearts();
     }
 
     private void OnEnable()
@@ -37,15 +47,7 @@ public class HeartContainerManager : MonoBehaviour
         //_PlayerStats.OnPlayerDamaged -= DrawHearts;
     }
 
-    private void Start()
-    {
-        hpLost = playerStats.playerMaxHealth - playerStats.playerCurrentHealth;
-        
-        if(playerStats.playerManager.playerInfo.currentSceneIndex != 1)
-        {
-            UpdateAllHearts();
-        }
-    }
+    
 
     public void UpdateAllHearts()
     {
