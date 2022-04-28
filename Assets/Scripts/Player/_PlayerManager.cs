@@ -28,23 +28,35 @@ public class _PlayerManager : MonoBehaviour
 
     public int sceneIndex;
 
+    [Header("Comer arma")]
+    private float eatingWeaponTimer;
+    public float eatingWeaponDuration;
+    private bool rmbHeldDown;
+    private GameObject playerEatingWeaponBar;
+    private Slider playerEatingWeaponBarSlider;
+
     
     [Header("Player Flags")]
     public bool isShooting;
     public bool isRolling;
     public bool isFading;
     public bool isWalking;
+    public bool isEatingWeapon;
 
     void Awake()
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         playerInfo.currentSceneIndex = sceneIndex;
         playerReloadBar = GameObject.Find("ReloadBar");
+        playerEatingWeaponBar = GameObject.Find("EatingWeaponBar");
+        playerEatingWeaponBarSlider = playerEatingWeaponBar.GetComponent<Slider>();
     }
     
     void Start()
     {
+        playerEatingWeaponBarSlider.maxValue = eatingWeaponDuration;
         playerReloadBar.SetActive(false);
+        playerEatingWeaponBar.SetActive(false);
         playerRigidbody = GetComponent<Rigidbody>();
         animationHandler = GetComponent<_AnimationHandler>();
         //playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
@@ -60,6 +72,7 @@ public class _PlayerManager : MonoBehaviour
         craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
         inventory = GetComponent<Inventory>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        eatingWeaponTimer = 0f;
     }
 
     void Update()
@@ -67,7 +80,7 @@ public class _PlayerManager : MonoBehaviour
         if(!isFading)
         {
             // roll
-            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen)
+            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen && !isEatingWeapon)
             {
                 if(playerMovement.rollCount < playerMovement.maxRoll)
                 {
@@ -113,7 +126,7 @@ public class _PlayerManager : MonoBehaviour
             }
 
             
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E) && !isEatingWeapon)
             {
                 if(petHandler.playerOnArea)
                 {
@@ -127,40 +140,63 @@ public class _PlayerManager : MonoBehaviour
             if(!gameManager.pausedGame && !petHandler.craftingWindowOpen)
             {
                 //playerWeaponHandler.WeaponBehaviour();
-                if(playerWeaponHandler.weaponEquipped == 0)
+                if(playerWeaponHandler.weaponEquipped == 0 && !isEatingWeapon)
                 {
                     playerShootingPistol.MyInput();
                     //playerShootingPistol.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingPistol.AmmoDisplayUpdate();
                 }
-                else if(playerWeaponHandler.weaponEquipped == 1)
+                else if(playerWeaponHandler.weaponEquipped == 1 && !isEatingWeapon)
                 {
                     playerShootingShotgun.MyInput();
                     //playerShootingShotgun.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingShotgun.AmmoDisplayUpdate();
                 }
-                else if(playerWeaponHandler.weaponEquipped == 2)
+                else if(playerWeaponHandler.weaponEquipped == 2 && !isEatingWeapon)
                 {
                     playerShootingMachineGun.MyInput();
                     //playerShootingMachineGun.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingMachineGun.AmmoDisplayUpdate();
-                }else if(playerWeaponHandler.weaponEquipped == 3)
+                }
+                else if(playerWeaponHandler.weaponEquipped == 3 && !isEatingWeapon)
                 {
                     playerShootingGranadeLauncher.MyInput();
                     //playerShootingGranadeLauncher.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingGranadeLauncher.AmmoDisplayUpdate();
                 }
 
-                if(Input.GetKeyDown(KeyCode.Mouse1))
+                if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading)
                 {
-                    playerWeaponHandler.HealFromEatingWeapon();
+                    if(!rmbHeldDown)
+                    {
+                        playerEatingWeaponBar.SetActive(true);
+                        playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
+                        isEatingWeapon = true;
+                        eatingWeaponTimer += Time.deltaTime;
+                        animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
+
+                        if(eatingWeaponTimer >= eatingWeaponDuration)
+                        {
+                            playerWeaponHandler.HealFromEatingWeapon();
+                            isEatingWeapon = false;
+                            rmbHeldDown = true;
+                            playerEatingWeaponBar.SetActive(false);
+                        }
+                    } 
+                }
+                if(Input.GetKeyUp(KeyCode.Mouse1))
+                {
+                    isEatingWeapon = false;
+                    rmbHeldDown = false;
+                    eatingWeaponTimer = 0f;
+                    playerEatingWeaponBar.SetActive(false);
                 }
                 
                 playerMovement.RollCountTimer();
                 //playerMovement.PlayerAim();
             }
 
-            if(!petHandler.craftingWindowOpen)
+            if(!petHandler.craftingWindowOpen && !isEatingWeapon)
             {
                 playerWeaponHandler.SwitchGuns();
             }
@@ -178,7 +214,7 @@ public class _PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!petHandler.craftingWindowOpen && !isFading)
+        if(!petHandler.craftingWindowOpen && !isFading && !isEatingWeapon)
         {
             playerMovement.HandleMovement();   
             playerMovement.Move();
