@@ -13,6 +13,10 @@ public class EnemyDrop : MonoBehaviour
     public float distanceFromPlayer;
     public bool canGoToPlayer;
     public Rigidbody rb;
+    private float x;
+    private float z;
+    public float range;
+    public float throwForce;
 
     [Header("Nome do Item")]
     public string ItemName;
@@ -20,13 +24,16 @@ public class EnemyDrop : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        //Physics.IgnoreLayerCollision(16, 16, true);
     }
 
     void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         canGoToPlayer = true;
-        //rb.AddForce();
+        x = Random.Range(-2f, 2f);
+        z = Random.Range(-2f, 2f);
+        rb.AddForce(new Vector3(x, 3f, z) * throwForce, ForceMode.Impulse);
     }
 
     void Update()
@@ -55,7 +62,7 @@ public class EnemyDrop : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Player")
         {
@@ -66,5 +73,12 @@ public class EnemyDrop : MonoBehaviour
             }
             Destroy(this.gameObject);
         }
+
+        /*
+        if(other.gameObject.tag == "Ground")
+        {
+            Debug.Log("ativa colisão entre drops");
+        }
+        */
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6058910667991397443}
   - component: {fileID: 6058910667991397442}
   - component: {fileID: 6058910667991397446}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: DropSugerCane
   m_TagString: Drop
   m_Icon: {fileID: 0}
@@ -93,10 +93,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6058910667991397440}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.3}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6058910667991397442
 Rigidbody:
@@ -112,7 +112,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 94
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &6058910667991397446
 MonoBehaviour:
@@ -129,10 +129,14 @@ MonoBehaviour:
   rotationVector: {x: 0, y: 1, z: 0}
   rotationMultiplier: 100
   playerTransform: {fileID: 0}
-  pullDistance: 4
-  timeToPull: 0.7
+  pullDistance: 5
+  timeToPull: 1
   distanceFromPlayer: 0
   canGoToPlayer: 0
+  rb: {fileID: 0}
+  x: 0
+  z: 0
+  throwForce: 3
   ItemName: SugarCane
 --- !u!1 &6058910668239990140
 GameObject:
@@ -146,7 +150,7 @@ GameObject:
   - component: {fileID: 6058910668239990112}
   - component: {fileID: 6058910668239990143}
   - component: {fileID: 6058910668239990142}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
