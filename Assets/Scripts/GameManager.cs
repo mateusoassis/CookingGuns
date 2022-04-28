@@ -49,13 +49,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         confirmationWindowOpen = false;
         elapsedTime = 0f;
-        if(playerManager.playerInfo.playerCurrentRoom != 1 || playerManager.playerInfo.playerCurrentRoom != 2)
+        if(playerManager.playerInfo.playerCurrentRoom < 1)
         {
-            levelCounterText.text = ("Room " + playerManager.playerInfo.playerCurrentRoom.ToString());
+            levelCounterText.text = ("Tutorial");
         }
         else
         {
-            levelCounterText.text = ("Tutorial");
+            levelCounterText.text = ("Room " + playerManager.playerInfo.playerCurrentRoom.ToString());
         }
     }
 
