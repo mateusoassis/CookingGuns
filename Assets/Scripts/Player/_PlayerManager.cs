@@ -16,6 +16,7 @@ public class _PlayerManager : MonoBehaviour
     public _PlayerShooting playerShootingMachineGun;
     public _PlayerShooting playerShootingGranadeLauncher;
     public _WeaponHandler playerWeaponHandler;
+    public Slider playerReloadBar;
     public GameManager gameManager;
     public PetHandler petHandler;
     public PlayerInfo playerInfo;
