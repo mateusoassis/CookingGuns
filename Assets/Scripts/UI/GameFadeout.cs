@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameFadeout : MonoBehaviour
 {
     public _PlayerManager playerManager;
+    public float fadeoutDuration;
 
     void Start()
     {
@@ -14,11 +15,15 @@ public class GameFadeout : MonoBehaviour
 
     public void CoroutineToDisable()
     {
-        StartCoroutine(playerManager.WaitFadeout());
-             
+        StartCoroutine(playerManager.WaitFadeout(fadeoutDuration));    
     }
     public void DisableThisObject()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public void CoroutineToEnable()
+    {
+        
     }
 }

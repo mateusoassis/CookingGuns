@@ -182,9 +182,9 @@ public class _PlayerManager : MonoBehaviour
             playerMovement.Move();
         }
     }
-    public IEnumerator WaitFadeout()
+    public IEnumerator WaitFadeout(float n)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(n);
         isFading = false;
     }
 }
