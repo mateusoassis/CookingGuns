@@ -12,14 +12,21 @@ public class EnemyDrop : MonoBehaviour
     [SerializeField] private float timeToPull;
     public float distanceFromPlayer;
     public bool canGoToPlayer;
+    public Rigidbody rb;
 
     [Header("Nome do Item")]
     public string ItemName;
     
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         canGoToPlayer = true;
+        //rb.AddForce();
     }
 
     void Update()

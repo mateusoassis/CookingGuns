@@ -52,6 +52,19 @@ public class _PlayerShooting : MonoBehaviour
         granadeLauncherTarget = GameObject.Find("SlerpTarget");
     }
 
+    void Update()
+    {
+        if(reloading)
+        {
+            reloadTimeCounter += Time.deltaTime;
+            reloadDisplay.value = reloadTimeCounter/reloadTime;
+            if(reloadTimeCounter >= reloadTime)
+            {
+                reloading = false;
+            }
+        }
+    }
+
     public void MyInput()
     {
         if(allowButtonHold)
@@ -189,7 +202,8 @@ public class _PlayerShooting : MonoBehaviour
     {
         reloading = true;
         playerManager.ReloadDisplayUpdate();
-        //reloadDisplay.gameObject.SetActive(true);
+        reloadDisplay.gameObject.SetActive(true);
+        reloadTimeCounter = 0;
         //reloadTimeCounter += Time.deltaTime;
         //reloadDisplay.value = reloadTimeCounter/reloadTime;
         Invoke("ReloadFinished", reloadTime);
@@ -205,7 +219,7 @@ public class _PlayerShooting : MonoBehaviour
     {
         reloadTimeCounter = 0;
         playerManager.ReloadEndDisplay();
-        //reloadDisplay.gameObject.SetActive(false);
+        reloadDisplay.gameObject.SetActive(false);
         bulletsLeft = magazineSize;
         reloading = false;
     }

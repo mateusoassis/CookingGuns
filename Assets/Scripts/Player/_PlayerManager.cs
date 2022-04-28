@@ -39,10 +39,12 @@ public class _PlayerManager : MonoBehaviour
     {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         playerInfo.currentSceneIndex = sceneIndex;
+        playerReloadBar = GameObject.Find("ReloadBar");
     }
     
     void Start()
     {
+        playerReloadBar.SetActive(false);
         playerRigidbody = GetComponent<Rigidbody>();
         animationHandler = GetComponent<_AnimationHandler>();
         //playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
