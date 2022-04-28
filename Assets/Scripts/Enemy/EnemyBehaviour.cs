@@ -7,6 +7,9 @@ public class EnemyBehaviour : MonoBehaviour
     public Transform playerTransform;
     private Vector3 targetPosition;
     public int setBehaviour;
+    // 1 = shooting + follow (o que fica de perto)
+    // 2 = shooting + retreat (o que fica de longe)
+    // 3 = follow + explode (o que explode)
     public bool isPlayerOnRange;
     public Rigidbody enemyBulletPrefab;
 
@@ -39,6 +42,14 @@ public class EnemyBehaviour : MonoBehaviour
     public float timeBetweenShotsTimer;
     public float randomExtraTimeBetweenShots;
 
+    [Header("Movimentação behaviour 2")]
+    public float countToMove;
+    private float countToMoveTimer;
+    public float retreatCooldown;
+    private float retreatCooldownTimer;
+    public bool retreating;
+    public bool retreatingOnCooldown;
+
     public Animator enemyAnimator;
 
     public bool canMove;
@@ -56,9 +67,9 @@ public class EnemyBehaviour : MonoBehaviour
         timeBetweenShotsTimer = timeBetweenShots + Random.Range(-randomExtraTimeBetweenShots, randomExtraTimeBetweenShots);
     }
 
-    // 1 = shooting + follow
-    // 2 = shooting + retreat
-    // 3 = follow + explode
+    // 1 = shooting + follow (o que fica de perto)
+    // 2 = shooting + retreat (o que fica de longe)
+    // 3 = follow + explode (o que explode)
 
     void FixedUpdate()
     {
@@ -100,16 +111,41 @@ public class EnemyBehaviour : MonoBehaviour
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                         transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
                         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
+                        retreating = false;
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
                     {
                         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
+                        retreating = false;
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
                     {
                         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                         transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
+                        retreating = true;
+                        retreatingOnCooldown = true;
+                    }
+                }
+
+                if(retreatingOnCooldown)
+                {
+                    retreatCooldownTimer += Time.deltaTime;
+                    if(retreatCooldownTimer >= retreatCooldown)
+                    {
+                        canMove = false;
+                    }
+
+                    if(!canMove)
+                    {
+                        countToMoveTimer += Time.deltaTime;
+                        if(countToMoveTimer >= countToMove)
+                        {
+                            canMove = true;
+                            retreatingOnCooldown = false;
+                            countToMoveTimer = 0f;
+                            retreatCooldownTimer = 0f;
+                        }
                     }
                 }
                 Shoot();
@@ -144,6 +180,14 @@ public class EnemyBehaviour : MonoBehaviour
                 }
             }
         }
+    }
+
+    public IEnumerator CountToStopMoving()
+    {
+        yield return new WaitForSeconds(countToMove);
+        canMove = false;
+        yield return new WaitForSeconds(retreatCooldown);
+        canMove = true;
     }
 
     public void StartExplosion()
