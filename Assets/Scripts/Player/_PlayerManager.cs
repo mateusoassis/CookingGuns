@@ -32,7 +32,7 @@ public class _PlayerManager : MonoBehaviour
     public float eatingWeaponTimer;
     public float eatingWeaponDuration;
     public bool rmbHeldDown;
-    //public bool rmbHasToClickAgain;
+    public bool rmbHasToPressAgain;
     public bool canceledEating;
     private GameObject playerEatingWeaponBar;
     private Slider playerEatingWeaponBarSlider;
@@ -86,10 +86,10 @@ public class _PlayerManager : MonoBehaviour
             // roll
             if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
             {
+                Debug.Log("barra de espaço");
                 if(playerMovement.rollCount < playerMovement.maxRoll)
                 {
-                    // parte que reseta a barra de comer arma
-                    rmbHeldDown = true;
+                    Debug.Log("roll man");
                     eatingWeaponTimer = 0f;
                     canceledEating = true;
                     playerEatingWeaponBar.SetActive(false);
@@ -97,14 +97,20 @@ public class _PlayerManager : MonoBehaviour
                     isRolling = true;
                     gameObject.layer = 12;
                     playerRigidbody.useGravity = false;
-                    if(sceneIndex != 1 && sceneIndex != 2)
-                    {
-                        //playerCapsuleCollider.enabled = false;
-                    }
+
                     playerMovement.rollTimer = playerMovement.rollDuration;
                     playerMovement.rollCount++;
+
                     playerInfo.totalTimesRolled++;
+
                     animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
+
+                    // parte que reseta a barra de comer arma
+                    if(rmbHeldDown)
+                    {
+                        rmbHasToPressAgain = true;
+                    }
+                    Debug.Log("fim da barra de espaço");
                 }
             }
 
@@ -175,40 +181,54 @@ public class _PlayerManager : MonoBehaviour
                     playerShootingGranadeLauncher.AmmoDisplayUpdate();
                 }
 
-                if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading && !canceledEating)
+                if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading && !canceledEating) //&& !rmbHasToPressAgain)
                 {
-                    playerWeaponHandler.UpdateAmountUnlocked();
-                    if(playerWeaponHandler.amountUnlocked > 1)
+                    if(rmbHasToPressAgain)
                     {
-                        if(!rmbHeldDown)
-                        {
-                            playerEatingWeaponBar.SetActive(true);
-                            playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
-                            isEatingWeapon = true;
-                            eatingWeaponTimer += Time.deltaTime;
-                            //animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
-
-                            if(eatingWeaponTimer >= eatingWeaponDuration)
-                            {
-                                playerWeaponHandler.HealFromEatingWeapon();
-                                isEatingWeapon = false;
-                                rmbHeldDown = true;
-                                playerEatingWeaponBar.SetActive(false);
-                            }
-                        } 
+                        isEatingWeapon = false;
                     }
-                    
+                    else
+                    {
+                        rmbHeldDown = true;
+                        playerWeaponHandler.UpdateAmountUnlocked();
+                        if(playerWeaponHandler.amountUnlocked > 1)
+                        {
+                            if(rmbHeldDown && !rmbHasToPressAgain)
+                            {
+                                playerEatingWeaponBar.SetActive(true);
+                                playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
+                                isEatingWeapon = true;
+                                eatingWeaponTimer += Time.deltaTime;
+                                //animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
+
+                                if(eatingWeaponTimer >= eatingWeaponDuration)
+                                {
+                                    playerWeaponHandler.HealFromEatingWeapon();
+                                    isEatingWeapon = false;
+                                    
+                                    playerEatingWeaponBar.SetActive(false);
+                                    rmbHasToPressAgain = true;
+                                }
+                            }
+                            else if(rmbHasToPressAgain)
+                            {
+                                isEatingWeapon = false;
+                            }
+                        }
+                    }
                 }
+
                 if(Input.GetKeyUp(KeyCode.Mouse1))
                 {
                     //canceledEating = false;
+                    rmbHasToPressAgain = false;
                     isEatingWeapon = false;
                     rmbHeldDown = false;
                     eatingWeaponTimer = 0f;
                     playerEatingWeaponBar.SetActive(false);
                 }
                 
-                playerMovement.RollCountTimer();
+                //playerMovement.RollCountTimer();
                 //playerMovement.PlayerAim();
             }
 
@@ -217,6 +237,7 @@ public class _PlayerManager : MonoBehaviour
                 playerWeaponHandler.SwitchGuns();
             }
         }
+        playerMovement.RollCountTimer();
     }
 
     void LateUpdate()

@@ -149,7 +149,7 @@ public class _PlayerMovement : MonoBehaviour
             rollCount = 0;
             rollCountTimer = rollCountDuration;
         }
-        else if(rollCount != 0)
+        else if(rollCount > 0)
         {
             rollCountTimer -= Time.deltaTime;
         }
