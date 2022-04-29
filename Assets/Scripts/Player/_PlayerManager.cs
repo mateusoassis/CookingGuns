@@ -82,10 +82,8 @@ public class _PlayerManager : MonoBehaviour
             // roll
             if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
             {
-                Debug.Log("barra de espaço");
                 if(playerMovement.rollCount < playerMovement.maxRoll)
                 {
-                    Debug.Log("roll man");
                     eatingWeaponTimer = 0f;
                     canceledEating = true;
                     playerEatingWeaponBar.SetActive(false);
@@ -100,14 +98,13 @@ public class _PlayerManager : MonoBehaviour
 
                     playerInfo.totalTimesRolled++;
 
-                    animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
+                    // animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
 
                     // parte que reseta a barra de comer arma
                     if(rmbHeldDown)
                     {
                         rmbHasToPressAgain = true;
                     }
-                    Debug.Log("fim da barra de espaço");
                 }
             }
 

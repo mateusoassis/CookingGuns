@@ -43,14 +43,12 @@ public class EnemyDrop : MonoBehaviour
         distanceFromPlayer = Vector3.Distance(transform.position, playerTransform.position);
         if(distanceFromPlayer < pullDistance && canGoToPlayer)
         {
-            Debug.Log("if");
             StartCoroutine(MoveTowardsThePlayer());
         }
     }
 
     public IEnumerator MoveTowardsThePlayer()
     {
-        Debug.Log("coroutine");
         canGoToPlayer = false;
         var currentPos = transform.position;
         var t = 0f;
