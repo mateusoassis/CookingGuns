@@ -29,9 +29,11 @@ public class _PlayerManager : MonoBehaviour
     public int sceneIndex;
 
     [Header("Comer arma")]
-    private float eatingWeaponTimer;
+    public float eatingWeaponTimer;
     public float eatingWeaponDuration;
-    private bool rmbHeldDown;
+    public bool rmbHeldDown;
+    //public bool rmbHasToClickAgain;
+    public bool canceledEating;
     private GameObject playerEatingWeaponBar;
     private Slider playerEatingWeaponBarSlider;
 
@@ -82,10 +84,16 @@ public class _PlayerManager : MonoBehaviour
         if(!isFading)
         {
             // roll
-            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen && !isEatingWeapon)
+            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
             {
                 if(playerMovement.rollCount < playerMovement.maxRoll)
                 {
+                    // parte que reseta a barra de comer arma
+                    rmbHeldDown = true;
+                    eatingWeaponTimer = 0f;
+                    canceledEating = true;
+                    playerEatingWeaponBar.SetActive(false);
+
                     isRolling = true;
                     gameObject.layer = 12;
                     playerRigidbody.useGravity = false;
@@ -167,7 +175,7 @@ public class _PlayerManager : MonoBehaviour
                     playerShootingGranadeLauncher.AmmoDisplayUpdate();
                 }
 
-                if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading)
+                if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading && !canceledEating)
                 {
                     playerWeaponHandler.UpdateAmountUnlocked();
                     if(playerWeaponHandler.amountUnlocked > 1)
@@ -178,7 +186,7 @@ public class _PlayerManager : MonoBehaviour
                             playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
                             isEatingWeapon = true;
                             eatingWeaponTimer += Time.deltaTime;
-                            animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
+                            //animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
 
                             if(eatingWeaponTimer >= eatingWeaponDuration)
                             {
@@ -193,6 +201,7 @@ public class _PlayerManager : MonoBehaviour
                 }
                 if(Input.GetKeyUp(KeyCode.Mouse1))
                 {
+                    //canceledEating = false;
                     isEatingWeapon = false;
                     rmbHeldDown = false;
                     eatingWeaponTimer = 0f;
@@ -221,7 +230,7 @@ public class _PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!petHandler.craftingWindowOpen && !isFading && !isEatingWeapon)
+        if(!petHandler.craftingWindowOpen && !isFading) //&& !isEatingWeapon)
         {
             playerMovement.HandleMovement();   
             playerMovement.Move();

@@ -14,11 +14,12 @@ public class CheckpointCollider : MonoBehaviour
 
     void Awake()
     {
-        outOfBoundsFadeObject.SetActive(false);
+        outOfBoundsFadeObject = GameObject.Find("OutOfBoundsFade");
     }
 
     void Start()
     {
+        outOfBoundsFadeObject.SetActive(false);
         playerInsideTimer = playerInsideDuration;
     }
 

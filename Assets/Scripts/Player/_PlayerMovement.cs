@@ -78,6 +78,10 @@ public class _PlayerMovement : MonoBehaviour
         {
             if(rollTimer <= 0)
             {
+                // controle de cancelar comer arma
+                playerManager.rmbHeldDown = false;
+                playerManager.canceledEating = false;
+
                 playerManager.isRolling = false;
                 gameObject.layer = 0;                
                 playerManager.playerRigidbody.useGravity = true;
@@ -95,6 +99,15 @@ public class _PlayerMovement : MonoBehaviour
 
     public void Move()
     {
+        if(playerManager.isEatingWeapon && !playerManager.canceledEating)
+        {
+            playerMoveSpeed = playerMaxMoveSpeed/2f;
+        }
+        else
+        {
+            playerMoveSpeed = playerMaxMoveSpeed;
+        }
+
         if(_input.x != 0 || _input.z != 0)
         {
             if(!playerManager.isShooting)
