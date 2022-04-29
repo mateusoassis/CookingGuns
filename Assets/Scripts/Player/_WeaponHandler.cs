@@ -62,6 +62,16 @@ public class _WeaponHandler : MonoBehaviour
         
     }
 
+    public void Roll()
+    {
+        weaponObjects[weaponEquipped].SetActive(false);
+        playerManager.animationHandler.rollCat.SetActive(true);
+    }
+    public void EndRoll()
+    {
+        weaponObjects[weaponEquipped].SetActive(true);
+    }
+
     public void WeaponManager(int n)
     {
         for(int i = 0; i < weaponObjects.Length; i++)

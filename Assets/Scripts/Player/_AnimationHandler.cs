@@ -8,10 +8,8 @@ public class _AnimationHandler : MonoBehaviour
     public int weapon;
     public Animator[] anim;
 
-    void Awake()
-    {
-        
-    }
+    public GameObject rollCat;
+
     void Start()
     { 
         GetWeaponInt();

@@ -91,6 +91,7 @@ public class _PlayerManager : MonoBehaviour
                     playerEatingWeaponBar.SetActive(false);
 
                     isRolling = true;
+                    playerWeaponHandler.Roll();
                     gameObject.layer = 12;
                     playerRigidbody.useGravity = false;
 
