@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4778793461042536126}
   - component: {fileID: 4778793461042536125}
   - component: {fileID: -7580139476968547782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3_VermelhoTower
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -122,11 +122,13 @@ MonoBehaviour:
   dropChance:
   - 100
   - 100
+  isPudim: 0
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   hitRecently: 0
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
+  enemyType: 0
 --- !u!114 &4778793461042536125
 MonoBehaviour:
   m_ObjectHideFlags: 0

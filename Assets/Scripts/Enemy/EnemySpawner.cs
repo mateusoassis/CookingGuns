@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy4Prefab;
     public GameObject enemy5Prefab;
 
+    public GameObject allEnemyDead;
+
     public Transform[] roomPositions;
 
     //[HideInInspector]
@@ -44,15 +46,19 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        allEnemyDead = GameObject.Find("Enemies");
         //totalEnemies = Random.Range(3,9);
         enemiesKilled = 0;
         roomCleared = false;
-        if(!playerManager.testing)
+        if(playerManager.testing)
         {
-            //SpawnEnemies();
+            Destroy(allEnemyDead.gameObject, 2f);
+            roomCleared = true;
         }
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         petHandler = GameObject.Find("Player").GetComponent<PetHandler>();
+
+
     }
 
     void Update()
@@ -62,10 +68,11 @@ public class EnemySpawner : MonoBehaviour
             if (enemiesKilled >= totalEnemies && !roomCleared)
             {
                 roomCleared = true;
+                petHandler.pressEKey.SetActive(true);
                 petBillboard.lockOnPlayer = true;
                 if(petBillboard.lockOnPlayer)
                 {
-                    petHandler.MoveTowardsPlayer();
+                    //petHandler.MoveTowardsPlayer();
                     petBillboard.lockOnPlayer = false;
                 }
             }
@@ -113,4 +120,17 @@ public class EnemySpawner : MonoBehaviour
             enemiesMax++;
         }
     }
+
+    /*
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy" && playerManager.testing)
+        {
+            if((other.gameObject.TryGetComponent(out EnemyStats enemyStats)))
+            {
+                enemyStats.TakeDamage(999);
+            }
+        }
+    }
+    */
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8786387806133823448}
   - component: {fileID: 8786387806133823399}
   - component: {fileID: -3441143134874793601}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 2_VerdeTower
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -62,11 +62,13 @@ MonoBehaviour:
   dropChance:
   - 100
   - 100
+  isPudim: 0
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   hitRecently: 0
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
+  enemyType: 0
 --- !u!114 &8786387806133823399
 MonoBehaviour:
   m_ObjectHideFlags: 0

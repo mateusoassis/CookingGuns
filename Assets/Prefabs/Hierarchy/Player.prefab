@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 104.9, y: 0.000061035156}
+  m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407142470
@@ -1127,7 +1127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 0.000061035156}
+  m_AnchoredPosition: {x: -100, y: 0}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2794672020934759585
@@ -7617,7 +7617,11 @@ MonoBehaviour:
   inventory: {fileID: 0}
   gameFadeOut: {fileID: 0}
   sceneIndex: 0
+  eatingWeaponTimer: 0
   eatingWeaponDuration: 1
+  rmbHeldDown: 0
+  rmbHasToPressAgain: 0
+  canceledEating: 0
   isShooting: 0
   isRolling: 0
   isFading: 0
@@ -7637,7 +7641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45eb4dc99a0faa543999320c30ec2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  youLoseWindow: {fileID: 0}
+  youLoseHolder: {fileID: 0}
   playerCurrentHealth: 0
   playerHealthFromPreviousRoom: 0
   playerMaxHealth: 7
@@ -7725,8 +7729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainUI: {fileID: 0}
   pet: {fileID: 0}
-  petChild: {fileID: 0}
-  petNavMeshAgent: {fileID: 0}
+  pressEKey: {fileID: 0}
   sinRadius: 0.02
   playerOnArea: 0
   craftingWindowOpen: 0
@@ -7734,6 +7737,15 @@ MonoBehaviour:
   inventorytxt: {fileID: 0}
   playerManager: {fileID: 0}
   move: 0
+  arrived: 0
+  petSpeed: 8
+  targetTransforms:
+  - {fileID: 0}
+  - {fileID: 0}
+  index: 0
+  moveToNextDelay: 1
+  moveToNextDelayTimer: 0
+  stop: 0
 --- !u!114 &6581419280599443788
 MonoBehaviour:
   m_ObjectHideFlags: 0
