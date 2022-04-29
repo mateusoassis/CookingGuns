@@ -42,6 +42,8 @@ public class _PlayerManager : MonoBehaviour
     public bool isFading;
     public bool isWalking;
     public bool isEatingWeapon;
+    public bool isDead;
+    public bool endGame;
 
     void Awake()
     {
@@ -67,7 +69,7 @@ public class _PlayerManager : MonoBehaviour
         playerWeaponHandler = GetComponent<_WeaponHandler>();
         petHandler = GetComponent<PetHandler>();
         playerCapsuleCollider = GetComponent<CapsuleCollider>();
-        gameFadeOut = GameObject.Find("FadeInFadeOut").GetComponent<GameFadeout>();
+        gameFadeOut = GameObject.Find("StartFadeIn").GetComponent<GameFadeout>();
         playerStats = GetComponent<_PlayerStats>();
         craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
         inventory = GetComponent<Inventory>();
@@ -99,7 +101,7 @@ public class _PlayerManager : MonoBehaviour
             }
 
             // pause
-            if(Input.GetKeyDown(KeyCode.Escape))
+            if(Input.GetKeyDown(KeyCode.Escape) && !isDead && !endGame)
             {
                 if(gameManager.confirmationWindowOpen)
                 {

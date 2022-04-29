@@ -11,23 +11,24 @@ public class GenerateMap : MonoBehaviour
 
     public GameManager gameManager;
     public _PlayerStats playerStats;
+    public GameObject mainUI;
 
     public bool healEveryRoom;
-
-    
+        
 
     void Start()
     {
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerStats = GetComponent<_PlayerStats>();
+        mainUI = GameObject.Find("MainUI");
     }
 
     void RoomSelector()
     {
         int roomNumber = Random.Range(0,6);
 
-        if(enemySpawner.playerInfo.playerCurrentRoom == 1) // cena 4
+        if(enemySpawner.playerInfo.playerCurrentRoom == 1) // cena 1
         {
             SceneManager.LoadScene("_2_RoomScene");
             //enemySpawner.playerInfo.playerCurrentRoom = 2;
@@ -40,7 +41,7 @@ public class GenerateMap : MonoBehaviour
                 enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
             }
         }
-        else if(enemySpawner.playerInfo.playerCurrentRoom == 2) // cena 5
+        else if(enemySpawner.playerInfo.playerCurrentRoom == 2) // cena 2
         {
             SceneManager.LoadScene("_3_RoomScene");
             //enemySpawner.playerInfo.playerCurrentRoom = 3;
@@ -66,7 +67,7 @@ public class GenerateMap : MonoBehaviour
                 enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
             }
         }
-        else if(enemySpawner.playerInfo.playerCurrentRoom == 4) // cena 2
+        else if(enemySpawner.playerInfo.playerCurrentRoom == 4) // cena 4
         {
             SceneManager.LoadScene("_5_RoomScene");
             //enemySpawner.playerInfo.playerCurrentRoom = 5;
@@ -79,10 +80,12 @@ public class GenerateMap : MonoBehaviour
                 enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
             }
         }
-        else if(enemySpawner.playerInfo.playerCurrentRoom == 5) // cena 1
+        else if(enemySpawner.playerInfo.playerCurrentRoom == 5) // cena 5
         {
             gameManager.PauseGame();
-            enemySpawner.thankYouForPlaying.SetActive(true);
+            mainUI.GetComponent<ThankYouHolder>().thankYouWindow.SetActive(true);
+            gameManager.playerManager.endGame = true;
+            //enemySpawner.thankYouForPlaying.SetActive(true);
             enemySpawner.playerInfo.playerCurrentRoom = 0;
             enemySpawner.playerInfo.healthFromLastRoom = 0;
         }

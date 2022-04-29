@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
     public PetBillboard petBillboard;
     public PetHandler petHandler;
 
-    public GameObject thankYouForPlaying;
+    //public GameObject thankYouForPlaying;
 
     void Awake()
     {

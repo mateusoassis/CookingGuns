@@ -6,7 +6,7 @@ public class CheckpointCollider : MonoBehaviour
 {
     public Transform checkpoint;
     public int damage;
-    public GameObject fadeoutFadeinFadeoutWindow;
+    public GameObject outOfBoundsFadeObject;
     public bool isPlayerInside;
     public float playerInsideDuration;
     public float playerInsideTimer;
@@ -14,7 +14,7 @@ public class CheckpointCollider : MonoBehaviour
 
     void Awake()
     {
-        fadeoutFadeinFadeoutWindow.SetActive(false);
+        outOfBoundsFadeObject.SetActive(false);
     }
 
     void Start()
@@ -46,7 +46,7 @@ public class CheckpointCollider : MonoBehaviour
                 playerStatsReal.TakeHPDamage(damage);
                 isPlayerInside = true;
                 FindObjectOfType<SoundManager>().PlayOneShot("WaterFall");
-                fadeoutFadeinFadeoutWindow.SetActive(true);
+                outOfBoundsFadeObject.SetActive(true);
                 playerStatsReal.gameObject.GetComponent<_AnimationHandler>().anim[playerStatsReal.gameObject.GetComponent<_AnimationHandler>().weapon].SetBool("Walking", false);
             }
         }

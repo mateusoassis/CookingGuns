@@ -9,7 +9,9 @@ public class _PlayerStats : MonoBehaviour
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
 
-    public YouLose youLoseScript;
+    public GameObject youLoseWindow;
+
+    //public YouLose youLoseScript;
 
     [Header("Player Stats")]
     [Range(0,7)]
@@ -24,6 +26,7 @@ public class _PlayerStats : MonoBehaviour
 
     private void Awake()
     {
+        youLoseWindow = GameObject.Find("YouLose");
         playerManager = GetComponent<_PlayerManager>();
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
         if(playerManager.playerInfo.healthFromLastRoom > 0)
@@ -38,8 +41,10 @@ public class _PlayerStats : MonoBehaviour
 
     void Start()
     {
+        youLoseWindow.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
+        youLoseWindow.SetActive(false);
         playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
-        youLoseScript = GameObject.Find("MainCanvas").GetComponent<YouLose>();
+        //youLoseScript = GameObject.Find("MainCanvas").GetComponent<YouLose>();
         StartHPDamage();
     }
 
@@ -54,7 +59,9 @@ public class _PlayerStats : MonoBehaviour
             if(playerCurrentHealth <= 0)
             {
                 playerManager.gameManager.PauseGame();
-                youLoseScript.PlayerLost();
+                youLoseWindow.SetActive(true);
+                
+                //youLoseScript.PlayerLost();
                 playerManager.playerInfo.healthFromLastRoom = 0;
                 playerManager.playerInfo.playerCurrentRoom = 0;
             }
