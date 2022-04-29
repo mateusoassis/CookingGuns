@@ -63,10 +63,6 @@ public class _PlayerManager : MonoBehaviour
         playerEatingWeaponBar.SetActive(false);
         playerRigidbody = GetComponent<Rigidbody>();
         animationHandler = GetComponent<_AnimationHandler>();
-        //playerShootingPistol = GameObject.Find("Pistol").GetComponent<_PlayerShooting>();
-        //playerShootingShotgun = GameObject.Find("Shotgun").GetComponent<_PlayerShooting>();
-        //playerShootingMachineGun = GameObject.Find("MachineGun").GetComponent<_PlayerShooting>();
-        //playerShootingGranadeLauncher = GameObject.Find("GranadeLauncher").GetComponent<_PlayerShooting>();
         playerMovement = GetComponent<_PlayerMovement>();  
         playerWeaponHandler = GetComponent<_WeaponHandler>();
         petHandler = GetComponent<PetHandler>();
