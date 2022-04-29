@@ -7623,6 +7623,8 @@ MonoBehaviour:
   isFading: 0
   isWalking: 0
   isEatingWeapon: 0
+  isDead: 0
+  endGame: 0
 --- !u!114 &6587241120315746939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7635,7 +7637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45eb4dc99a0faa543999320c30ec2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  youLoseScript: {fileID: 0}
+  youLoseWindow: {fileID: 0}
   playerCurrentHealth: 0
   playerHealthFromPreviousRoom: 0
   playerMaxHealth: 7
@@ -7659,13 +7661,13 @@ MonoBehaviour:
   playerMaxMoveSpeed: 8
   playerRigidbody: {fileID: 0}
   multiplier: 1
-  rollSpeed: 15
+  rollSpeed: 30
   rollTimer: 0
-  rollDuration: 0.5
-  maxRoll: 2
+  rollDuration: 0.2
+  maxRoll: 1
   rollCount: 0
   rollCountTimer: 0
-  rollCountDuration: 1
+  rollCountDuration: 1.5
   skewedInput: {x: 0, y: 0, z: 0}
   playerAimPosition: {x: 0, y: 0, z: 0}
   playerAimLayerMask:
@@ -7703,6 +7705,7 @@ MonoBehaviour:
   weaponIcons: []
   weaponImages: []
   unlockedWeapons: 01010101
+  amountUnlocked: 0
   weaponObjects:
   - {fileID: 6310823075834298393}
   - {fileID: 6581419279546023114}
@@ -7747,6 +7750,7 @@ MonoBehaviour:
   test: 0
   gameManager: {fileID: 0}
   playerStats: {fileID: 0}
+  mainUI: {fileID: 0}
   healEveryRoom: 0
 --- !u!33 &6581419280599443777
 MeshFilter:
