@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 7918184545519580851}
   - component: {fileID: 7918184545519580850}
   - component: {fileID: 7918184545519580853}
-  - component: {fileID: 7918184545519580852}
+  - component: {fileID: 5983061119773716426}
   - component: {fileID: 7918184545519580855}
   - component: {fileID: 1317452808437045660}
   - component: {fileID: -821690826035586293}
@@ -615,7 +615,7 @@ MonoBehaviour:
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
   enemyType: 1
---- !u!114 &7918184545519580852
+--- !u!114 &5983061119773716426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -624,34 +624,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7918184545519580854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1690f6e3fab4a343af1760a1ffb03db, type: 3}
+  m_Script: {fileID: 11500000, guid: 1406ea4c1243a7347a3555c499d981c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  setBehaviour: 1
+  setBehaviour: 0
   isPlayerOnRange: 0
   enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
-  enemySpeed: 0
   enemyMaxSpeed: 5
   stopDistance: 10
   retreatDistance: 8
   firePoint: {fileID: 299843175396867534}
-  explosionObject: {fileID: 0}
-  explosionObjectTransform: {fileID: 0}
-  explosionObjectMesh: {fileID: 0}
-  scaleExplosion: 6
-  explosionRange: 2
-  explosionTimerReset: 1.5
-  explosionTimer: 0
-  explosionSpeed: 4
-  explosionCollision: 0
-  blinking: 0
-  explosionDamage: 2
   timeBetweenShots: 5
-  timeBetweenShotsTimer: 0
   randomExtraTimeBetweenShots: 2
-  enemyAnimator: {fileID: 0}
-  canMove: 0
+  countToMove: 0
+  retreatCooldown: 0
+  retreating: 0
+  retreatingOnCooldown: 0
 --- !u!95 &7918184545519580855
 Animator:
   serializedVersion: 3

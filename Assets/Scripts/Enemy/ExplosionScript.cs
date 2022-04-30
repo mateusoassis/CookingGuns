@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ExplosionScript : MonoBehaviour
 {
-    public EnemyBehaviour enemyBehaviour;
+    public VermelhaBehaviour vermelhaBehaviour;
     public Transform playerTransform;
 
     void Start() 
     {
-        enemyBehaviour = GetComponentInParent<EnemyBehaviour>();
+        vermelhaBehaviour = GetComponentInParent<VermelhaBehaviour>();
     }
 
     public void OnTriggerEnter(Collider other) 
@@ -17,7 +17,7 @@ public class ExplosionScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             playerTransform = other.gameObject.transform;
-            enemyBehaviour.explosionCollision = true;
+            vermelhaBehaviour.explosionCollision = true;
         }
         
     }
@@ -26,17 +26,17 @@ public class ExplosionScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            enemyBehaviour.explosionCollision = false;
+            vermelhaBehaviour.explosionCollision = false;
         }
     }
 
     public void OnDestroy()
     {
-        if(enemyBehaviour.explosionCollision)
+        if(vermelhaBehaviour.explosionCollision)
         {
             if(playerTransform != null)
             {
-                playerTransform.GetComponent<_PlayerStats>().TakeHPDamage(enemyBehaviour.explosionDamage);
+                playerTransform.GetComponent<_PlayerStats>().TakeHPDamage(vermelhaBehaviour.explosionDamage);
             }
         }
     }

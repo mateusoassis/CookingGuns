@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 2215548598762305795}
   - component: {fileID: 2215548598762305796}
   - component: {fileID: 2215548598762305792}
-  - component: {fileID: 2215548598762305807}
+  - component: {fileID: 6487364391278738588}
   - component: {fileID: 2215548598762305801}
   - component: {fileID: -732748201913823489}
   - component: {fileID: -5475905030273591589}
@@ -454,7 +454,7 @@ MonoBehaviour:
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
   enemyType: 1
---- !u!114 &2215548598762305807
+--- !u!114 &6487364391278738588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -463,33 +463,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2215548598762305798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1690f6e3fab4a343af1760a1ffb03db, type: 3}
+  m_Script: {fileID: 11500000, guid: ca0e8dc9703369545b30d2f532ed1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  setBehaviour: 3
   isPlayerOnRange: 0
-  enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
-  enemySpeed: 5
   enemyMaxSpeed: 5
-  stopDistance: 2
-  retreatDistance: 1
   explosionObject: {fileID: 4031838239753069914}
   explosionObjectTransform: {fileID: 2803146732680397781}
   explosionObjectMesh: {fileID: 7304300242802542687}
   scaleExplosion: 6
   explosionRange: 2
   explosionTimerReset: 1.5
-  explosionTimer: 0
   explosionSpeed: 4
   explosionCollision: 0
-  blinking: 0
   explosionDamage: 2
-  timeBetweenShots: 0
-  timeBetweenShotsTimer: 0
-  randomExtraTimeBetweenShots: 0
-  enemyAnimator: {fileID: 0}
-  canMove: 0
+  enemyAnimator: {fileID: 2215548598762305801}
 --- !u!95 &2215548598762305801
 Animator:
   serializedVersion: 3
@@ -671,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c332cda862edf648bd51cf9a61b77a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBehaviour: {fileID: 0}
+  vermelhaBehaviour: {fileID: 0}
   playerTransform: {fileID: 0}
 --- !u!1 &6448106996192375944
 GameObject:

@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public Transform playerTransform;
-    private Vector3 targetPosition;
     public int setBehaviour;
     // 1 = shooting + follow (o que fica de perto)
     // 2 = shooting + retreat (o que fica de longe)
@@ -84,7 +83,7 @@ public class EnemyBehaviour : MonoBehaviour
                     if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
                     {
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.fixedDeltaTime);
                         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
@@ -94,7 +93,7 @@ public class EnemyBehaviour : MonoBehaviour
                     else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
                     {
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                        transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.fixedDeltaTime);
                         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                 }
@@ -109,7 +108,7 @@ public class EnemyBehaviour : MonoBehaviour
                     if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
                     {
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.fixedDeltaTime);
                         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                         retreating = false;
                     }
@@ -122,7 +121,7 @@ public class EnemyBehaviour : MonoBehaviour
                     {
                         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                        transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.deltaTime);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.fixedDeltaTime);
                         retreating = true;
                         retreatingOnCooldown = true;
                     }
@@ -130,7 +129,7 @@ public class EnemyBehaviour : MonoBehaviour
 
                 if(retreatingOnCooldown)
                 {
-                    retreatCooldownTimer += Time.deltaTime;
+                    retreatCooldownTimer += Time.fixedDeltaTime;
                     if(retreatCooldownTimer >= retreatCooldown)
                     {
                         canMove = false;
@@ -138,7 +137,7 @@ public class EnemyBehaviour : MonoBehaviour
 
                     if(!canMove)
                     {
-                        countToMoveTimer += Time.deltaTime;
+                        countToMoveTimer += Time.fixedDeltaTime;
                         if(countToMoveTimer >= countToMove)
                         {
                             canMove = true;
@@ -157,7 +156,7 @@ public class EnemyBehaviour : MonoBehaviour
                     if(Vector3.Distance(transform.position, playerTransform.position) > explosionRange)
                     {
                         Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.deltaTime);
+                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.fixedDeltaTime);
                         transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                     }
                     else if(Vector3.Distance(transform.position, playerTransform.position) <= explosionRange)
@@ -173,7 +172,7 @@ public class EnemyBehaviour : MonoBehaviour
                     }
                     else if(explosionTimer > 0f)
                     {
-                        explosionTimer -= Time.deltaTime;
+                        explosionTimer -= Time.fixedDeltaTime;
                         scaleVector = Vector3.MoveTowards(scaleVector, targetedVector, explosionSpeed * Time.fixedDeltaTime);
                         explosionObjectTransform.localScale = scaleVector;
                     }
@@ -182,6 +181,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    /*
     public IEnumerator CountToStopMoving()
     {
         yield return new WaitForSeconds(countToMove);
@@ -189,6 +189,7 @@ public class EnemyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(retreatCooldown);
         canMove = true;
     }
+    */
 
     public void StartExplosion()
     {
