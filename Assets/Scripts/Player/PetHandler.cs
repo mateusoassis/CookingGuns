@@ -87,44 +87,8 @@ public class PetHandler : MonoBehaviour
             {
                 pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
             }
-
-            /*
-            if(move && !arrived)
-            {
-                moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
-                if(Vector3.Distance(pet.transform.position, transform.position) > 3f)
-                {
-                    pet.transform.position = Vector3.Lerp(pet.transform.position, transform.position, petSpeed * Time.deltaTime * Time.deltaTime);    
-                }
-            }
-            */
-
-            
         }
     }
-
-    /*
-    public void MoveTowardsPlayer()
-    {
-        
-        if(playerManager.playerInfo.playerCurrentRoom >= 1 && !arrived)
-        {
-            //Vector3 moveTowards = new Vector3(transform.position.x, pet.transform.position.y, transform.position.z);
-            //petNavMeshAgent.SetDestination(moveTowards);
-            //if(Vector3.Distance(transform.position, moveTowards) > 3f)
-            //{
-            //     transform.position = Vector3.Lerp(transform.position, moveTowards.normalized, Time.deltaTime * Time.deltaTime * Vector3.Distance(transform.position, moveTowards));    
-            //}
-            //else
-            //{
-            //move = false;
-            //}
-            //transform.position = Vector3.Lerp(transform.position, moveTowards.normalized, Time.deltaTime * Time.deltaTime * Vector3.Distance(transform.position, moveTowards));
-            //petBillboard.ActivateOnEnemiesKilled();
-            move = true;
-        }  
-    }
-    */
 
     public void OnTriggerEnter(Collider other)
     {

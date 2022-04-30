@@ -11,7 +11,6 @@ public class SpacebarFadeout : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("eae");
             for(int i = 0; i < disableButtons.Length; i++)
             {
                 if(disableButtons[i] != null)
