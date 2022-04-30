@@ -10,6 +10,7 @@ public class EnemyStats : MonoBehaviour
     public int enemyHealth;
     [SerializeField] private PlayerController playerController;
     public List<GameObject> dropPrefab;
+    public GameObject smokePrefab;
     public float dropPrefabYOffset;
     public List<float> dropChance;
     public bool isPudim;
@@ -53,6 +54,7 @@ public class EnemyStats : MonoBehaviour
         if(enemyHealth <= 0)
         {            
             Destroy(this.gameObject);
+            Instantiate(smokePrefab, transform.position , Quaternion.identity);
             if(GetComponent<MinusOnDestroy>() == null)
             {
                 //Debug.Log(name);
@@ -78,6 +80,7 @@ public class EnemyStats : MonoBehaviour
                     int u = Random.Range(0, 100);
                     if(u > 50){
                         Instantiate(dropPrefab[0], transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
+
                     } else {
                         Instantiate(dropPrefab[1], transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
                     }

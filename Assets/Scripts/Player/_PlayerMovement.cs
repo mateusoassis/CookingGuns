@@ -21,6 +21,8 @@ public class _PlayerMovement : MonoBehaviour
     public float rollCountTimer = 0f;
     public float rollCountDuration;
     public Vector3 skewedInput;
+    public GameObject rollSmokePrefab;
+    public Transform rollSmokePoint;
 
     [Header("Player LookAt Mouse")]
     public Vector3 playerAimPosition;
@@ -127,6 +129,7 @@ public class _PlayerMovement : MonoBehaviour
                 else
                 {
                     playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
+                    Instantiate(rollSmokePrefab, rollSmokePoint.position, Quaternion.identity);
                     playerManager.animationHandler.GetWeaponInt();
                     playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
                 }  
