@@ -5,9 +5,10 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     public int damageDone;
+    public float timeToDestroy;
     void Start() 
     {
-        Destroy(this.gameObject, 4f);
+        Destroy(gameObject, timeToDestroy);
     }
 
     public void OnTriggerEnter(Collider other) 
@@ -22,4 +23,6 @@ public class BulletScript : MonoBehaviour
             //Destroy(this.gameObject);
         }
     }
+
+    //void OnDestroy()
 }
