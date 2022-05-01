@@ -24,7 +24,7 @@ public class _PlayerShooting : MonoBehaviour
     int bulletsLeft, bulletsShot;
 
     //bools
-    bool shooting, readyToShoot, reloading; 
+    public bool shooting, readyToShoot, reloading; 
 
     [HideInInspector]
     public Vector3 directionWithSpread;
@@ -96,7 +96,7 @@ public class _PlayerShooting : MonoBehaviour
             Reload();
         }
 
-        if(readyToShoot && shooting && !reloading && bulletsLeft <= 0)
+        if(readyToShoot && !reloading && bulletsLeft <= 0)
         {
             Reload();
         }
@@ -211,8 +211,6 @@ public class _PlayerShooting : MonoBehaviour
         playerManager.ReloadDisplayUpdate();
         reloadDisplay.gameObject.SetActive(true);
         reloadTimeCounter = 0;
-        //reloadTimeCounter += Time.deltaTime;
-        //reloadDisplay.value = reloadTimeCounter/reloadTime;
         Invoke("ReloadFinished", reloadTime);
     }
 

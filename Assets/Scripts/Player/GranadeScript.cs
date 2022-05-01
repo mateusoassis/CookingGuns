@@ -7,6 +7,7 @@ public class GranadeScript : MonoBehaviour
     public Vector3 savedSlerpPosition;
 
     public GameObject explosionArea;
+    public Transform explosionAreaTransform;
 
     public Vector3 centerPivot;
     public float centerOffset;

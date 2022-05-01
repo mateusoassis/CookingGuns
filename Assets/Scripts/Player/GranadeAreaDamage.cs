@@ -6,6 +6,7 @@ public class GranadeAreaDamage : MonoBehaviour
 {
     public float bombTimer;
     public GameObject particleEffect;
+    public GameObject particleEffect2;
     public GameObject granade;
     public int damageDone;
     public CapsuleCollider capsuleCollider;
@@ -25,7 +26,8 @@ public class GranadeAreaDamage : MonoBehaviour
     public IEnumerator BombTimer()
     {
         yield return new WaitForSeconds(bombTimer);
-        particleEffect.SetActive(true);
+        Instantiate(particleEffect, transform.position, Quaternion.identity);
+        Instantiate(particleEffect2, transform.position, Quaternion.identity);
         capsuleCollider.enabled = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
