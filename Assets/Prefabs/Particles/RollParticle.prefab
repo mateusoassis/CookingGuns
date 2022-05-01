@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4310775808471580917}
   - component: {fileID: 4310775808471580916}
   - component: {fileID: 4310775808471580811}
+  - component: {fileID: 8325265451971424019}
   m_Layer: 0
   m_Name: RollParticle
   m_TagString: Untagged
@@ -4871,3 +4872,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &8325265451971424019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310775808471580810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32eeffc9923ad5d4c9157edcde3535d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestroy: 2
