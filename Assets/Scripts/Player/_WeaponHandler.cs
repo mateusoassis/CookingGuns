@@ -35,6 +35,17 @@ public class _WeaponHandler : MonoBehaviour
         weaponImages[1] = GameObject.Find("ShotgunIcon").GetComponent<Image>();
         weaponImages[2] = GameObject.Find("MachineGunIcon").GetComponent<Image>();
         weaponImages[3] = GameObject.Find("GranadeLauncherIcon").GetComponent<Image>();
+        if(playerManager.testingWeapons)
+        {
+            for(int i = 0; i < unlockedWeapons.Length; i++)
+            {
+                unlockedWeapons[i] = true;
+            }
+        }
+        else
+        {
+            unlockedWeapons = new bool[4];
+        }
     }
 
     void Start()
@@ -54,6 +65,7 @@ public class _WeaponHandler : MonoBehaviour
             //}
         //}
 
+        UnlockPistol();
         ActivatePistol_();
         WeaponManager(weaponEquipped);
         UpdateAmountUnlocked();

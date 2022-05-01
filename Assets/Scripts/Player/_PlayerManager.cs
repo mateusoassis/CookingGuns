@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class _PlayerManager : MonoBehaviour
 {
     public bool testing;
+    public bool testingWeapons;
     public Rigidbody playerRigidbody;
     public _AnimationHandler animationHandler;
     public _PlayerStats playerStats;
