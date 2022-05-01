@@ -168,7 +168,9 @@ public class _PlayerShooting : MonoBehaviour
         if(allowInvoke)
         {
             playerManager.isShooting = true;
+
             StartCoroutine("ResetWalk");
+            
             playerManager.animationHandler.GetWeaponInt();
             if(weaponHandler.weaponEquipped == 1)
             {
