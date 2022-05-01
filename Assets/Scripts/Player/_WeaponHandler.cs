@@ -16,6 +16,7 @@ public class _WeaponHandler : MonoBehaviour
     public bool[] unlockedWeapons;
     public int amountUnlocked;
     public GameObject[] weaponObjects;  
+    public BreakWeapon breakWeaponScript;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class _WeaponHandler : MonoBehaviour
         weaponIcons = new Transform[4];
         weaponImages = new Image[4];
         //unlockedWeapons = new bool[4];
+        breakWeaponScript = GameObject.Find("ModeloArma").GetComponent<BreakWeapon>();
 
         weaponIcons[0] = GameObject.Find("PistolIcon").GetComponent<Transform>();
         weaponIcons[1] = GameObject.Find("ShotgunIcon").GetComponent<Transform>();
@@ -172,6 +174,7 @@ public class _WeaponHandler : MonoBehaviour
         {
             if(unlockedWeapons[n])
             {
+                breakWeaponScript.BreakTheWeapon();
                 unlockedWeapons[n] = false;
                 weaponEquipped = FindFirstTrueIndex(unlockedWeapons);
                 WeaponManager(weaponEquipped);
