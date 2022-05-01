@@ -20,7 +20,12 @@ public class _PlayerMovement : MonoBehaviour
     public int rollCount;
     public float rollCountTimer = 0f;
     public float rollCountDuration;
+
+    private Vector3 _input;
     public Vector3 skewedInput;
+    public Vector3 lastInput;
+    public Vector3 skewedLastInput;
+    
     public GameObject rollSmokePrefab;
     public Transform rollSmokePoint;
 
@@ -28,8 +33,7 @@ public class _PlayerMovement : MonoBehaviour
     public Vector3 playerAimPosition;
     [SerializeField] private LayerMask playerAimLayerMask;
     private Quaternion newRotation;
-    private Vector3 _input;
-    public Vector3 lastInput;
+    
     //private float _turnSpeed = 360;
 
     void Start() 
@@ -115,27 +119,32 @@ public class _PlayerMovement : MonoBehaviour
             if(!playerManager.isShooting)
             {
                 if(!playerManager.isRolling)
-                {
+                {   
+                    playerManager.isWalking = true;
                     playerManager.animationHandler.GetWeaponInt();
                     playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
                     var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
 
                     skewedInput = matrix.MultiplyPoint3x4(_input);
-                    Vector3 skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+                    skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
                 
-                    playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * playerMoveSpeed * Time.deltaTime);
+                    playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.deltaTime);
                     transform.forward = skewedLastInput.normalized;
                 }
                 else
                 {
-                    playerRigidbody.MovePosition(transform.position + (skewedInput.normalized) * rollSpeed * Time.deltaTime);
+                    playerManager.isWalking = false;
+                    var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+                    skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+
+                    playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * rollSpeed * Time.deltaTime);
                     Instantiate(rollSmokePrefab, rollSmokePoint.position, Quaternion.identity);
                     playerManager.animationHandler.GetWeaponInt();
                     playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
                 }  
             }
         }
-        else if(_input.x == 0 || _input.z == 0 && !playerManager.isRolling)
+        else if(_input.x == 0 && _input.z == 0 && !playerManager.isRolling)
         {
             playerManager.isWalking = false;
             playerManager.animationHandler.GetWeaponInt();

@@ -82,28 +82,31 @@ public class _PlayerManager : MonoBehaviour
             // roll
             if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
             {
-                if(playerMovement.rollCount < playerMovement.maxRoll)
+                if(isWalking)
                 {
-                    eatingWeaponTimer = 0f;
-                    canceledEating = true;
-                    playerEatingWeaponBar.SetActive(false);
-
-                    isRolling = true;
-                    playerWeaponHandler.Roll();
-                    gameObject.layer = 12;
-                    playerRigidbody.useGravity = false;
-
-                    playerMovement.rollTimer = playerMovement.rollDuration;
-                    playerMovement.rollCount++;
-
-                    playerInfo.totalTimesRolled++;
-
-                    // animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
-
-                    // parte que reseta a barra de comer arma
-                    if(rmbHeldDown)
+                    if(playerMovement.rollCount < playerMovement.maxRoll)
                     {
-                        rmbHasToPressAgain = true;
+                        eatingWeaponTimer = 0f;
+                        canceledEating = true;
+                        playerEatingWeaponBar.SetActive(false);
+
+                        isRolling = true;
+                        playerWeaponHandler.Roll();
+                        gameObject.layer = 12;
+                        playerRigidbody.useGravity = false;
+
+                        playerMovement.rollTimer = playerMovement.rollDuration;
+                        playerMovement.rollCount++;
+
+                        playerInfo.totalTimesRolled++;
+
+                        // animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
+
+                        // parte que reseta a barra de comer arma
+                        if(rmbHeldDown)
+                        {
+                            rmbHasToPressAgain = true;
+                        }
                     }
                 }
             }
