@@ -70,7 +70,7 @@ public class _PlayerStats : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "EnemyGranade")
+        if(other.gameObject.tag == "EnemyGrenade")
         {
             if((other.gameObject.TryGetComponent(out PudimAreaDamage pudimAreaDamage)))
             {
