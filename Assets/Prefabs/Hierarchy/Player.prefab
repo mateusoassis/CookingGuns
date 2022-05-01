@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1188,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7645,6 +7645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testing: 0
+  testingWeapons: 1
   playerRigidbody: {fileID: 0}
   animationHandler: {fileID: 0}
   playerStats: {fileID: 0}
@@ -7719,13 +7720,14 @@ MonoBehaviour:
   rollCountTimer: 0
   rollCountDuration: 1
   skewedInput: {x: 0, y: 0, z: 0}
+  lastInput: {x: 0, y: 0, z: 0}
+  skewedLastInput: {x: 0, y: 0, z: 0}
   rollSmokePrefab: {fileID: 4310775808471580810, guid: 06d66ab0f119d914198dbc202b17c69e, type: 3}
   rollSmokePoint: {fileID: 6339705631405865131}
   playerAimPosition: {x: 0, y: 0, z: 0}
   playerAimLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  lastInput: {x: 0, y: 0, z: 0}
 --- !u!114 &1965072294433361020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7764,6 +7766,8 @@ MonoBehaviour:
   - {fileID: 6581419280715048357}
   - {fileID: 6310823075106586056}
   breakWeaponScript: {fileID: 0}
+  testingGameObjects: {fileID: 0}
+  nonTestingGameObjects: {fileID: 0}
 --- !u!114 &2287382207225990894
 MonoBehaviour:
   m_ObjectHideFlags: 0

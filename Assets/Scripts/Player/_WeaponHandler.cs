@@ -18,9 +18,14 @@ public class _WeaponHandler : MonoBehaviour
     public GameObject[] weaponObjects;  
     public BreakWeapon breakWeaponScript;
 
+    public GameObject testingGameObjects;
+    public GameObject nonTestingGameObjects;
+
     void Awake()
     {
         playerManager = GetComponent<_PlayerManager>();
+        testingGameObjects = GameObject.Find("TestingWeaponIcons");
+        nonTestingGameObjects = GameObject.Find("RealWeaponIcons");
         weaponIcons = new Transform[4];
         weaponImages = new Image[4];
         //unlockedWeapons = new bool[4];
@@ -37,6 +42,7 @@ public class _WeaponHandler : MonoBehaviour
         weaponImages[3] = GameObject.Find("GranadeLauncherIcon").GetComponent<Image>();
         if(playerManager.testingWeapons)
         {
+            nonTestingGameObjects.SetActive(false);
             for(int i = 0; i < unlockedWeapons.Length; i++)
             {
                 unlockedWeapons[i] = true;
@@ -44,6 +50,7 @@ public class _WeaponHandler : MonoBehaviour
         }
         else
         {
+            testingGameObjects.SetActive(false);
             unlockedWeapons = new bool[4];
         }
     }
