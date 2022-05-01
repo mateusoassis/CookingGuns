@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shieldy : MonoBehaviour
 {
-    public ShieldGirl parent;
+    public Shieldoca parent;
 
     void OnTriggerEnter(Collider other)
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldGirl : MonoBehaviour
+public class Shieldoca : MonoBehaviour
 {
     public int state;
     // 0 = parado sem olhar pra nada
@@ -23,7 +23,15 @@ public class ShieldGirl : MonoBehaviour
     public Transform player;
     public bool sitStill;
 
-    public MeshRenderer areaDamageMesh;
+    public Animator anim;
+
+    public bool isPlayerInsideArea;
+    public int hitDamage;
+    public bool canAttack;
+    public bool playerOnRange;
+    public float attackTimer;
+    public float attackCooldown;
+    public bool attacking;
 
     void Start()
     {
@@ -38,8 +46,14 @@ public class ShieldGirl : MonoBehaviour
         CheckPlayerDistance();
         if(state == 1 || state == 2)
         {
-            LookAtPlayer();
+            if(!attacking)
+            {
+                LookAtPlayer();
+            }
+            
         }
+
+        HandleAttack();
     }
 
     void FixedUpdate()
@@ -60,6 +74,35 @@ public class ShieldGirl : MonoBehaviour
         //selfRigidbody.MoveRotation(selfRotation);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, selfRotation, turnSpeed);
     }
+
+    public void HandleAttack()
+    {
+        if(!canAttack && !attacking)
+        {
+            attackTimer += Time.deltaTime;
+        }
+        
+        if(attackTimer > attackCooldown)
+        {
+            canAttack = true;
+        }
+
+        if(canAttack && playerOnRange)
+        {
+            anim.SetTrigger("Attack");
+            attackTimer = 0f;
+            canAttack = false;
+        }
+    }
+
+    public void DamageIfPlayerInside()
+    {
+        if(isPlayerInsideArea)
+        {
+            player.gameObject.GetComponent<_PlayerStats>().TakeHPDamage(hitDamage);
+        }
+    }
+
     public void WalkToPlayer()
     {
         Vector3 moveTowards = new Vector3(player.position.x, transform.position.y, player.position.z);
@@ -95,5 +138,14 @@ public class ShieldGirl : MonoBehaviour
         {
             Debug.Log("parent was hit");
         }
+    }
+
+    public void AttackingTrue()
+    {
+        attacking = true;
+    }
+    public void AttackingFalse()
+    {
+        attacking = false;
     }
 }
