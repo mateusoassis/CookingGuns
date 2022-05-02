@@ -76,7 +76,7 @@ public class _WeaponHandler : MonoBehaviour
 
     void Update()
     {
-        UpdateWeaponSlotSprites();
+        //UpdateWeaponSlotSprites();
         // checa o conteúdo do TIPO DE ARMA NO SLOT pra trocar diretamente o sprite
         /*
         for(int i = 0; i < weaponTypeOnSlot.Length; i++)
@@ -213,13 +213,12 @@ public class _WeaponHandler : MonoBehaviour
         weaponTypeEquipped = weaponTypeOnSlot[slotEquipped];
         WeaponManager(weaponTypeEquipped);
 
-        UpdateWeaponSlotSprites();
+        //UpdateWeaponSlotSprites();
         
     }
 
     public void UpdateWeaponSlotSprites()
     {
-        
         firstFalseIndex = FindFirstFalseIndex(freeSlotArray);
         secondFalseIndex = FindSecondFalseIndex(freeSlotArray);
         numberOfFalseIndexes = CountBool(freeSlotArray, false);
@@ -436,9 +435,8 @@ public class _WeaponHandler : MonoBehaviour
                 weaponTypeOnSlot[slotFree] = 0;
                 realWeaponIcons[slotFree].sprite = realWeaponIconsPool[0];
             }
+            UpdateWeaponSlotSprites();
         }
-        UpdateAmountUnlocked();
-        UpdateWeaponSlotSprites();
     }
     public void DisablePistol()
     {
@@ -448,10 +446,12 @@ public class _WeaponHandler : MonoBehaviour
         }
         else
         {
+            {
             freeSlotArray[slotEquipped] = true;
             UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
+            }
             UpdateWeaponSlotSprites();
         }
     }
@@ -471,11 +471,11 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateAmountUnlocked();
                 weaponTypeOnSlot[slotFree] = 1;
                 //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[1];
-                UpdateWeaponSlotSprites();
             }
+            UpdateWeaponSlotSprites();
         }
-        UpdateAmountUnlocked();
-        UpdateWeaponSlotSprites();
+        
+        
     }
     public void DisableShotgun()
     {
@@ -507,12 +507,10 @@ public class _WeaponHandler : MonoBehaviour
                 freeSlotArray[slotFree] = false;
                 UpdateAmountUnlocked();
                 weaponTypeOnSlot[slotFree] = 2;
-                //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[2];
-                UpdateWeaponSlotSprites();
+                //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[2];  
             }
+            UpdateWeaponSlotSprites();
         }
-        UpdateAmountUnlocked();
-        UpdateWeaponSlotSprites();
     }
     public void DisableMachineGun()
     {
@@ -528,6 +526,7 @@ public class _WeaponHandler : MonoBehaviour
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
         }
+        
     } 
 
     public void UnlockGrenadeLauncher()
@@ -545,11 +544,9 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateAmountUnlocked();
                 weaponTypeOnSlot[slotFree] = 3;
                 //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[3];
-                UpdateWeaponSlotSprites();
             }
+            UpdateWeaponSlotSprites();
         }
-        UpdateAmountUnlocked();
-        UpdateWeaponSlotSprites();
     }
     public void DisableGrenadeLauncher()
     {
@@ -606,13 +603,10 @@ public class _WeaponHandler : MonoBehaviour
             {
                 DisableGrenadeLauncher();
             }
+            SwitchToNextAvailableWeapon();
+            UpdateWeaponSlotSprites();
         }
         playerManager.playerStats.heartScript.FullHeal();
-
-        SwitchToNextAvailableWeapon();
-        UpdateWeaponSlotSprites();
-        
-        
     }
 
     public void UpdateAmountUnlocked()
@@ -677,8 +671,9 @@ public class _WeaponHandler : MonoBehaviour
             if(array[i] == false)
             {
                 index = i;
+                iterations++;
             }
-            iterations++;
+            
             if(iterations == 2)
             {
                 break;
