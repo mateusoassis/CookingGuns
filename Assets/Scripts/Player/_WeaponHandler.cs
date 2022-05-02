@@ -30,6 +30,10 @@ public class _WeaponHandler : MonoBehaviour
     public Sprite[] realWeaponIconsPool;
     public Image[] realWeaponIcons;
 
+    public int firstFalseIndex;
+    public int secondFalseIndex;
+    public int numberOfFalseIndexes;
+
     void Awake()
     {
         playerManager = GetComponent<_PlayerManager>();
@@ -72,7 +76,9 @@ public class _WeaponHandler : MonoBehaviour
 
     void Update()
     {
+        UpdateWeaponSlotSprites();
         // checa o conteúdo do TIPO DE ARMA NO SLOT pra trocar diretamente o sprite
+        /*
         for(int i = 0; i < weaponTypeOnSlot.Length; i++)
         {
             if(weaponTypeOnSlot[i] == 0)
@@ -96,6 +102,7 @@ public class _WeaponHandler : MonoBehaviour
                 realWeaponIcons[i].sprite = realWeaponIconsPool[4]; // vazio
             }
         }
+        */
     }
 
     public void Roll()
@@ -206,17 +213,16 @@ public class _WeaponHandler : MonoBehaviour
         weaponTypeEquipped = weaponTypeOnSlot[slotEquipped];
         WeaponManager(weaponTypeEquipped);
 
-        /*
         UpdateWeaponSlotSprites();
-        */
+        
     }
 
     public void UpdateWeaponSlotSprites()
     {
-        /*
-        int firstFalseIndex = FindFirstFalseIndex(freeSlotArray);
-        int secondFalseIndex = FindSecondFalseIndex(freeSlotArray);
-        int numberOfFalseIndexes = CountBool(freeSlotArray, false);
+        
+        firstFalseIndex = FindFirstFalseIndex(freeSlotArray);
+        secondFalseIndex = FindSecondFalseIndex(freeSlotArray);
+        numberOfFalseIndexes = CountBool(freeSlotArray, false);
 
         if(numberOfFalseIndexes == 3)
         {
@@ -265,7 +271,7 @@ public class _WeaponHandler : MonoBehaviour
                     {
                         realWeaponIcons[0].sprite = realWeaponIconsPool[weaponTypeOnSlot[0]];
                         realWeaponIcons[1].sprite = realWeaponIconsPool[weaponTypeOnSlot[2]];
-                        realWeaponIcons[2].sprite = realWeaponIconsPool[weaponTypeOnSlot[2]];
+                        realWeaponIcons[2].sprite = realWeaponIconsPool[weaponTypeOnSlot[1]];
                     }
                     else if(slotEquipped == 2)
                     {
@@ -312,7 +318,7 @@ public class _WeaponHandler : MonoBehaviour
                 realWeaponIcons[2].sprite = realWeaponIconsPool[weaponTypeOnSlot[1]];
             }
         }
-        */
+        
     }
 
     public void PreviousWeapon()
@@ -426,6 +432,7 @@ public class _WeaponHandler : MonoBehaviour
             if(slotFree >= 0)
             {
                 freeSlotArray[slotFree] = false;
+                UpdateAmountUnlocked();
                 weaponTypeOnSlot[slotFree] = 0;
                 realWeaponIcons[slotFree].sprite = realWeaponIconsPool[0];
             }
@@ -442,6 +449,7 @@ public class _WeaponHandler : MonoBehaviour
         else
         {
             freeSlotArray[slotEquipped] = true;
+            UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
@@ -460,13 +468,14 @@ public class _WeaponHandler : MonoBehaviour
             if(slotFree >= 0)
             {
                 freeSlotArray[slotFree] = false;
+                UpdateAmountUnlocked();
                 weaponTypeOnSlot[slotFree] = 1;
                 //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[1];
                 UpdateWeaponSlotSprites();
             }
         }
         UpdateAmountUnlocked();
-        //UpdateWeaponSlotSprites();
+        UpdateWeaponSlotSprites();
     }
     public void DisableShotgun()
     {
@@ -477,6 +486,7 @@ public class _WeaponHandler : MonoBehaviour
         else
         {
             freeSlotArray[slotEquipped] = true;
+            UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
@@ -495,13 +505,14 @@ public class _WeaponHandler : MonoBehaviour
             if(slotFree >= 0)
             {
                 freeSlotArray[slotFree] = false;
+                UpdateAmountUnlocked();
                 weaponTypeOnSlot[slotFree] = 2;
                 //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[2];
                 UpdateWeaponSlotSprites();
             }
         }
         UpdateAmountUnlocked();
-        //UpdateWeaponSlotSprites();
+        UpdateWeaponSlotSprites();
     }
     public void DisableMachineGun()
     {
@@ -512,6 +523,7 @@ public class _WeaponHandler : MonoBehaviour
         else
         {
             freeSlotArray[slotEquipped] = true;
+            UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
@@ -530,13 +542,14 @@ public class _WeaponHandler : MonoBehaviour
             if(slotFree >= 0)
             {
                 freeSlotArray[slotFree] = false;
+                UpdateAmountUnlocked();
                 weaponTypeOnSlot[slotFree] = 3;
                 //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[3];
                 UpdateWeaponSlotSprites();
             }
         }
         UpdateAmountUnlocked();
-        //UpdateWeaponSlotSprites();
+        UpdateWeaponSlotSprites();
     }
     public void DisableGrenadeLauncher()
     {
@@ -547,6 +560,7 @@ public class _WeaponHandler : MonoBehaviour
         else
         {
             freeSlotArray[slotEquipped] = true;
+            UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
@@ -594,7 +608,7 @@ public class _WeaponHandler : MonoBehaviour
             }
         }
         playerManager.playerStats.heartScript.FullHeal();
-        
+
         SwitchToNextAvailableWeapon();
         UpdateWeaponSlotSprites();
         
