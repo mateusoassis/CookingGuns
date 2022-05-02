@@ -17,6 +17,6 @@ public class _AnimationHandler : MonoBehaviour
     
     public void GetWeaponInt()
     {
-        weapon = playerManager.playerWeaponHandler.weaponEquipped;
+        weapon = playerManager.playerWeaponHandler.weaponTypeEquipped;
     }
 }

@@ -22,6 +22,6 @@ public class RollAuxiliary : MonoBehaviour
     }
     public void OnDisable()
     {
-        playerWeaponHandler.WeaponManager(playerWeaponHandler.weaponEquipped);
+        playerWeaponHandler.WeaponManager(playerWeaponHandler.weaponTypeEquipped);
     }
 }

@@ -105,7 +105,7 @@ public class _PlayerShooting : MonoBehaviour
         {
             bulletsShot = 0;
 
-            if(weaponHandler.weaponEquipped != 2)
+            if(weaponHandler.weaponTypeEquipped != 2)
             {
                 //playerManager.animationHandler.GetWeaponInt();
                 //playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
@@ -152,7 +152,7 @@ public class _PlayerShooting : MonoBehaviour
 
         GameObject currentBullet = Instantiate(bullet, firePoint.position, Quaternion.identity);
         
-        if(weaponHandler.weaponEquipped == 3)
+        if(weaponHandler.weaponTypeEquipped == 3)
         {
             currentBullet.transform.SetParent(granadeLauncherTarget.transform);
         }
@@ -172,7 +172,7 @@ public class _PlayerShooting : MonoBehaviour
             StartCoroutine("ResetWalk");
             
             playerManager.animationHandler.GetWeaponInt();
-            if(weaponHandler.weaponEquipped == 1)
+            if(weaponHandler.weaponTypeEquipped == 1)
             {
                 playerManager.animationHandler.anim[playerManager.animationHandler.weapon].Play("ShootShotgun");
             }
@@ -189,7 +189,7 @@ public class _PlayerShooting : MonoBehaviour
             StartCoroutine("ResetWalk");
             playerManager.animationHandler.GetWeaponInt();
             
-            if(weaponHandler.weaponEquipped == 1)
+            if(weaponHandler.weaponTypeEquipped == 1)
             {
                 playerManager.animationHandler.anim[playerManager.animationHandler.weapon].Play("ShootShotgun");
             }
