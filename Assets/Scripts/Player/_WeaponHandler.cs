@@ -76,33 +76,7 @@ public class _WeaponHandler : MonoBehaviour
 
     void Update()
     {
-        //UpdateWeaponSlotSprites();
-        // checa o conteúdo do TIPO DE ARMA NO SLOT pra trocar diretamente o sprite
-        /*
-        for(int i = 0; i < weaponTypeOnSlot.Length; i++)
-        {
-            if(weaponTypeOnSlot[i] == 0)
-            {
-                realWeaponIcons[i].sprite = realWeaponIconsPool[0]; // pistola
-            }
-            else if(weaponTypeOnSlot[i] == 1)
-            {
-                realWeaponIcons[i].sprite = realWeaponIconsPool[1]; // shotgun
-            }
-            else if(weaponTypeOnSlot[i] == 2)
-            {
-                realWeaponIcons[i].sprite = realWeaponIconsPool[2]; // machinegun
-            }
-            else if(weaponTypeOnSlot[i] == 3)
-            {
-                realWeaponIcons[i].sprite = realWeaponIconsPool[3]; // grenade launcher
-            }
-            else if(weaponTypeOnSlot[i] == 4)
-            {
-                realWeaponIcons[i].sprite = realWeaponIconsPool[4]; // vazio
-            }
-        }
-        */
+        
     }
 
     public void Roll()
@@ -212,9 +186,6 @@ public class _WeaponHandler : MonoBehaviour
 
         weaponTypeEquipped = weaponTypeOnSlot[slotEquipped];
         WeaponManager(weaponTypeEquipped);
-
-        //UpdateWeaponSlotSprites();
-        
     }
 
     public void UpdateWeaponSlotSprites()
@@ -590,19 +561,24 @@ public class _WeaponHandler : MonoBehaviour
             if(weaponTypeEquipped == 0)
             {
                 DisablePistol();
+                // joga a função de quebrar referente a pistol
             }
             else if(weaponTypeEquipped == 1)
             {
                 DisableShotgun();
+                // joga a função de quebrar referente a shotgun aqui
             }
             else if(weaponTypeEquipped == 2)
             {
                 DisableMachineGun();
+                // joga a função de quebrar referente a metralhadoraaqui
             }
             else if(weaponTypeEquipped == 3)
             {
                 DisableGrenadeLauncher();
+                // joga a função de quebrar referente ao grenade launcher aqui
             }
+            breakWeaponScript.BreakTheWeapon(); // depois, tem que criar uma função separada que leva em consideração o weaponTypeEquipped pra destruir a certa
             SwitchToNextAvailableWeapon();
             UpdateWeaponSlotSprites();
         }
