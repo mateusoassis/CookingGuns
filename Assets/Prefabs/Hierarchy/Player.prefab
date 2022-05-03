@@ -7645,7 +7645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testing: 0
-  testingWeapons: 1
+  testingWeapons: 0
   playerRigidbody: {fileID: 0}
   animationHandler: {fileID: 0}
   playerStats: {fileID: 0}
@@ -7768,10 +7768,18 @@ MonoBehaviour:
   testingGameObjects: {fileID: 0}
   realGameObjects: {fileID: 0}
   slotEquipped: 0
-  freeSlotArray: 
-  weaponTypeOnSlot: 
-  realWeaponIconsPool: []
-  realWeaponIcons: []
+  freeSlotArray: 010101
+  weaponTypeOnSlot: 040000000400000004000000
+  realWeaponIconsPool:
+  - {fileID: 21300000, guid: 70091992c2f9972479586d4646100951, type: 3}
+  - {fileID: 21300000, guid: 0ed2ffc19dede714a837aa5df3025703, type: 3}
+  - {fileID: 21300000, guid: fac11e9481432ac4496f51b9ebabd554, type: 3}
+  - {fileID: 21300000, guid: c20ad5020d156ce4a9bcfd01c6b58c94, type: 3}
+  - {fileID: 21300000, guid: 9dea3702b61c7994db3bd6b37a530160, type: 3}
+  realWeaponIcons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   firstFalseIndex: 0
   secondFalseIndex: 0
   numberOfFalseIndexes: 0
