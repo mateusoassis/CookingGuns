@@ -50,7 +50,6 @@ public class GranadeScript : MonoBehaviour
             {
                 arrived = true;
                 GetComponent<Rigidbody>().useGravity = true;
-                //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             }
         }
     }
@@ -74,7 +73,6 @@ public class GranadeScript : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             transform.rotation = Quaternion.identity;
             explosionArea.SetActive(true);
-
         }
     }
 }
