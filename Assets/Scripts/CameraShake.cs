@@ -7,11 +7,6 @@ public class CameraShake : MonoBehaviour
 {
     [SerializeField]private UnityEvent shock;
 
-    void Start()
-    {
-        //Invoke("Shockwave", 0f);
-    }
-
     public void Shockwave()
     {
         shock.Invoke();

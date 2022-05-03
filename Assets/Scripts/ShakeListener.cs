@@ -11,11 +11,6 @@ public class ShakeListener : MonoBehaviour
     {
         source = GetComponent<CinemachineImpulseSource>();
     }
-    
-    void Start()
-    {
-        //Invoke("Shake", 0f);
-    }
 
     public void Shake()
     {
