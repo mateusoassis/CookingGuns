@@ -10,4 +10,9 @@ public class YouLoseHolder : MonoBehaviour
     {
         youLoseObject.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
     }
+
+    public void PlayerLost()
+    {
+        youLoseObject.SetActive(true);
+    }
 }
