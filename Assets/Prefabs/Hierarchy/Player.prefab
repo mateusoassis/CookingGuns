@@ -1236,9 +1236,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2966596665554332375}
   - component: {fileID: 7239740504117536542}
+  - component: {fileID: 1972040699735664163}
   m_Layer: 0
   m_Name: "Bot\xF2es"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1333,6 +1334,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00059736613, y: 0.013274897, z: -0.0031764582}
     m_Extent: {x: 0.00494654, y: 0.0046367715, z: 0.0038926145}
   m_DirtyAABB: 0
+--- !u!114 &1972040699735664163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507716834098417522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &2567116758597686822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,7 +1886,7 @@ GameObject:
   - component: {fileID: 8087607284498948085}
   m_Layer: 0
   m_Name: "Bot\xF2es"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1969,9 +1986,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9006403236303640163}
   - component: {fileID: 1845757488910604558}
+  - component: {fileID: 2129128240286467737}
   m_Layer: 0
   m_Name: Olhos
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2067,6 +2085,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.009617057, y: 0.030727595, z: 0.008469289}
     m_Extent: {x: 0.011164775, y: 0.010191478, z: 0.0074147824}
   m_DirtyAABB: 0
+--- !u!114 &2129128240286467737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973891659860760709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &4124611791658918989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,7 +2205,7 @@ GameObject:
   - component: {fileID: 13351863273354712}
   m_Layer: 0
   m_Name: "P\xE9s"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2583,7 +2617,7 @@ GameObject:
   - component: {fileID: 528077783435769713}
   m_Layer: 0
   m_Name: Rosto
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2808,9 +2842,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528172065204354}
   - component: {fileID: 5697528172065204355}
+  - component: {fileID: 7128109633047704764}
   m_Layer: 0
   m_Name: "P\xE9s"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2900,6 +2935,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00015548524, y: -0.013595688, z: -0.0010996507}
     m_Extent: {x: 0.009156304, y: 0.0045587914, z: 0.005211048}
   m_DirtyAABB: 0
+--- !u!114 &7128109633047704764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528172065204353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528172075624856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,9 +3023,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528172157360962}
   - component: {fileID: 5697528172157360963}
+  - component: {fileID: 2792193128320782723}
   m_Layer: 0
   m_Name: "P\xE9s"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3064,6 +3116,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00015548524, y: -0.013595688, z: -0.0010996507}
     m_Extent: {x: 0.009156304, y: 0.0045587914, z: 0.005211048}
   m_DirtyAABB: 0
+--- !u!114 &2792193128320782723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528172157360961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528172168659336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,9 +3329,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528172245472989}
   - component: {fileID: 5697528172245472990}
+  - component: {fileID: 8744268638884781201}
   m_Layer: 0
   m_Name: Rosto
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3354,6 +3423,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000000016298145, y: 0.035342775, z: 0.0001252077}
     m_Extent: {x: 0.0056833094, y: 0.0066270344, z: 0.0038555379}
   m_DirtyAABB: 0
+--- !u!114 &8744268638884781201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528172245472988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528172386317369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,9 +3449,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528172386317370}
   - component: {fileID: 5697528172386317371}
+  - component: {fileID: 4447582561705066354}
   m_Layer: 0
   m_Name: "Bot\xF2es"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3456,6 +3542,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000945013, y: 0.012990963, z: -0.0036388822}
     m_Extent: {x: 0.0043812357, y: 0.004294835, z: 0.0033145193}
   m_DirtyAABB: 0
+--- !u!114 &4447582561705066354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528172386317369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528172400687719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,9 +3692,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528172566749091}
   - component: {fileID: 5697528172566749116}
+  - component: {fileID: 4267621202118009643}
   m_Layer: 0
   m_Name: "M\xE3os"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3682,6 +3785,22 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00005209446, y: 0.0146237565, z: 0.004657182}
     m_Extent: {x: 0.02546103, y: 0.0040604146, z: 0.0049057296}
   m_DirtyAABB: 0
+--- !u!114 &4267621202118009643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528172566749090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528172584342829
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,9 +4184,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528172854550345}
   - component: {fileID: 5697528172854550346}
+  - component: {fileID: 7958440211873837856}
   m_Layer: 0
   m_Name: Chapeu
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4157,6 +4277,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000005234033, y: 0.051981825, z: 0.019780062}
     m_Extent: {x: 0.008557632, y: 0.009751547, z: 0.009509262}
   m_DirtyAABB: 0
+--- !u!114 &7958440211873837856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528172854550344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528172979877518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,9 +4486,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528173091846491}
   - component: {fileID: 5697528173091846484}
+  - component: {fileID: 626926616799285069}
   m_Layer: 0
   m_Name: Rosto
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4443,6 +4580,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000000016298145, y: 0.035342775, z: 0.0001252077}
     m_Extent: {x: 0.0056833094, y: 0.0066270344, z: 0.0038555379}
   m_DirtyAABB: 0
+--- !u!114 &626926616799285069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528173091846490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528173130217810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4453,9 +4606,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528173130217811}
   - component: {fileID: 5697528173130217836}
+  - component: {fileID: 8826281795494087954}
   m_Layer: 0
   m_Name: "M\xE3os"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4545,6 +4699,22 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00005209446, y: 0.0146237565, z: 0.004657182}
     m_Extent: {x: 0.02546103, y: 0.0040604146, z: 0.0049057296}
   m_DirtyAABB: 0
+--- !u!114 &8826281795494087954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528173130217810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528173135385894
 GameObject:
   m_ObjectHideFlags: 0
@@ -4802,9 +4972,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528173543742325}
   - component: {fileID: 5697528173543742326}
+  - component: {fileID: 4155292948512904948}
   m_Layer: 0
   m_Name: Corpo
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4896,6 +5067,22 @@ SkinnedMeshRenderer:
     m_Center: {x: -9.313226e-10, y: 0.025568515, z: 0.0069352463}
     m_Extent: {x: 0.015232348, y: 0.031153664, z: 0.023673227}
   m_DirtyAABB: 0
+--- !u!114 &4155292948512904948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528173543742324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528173559817190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4938,9 +5125,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528173591354783}
   - component: {fileID: 5697528173591354776}
+  - component: {fileID: 3597124364454418162}
   m_Layer: 0
   m_Name: Olhos
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5031,6 +5219,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.033923037, z: 0.0028490447}
     m_Extent: {x: 0.010513379, y: 0.0047207177, z: 0.0041524083}
   m_DirtyAABB: 0
+--- !u!114 &3597124364454418162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528173591354782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528173596321922
 GameObject:
   m_ObjectHideFlags: 0
@@ -5321,9 +5525,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528173927643431}
   - component: {fileID: 5697528173927643424}
+  - component: {fileID: 5003404735454096112}
   m_Layer: 0
   m_Name: Chapeu
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5413,6 +5618,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000005234033, y: 0.051981825, z: 0.019780062}
     m_Extent: {x: 0.008557632, y: 0.009751547, z: 0.009509262}
   m_DirtyAABB: 0
+--- !u!114 &5003404735454096112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528173927643430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528173929572629
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,9 +5708,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528173970370938}
   - component: {fileID: 5697528173970370939}
+  - component: {fileID: 2635474130821372910}
   m_Layer: 0
   m_Name: Olhos
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5580,6 +5802,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.033923037, z: 0.0028490447}
     m_Extent: {x: 0.010513379, y: 0.0047207177, z: 0.0041524083}
   m_DirtyAABB: 0
+--- !u!114 &2635474130821372910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528173970370937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528174000859705
 GameObject:
   m_ObjectHideFlags: 0
@@ -5683,9 +5921,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528174021489773}
   - component: {fileID: 5697528174021489774}
+  - component: {fileID: 5120485334492611489}
   m_Layer: 0
   m_Name: "Bot\xF2es"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5775,6 +6014,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000945013, y: 0.012990963, z: -0.0036388822}
     m_Extent: {x: 0.0043812357, y: 0.004294835, z: 0.0033145193}
   m_DirtyAABB: 0
+--- !u!114 &5120485334492611489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528174021489772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528174040131562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5785,9 +6040,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5697528174040131563}
   - component: {fileID: 5697528174040131556}
+  - component: {fileID: 9086918785943340451}
   m_Layer: 0
   m_Name: Corpo
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5879,6 +6135,22 @@ SkinnedMeshRenderer:
     m_Center: {x: -9.313226e-10, y: 0.025568515, z: 0.0069352463}
     m_Extent: {x: 0.015232348, y: 0.031153664, z: 0.023673227}
   m_DirtyAABB: 0
+--- !u!114 &9086918785943340451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5697528174040131562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &5697528174043544677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6414,9 +6686,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2299028476535978400}
   - component: {fileID: 1471310566098972898}
+  - component: {fileID: 1514715190064170387}
   m_Layer: 0
   m_Name: "P\xE9s"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6511,6 +6784,22 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0027574725, y: -0.013161672, z: -0.0024513474}
     m_Extent: {x: 0.012653552, y: 0.0052157324, z: 0.007007053}
   m_DirtyAABB: 0
+--- !u!114 &1514715190064170387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229962992094757903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &6230633811029885673
 GameObject:
   m_ObjectHideFlags: 0
@@ -6582,6 +6871,7 @@ GameObject:
   - component: {fileID: 6692169319249389426}
   - component: {fileID: 6310823075106586057}
   - component: {fileID: 6310823075106586038}
+  - component: {fileID: 7517569690992460795}
   m_Layer: 0
   m_Name: Gato_Idle_GrenadeLauncher
   m_TagString: Untagged
@@ -6677,6 +6967,29 @@ MonoBehaviour:
   - {fileID: 4864917137098097219}
   - {fileID: 167050786146995348}
   - {fileID: 5135566498180813744}
+--- !u!114 &7517569690992460795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6310823075106586056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 5e997db14077d854985b2b0bb4c4cee6, type: 2}
+  duration: 0.3
+  playerMeshParts:
+  - {fileID: 2507716834098417522}
+  - {fileID: 7525200278690414688}
+  - {fileID: 8106805087757839333}
+  - {fileID: 9187255991985652346}
+  - {fileID: 3973891659860760709}
+  - {fileID: 6229962992094757903}
+  - {fileID: 6710785209534809448}
+  oldMaterials: []
 --- !u!1 &6310823075834298393
 GameObject:
   m_ObjectHideFlags: 0
@@ -6690,6 +7003,7 @@ GameObject:
   - component: {fileID: 6581419281093508384}
   - component: {fileID: 6581419281093508385}
   - component: {fileID: 6310823075834298374}
+  - component: {fileID: 8064462830188194188}
   m_Layer: 0
   m_Name: Gato_Idle_Pistol
   m_TagString: Untagged
@@ -6809,6 +7123,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pistolScript: {fileID: 6581419281407714245}
+--- !u!114 &8064462830188194188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6310823075834298393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 5e997db14077d854985b2b0bb4c4cee6, type: 2}
+  duration: 0.3
+  playerMeshParts:
+  - {fileID: 3929805690242152345}
+  - {fileID: 8947152246257645707}
+  - {fileID: 7261317856563270414}
+  - {fileID: 7727045558143515281}
+  - {fileID: 6581419279737713731}
+  - {fileID: 4769606732857442613}
+  - {fileID: 5288692501073476995}
+  oldMaterials:
+  - {fileID: 4874126678125670354, guid: 6f26db6b9a6d9104fa48efd26c5a3465, type: 3}
+  - {fileID: -6922793697723135513, guid: 6f26db6b9a6d9104fa48efd26c5a3465, type: 3}
+  - {fileID: -6629797300637803691, guid: 6f26db6b9a6d9104fa48efd26c5a3465, type: 3}
+  - {fileID: -2813467912831258332, guid: 6f26db6b9a6d9104fa48efd26c5a3465, type: 3}
+  - {fileID: -6478536213147159724, guid: 6f26db6b9a6d9104fa48efd26c5a3465, type: 3}
+  - {fileID: -2813467912831258332, guid: 6f26db6b9a6d9104fa48efd26c5a3465, type: 3}
+  - {fileID: -6478536213147159724, guid: 6f26db6b9a6d9104fa48efd26c5a3465, type: 3}
 --- !u!1 &6341235607432397121
 GameObject:
   m_ObjectHideFlags: 0
@@ -7012,6 +7356,7 @@ GameObject:
   - component: {fileID: 6581419279546023113}
   - component: {fileID: 6581419279546023112}
   - component: {fileID: 6581419279546023095}
+  - component: {fileID: 926679136405713330}
   m_Layer: 0
   m_Name: Gato_Idle_Shotgun
   m_TagString: Untagged
@@ -7131,6 +7476,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotgunScript: {fileID: 6581419281013731405}
   sceneIndex: 0
+--- !u!114 &926679136405713330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581419279546023114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 5e997db14077d854985b2b0bb4c4cee6, type: 2}
+  duration: 0.3
+  playerMeshParts:
+  - {fileID: 5697528174021489772}
+  - {fileID: 5697528172854550344}
+  - {fileID: 5697528173543742324}
+  - {fileID: 5697528172566749090}
+  - {fileID: 5697528173591354782}
+  - {fileID: 5697528172065204353}
+  - {fileID: 5697528173091846490}
+  oldMaterials: []
 --- !u!1 &6581419279568303466
 GameObject:
   m_ObjectHideFlags: 0
@@ -7190,7 +7558,7 @@ GameObject:
   - component: {fileID: 6581419279737713729}
   m_Layer: 0
   m_Name: Olhos
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7695,6 +8063,7 @@ MonoBehaviour:
   playerTakeDamage: {fileID: 0}
   heartScript: {fileID: 0}
   playerManager: {fileID: 0}
+  simpleFlashEffect: {fileID: 0}
 --- !u!114 &687828141336132091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8034,6 +8403,7 @@ GameObject:
   - component: {fileID: 6581419280715048353}
   - component: {fileID: 6581419280715048352}
   - component: {fileID: 6581419280715048355}
+  - component: {fileID: 3366381086125365968}
   m_Layer: 0
   m_Name: Gato_Idle_MachineGun
   m_TagString: Untagged
@@ -8139,6 +8509,29 @@ MonoBehaviour:
   - m_Rig: {fileID: 0}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &3366381086125365968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581419280715048357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 5e997db14077d854985b2b0bb4c4cee6, type: 2}
+  duration: 0.3
+  playerMeshParts:
+  - {fileID: 5697528172386317369}
+  - {fileID: 5697528173927643430}
+  - {fileID: 5697528174040131562}
+  - {fileID: 5697528173130217810}
+  - {fileID: 5697528173970370937}
+  - {fileID: 5697528172157360961}
+  - {fileID: 5697528172245472988}
+  oldMaterials: []
 --- !u!1 &6581419280762816963
 GameObject:
   m_ObjectHideFlags: 0
@@ -8995,9 +9388,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1970509842800867417}
   - component: {fileID: 1373687680859361178}
+  - component: {fileID: 6606733661993673568}
   m_Layer: 0
   m_Name: Rosto
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9093,6 +9487,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.004345536, y: 0.027139187, z: 0.0137825105}
     m_Extent: {x: 0.029573407, y: 0.013665847, z: 0.017420428}
   m_DirtyAABB: 0
+--- !u!114 &6606733661993673568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710785209534809448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &7261317856563270414
 GameObject:
   m_ObjectHideFlags: 0
@@ -9105,7 +9515,7 @@ GameObject:
   - component: {fileID: 6106888009832513837}
   m_Layer: 0
   m_Name: Corpo
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9300,9 +9710,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5527889907864316746}
   - component: {fileID: 4381999009998582877}
+  - component: {fileID: 2941132693084374502}
   m_Layer: 0
   m_Name: Chapeu
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9397,6 +9808,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.012451697, y: 0.04353588, z: 0.029464912}
     m_Extent: {x: 0.013476003, y: 0.013334885, z: 0.012556468}
   m_DirtyAABB: 0
+--- !u!114 &2941132693084374502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7525200278690414688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &7706304704035410102
 GameObject:
   m_ObjectHideFlags: 0
@@ -9440,7 +9867,7 @@ GameObject:
   - component: {fileID: 7861950440204801580}
   m_Layer: 0
   m_Name: "M\xE3os"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9571,9 +9998,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2537728138228172529}
   - component: {fileID: 4648924359097711046}
+  - component: {fileID: 7738327608407561924}
   m_Layer: 0
   m_Name: Corpo
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9670,6 +10098,22 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.004392676, y: 0.026149135, z: 0.012954615}
     m_Extent: {x: 0.028260894, y: 0.0322777, z: 0.029900491}
   m_DirtyAABB: 0
+--- !u!114 &7738327608407561924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106805087757839333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1 &8220479835893227244
 GameObject:
   m_ObjectHideFlags: 0
@@ -9960,7 +10404,7 @@ GameObject:
   - component: {fileID: 2921629689561812150}
   m_Layer: 0
   m_Name: Chapeu
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10213,9 +10657,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5127813914801212571}
   - component: {fileID: 8745717924182306503}
+  - component: {fileID: 9137249875931203667}
   m_Layer: 0
   m_Name: "M\xE3os"
-  m_TagString: Untagged
+  m_TagString: MaterialFlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10310,6 +10755,22 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.005710819, y: 0.025216468, z: -0.006047329}
     m_Extent: {x: 0.02247423, y: 0.008131369, z: 0.014751172}
   m_DirtyAABB: 0
+--- !u!114 &9137249875931203667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187255991985652346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1001 &1460373923295698413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10459,29 +10920,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
---- !u!4 &3579100357827937855 stripped
+--- !u!4 &5004102611439418613 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -6489741452182660142, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7817521599968768730 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8662990686198198071, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7369525441640479889 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8215016522396443004, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6184915369378024582 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4724682394301960555, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1000651365542314734 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1848531130981048067, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_CorrespondingSourceObject: {fileID: -3371385674489143016, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6976763227279468448 stripped
@@ -10489,104 +10930,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -822404562520851891, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5004102611439418613 stripped
+--- !u!4 &1000651365542314734 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -3371385674489143016, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1848531130981048067, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5644597536310289356 stripped
+--- !u!4 &6184915369378024582 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -2733146397756260831, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4724682394301960555, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5358121905140896469 stripped
+--- !u!4 &7369525441640479889 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6782303543452831544, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8215016522396443004, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1051416161041984724 stripped
+--- !u!4 &7817521599968768730 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -7290435864892821191, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8662990686198198071, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8347411538519221283 stripped
+--- !u!4 &3579100357827937855 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -1759855454371448370, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4299884341214097788 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5771353721512645487, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &236625217025338887 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7562419839823154198, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4810508695694260772 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6234695418970646473, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6597340781563339436 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5749474000045571905, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9031775638673201437 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1651947708431465232, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1427345476322458118 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1766857501963559100 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9153240821266625281 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -1494471187894685972, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1789703300149467661 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 905795218996479968, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3894779255215297649 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6752792222348637796, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2485009350613105256 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -5316274449323268219, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &7976568797556251210 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -363035272838477913, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &898782409503100828 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1746648499522753137, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4775236529664677173 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6197311572149881048, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
-  m_PrefabInstance: {fileID: 1460373923295698413}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &600277457033203396 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2022353118262137641, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_CorrespondingSourceObject: {fileID: -6489741452182660142, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7989452464387186606 stripped
@@ -10594,9 +10960,129 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8837319172856889923, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1789703300149467661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 905795218996479968, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6414425737051002074 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3656689381961053897, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &600277457033203396 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2022353118262137641, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &236625217025338887 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7562419839823154198, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4775236529664677173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6197311572149881048, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &898782409503100828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1746648499522753137, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7976568797556251210 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -363035272838477913, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2485009350613105256 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5316274449323268219, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3894779255215297649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6752792222348637796, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8761989313769871164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1306997705049044271, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3691548990533457966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2846079693859997123, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3158375401061036971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4580310256082202182, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2605989141008341556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3489760887040591833, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7814867542296674507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -560778660754596570, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &465166402038603046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7912595605216722741, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4810508695694260772 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6234695418970646473, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &945935839724231745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1829844612367925676, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6597340781563339436 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5749474000045571905, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1427345476322458118 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8347411538519221283 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1759855454371448370, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9153240821266625281 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1494471187894685972, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1766857501963559100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9031775638673201437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1651947708431465232, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4299884341214097788 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -5771353721512645487, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1051416161041984724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7290435864892821191, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5066808147724557562 stripped
@@ -10604,6 +11090,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5914529724987982103, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
   m_PrefabInstance: {fileID: 1460373923295698413}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5358121905140896469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6782303543452831544, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5644597536310289356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2733146397756260831, guid: 78e3343ac6eeb9e4f9e10b905795f857, type: 3}
+  m_PrefabInstance: {fileID: 1460373923295698413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5057739498194688802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465166402038603046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 0.2
+  playerMeshParts: []
+  oldMaterials: []
+--- !u!114 &7768872258280097912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945935839724231745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 0.2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!95 &1119534959
 Animator:
   serializedVersion: 3
@@ -10698,6 +11226,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerWeaponHandler: {fileID: 0}
+--- !u!114 &861688994920712928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2605989141008341556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 0.2
+  playerMeshParts: []
+  oldMaterials: []
+--- !u!114 &2141622045210820350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3158375401061036971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 0.2
+  playerMeshParts: []
+  oldMaterials: []
+--- !u!114 &6249960897370533152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691548990533457966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 0.2
+  playerMeshParts: []
+  oldMaterials: []
+--- !u!114 &608652860575975731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814867542296674507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 0.2
+  playerMeshParts: []
+  oldMaterials: []
+--- !u!114 &7638088910572024167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761989313769871164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7412a026991ebb4c90c86897638d172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: ece7f1579e5ad0143b50730e3ce266f5, type: 2}
+  duration: 0.2
+  playerMeshParts: []
+  oldMaterials: []
 --- !u!1001 &6581419281078642079
 PrefabInstance:
   m_ObjectHideFlags: 0
