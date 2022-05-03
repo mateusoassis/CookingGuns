@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public bool confirmationWindowOpen;
     public _PlayerManager playerManager;
     public TextMeshProUGUI levelCounterText;
+    public PlayerInfo playerInfo;
 
     void Awake()
     {
@@ -73,6 +74,22 @@ public class GameManager : MonoBehaviour
         }
 
         SlowTime();
+    }
+
+    public void Restart()
+    {
+        if(playerInfo.playerCurrentRoom < 1)
+        {
+            playerInfo.playerCurrentRoom = 0;
+            playerInfo.healthFromLastRoom = 0;
+            SceneManager.LoadScene("0_1_Tutorial", LoadSceneMode.Single);
+        }
+        else
+        {
+            playerInfo.playerCurrentRoom = 1;
+            playerInfo.healthFromLastRoom = 0;
+            SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
+        }
     }
 
     public void StartSlowTime()

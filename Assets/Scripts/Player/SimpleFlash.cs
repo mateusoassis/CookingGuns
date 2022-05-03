@@ -4,76 +4,54 @@ using UnityEngine;
 
 public class SimpleFlash : MonoBehaviour
 {
-        #region Datamembers
-
-        #region Editor Settings
-
         [Tooltip("Material to switch to during the flash.")]
         [SerializeField] private Material flashMaterial;
 
         [Tooltip("Duration of the flash.")]
         [SerializeField] private float duration;
 
-        #endregion
-        #region Private Fields
+        [SerializeField] private GameObject[] playerMeshParts;
 
-        // The SpriteRenderer that should flash.
-        private SpriteRenderer spriteRenderer;
-        
-        private Material originalMaterial;
+        private SkinnedMeshRenderer meshRenderer;
 
         private Coroutine flashRoutine;
 
-        #endregion
+        public Material[] oldMaterials;
 
-        #endregion
-
-
-        #region Methods
-
-        #region Unity Callbacks
+        void Awake()
+        {
+            oldMaterials = new Material[7];
+        }
 
         void Start()
         {
-            // Get the SpriteRenderer to be used,
-            // alternatively you could set it from the inspector.
-            spriteRenderer = GetComponent<SpriteRenderer>();
-
-            // Get the material that the SpriteRenderer uses, 
-            // so we can switch back to it after the flash ended.
-            originalMaterial = spriteRenderer.material;
+            for(int n = 0; n< playerMeshParts.Length; n++)
+            {
+                oldMaterials[n] = playerMeshParts[n].GetComponent<SkinnedMeshRenderer>().material;
+            }
         }
-
-        #endregion
 
         public void Flash()
         {
-            // If the flashRoutine is not null, then it is currently running.
             if (flashRoutine != null)
             {
-                // In this case, we should stop it first.
-                // Multiple FlashRoutines the same time would cause bugs.
                 StopCoroutine(flashRoutine);
             }
-
-            // Start the Coroutine, and store the reference for it.
             flashRoutine = StartCoroutine(FlashRoutine());
+            Debug.Log("fez o flash");
         }
 
         private IEnumerator FlashRoutine()
         {
-            // Swap to the flashMaterial.
-            spriteRenderer.material = flashMaterial;
-
-            // Pause the execution of this function for "duration" seconds.
+            foreach(GameObject k in playerMeshParts)
+            {
+                k.GetComponent<SkinnedMeshRenderer>().material = flashMaterial;
+            }
             yield return new WaitForSeconds(duration);
-
-            // After the pause, swap back to the original material.
-            spriteRenderer.material = originalMaterial;
-
-            // Set the routine to null, signaling that it's finished.
+            for(int n = 0; n< playerMeshParts.Length; n++)
+            {
+                playerMeshParts[n].GetComponent<SkinnedMeshRenderer>().material = oldMaterials[n];
+            }
             flashRoutine = null;
         }
-
-        #endregion
 }

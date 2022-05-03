@@ -10,6 +10,7 @@ public class LMBFadeout : MonoBehaviour
     void OnDestroy()
     {
         lmbButton.interactable = false;
+        GetComponent<EnemyStats>().enemySpawner.roomCleared = true;
     }
     
 }

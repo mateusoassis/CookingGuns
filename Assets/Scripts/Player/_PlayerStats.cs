@@ -23,12 +23,14 @@ public class _PlayerStats : MonoBehaviour
 
     public HeartContainerManager heartScript;
     public _PlayerManager playerManager;
+    public SimpleFlash simpleFlashEffect;
 
     private void Awake()
     {
         youLoseHolder = GameObject.Find("MainUI").GetComponent<YouLoseHolder>();
         playerManager = GetComponent<_PlayerManager>();
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
+        simpleFlashEffect = GetComponentInChildren<SimpleFlash>();
         if(playerManager.playerInfo.healthFromLastRoom > 0)
         {
             playerCurrentHealth = playerManager.playerInfo.healthFromLastRoom;
@@ -51,6 +53,7 @@ public class _PlayerStats : MonoBehaviour
     {
         if(!playerManager.isFading)
         {
+            simpleFlashEffect.Flash();
             playerCurrentHealth -= damage;
             heartScript.hpLost += damage;
             heartScript.UpdateAllHearts();
@@ -75,7 +78,8 @@ public class _PlayerStats : MonoBehaviour
             if((other.gameObject.TryGetComponent(out PudimAreaDamage pudimAreaDamage)))
             {
                 //flashEffect.FlashStart();
-                TakeHPDamage(pudimAreaDamage.damageDone);
+                simpleFlashEffect.Flash();
+                TakeHPDamage(pudimAreaDamage.damageDone); 
             }
         }
     }
