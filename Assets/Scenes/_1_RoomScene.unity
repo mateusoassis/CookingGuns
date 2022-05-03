@@ -1756,7 +1756,7 @@ Transform:
   m_GameObject: {fileID: 1010046516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27, y: -0, z: -30}
-  m_LocalScale: {x: 12, y: 1, z: 12}
+  m_LocalScale: {x: 15, y: 1, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
@@ -4800,6 +4800,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 501563644}
+    - target: {fileID: 2648325733984800471, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     - target: {fileID: 2648325734229952977, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5002,17 +5006,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: testingWeapons
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: craftingHandlerInPlayer
       value: 
       objectReference: {fileID: 1711962415}
-    - target: {fileID: 2281369175473143279, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2287382207225990894, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: craftingWindowObject
       value: 
@@ -5032,82 +5028,6 @@ PrefabInstance:
     - target: {fileID: 2296631198052936690, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3929805690242152345, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_TagString
-      value: MaterialFlash
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4439904928981046728, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4769606732857442613, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_TagString
-      value: MaterialFlash
-      objectReference: {fileID: 0}
-    - target: {fileID: 5288692501073476995, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_TagString
-      value: MaterialFlash
-      objectReference: {fileID: 0}
-    - target: {fileID: 5352117988591344686, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: duration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442301927553039369, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419279737713731, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_TagString
-      value: MaterialFlash
       objectReference: {fileID: 0}
     - target: {fileID: 6581419280599443781, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: m_Name
@@ -5157,82 +5077,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: freeSlot.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: freeSlotArray.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIcons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: freeSlotArray.Array.data[0]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: freeSlotArray.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: freeSlotArray.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: weaponTypeOnSlot.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIcons.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIcons.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIcons.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIconsPool.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: weaponTypeOnSlot.Array.data[0]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: weaponTypeOnSlot.Array.data[1]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: weaponTypeOnSlot.Array.data[2]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIconsPool.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 70091992c2f9972479586d4646100951, type: 3}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIconsPool.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 0ed2ffc19dede714a837aa5df3025703, type: 3}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIconsPool.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: fac11e9481432ac4496f51b9ebabd554, type: 3}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIconsPool.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: c20ad5020d156ce4a9bcfd01c6b58c94, type: 3}
-    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: realWeaponIconsPool.Array.data[4]
-      value: 
-      objectReference: {fileID: 21300000, guid: 9dea3702b61c7994db3bd6b37a530160, type: 3}
     - target: {fileID: 6581419280770699776, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: InventoryQuantityText
       value: 

@@ -814,8 +814,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240958037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.8, y: -0, z: -19}
-  m_LocalScale: {x: 12, y: 1, z: 12}
+  m_LocalPosition: {x: 40.9, y: -0, z: -19}
+  m_LocalScale: {x: 15, y: 1, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -1587,6 +1587,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1850308445, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850308445, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 687828141336132091, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: rollSpeed
       value: 30
@@ -1651,6 +1659,14 @@ PrefabInstance:
       propertyPath: targetTransforms.Array.data[6]
       value: 
       objectReference: {fileID: 35573226}
+    - target: {fileID: 2296631198052936690, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296631198052936690, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6581419280599443778, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: m_UseGravity
       value: 1
@@ -1707,6 +1723,18 @@ PrefabInstance:
       propertyPath: unlockedWeapons.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: realWeaponIcons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1711962415}
+    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: realWeaponIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1711962414}
+    - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: realWeaponIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1711962413}
     - target: {fileID: 6581419280599443791, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: unlockedWeapons.Array.data[0]
       value: 1
@@ -5180,6 +5208,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 878380468611330738, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2648325733007549376, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5292,6 +5324,10 @@ PrefabInstance:
       propertyPath: fadeoutDuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2648325733303291217, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2648325733421117584, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5370,7 +5406,7 @@ PrefabInstance:
       objectReference: {fileID: 1421596759}
     - target: {fileID: 2648325733984800471, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartGame
+      value: Restart
       objectReference: {fileID: 0}
     - target: {fileID: 2648325734229952977, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5770,6 +5806,39 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1033502006, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
   m_PrefabInstance: {fileID: 1711962409}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1711962413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6839739510364383315, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+  m_PrefabInstance: {fileID: 1711962409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1711962414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3033055045861356722, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+  m_PrefabInstance: {fileID: 1711962409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1711962415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1371420059, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+  m_PrefabInstance: {fileID: 1711962409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1736631034 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2648325733217773673, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
