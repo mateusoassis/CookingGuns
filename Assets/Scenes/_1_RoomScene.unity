@@ -761,6 +761,34 @@ MonoBehaviour:
   - tag: 0
     name: WaterFall
     clip: {fileID: 8300000, guid: bf496772811300344a12050ce335ddf9, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: PistolShot
+    clip: {fileID: 8300000, guid: 4c08837c1dd078e44a2c67f2cfde4be7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: GranadeLauncherShot
+    clip: {fileID: 8300000, guid: a8a26378577a9da4cb6fd295ba52c02e, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: Mr.MeowDeath
+    clip: {fileID: 8300000, guid: 491858cf7d268814f9de8a1b3226bbd6, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: Mr.MeowAttacked
+    clip: {fileID: 8300000, guid: ac3e37fce869fd8429ba905b0c4d5e51, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -5019,6 +5047,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1850308445, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: testing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: testingWeapons
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
