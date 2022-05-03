@@ -58,8 +58,14 @@ public class _PlayerStats : MonoBehaviour
             heartScript.hpLost += damage;
             heartScript.UpdateAllHearts();
 
+
+            if(playerCurrentHealth > 0)
+                FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
+            
+
             if(playerCurrentHealth <= 0)
             {
+                FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
                 playerManager.gameManager.PauseGame();
                 youLoseHolder.PlayerLost();
                 //youLoseHolder.gameObject.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
