@@ -17,30 +17,41 @@ public class GranadeScript : MonoBehaviour
     public float slerpSpeed;
     public float spawnYOffset;
     public float projectileSpeed;
+    public bool arrived;
 
     void Start()
     {
         parent = transform.parent;
         currentSlerpTime = 0f;
         savedSlerpPosition = parent.gameObject.GetComponent<Transform>().position; //+ new Vector3(0f, spawnYOffset, 0f);
+        GetComponent<Rigidbody>().useGravity = false;
     }
 
     void Update()
     {
-        SlerpTimer();
-        
-        centerPivot = (transform.position + savedSlerpPosition)/2;
-        centerPivot -= new Vector3(0, -centerOffset);
+        if(!arrived)
+        {
+            SlerpTimer();
 
-        Vector3 relativeStart = transform.position - centerPivot;
-        Vector3 relativeEnd = savedSlerpPosition - centerPivot;
+            centerPivot = (transform.position + savedSlerpPosition)/2;
+            centerPivot -= new Vector3(0, -centerOffset);
+
+            Vector3 relativeStart = transform.position - centerPivot;
+            Vector3 relativeEnd = savedSlerpPosition - centerPivot;
         
 
-        float distance = Vector3.Distance(transform.position, savedSlerpPosition);
-        float finalSpeed = (distance / projectileSpeed);
+            float distance = Vector3.Distance(transform.position, savedSlerpPosition);
+            float finalSpeed = (distance / projectileSpeed);
         
-        transform.position = Vector3.Slerp(relativeStart, relativeEnd, Time.deltaTime/finalSpeed) + centerPivot;
-        //transform.position = Vector3.Slerp(transform.position, parent.position, Time.deltaTime/finalSpeed);
+            transform.position = Vector3.Slerp(relativeStart, relativeEnd, Time.deltaTime/finalSpeed) + centerPivot;
+            //transform.position = Vector3.Slerp(transform.position, parent.position, Time.deltaTime/finalSpeed);
+
+            if(distance <= 0.1f)
+            {
+                arrived = true;
+                //GetComponent<Rigidbody>().useGravity = true;
+            }
+        }
     }
 
     public void SlerpTimer()

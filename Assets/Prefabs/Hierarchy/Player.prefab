@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -833.7, y: -358.8133}
+  m_AnchoredPosition: {x: -833.7, y: -359.4}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407142470
@@ -108,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &764188969
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6511,7 +6511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2346803453566755553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8578,6 +8578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5f370f8d5089a43b31802232e1e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomNames: []
   bullet: {fileID: 1375973836160515176, guid: 6dff15fdec32f6041b356b891327f4a9, type: 3}
   granadeLauncherTarget: {fileID: 0}
   shootForce: 0
@@ -8598,6 +8599,7 @@ MonoBehaviour:
   firePoint: {fileID: 6581419280477330152}
   muzzleFlash: {fileID: 0}
   ammoDisplay: {fileID: 0}
+  weaponNameDisplay: {fileID: 0}
   reloadDisplay: {fileID: 2794672020934759585}
   allowInvoke: 1
   playerManager: {fileID: 0}
@@ -8774,6 +8776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5f370f8d5089a43b31802232e1e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomNames: []
   bullet: {fileID: 1375973836160515176, guid: 9c47d5d13e37c2249a64a09755c31b98, type: 3}
   granadeLauncherTarget: {fileID: 0}
   shootForce: 40
@@ -8794,6 +8797,7 @@ MonoBehaviour:
   firePoint: {fileID: 6581419280651400487}
   muzzleFlash: {fileID: 0}
   ammoDisplay: {fileID: 0}
+  weaponNameDisplay: {fileID: 0}
   reloadDisplay: {fileID: 2794672020934759585}
   allowInvoke: 1
   playerManager: {fileID: 0}
@@ -8902,6 +8906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5f370f8d5089a43b31802232e1e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomNames: []
   bullet: {fileID: 1375973836160515176, guid: 8b88d773e64a83946bb98276b79915bb, type: 3}
   granadeLauncherTarget: {fileID: 0}
   shootForce: 40
@@ -8922,6 +8927,7 @@ MonoBehaviour:
   firePoint: {fileID: 6581419280704316570}
   muzzleFlash: {fileID: 0}
   ammoDisplay: {fileID: 0}
+  weaponNameDisplay: {fileID: 0}
   reloadDisplay: {fileID: 2794672020934759585}
   allowInvoke: 1
   playerManager: {fileID: 0}
@@ -9107,6 +9113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5f370f8d5089a43b31802232e1e435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomNames: []
   bullet: {fileID: 1375973836160515176, guid: d46bfd836518f6d408757e7257572726, type: 3}
   granadeLauncherTarget: {fileID: 0}
   shootForce: 30
@@ -9127,6 +9134,7 @@ MonoBehaviour:
   firePoint: {fileID: 6581419280839189477}
   muzzleFlash: {fileID: 0}
   ammoDisplay: {fileID: 0}
+  weaponNameDisplay: {fileID: 0}
   reloadDisplay: {fileID: 2794672020934759585}
   allowInvoke: 1
   playerManager: {fileID: 0}

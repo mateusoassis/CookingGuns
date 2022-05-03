@@ -21282,6 +21282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7735573627748508130}
+  - component: {fileID: 4248560088036344327}
   m_Layer: 20
   m_Name: CellFracturesPrefab
   m_TagString: Untagged
@@ -21559,6 +21560,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4248560088036344327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6922480774312901464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32eeffc9923ad5d4c9157edcde3535d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestroy: 3
 --- !u!1 &6927453319749470801
 GameObject:
   m_ObjectHideFlags: 0
@@ -27915,7 +27929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7783509620006947653
 Transform:
   m_ObjectHideFlags: 0

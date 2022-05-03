@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class _PlayerShooting : MonoBehaviour
 {
+    public string[] randomNames; // à implementar no futuro, confia
     public GameObject bullet;
 
     public GameObject granadeLauncherTarget;
@@ -35,6 +36,7 @@ public class _PlayerShooting : MonoBehaviour
     //Graphics
     public GameObject muzzleFlash;
     public TextMeshProUGUI ammoDisplay;
+    public TextMeshProUGUI weaponNameDisplay;
     public Slider reloadDisplay;
     //bug fix
     public bool allowInvoke = true;
@@ -55,6 +57,7 @@ public class _PlayerShooting : MonoBehaviour
         if(sceneInt != 0 && sceneInt != 1)
         {
             ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
+            weaponNameDisplay = GameObject.Find("WeaponNameDisplay").GetComponent<TextMeshProUGUI>();
         }
         granadeLauncherTarget = GameObject.Find("SlerpTarget");
     }
@@ -236,6 +239,22 @@ public class _PlayerShooting : MonoBehaviour
         if(ammoDisplay != null)
         {
             ammoDisplay.SetText(bulletsLeft/bulletPerTap + " / " + magazineSize/bulletPerTap);
+            if(weaponHandler.weaponTypeEquipped == 0)
+            {
+                weaponNameDisplay.SetText("Pistol");
+            }
+            else if(weaponHandler.weaponTypeEquipped == 1)
+            {
+                weaponNameDisplay.SetText("Shotgun");
+            }
+            else if(weaponHandler.weaponTypeEquipped == 2)
+            {
+                weaponNameDisplay.SetText("Machine Gun");
+            }
+            else if(weaponHandler.weaponTypeEquipped == 3)
+            {
+                weaponNameDisplay.SetText("Grenade Launcher");
+            }
         }
     }
 }
