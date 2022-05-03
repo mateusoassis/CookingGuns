@@ -27,10 +27,6 @@ public class _PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        if(playerManager.playerInfo.playerCurrentRoom > 0)
-        {
-            youLoseHolder = GameObject.Find("MainCanvas").GetComponent<YouLoseHolder>();
-        }
         playerManager = GetComponent<_PlayerManager>();
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
         simpleFlashEffect = GetComponentInChildren<SimpleFlash>();
@@ -46,6 +42,10 @@ public class _PlayerStats : MonoBehaviour
 
     void Start()
     {
+        if(playerManager.playerInfo.playerCurrentRoom > 0)
+        {
+            youLoseHolder = GameObject.Find("MainCanvas").GetComponent<YouLoseHolder>();
+        }
         //youLoseHolder.youLoseObject.SetActive(false);
         playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
         //youLoseScript = GameObject.Find("MainCanvas").GetComponent<YouLose>();
