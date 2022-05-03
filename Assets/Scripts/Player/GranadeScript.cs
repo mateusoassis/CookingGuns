@@ -22,22 +22,25 @@ public class GranadeScript : MonoBehaviour
     {
         parent = transform.parent;
         currentSlerpTime = 0f;
-        savedSlerpPosition = parent.gameObject.GetComponent<Transform>().position + new Vector3(0f, spawnYOffset, 0f);
+        savedSlerpPosition = parent.gameObject.GetComponent<Transform>().position; //+ new Vector3(0f, spawnYOffset, 0f);
     }
 
     void Update()
     {
         SlerpTimer();
+        
         centerPivot = (transform.position + savedSlerpPosition)/2;
         centerPivot -= new Vector3(0, -centerOffset);
 
         Vector3 relativeStart = transform.position - centerPivot;
         Vector3 relativeEnd = savedSlerpPosition - centerPivot;
+        
 
         float distance = Vector3.Distance(transform.position, savedSlerpPosition);
         float finalSpeed = (distance / projectileSpeed);
-
+        
         transform.position = Vector3.Slerp(relativeStart, relativeEnd, Time.deltaTime/finalSpeed) + centerPivot;
+        //transform.position = Vector3.Slerp(transform.position, parent.position, Time.deltaTime/finalSpeed);
     }
 
     public void SlerpTimer()

@@ -55,7 +55,7 @@ public class _PlayerMovement : MonoBehaviour
 
             if(playerManager.playerWeaponHandler.weaponTypeEquipped == 3)
             {
-                playerManager.playerShootingGranadeLauncher.granadeLauncherTarget.transform.position = new Vector3 (playerAimPosition.x , 0.5f, playerAimPosition.z);
+                playerManager.playerShootingGranadeLauncher.granadeLauncherTarget.transform.position = new Vector3 (playerAimPosition.x , 0.85f, playerAimPosition.z);
             }
         }
 
