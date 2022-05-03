@@ -27,7 +27,10 @@ public class _PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        youLoseHolder = GameObject.Find("MainCanvas").GetComponent<YouLoseHolder>();
+        if(playerManager.playerInfo.playerCurrentRoom > 0)
+        {
+            youLoseHolder = GameObject.Find("MainCanvas").GetComponent<YouLoseHolder>();
+        }
         playerManager = GetComponent<_PlayerManager>();
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
         simpleFlashEffect = GetComponentInChildren<SimpleFlash>();
