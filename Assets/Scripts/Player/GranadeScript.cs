@@ -49,7 +49,7 @@ public class GranadeScript : MonoBehaviour
             if(distance <= 0.1f)
             {
                 arrived = true;
-                //GetComponent<Rigidbody>().useGravity = true;
+                GetComponent<Rigidbody>().useGravity = true;
             }
         }
     }
@@ -70,8 +70,9 @@ public class GranadeScript : MonoBehaviour
     {
         if(other.gameObject.tag == "Ground")
         {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             transform.rotation = Quaternion.identity;
             explosionArea.SetActive(true);
-        } 
+        }
     }
 }
