@@ -7,7 +7,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-   public GameObject pauseUI;
+    public GameObject pauseUI;
     public GameObject restartConfirmationWindow;
     public GameObject quitConfirmationWindow;
     [SerializeField] private TextMeshProUGUI timeHolderText;
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public _PlayerManager playerManager;
     public TextMeshProUGUI levelCounterText;
     public PlayerInfo playerInfo;
+    public CameraShake shakeEffect;
 
     void Awake()
     {
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         levelCounterText = GameObject.Find("LevelCounterText").GetComponent<TextMeshProUGUI>();
+        shakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();
 
         playerManager.playerInfo.playerCurrentRoom = playerManager.playerInfo.currentSceneIndex - 2;
     }
@@ -95,6 +97,7 @@ public class GameManager : MonoBehaviour
     public void StartSlowTime()
     {
         slowdown = true;
+        shakeEffect.Invoke("Shockwave" , 0f);
         Time.timeScale = slowdownFactor;
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
     }
