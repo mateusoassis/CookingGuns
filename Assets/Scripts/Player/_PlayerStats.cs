@@ -24,13 +24,15 @@ public class _PlayerStats : MonoBehaviour
     public HeartContainerManager heartScript;
     public _PlayerManager playerManager;
     public SimpleFlash simpleFlashEffect;
+    private CameraShake cameraShakeEffect;
 
     private void Awake()
     {
         playerManager = GetComponent<_PlayerManager>();
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
         simpleFlashEffect = GetComponentInChildren<SimpleFlash>();
-        if(playerManager.playerInfo.healthFromLastRoom > 0)
+        cameraShakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();
+        if (playerManager.playerInfo.healthFromLastRoom > 0)
         {
             playerCurrentHealth = playerManager.playerInfo.healthFromLastRoom;
         }
@@ -56,6 +58,7 @@ public class _PlayerStats : MonoBehaviour
     {
         if(!playerManager.isFading)
         {
+            cameraShakeEffect.Shockwave();
             simpleFlashEffect.Flash();
             playerCurrentHealth -= damage;
             heartScript.hpLost += damage;

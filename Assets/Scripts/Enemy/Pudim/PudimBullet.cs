@@ -63,6 +63,5 @@ public class PudimBullet : MonoBehaviour
             transform.rotation = Quaternion.identity;
             explosionArea.SetActive(true);
         }
-        
     }
 }
