@@ -20,7 +20,7 @@ public class GranadeAreaDamage : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, 20, 0 * Time.deltaTime);
+        transform.Rotate(0, 0.2f, 0 * Time.deltaTime);
     }
 
     void Start()
