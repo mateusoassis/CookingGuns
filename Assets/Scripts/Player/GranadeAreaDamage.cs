@@ -18,6 +18,11 @@ public class GranadeAreaDamage : MonoBehaviour
         transform.rotation = Quaternion.identity;
     }
 
+    void Update()
+    {
+        transform.Rotate(0, 20, 0 * Time.deltaTime);
+    }
+
     void Start()
     {
         StartCoroutine("BombTimer");
