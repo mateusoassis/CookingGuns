@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class BreakWeapon : MonoBehaviour
 {
-    public GameObject fracturedWeapon;
+    private _WeaponHandler weaponHandler;
+
+    public GameObject[] fracturedWeapon;
+
+    void Awake()
+    {
+        weaponHandler = GetComponentInParent<_WeaponHandler>();
+    }
 
     public void BreakTheWeapon()
     {
-        Instantiate(fracturedWeapon, transform.position, transform.rotation);
+        Instantiate(fracturedWeapon[weaponHandler.weaponTypeEquipped], transform.position, transform.rotation);
     }
 }

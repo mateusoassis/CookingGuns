@@ -42,7 +42,7 @@ public class _WeaponHandler : MonoBehaviour
 
         weaponImages = new Image[4];
 
-        breakWeaponScript = GameObject.Find("ModeloArma").GetComponent<BreakWeapon>();
+        breakWeaponScript = GameObject.Find("WeaponCellsHolder").GetComponent<BreakWeapon>();
 
         weaponImages[0] = GameObject.Find("PistolIcon").GetComponent<Image>();
         weaponImages[1] = GameObject.Find("ShotgunIcon").GetComponent<Image>();
