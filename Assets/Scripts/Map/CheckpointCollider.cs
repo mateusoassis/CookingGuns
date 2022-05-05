@@ -6,33 +6,36 @@ public class CheckpointCollider : MonoBehaviour
 {
     public Transform checkpoint;
     public int damage;
+
     public GameObject outOfBoundsFadeObject;
-    public bool isPlayerInside;
-    public float playerInsideDuration;
-    public float playerInsideTimer;
+    
+    public float outOfBoundsDuration;
+    public float outOfBoundsTimer;
     private _PlayerStats playerStatsReal;
+    public GameManager gameManager;
 
     void Awake()
     {
         outOfBoundsFadeObject = GameObject.Find("OutOfBoundsFade");
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Start()
     {
         outOfBoundsFadeObject.SetActive(false);
-        playerInsideTimer = playerInsideDuration;
+        outOfBoundsTimer = outOfBoundsDuration;
     }
 
     void Update()
     {
-        if(isPlayerInside)
+        if(gameManager.outOfBoundsCollider)
         {
-            playerInsideTimer -= Time.deltaTime;
-            if(playerInsideTimer < 0)
+            outOfBoundsTimer -= Time.deltaTime;
+            if(outOfBoundsTimer < 0)
             {
                 playerStatsReal.gameObject.transform.position = checkpoint.position;
-                playerInsideTimer = playerInsideDuration;
-                isPlayerInside = false;
+                outOfBoundsTimer = outOfBoundsDuration;
+                gameManager.outOfBoundsCollider = false;
             }
         }
     }
@@ -45,7 +48,7 @@ public class CheckpointCollider : MonoBehaviour
             {
                 playerStatsReal = playerStats;
                 playerStatsReal.TakeHPDamage(damage);
-                isPlayerInside = true;
+                gameManager.outOfBoundsCollider = true;
                 FindObjectOfType<SoundManager>().PlayOneShot("WaterFall");
                 outOfBoundsFadeObject.SetActive(true);
                 playerStatsReal.gameObject.GetComponent<_AnimationHandler>().anim[playerStatsReal.gameObject.GetComponent<_AnimationHandler>().weapon].SetBool("Walking", false);

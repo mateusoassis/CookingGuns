@@ -78,7 +78,7 @@ public class _PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if(!isFading)
+        if(!isFading && !gameManager.outOfBoundsCollider)
         {
             // roll
             if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
@@ -240,7 +240,7 @@ public class _PlayerManager : MonoBehaviour
 
     void LateUpdate()
     {
-        if(!isFading)
+        if(!isFading && !gameManager.outOfBoundsCollider)
         {
             petHandler.HandlePet();
         }
@@ -249,7 +249,7 @@ public class _PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!petHandler.craftingWindowOpen && !isFading) //&& !isEatingWeapon)
+        if((!petHandler.craftingWindowOpen && !isFading) && !gameManager.outOfBoundsCollider) //&& !isEatingWeapon)
         {
             playerMovement.HandleMovement();   
             playerMovement.Move();

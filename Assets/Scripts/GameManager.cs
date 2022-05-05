@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public PlayerInfo playerInfo;
     public CameraShake shakeEffect;
 
+    public bool outOfBoundsCollider;
+
     void Awake()
     {
         /*pauseUI = GameObject.Find("PauseUI");
