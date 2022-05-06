@@ -62,6 +62,11 @@ public class _PlayerShooting : MonoBehaviour
         granadeLauncherTarget = GameObject.Find("SlerpTarget");
     }
 
+    private void Start()
+    {
+        AmmoDisplayUpdate();
+    }
+
     void Update()
     {
         if(reloading)

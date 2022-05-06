@@ -43,12 +43,14 @@ public class MenuManager : MonoBehaviour
                 SceneManager.LoadScene("0_1_Tutorial", LoadSceneMode.Single);
                 playerInfo.playerCurrentRoom = 0;
                 playerInfo.healthFromLastRoom = 0;
+                playerInfo.NewGameReset();
             }
             else
             {
                 playerInfo.playerCurrentRoom = 1;
                 playerInfo.healthFromLastRoom = 0;
                 SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
+                playerInfo.NewGameReset();
             }
         }
     }
