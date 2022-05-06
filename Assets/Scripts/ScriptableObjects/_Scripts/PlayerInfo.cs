@@ -9,9 +9,15 @@ public class PlayerInfo : ScriptableObject
     public bool hasPlayedTutorial;
     public int playerCurrentRoom;
     public int healthFromLastRoom;
-    public int lastWeaponEquipped;
-
     public int currentSceneIndex;
+
+    [Header("Armas")]
+    public int lastWeaponTypeEquipped;
+    public bool[] unlockedGuns = new bool[4];
+    public int lastSlotEquipped;
+    public bool[] freeSlotArraySaved = new bool[3];
+    public int[] weaponTypeOnSlotSaved = new int[3];
+    
 
     [Header("Estatisticas")]
     // tutorial
@@ -19,15 +25,15 @@ public class PlayerInfo : ScriptableObject
     public int timeSpentOnTutorial;
 
     // armas
-    public int totalWeaponsCrafted;
-    public int totalWeaponsEaten;
+    public int totalWeaponsCrafted; //
+    public int totalWeaponsEaten; //
 
     // inimigos
-    public int totalEnemiesKilled;
+    public int totalEnemiesKilled; //
     public int mostEnemiesKilledOnSameRun;
 
     // player
-    public int totalTimesRolled;
+    public int totalTimesRolled; //
     
     // tempo
     public int totalPlayedTime;
@@ -54,13 +60,27 @@ public class PlayerInfo : ScriptableObject
         playerCurrentRoom = -1;
         healthFromLastRoom = -1;
 
-        lastWeaponEquipped = -1;
+        lastWeaponTypeEquipped = -1;
     }
 
     public void NewGameReset()
     {
         playerCurrentRoom = -1;
         healthFromLastRoom = -1;
-        lastWeaponEquipped = -1;
+
+        lastWeaponTypeEquipped = 0;
+        unlockedGuns = new bool[4];
+
+        lastSlotEquipped = 0;
+
+        freeSlotArraySaved = new bool[3];
+        freeSlotArraySaved[0] = false;
+        freeSlotArraySaved[1] = true;
+        freeSlotArraySaved[2] = true;
+
+        weaponTypeOnSlotSaved = new int[3];
+        weaponTypeOnSlotSaved[0] = 0;
+        weaponTypeOnSlotSaved[1] = 4;
+        weaponTypeOnSlotSaved[2] = 4;
     }
 }

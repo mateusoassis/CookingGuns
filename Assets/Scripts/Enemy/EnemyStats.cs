@@ -63,6 +63,7 @@ public class EnemyStats : MonoBehaviour
             {
                 //Debug.Log(name);
                 enemySpawner.enemiesKilled++;
+                Debug.Log(name);
             }
             playerInfo.totalEnemiesKilled++;
             
