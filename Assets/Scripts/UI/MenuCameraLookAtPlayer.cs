@@ -103,12 +103,24 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
                     characterModels[n].SetActive(false);
                 }
             }
-            durationTimer = durationOfModels;
             delayTimer = 6f;
+            RandomRangeOnRotationDirection();
+            durationTimer = durationOfModels;
+            
         }
         else
         {
             durationTimer -= Time.deltaTime;
+        }
+    }
+
+    public void RandomRangeOnRotationDirection()
+    {
+        int u = Random.Range(0,2);
+        if(u == 1)
+        {
+            rotationMultiplier *= -1;
+            Debug.Log("troca rotação");
         }
     }
 }

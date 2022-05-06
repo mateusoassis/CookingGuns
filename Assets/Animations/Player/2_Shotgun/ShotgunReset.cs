@@ -23,6 +23,5 @@ public class ShotgunReset : MonoBehaviour
         {
             GetComponent<Animator>().ResetTrigger("Shoot");
         }
-        
     }
 }
