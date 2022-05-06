@@ -37,6 +37,12 @@ public class AzulBehaviour : MonoBehaviour
     private NavMeshAgent navMesh;
     public bool ableToPatrol;
 
+    [SerializeField] private float delayToPatrolAgain;
+    public float delayToPatrolAgainTimer;
+    public Vector3 targetWalk;
+    public float randomRangeForPatrol;
+    private Vector3 previousPosition;
+
     void Awake()
     {
         navMesh = GetComponent<NavMeshAgent>();
@@ -44,7 +50,6 @@ public class AzulBehaviour : MonoBehaviour
 
     void Start()
     {
-        
         enemyAnimator = GetComponent<Animator>();
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         canMove = true;
@@ -52,6 +57,8 @@ public class AzulBehaviour : MonoBehaviour
         timeBetweenShotsTimer = timeBetweenShots + Random.Range(-randomExtraTimeBetweenShots, randomExtraTimeBetweenShots);
         navMesh.speed = enemyMaxSpeed;
         ableToPatrol = true;
+        previousPosition = transform.position;
+        delayToPatrolAgainTimer = delayToPatrolAgain;
     }
 
     // 1 = shooting + follow (o que fica de perto)
@@ -60,8 +67,9 @@ public class AzulBehaviour : MonoBehaviour
 
     void Update()
     {
-        if(Vector3.Distance(playerTransform.position, transform.position) < focusPlayerDistance)
+        if(Vector3.Distance(playerTransform.position, transform.position) < focusPlayerDistance && !isPlayerOnRange)
         {
+            navMesh.ResetPath();
             isPlayerOnRange = true;
         }
     }
@@ -151,16 +159,40 @@ public class AzulBehaviour : MonoBehaviour
         {
             if(ableToPatrol)
             {
-                Vector3 targetWalk;
-                float randomRangeX = Random.Range(-2f, 2f);
-                float randomRangeZ = Random.Range(-2f, 2f);
+                float randomRangeXMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
+                float randomRangeXMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
+                float randomRangeZMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
+                float randomRangeZMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
+                float randomRangeX = Random.Range(randomRangeXMinimum, randomRangeXMaximum);
+                float randomRangeZ = Random.Range(randomRangeZMinimum, randomRangeZMaximum);
                 targetWalk = transform.position + new Vector3(randomRangeX, 0f, randomRangeZ);
                 transform.LookAt(targetWalk, transform.up);
-                StartCoroutine(WalkTowards(targetWalk));
-                ableToPatrol = false;
+
+                navMesh.isStopped = false;
+                NavMeshMove(targetWalk);
+                previousPosition = transform.position;
+                    
+                ableToPatrol = false;  
+            }
+            else
+            {
+                delayToPatrolAgainTimer -= Time.fixedDeltaTime;
+                if(delayToPatrolAgainTimer <= 0)
+                {
+                    navMesh.isStopped = true;
+                    ableToPatrol = true;
+                    delayToPatrolAgainTimer = delayToPatrolAgain;
+                } 
             }
         }
-        
+    }
+
+    public void NavMeshMove(Vector3 target)
+    {
+        navMesh.SetDestination(target);
+        transform.LookAt(target, transform.up);
+        navMesh.isStopped = false;
+        ableToPatrol = false;
     }
 
     public void Shoot()
@@ -206,5 +238,18 @@ public class AzulBehaviour : MonoBehaviour
         }
         yield return new WaitForSeconds(2f);
         ableToPatrol = true;
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Wall")
+        {
+            //navMesh.isStopped = true;
+            navMesh.ResetPath();
+
+            navMesh.isStopped = false;
+            NavMeshMove(previousPosition);
+            ableToPatrol = false;
+        }
     }
 }

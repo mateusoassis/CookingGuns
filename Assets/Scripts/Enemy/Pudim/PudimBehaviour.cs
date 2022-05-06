@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class PudimBehaviour : MonoBehaviour
 {
     private Transform playerTransform;
-    private Vector3 previousPosition;
+    
     public bool isPlayerOnRange;
     public float focusPlayerDistance;
     public Rigidbody enemyBulletPrefab;
@@ -40,8 +40,8 @@ public class PudimBehaviour : MonoBehaviour
     [SerializeField] private float delayToPatrolAgain;
     public float delayToPatrolAgainTimer;
     public Vector3 targetWalk;
-    public LayerMask navMeshLayerMask;
     public float randomRangeForPatrol;
+    private Vector3 previousPosition;
 
     void Awake()
     {
@@ -151,7 +151,6 @@ public class PudimBehaviour : MonoBehaviour
         {
             if(ableToPatrol)
             {
-                //Vector3 targetWalk;
                 float randomRangeXMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
                 float randomRangeXMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
                 float randomRangeZMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
@@ -161,36 +160,21 @@ public class PudimBehaviour : MonoBehaviour
                 targetWalk = transform.position + new Vector3(randomRangeX, 0f, randomRangeZ);
                 transform.LookAt(targetWalk, transform.up);
 
-                //NavMeshHit hit;
-                //if(NavMesh.SamplePosition(targetWalk, out hit, 1f, navMeshLayerMask))
-                //navMesh.autoRepath = true;
-                //{
-                    navMesh.isStopped = false;
-                    NavMeshMove(targetWalk);
-                    previousPosition = transform.position;
-                    
-                    ableToPatrol = false;
-                     
-                //}
-                /*
-                navMesh.SetDestination(targetWalk);
                 navMesh.isStopped = false;
-                ableToPatrol = false;
-                */
-                
+                NavMeshMove(targetWalk);
+                previousPosition = transform.position;
+                    
+                ableToPatrol = false;  
             }
             else
             {
-                
-                    //previousPosition = transform.position;
-                    delayToPatrolAgainTimer -= Time.fixedDeltaTime;
-                    if(delayToPatrolAgainTimer <= 0)
-                    {
-                        navMesh.isStopped = true;
-                        ableToPatrol = true;
-                        delayToPatrolAgainTimer = delayToPatrolAgain;
-                    }
-                
+                delayToPatrolAgainTimer -= Time.fixedDeltaTime;
+                if(delayToPatrolAgainTimer <= 0)
+                {
+                    navMesh.isStopped = true;
+                    ableToPatrol = true;
+                    delayToPatrolAgainTimer = delayToPatrolAgain;
+                } 
             }
         }
         
