@@ -42,10 +42,12 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     public float backwardForce;
 
     public bool reset;
+    public Transform parent;
 
     void Awake()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        
     }
 
     void Start()
@@ -54,6 +56,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         cooldownTimer = cooldown;
         canWalk = true;
         state = 1;
+        parent = transform.parent;
     }
 
     void FixedUpdate()

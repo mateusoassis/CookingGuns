@@ -628,7 +628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1406ea4c1243a7347a3555c499d981c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
   isPlayerOnRange: 0
   focusPlayerDistance: 25
   enemyBulletPrefab: {fileID: 4714161783923302786, guid: 406381b8482cdb143b0a4ab235a286c7, type: 3}
@@ -638,8 +637,8 @@ MonoBehaviour:
   firePoint: {fileID: 299843175396867534}
   timeBetweenShots: 5
   randomExtraTimeBetweenShots: 2
-  countToMove: 0
-  retreatCooldown: 0
+  countToMove: 3
+  retreatCooldown: 3
   retreating: 0
   retreatingOnCooldown: 0
 --- !u!95 &7918184545519580855

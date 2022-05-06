@@ -14,6 +14,8 @@ public class TowerBehaviour : MonoBehaviour
     public int amountSpawned;
     public int maxAmountSpawned;
 
+    public bool towerDamaged;
+
     void Start()
     {
         

@@ -37,6 +37,10 @@ public class EnemyStats : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         enemyHealth -= damageTaken;
+        if(TryGetComponent<TowerBehaviour>(out TowerBehaviour towerBehaviour))
+        {
+            towerBehaviour.towerDamaged = true;
+        }
         if((float)enemyMaxHealth/4 > (float)enemyHealth)
         {
             underOneFourthHP = true;
