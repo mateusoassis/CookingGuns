@@ -500,6 +500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938061eb9ebd133408ae0271026c9dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerOnRange: 0
+  randomRangeForPatrol: 15
   damage: 1
   state: 1
   timerToWalk: 0
@@ -522,6 +524,7 @@ MonoBehaviour:
   rollDirection: {x: 0, y: 0, z: 0}
   backwardForce: 30
   reset: 0
+  parent: {fileID: 0}
 --- !u!54 &4459417430785882519
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -531,7 +534,7 @@ Rigidbody:
   m_GameObject: {fileID: 4459417430785882523}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 5
+  m_Drag: 8
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -564,9 +567,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 5
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

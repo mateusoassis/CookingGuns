@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ChargeJujubaBehaviour : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     // se dentro do range, inicia o preparamento pra rolar, que inclui salvar posição do jogador, pegar direção do roll e ir só naquela direção
     // no preparamento pra rolar, tem o trigger pra ativar animação
     // após acabar a duração do rolamento, para a animação de rolar e volta pro idle
-
+    public bool isPlayerOnRange;
+    public bool motherDamaged;
+    public float randomRangeForPatrol;
     public int damage;
     public int state;
     public float timerToWalk;
@@ -43,11 +46,12 @@ public class ChargeJujubaBehaviour : MonoBehaviour
 
     public bool reset;
     public Transform parent;
+    private NavMeshAgent navMesh;
 
     void Awake()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        
+        navMesh = GetComponent<NavMeshAgent>();
     }
 
     void Start()
@@ -75,9 +79,11 @@ public class ChargeJujubaBehaviour : MonoBehaviour
             HandleState();
 
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-            if(distanceToPlayer < minRangeToLockTarget)
+            if(distanceToPlayer < minRangeToLockTarget || motherDamaged)
             {
+                motherDamaged = true;
                 state = 2;
+                isPlayerOnRange = true;
             }
 
             if(isCooldown)
@@ -85,31 +91,61 @@ public class ChargeJujubaBehaviour : MonoBehaviour
                 DoRollCooldown();
             } 
         }
-        
+
+        if(parent.GetComponent<TowerBehaviour>() != null)
+        {
+            if(parent.GetComponent<TowerBehaviour>().towerDamaged == true && !isPlayerOnRange && !motherDamaged)
+            {
+                state = 2;
+                isPlayerOnRange = true;
+                motherDamaged = true;
+            }
+        }        
     }
 
     public void HandleState()
     {
+        
         if(state == 2)
         {
             if(!lookingAtPlayer && !rolling)
             {
                 LockOnPlayer();
+                navMesh.isStopped = true;                
             }
         }
         else if(state == 1)
         {
-            if(canWalk)
+            if(canWalk && !isPlayerOnRange)
             {
-                float randomRangeX = Random.Range(-2f, 2f);
-                float randomRangeZ = Random.Range(-2f, 2f);
+                float randomRangeXMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
+                float randomRangeXMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
+                float randomRangeZMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
+                float randomRangeZMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
+                float randomRangeX = Random.Range(randomRangeXMinimum, randomRangeXMaximum);
+                float randomRangeZ = Random.Range(randomRangeZMinimum, randomRangeZMaximum);
+                //float randomRangeX = Random.Range(-2f, 2f);
+                //float randomRangeZ = Random.Range(-2f, 2f);
                 targetWalk = transform.position + new Vector3(randomRangeX, 0f, randomRangeZ);
                 transform.LookAt(targetWalk, transform.up);
+                canWalk = false;
                 if(!isCooldown)
                 {
                     StartCoroutine(WalkTowards(targetWalk));
                 }
+                
+            }
+            else if(canWalk && isPlayerOnRange)
+            {
+                targetWalk = playerTransform.position;
+                navMesh.isStopped = false;
+                transform.LookAt(targetWalk, transform.up);
                 canWalk = false;
+                if(!isCooldown)
+                {
+                    StartCoroutine(WalkTowards(targetWalk));
+                }
+                
             }
         }
     }
@@ -122,7 +158,8 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         while (t < timeToWalk)
         {
             t += Time.deltaTime;
-            transform.position = Vector3.Lerp(start, walkTarget, t);
+            //transform.position = Vector3.Lerp(start, walkTarget, t);
+            navMesh.SetDestination(walkTarget);
             yield return null;
         }
         yield return new WaitForSeconds(2f);
@@ -171,6 +208,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
             StopAllCoroutines();
             chargeJujubaAnimator.StopRoll();
             canWalk = true;
+            navMesh.isStopped = false;
         }
         else if(other.gameObject.tag == "Player" && rolling)
         {
@@ -183,6 +221,13 @@ public class ChargeJujubaBehaviour : MonoBehaviour
             chargeJujubaAnimator.StopRoll();
             cooldownTimer = cooldownFromHittingPlayer;
             canWalk = true;
+            navMesh.isStopped = false;
+        }
+        else if(other.gameObject.tag == "Wall" && !rolling && canWalk)
+        {
+            StopAllCoroutines();
+            canWalk = true;
+            navMesh.isStopped = false;
         }
     }
 

@@ -646,7 +646,6 @@ MonoBehaviour:
   delayToPatrolAgainTimer: 0
   targetWalk: {x: 0, y: 0, z: 0}
   randomRangeForPatrol: 15
-  previousPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &7918184545519580855
 Animator:
   serializedVersion: 3
@@ -708,7 +707,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
