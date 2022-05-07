@@ -21,7 +21,7 @@ public class EnemyStats : MonoBehaviour
     public DamageFlash flashEffect;
 
 
-    [SerializeField] private float duration;
+    [SerializeField] private float flashDuration;
     [SerializeField] private GameObject enemyFlashingPart;
     [SerializeField] private Material flashMaterial;
     private Material oldMaterial;
@@ -120,7 +120,7 @@ public class EnemyStats : MonoBehaviour
 
         enemyFlashingPart.GetComponent<MeshRenderer>().material = flashMaterial;
 
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(flashDuration);
 
         enemyFlashingPart.GetComponent<MeshRenderer>().material = oldMaterial;
 

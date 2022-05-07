@@ -8,7 +8,7 @@ public class SimpleFlash : MonoBehaviour
         [SerializeField] private Material flashMaterial;
 
         [Tooltip("Duration of the flash.")]
-        [SerializeField] private float duration;
+        [SerializeField] private float flashDuration;
 
         [SerializeField] private GameObject[] playerMeshParts;
 
@@ -47,7 +47,7 @@ public class SimpleFlash : MonoBehaviour
             {
                 k.GetComponent<SkinnedMeshRenderer>().material = flashMaterial;
             }
-            yield return new WaitForSeconds(duration);
+            yield return new WaitForSeconds(flashDuration);
             for(int n = 0; n< playerMeshParts.Length; n++)
             {
                 playerMeshParts[n].GetComponent<SkinnedMeshRenderer>().material = oldMaterials[n];
