@@ -169,6 +169,11 @@ public class _PlayerShooting : MonoBehaviour
             FindObjectOfType<SoundManager>().PlayOneShot("GranadeLauncherShot");
         }
 
+        if(muzzleFlash != null)
+        {
+            Instantiate(muzzleFlash, firePoint.position, firePoint.rotation);
+        }
+
         currentBullet.transform.forward = directionWithSpread.normalized;
 
         Vector3 forwardShooting = new Vector3(transform.forward.x, 0f, transform.forward.z) + new Vector3(x, 0, z);
