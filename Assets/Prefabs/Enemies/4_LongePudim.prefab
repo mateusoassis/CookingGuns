@@ -180,6 +180,9 @@ MonoBehaviour:
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
+  duration: 0.1
+  enemyFlashingPart: {fileID: 552253258484783948}
+  flashMaterial: {fileID: 2100000, guid: d293cf513d79d4b4bb47f6ac2bf4a226, type: 2}
   enemyType: 2
 --- !u!114 &1771404955837624465
 MonoBehaviour:
@@ -353,6 +356,11 @@ PrefabInstance:
 --- !u!4 &754770554506684721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a9c366dd45fd564c9efc8aa047cd4fd, type: 3}
+  m_PrefabInstance: {fileID: 1005361200771813082}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &552253258484783948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8477395424318106218, guid: 1a9c366dd45fd564c9efc8aa047cd4fd, type: 3}
   m_PrefabInstance: {fileID: 1005361200771813082}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4381988947696308419

@@ -454,6 +454,9 @@ MonoBehaviour:
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
   flashEffect: {fileID: 0}
+  duration: 0.1
+  enemyFlashingPart: {fileID: 6578864797234244079}
+  flashMaterial: {fileID: 2100000, guid: d293cf513d79d4b4bb47f6ac2bf4a226, type: 2}
   enemyType: 1
 --- !u!95 &4459417430785882516
 Animator:
@@ -501,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerOnRange: 0
+  motherDamaged: 0
   randomRangeForPatrol: 15
   damage: 1
   state: 1

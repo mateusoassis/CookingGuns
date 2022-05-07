@@ -20,6 +20,13 @@ public class EnemyStats : MonoBehaviour
     public bool underOneFourthHP;
     public DamageFlash flashEffect;
 
+
+    [SerializeField] private float duration;
+    [SerializeField] private GameObject enemyFlashingPart;
+    [SerializeField] private Material flashMaterial;
+    private Material oldMaterial;
+    private Coroutine flashRoutine;
+
     public int enemyType;
     // 0 torre
     // 1 jujuba
@@ -32,11 +39,14 @@ public class EnemyStats : MonoBehaviour
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         healthbarScript = GetComponentInChildren<HealthbarBehaviour>();
         flashEffect = GetComponent<DamageFlash>();
+        oldMaterial = enemyFlashingPart.GetComponent<MeshRenderer>().material;
+        
     }
     
     public void TakeDamage(int damageTaken)
     {
         enemyHealth -= damageTaken;
+        EnemyFlash();
         if(TryGetComponent<TowerBehaviour>(out TowerBehaviour towerBehaviour))
         {
             towerBehaviour.towerDamaged = true;
@@ -93,6 +103,28 @@ public class EnemyStats : MonoBehaviour
             }
             
         }
+    }
+
+    public void EnemyFlash()
+    {
+        if (flashRoutine != null)
+        {
+            StopCoroutine(flashRoutine);
+        }
+        flashRoutine = StartCoroutine(EnemyFlashRoutine());
+        Debug.Log("fez o flash");
+    }
+
+    private IEnumerator EnemyFlashRoutine()
+    {
+
+        enemyFlashingPart.GetComponent<MeshRenderer>().material = flashMaterial;
+
+        yield return new WaitForSeconds(duration);
+
+        enemyFlashingPart.GetComponent<MeshRenderer>().material = oldMaterial;
+
+        flashRoutine = null;
     }
 
     public void OnTriggerEnter(Collider other)
