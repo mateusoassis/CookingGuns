@@ -9,21 +9,22 @@ public class _PlayerStats : MonoBehaviour
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
 
-    public YouLoseHolder youLoseHolder;
+    private YouLoseHolder youLoseHolder;
 
-    //public YouLose youLoseScript;
 
     [Header("Player Stats")]
     [Range(0,7)]
     public int playerCurrentHealth;
-    public int playerHealthFromPreviousRoom;
     public int playerMaxHealth;
 
-    public Animator playerTakeDamage;
+    private Animator playerTakeDamage;
 
+    [Header("Container de Corações de Vida")]
     public HeartContainerManager heartScript;
+
+    [Header("Referência de _PlayerManager")]
     public _PlayerManager playerManager;
-    public SimpleFlash simpleFlashEffect;
+    private SimpleFlash simpleFlashEffect;
     private CameraShake cameraShakeEffect;
 
     private void Awake()
