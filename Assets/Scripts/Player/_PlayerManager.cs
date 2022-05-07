@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class _PlayerManager : MonoBehaviour
 {
+    [Header("Booleanos de Teste")]
     public bool testing;
     public bool testingWeapons;
+
+    [Header("Componentes do player e cena")]
     public Rigidbody playerRigidbody;
     public _AnimationHandler animationHandler;
     public _PlayerStats playerStats;
@@ -17,23 +20,27 @@ public class _PlayerManager : MonoBehaviour
     public _PlayerShooting playerShootingMachineGun;
     public _PlayerShooting playerShootingGranadeLauncher;
     public _WeaponHandler playerWeaponHandler;
-    public GameObject playerReloadBar;
+    private GameObject playerReloadBar;
     public GameManager gameManager;
     public PetHandler petHandler;
     public PlayerInfo playerInfo;
     public CapsuleCollider playerCapsuleCollider;
 
+    [Header("Inventário")]
     public CraftingMainScript craftingHandlerInPlayer;
     public Inventory inventory;
+
+    [Header("Panel Preto de Fade Out")]
     public GameFadeout gameFadeOut;
 
+    [Header("Index da Cena Atual")]
     public int sceneIndex;
 
     [Header("Comer arma")]
-    public float eatingWeaponTimer;
+    private float eatingWeaponTimer;
     public float eatingWeaponDuration;
     public bool rmbHeldDown;
-    public bool rmbHasToPressAgain;
+    private bool rmbHasToPressAgain;
     public bool canceledEating;
     private GameObject playerEatingWeaponBar;
     private Slider playerEatingWeaponBarSlider;

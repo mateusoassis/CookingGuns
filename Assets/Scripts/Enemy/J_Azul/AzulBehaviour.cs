@@ -8,6 +8,7 @@ public class AzulBehaviour : MonoBehaviour
     private Transform playerTransform;
     public bool isPlayerOnRange;
     public float focusPlayerDistance;
+    public float shootPlayerDistance;
     public Rigidbody enemyBulletPrefab;
 
     private float enemySpeed;
@@ -148,7 +149,10 @@ public class AzulBehaviour : MonoBehaviour
                         }
                     }
                 }
-                Shoot();
+                if(Vector3.Distance(playerTransform.position, transform.position) < shootPlayerDistance)
+                {
+                    Shoot();
+                }
             }
             else
             {

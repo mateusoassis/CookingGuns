@@ -9,6 +9,7 @@ public class PudimBehaviour : MonoBehaviour
     
     public bool isPlayerOnRange;
     public float focusPlayerDistance;
+    public float shootPlayerDistance;
     public Rigidbody enemyBulletPrefab;
 
     private float enemySpeed;
@@ -140,7 +141,11 @@ public class PudimBehaviour : MonoBehaviour
                         }
                     }
                 }
-                Shoot();
+                if(Vector3.Distance(playerTransform.position, transform.position) < shootPlayerDistance)
+                {
+                    Shoot();
+                }
+                
             }
             else
             {

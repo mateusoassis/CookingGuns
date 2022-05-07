@@ -5,28 +5,32 @@ using UnityEngine.AI;
 
 public class PetHandler : MonoBehaviour
 {
-    public GameObject mainUI;
-    public Transform pet;
+    private GameObject mainUI;
+    [Header("Pet Settings")]
+    private Transform pet;
     public GameObject pressEKey;
     //public NavMeshAgent petNavMeshAgent;
-    public float sinRadius;
+    
     private PetBillboard petBillboard;
     public bool playerOnArea;
+
+    [Header("Crafting")]
     public bool craftingWindowOpen;
-    public GameObject craftingWindowObject;
-    public Inventory inventorytxt;
-    public _PlayerManager playerManager;
+    public GameObject craftingWindowObject; // tem que arrastar pra o inspector
+    private Inventory inventorytxt;
+    private _PlayerManager playerManager;
 
     [Header("Controle de movimentação")]
-    public bool move;
-    public bool arrived;
-    public float petSpeed;
+    [SerializeField] private float sinRadius;
+    private bool move;
+    private bool arrived;
+    private float petSpeed;
     //public Vector3 moveTowards;
-    public Transform[] targetTransforms;
-    public int index;
-    public float moveToNextDelay;
-    public float moveToNextDelayTimer;
-    public bool stop;
+    [SerializeField] private Transform[] targetTransforms;
+    private int index;
+    [SerializeField] private float moveToNextDelay;
+    private float moveToNextDelayTimer;
+    private bool stop;
     
     void Awake()
     {

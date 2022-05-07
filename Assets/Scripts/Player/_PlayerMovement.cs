@@ -4,33 +4,34 @@ using UnityEngine;
 
 public class _PlayerMovement : MonoBehaviour
 {
-    public Transform playerTransform;
     private _PlayerManager playerManager;
+
     [Header("Player Stats")]
     public float playerMoveSpeed;
     public float playerMaxMoveSpeed;
     public Rigidbody playerRigidbody;
 
     [Header("Roll")]
-    public float multiplier; // PROVAVELMENTE VAI MUDAR
+    public float multiplier; // pode ser pra algum buff de movespeed talvez
     public float rollSpeed;
     public float rollTimer = 0f;
     public float rollDuration;
     public int maxRoll;
     public int rollCount;
-    public float rollCountTimer = 0f;
+    private float rollCountTimer = 0f;
     public float rollCountDuration;
 
     private Vector3 _input;
-    public Vector3 skewedInput;
-    public Vector3 lastInput;
-    public Vector3 skewedLastInput;
+    private Vector3 skewedInput;
+    private Vector3 lastInput;
+    private Vector3 skewedLastInput;
     
+    [Header("Smoke Settings")]
     public GameObject rollSmokePrefab;
     public Transform rollSmokePoint;
 
     [Header("Player LookAt Mouse")]
-    public Vector3 playerAimPosition;
+    private Vector3 playerAimPosition;
     [SerializeField] private LayerMask playerAimLayerMask;
     private Quaternion newRotation;
     
@@ -40,7 +41,6 @@ public class _PlayerMovement : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody>();
         playerManager = GetComponent<_PlayerManager>();
-        playerTransform = GetComponent<Transform>();
         playerMoveSpeed = playerMaxMoveSpeed;
     }
 
