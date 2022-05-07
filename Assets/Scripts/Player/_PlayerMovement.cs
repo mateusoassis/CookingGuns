@@ -27,8 +27,8 @@ public class _PlayerMovement : MonoBehaviour
     private Vector3 skewedLastInput;
     
     [Header("Smoke Settings")]
-    public GameObject rollSmokePrefab;
-    public Transform rollSmokePoint;
+    public ParticleSystem rollSmokePrefab;
+    //public Transform rollSmokePoint;
 
     [Header("Player LookAt Mouse")]
     private Vector3 playerAimPosition;
@@ -138,7 +138,8 @@ public class _PlayerMovement : MonoBehaviour
                     skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
 
                     playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * rollSpeed * Time.deltaTime);
-                    Instantiate(rollSmokePrefab, rollSmokePoint.position, Quaternion.identity);
+                    //Instantiate(rollSmokePrefab, rollSmokePoint.position, Quaternion.identity);
+                    PlayRollParticle();
                     playerManager.animationHandler.GetWeaponInt();
                     playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
                 }  
@@ -166,6 +167,12 @@ public class _PlayerMovement : MonoBehaviour
             rollCountTimer -= Time.deltaTime;
         }
     }
+
+    void PlayRollParticle() 
+    {
+        rollSmokePrefab.Play();
+    }
+
 
     void OnCollisionEnter(Collision other)
     {
