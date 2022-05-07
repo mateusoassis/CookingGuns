@@ -194,7 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerOnRange: 0
-  focusPlayerDistance: 25
+  focusPlayerDistance: 20
+  shootPlayerDistance: 17
   enemyBulletPrefab: {fileID: 1078755390312954117, guid: 79c2499adc585ff48aab4fff516cad94, type: 3}
   enemyMaxSpeed: 7
   stopDistance: 10
@@ -210,9 +211,6 @@ MonoBehaviour:
   delayToPatrolAgain: 3
   delayToPatrolAgainTimer: 0
   targetWalk: {x: 0, y: 0, z: 0}
-  navMeshLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
   randomRangeForPatrol: 15
 --- !u!114 &1245032554988754909
 MonoBehaviour:
