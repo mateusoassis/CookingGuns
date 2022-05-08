@@ -77,118 +77,122 @@ public class AzulBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(isPlayerOnRange)
+        if(!playerTransform.GetComponent<_PlayerManager>().isFading)
         {
-            ableToPatrol = false;
-            if(!playerTransform.GetComponent<_PlayerManager>().isFading)
-            {         
-                if(canMove)
-                {
-                    // retreat bem baixo pra o inimigo nunca parar de "recuar", e stop muito alto
-                    if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
+            if(isPlayerOnRange)
+            {
+                ableToPatrol = false;
+                if(!playerTransform.GetComponent<_PlayerManager>().isFading)
+                {         
+                    if(canMove)
                     {
-                        Vector3 directionToPlayer = playerTransform.position - transform.position;
-                        Vector3 newPos = transform.position + directionToPlayer.normalized;
-                        /*
-                        Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                        transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.fixedDeltaTime);
-                        */
-                        
-                        
-                        
-                        navMesh.isStopped = false;
-                        retreating = false;
-
-                        navMesh.SetDestination(newPos);
-                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
-                    }
-                    else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
-                    {
-                        navMesh.isStopped = true;
-                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
-                        retreating = false;
-                    }
-                    else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
-                    {
-                        Vector3 directionToPlayer = transform.position - playerTransform.position;
-                        Vector3 newPos = transform.position + directionToPlayer.normalized;
-                        
-                        
-                        /*
-                        Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
-                        transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.fixedDeltaTime);
-                        */
-                        navMesh.isStopped = false;
-                        retreating = true;
-                        retreatingOnCooldown = true;
-
-                        navMesh.SetDestination(newPos);
-                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
-                    }
-                }
-
-                if(retreatingOnCooldown)
-                {
-                    retreatCooldownTimer += Time.fixedDeltaTime;
-                    if(retreatCooldownTimer >= retreatCooldown)
-                    {
-                        canMove = false;
-                        navMesh.isStopped = true;
-                    }
-
-                    if(!canMove)
-                    {
-                        countToMoveTimer += Time.fixedDeltaTime;
-                        if(countToMoveTimer >= countToMove)
+                        // retreat bem baixo pra o inimigo nunca parar de "recuar", e stop muito alto
+                        if(Vector3.Distance(transform.position, playerTransform.position) >= stopDistance)
                         {
-                            canMove = true;
+                            Vector3 directionToPlayer = playerTransform.position - transform.position;
+                            Vector3 newPos = transform.position + directionToPlayer.normalized;
+                            /*
+                            Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                            transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.fixedDeltaTime);
+                            */
+                            
+                            
+                            
                             navMesh.isStopped = false;
-                            retreatingOnCooldown = false;
-                            countToMoveTimer = 0f;
-                            retreatCooldownTimer = 0f;
+                            retreating = false;
+
+                            navMesh.SetDestination(newPos);
+                            transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
+                        }
+                        else if(Vector3.Distance(transform.position, playerTransform.position) < stopDistance && Vector3.Distance(transform.position, playerTransform.position) > retreatDistance)
+                        {
+                            navMesh.isStopped = true;
+                            transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
+                            retreating = false;
+                        }
+                        else if(Vector3.Distance(transform.position, playerTransform.position) <= retreatDistance)
+                        {
+                            Vector3 directionToPlayer = transform.position - playerTransform.position;
+                            Vector3 newPos = transform.position + directionToPlayer.normalized;
+                            
+                            
+                            /*
+                            Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+                            transform.position = Vector3.MoveTowards(transform.position, movePosition, -enemySpeed * Time.fixedDeltaTime);
+                            */
+                            navMesh.isStopped = false;
+                            retreating = true;
+                            retreatingOnCooldown = true;
+
+                            navMesh.SetDestination(newPos);
+                            transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                         }
                     }
-                }
-                if(Vector3.Distance(playerTransform.position, transform.position) < shootPlayerDistance)
-                {
-                    Shoot();
-                }
-            }
-            else
-            {
-                navMesh.isStopped = true;
-            }
-        }
-        else
-        {
-            if(ableToPatrol)
-            {
-                float randomRangeXMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
-                float randomRangeXMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
-                float randomRangeZMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
-                float randomRangeZMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
-                float randomRangeX = Random.Range(randomRangeXMinimum, randomRangeXMaximum);
-                float randomRangeZ = Random.Range(randomRangeZMinimum, randomRangeZMaximum);
-                targetWalk = transform.position + new Vector3(randomRangeX, 0f, randomRangeZ);
-                transform.LookAt(targetWalk, transform.up);
 
-                navMesh.isStopped = false;
-                NavMeshMove(targetWalk);
-                previousPosition = transform.position;
-                    
-                ableToPatrol = false;  
-            }
-            else
-            {
-                delayToPatrolAgainTimer -= Time.fixedDeltaTime;
-                if(delayToPatrolAgainTimer <= 0)
+                    if(retreatingOnCooldown)
+                    {
+                        retreatCooldownTimer += Time.fixedDeltaTime;
+                        if(retreatCooldownTimer >= retreatCooldown)
+                        {
+                            canMove = false;
+                            navMesh.isStopped = true;
+                        }
+
+                        if(!canMove)
+                        {
+                            countToMoveTimer += Time.fixedDeltaTime;
+                            if(countToMoveTimer >= countToMove)
+                            {
+                                canMove = true;
+                                navMesh.isStopped = false;
+                                retreatingOnCooldown = false;
+                                countToMoveTimer = 0f;
+                                retreatCooldownTimer = 0f;
+                            }
+                        }
+                    }
+                    if(Vector3.Distance(playerTransform.position, transform.position) < shootPlayerDistance)
+                    {
+                        Shoot();
+                    }
+                }
+                else
                 {
                     navMesh.isStopped = true;
-                    ableToPatrol = true;
-                    delayToPatrolAgainTimer = delayToPatrolAgain;
-                } 
+                }
+            }
+            else
+            {
+                if(ableToPatrol)
+                {
+                    float randomRangeXMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
+                    float randomRangeXMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
+                    float randomRangeZMinimum = Random.Range(-randomRangeForPatrol, -randomRangeForPatrol+2f);
+                    float randomRangeZMaximum = Random.Range(randomRangeForPatrol-2f, randomRangeForPatrol);
+                    float randomRangeX = Random.Range(randomRangeXMinimum, randomRangeXMaximum);
+                    float randomRangeZ = Random.Range(randomRangeZMinimum, randomRangeZMaximum);
+                    targetWalk = transform.position + new Vector3(randomRangeX, 0f, randomRangeZ);
+                    transform.LookAt(targetWalk, transform.up);
+
+                    navMesh.isStopped = false;
+                    NavMeshMove(targetWalk);
+                    previousPosition = transform.position;
+                        
+                    ableToPatrol = false;  
+                }
+                else
+                {
+                    delayToPatrolAgainTimer -= Time.fixedDeltaTime;
+                    if(delayToPatrolAgainTimer <= 0)
+                    {
+                        navMesh.isStopped = true;
+                        ableToPatrol = true;
+                        delayToPatrolAgainTimer = delayToPatrolAgain;
+                    } 
+                }
             }
         }
+        
     }
 
     public void NavMeshMove(Vector3 target)
