@@ -88,7 +88,7 @@ public class _PlayerManager : MonoBehaviour
         if(!isFading && !gameManager.outOfBoundsCollider)
         {
             // roll
-            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
+            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen && !isShooting) //&& !isEatingWeapon)
             {
                 if(isWalking)
                 {
@@ -147,9 +147,9 @@ public class _PlayerManager : MonoBehaviour
             }
 
             
-            if(Input.GetKeyDown(KeyCode.E) && !isEatingWeapon)
+            if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon)
             {
-                if(petHandler.playerOnArea)
+                if(petHandler.playerOnArea && !petHandler.craftingWindowOpen)
                 {
                     petHandler.OpenCraftingWindow();
                     craftingHandlerInPlayer.ShowCraftOptions();
