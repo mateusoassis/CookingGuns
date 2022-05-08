@@ -64,7 +64,8 @@ public class EnemyStats : MonoBehaviour
         {
             healthbarScript.StartCount();
         }
-        
+        FindObjectOfType<SoundManager>().PlayOneShot("EnemyShot");
+
         if(enemyHealth <= 0)
         {            
             Destroy(this.gameObject);
