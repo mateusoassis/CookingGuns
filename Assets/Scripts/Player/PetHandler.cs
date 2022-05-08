@@ -24,10 +24,10 @@ public class PetHandler : MonoBehaviour
     [SerializeField] private float sinRadius;
     private bool move;
     private bool arrived;
-    private float petSpeed;
+    [SerializeField] private float petSpeed;
     //public Vector3 moveTowards;
     [SerializeField] private Transform[] targetTransforms;
-    private int index;
+    [SerializeField] private int index;
     [SerializeField] private float moveToNextDelay;
     private float moveToNextDelayTimer;
     private bool stop;
@@ -47,6 +47,7 @@ public class PetHandler : MonoBehaviour
         pet.transform.parent = null;
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         playerOnArea = false;    
+        pet.transform.LookAt(targetTransforms[index].position, pet.transform.up);
     }
 
     public void HandlePet()
