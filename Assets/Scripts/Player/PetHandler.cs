@@ -8,7 +8,7 @@ public class PetHandler : MonoBehaviour
     private GameObject mainUI;
     [Header("Pet Settings")]
     private Transform pet;
-    [SerializeField] private Transform petModel;
+    public Transform petModel;
     public GameObject pressEKey;
     //public NavMeshAgent petNavMeshAgent;
     
@@ -33,13 +33,20 @@ public class PetHandler : MonoBehaviour
     private float moveToNextDelayTimer;
     private bool stop;
 
-    // troca de câmera
+    [Header("Troca de câmera e LookAt nos botões")]
     private CinemachineSwitchBlend cinemachineSwitchBlend;
+    [SerializeField] private GameObject buttonsCanvasObject;
+    private PetLookAt petLookAt;
     
     void Awake()
     {
+        petModel = GameObject.Find("PetAirFryer").GetComponent<Transform>();
+        pet = GameObject.Find("Pet").GetComponent<Transform>();
         pressEKey = GameObject.Find("ApertaE");
         cinemachineSwitchBlend = GameObject.Find("CinemachineCamSetup").GetComponent<CinemachineSwitchBlend>();
+        buttonsCanvasObject = GameObject.Find("ButtonsCanvas");
+        petLookAt = GameObject.Find("ButtonsCanvas").GetComponent<PetLookAt>();
+        
     }
 
     void Start()
@@ -48,8 +55,6 @@ public class PetHandler : MonoBehaviour
         mainUI = GameObject.Find("MainUI");
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         inventorytxt = GameObject.Find("Player").GetComponent<Inventory>();
-        pet = GameObject.Find("Pet").GetComponent<Transform>();
-        petModel = GameObject.Find("PetAirFryer").GetComponent<Transform>();
         pet.transform.parent = null;
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         playerOnArea = false;    
@@ -65,10 +70,20 @@ public class PetHandler : MonoBehaviour
             {
                 Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
                 petModel.transform.position += sinMovement;
+
+                if(stop)
+                {
+                    pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
+                }
             }
             else
             {
                 petBillboard.DeactivateOnEnemiesKilled();
+                if(!petLookAt.lookAtButton)
+                {
+                    petModel.LookAt(petLookAt.lookAtPosition);
+                    petLookAt.lookAtButton = true;
+                }
             }
 
             if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop)
@@ -101,10 +116,7 @@ public class PetHandler : MonoBehaviour
                 }
             }
 
-            if(stop)
-            {
-                pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
-            }
+            
         }
     }
 
@@ -127,16 +139,19 @@ public class PetHandler : MonoBehaviour
     public void OpenCraftingWindow()
     {
         craftingWindowOpen = true;
-        craftingWindowObject.SetActive(true);
-        inventorytxt.UpdateItem();
+        //craftingWindowObject.SetActive(true);
+        //inventorytxt.UpdateItem();
         cinemachineSwitchBlend.SwitchPriority();
         pressEKey.SetActive(false);
+        buttonsCanvasObject.SetActive(true);
     }
     public void CloseCraftingWindow()
     {
         craftingWindowOpen = false;
-        craftingWindowObject.SetActive(false);
+        //craftingWindowObject.SetActive(false);
         cinemachineSwitchBlend.SwitchPriority();
         pressEKey.SetActive(true);
+        buttonsCanvasObject.SetActive(false);
+        petModel.transform.forward = pet.transform.forward;
     }
 }
