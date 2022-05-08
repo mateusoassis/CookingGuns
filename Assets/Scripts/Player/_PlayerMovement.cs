@@ -123,10 +123,14 @@ public class _PlayerMovement : MonoBehaviour
                     playerManager.isWalking = true;
                     playerManager.animationHandler.GetWeaponInt();
                     playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
+                    /*
                     var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
 
                     skewedInput = matrix.MultiplyPoint3x4(_input);
                     skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+                    */
+                    skewedInput = _input;
+                    skewedLastInput = lastInput;
                 
                     playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.deltaTime);
                     transform.forward = skewedLastInput.normalized;
@@ -134,8 +138,9 @@ public class _PlayerMovement : MonoBehaviour
                 else
                 {
                     playerManager.isWalking = false;
-                    var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
-                    skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+                    //var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+                    //skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+                    skewedLastInput = lastInput;
 
                     playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * rollSpeed * Time.deltaTime);
                     //Instantiate(rollSmokePrefab, rollSmokePoint.position, Quaternion.identity);

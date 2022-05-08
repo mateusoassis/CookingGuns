@@ -88,12 +88,13 @@ public class _PlayerManager : MonoBehaviour
         if(!isFading && !gameManager.outOfBoundsCollider)
         {
             // roll
-            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen && !isShooting) //&& !isEatingWeapon)
+            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
             {
                 if(isWalking)
                 {
                     if(playerMovement.rollCount < playerMovement.maxRoll)
                     {
+                        isShooting = false;
                         eatingWeaponTimer = 0f;
                         canceledEating = true;
                         playerEatingWeaponBar.SetActive(false);
