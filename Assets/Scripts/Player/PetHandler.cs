@@ -32,10 +32,14 @@ public class PetHandler : MonoBehaviour
     [SerializeField] private float moveToNextDelay;
     private float moveToNextDelayTimer;
     private bool stop;
+
+    // troca de câmera
+    private CinemachineSwitchBlend cinemachineSwitchBlend;
     
     void Awake()
     {
         pressEKey = GameObject.Find("ApertaE");
+        cinemachineSwitchBlend = GameObject.Find("CinemachineCamSetup").GetComponent<CinemachineSwitchBlend>();
     }
 
     void Start()
@@ -125,10 +129,14 @@ public class PetHandler : MonoBehaviour
         craftingWindowOpen = true;
         craftingWindowObject.SetActive(true);
         inventorytxt.UpdateItem();
+        cinemachineSwitchBlend.SwitchPriority();
+        pressEKey.SetActive(false);
     }
     public void CloseCraftingWindow()
     {
         craftingWindowOpen = false;
         craftingWindowObject.SetActive(false);
+        cinemachineSwitchBlend.SwitchPriority();
+        pressEKey.SetActive(true);
     }
 }
