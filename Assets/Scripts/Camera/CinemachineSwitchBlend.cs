@@ -10,6 +10,15 @@ public class CinemachineSwitchBlend : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera petCamera;
     private bool mainCameraMode;
 
+    [Header("Inserir mesma duração das trocas")]
+    public float mainToPetDuration;
+    public float petToMainDuration;
+
+    void Awake()
+    {
+
+    }
+
     void Start()
     {
         SwitchPriority();

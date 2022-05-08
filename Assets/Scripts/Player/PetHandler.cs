@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Cinemachine;
 
 public class PetHandler : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class PetHandler : MonoBehaviour
     [SerializeField] private GameObject buttonsCanvasObject;
     private PetLookAt petLookAt;
     [SerializeField] private float lookAtSpeed;
+    private float switchTimer;
+    [SerializeField] private Animator canvasGroupAnimator;
+
     void Awake()
     {
         petModel = GameObject.Find("PetAirFryer").GetComponent<Transform>();
@@ -59,6 +63,7 @@ public class PetHandler : MonoBehaviour
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         playerOnArea = false;    
         pet.transform.LookAt(targetTransforms[index].position, pet.transform.up);
+        canvasGroupAnimator = buttonsCanvasObject.GetComponent<Animator>();
     }
 
     public void HandlePet()
@@ -151,6 +156,7 @@ public class PetHandler : MonoBehaviour
         cinemachineSwitchBlend.SwitchPriority();
         pressEKey.SetActive(false);
         buttonsCanvasObject.SetActive(true);
+        //StartCoroutine(DisableCanvasGroup(cinemachineSwitchBlend.mainToPetDuration));
     }
     public void CloseCraftingWindow()
     {
@@ -158,7 +164,46 @@ public class PetHandler : MonoBehaviour
         //craftingWindowObject.SetActive(false);
         cinemachineSwitchBlend.SwitchPriority();
         pressEKey.SetActive(true);
-        buttonsCanvasObject.SetActive(false);
+        //buttonsCanvasObject.SetActive(false);
+        //StartCoroutine(EnableCanvasGroup(cinemachineSwitchBlend.petToMainDuration));
+        canvasGroupAnimator.SetTrigger("Disable");
         petModel.transform.forward = pet.transform.forward;
+    }
+
+    /*
+    public IEnumerator EnableCanvasGroup(float duration)
+    {
+        buttonsCanvasObject.SetActive(true);
+        switchTimer = 0f;
+        petLookAt.canvasGroup.alpha = 0f;
+        while(petLookAt.canvasGroup.alpha < 1)
+        {
+            switchTimer += Time.deltaTime / duration;
+            petLookAt.canvasGroup.alpha = Mathf.MoveTowards(petLookAt.canvasGroup.alpha, 1f, switchTimer);
+            break;
+        }
+        yield return new WaitForSeconds(0.1f);
+        //buttonsCanvasObject.SetActive(true);
+    }
+
+    public IEnumerator DisableCanvasGroup(float duration)
+    {
+        switchTimer = 0f;
+        petLookAt.canvasGroup.alpha = 1f;
+        while(petLookAt.canvasGroup.alpha > 0)
+        {
+            switchTimer += Time.deltaTime / duration;
+            petLookAt.canvasGroup.alpha = Mathf.MoveTowards(petLookAt.canvasGroup.alpha, 0f, switchTimer);
+            //petLookAt.canvasGroup.alpha -= Time.deltaTime;
+            break;
+        }
+        yield return new WaitForSeconds(0.1f);
+        buttonsCanvasObject.SetActive(false);
+    }
+    */
+
+    public void DisableButtonsCanvas()
+    {
+        buttonsCanvasObject.SetActive(false);
     }
 }

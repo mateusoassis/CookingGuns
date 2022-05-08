@@ -12,6 +12,13 @@ public class PetLookAt : MonoBehaviour
     public Vector3 lookAtPosition;
     public bool lookAtButton;
 
+    public CanvasGroup canvasGroup;
+
+    public void Awake()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
+
     public void LookAtPistol()
     {
         lookAtPosition = pistolButton.position;
@@ -31,5 +38,10 @@ public class PetLookAt : MonoBehaviour
     {
         lookAtPosition = grenadeLauncherButton.position;
         lookAtButton = false;
+    }
+
+    public void DisableButtonsCanvas()
+    {
+        gameObject.SetActive(false);
     }
 }
