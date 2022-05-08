@@ -37,7 +37,7 @@ public class PetHandler : MonoBehaviour
     private CinemachineSwitchBlend cinemachineSwitchBlend;
     [SerializeField] private GameObject buttonsCanvasObject;
     private PetLookAt petLookAt;
-    
+    [SerializeField] private float lookAtSpeed;
     void Awake()
     {
         petModel = GameObject.Find("PetAirFryer").GetComponent<Transform>();
@@ -68,11 +68,14 @@ public class PetHandler : MonoBehaviour
             // sobe e desce senoidal
             if(!craftingWindowOpen)
             {
+                /*
                 Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
                 petModel.transform.position += sinMovement;
+                */
 
                 if(stop)
                 {
+                    //Vector3 lookAtVector = Vector3.Lerp(new Vector3(transform.position.x, pet.transform.position))
                     pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
                 }
             }
@@ -81,8 +84,12 @@ public class PetHandler : MonoBehaviour
                 petBillboard.DeactivateOnEnemiesKilled();
                 if(!petLookAt.lookAtButton)
                 {
+                    var targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
+                    petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
+                    /*
                     petModel.LookAt(petLookAt.lookAtPosition);
                     petLookAt.lookAtButton = true;
+                    */
                 }
             }
 

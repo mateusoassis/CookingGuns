@@ -1,5 +1,159 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &87381676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87381677}
+  m_Layer: 14
+  m_Name: GrenadeLauncherTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &87381677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87381676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.73, y: 0.33, z: 1.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1939542422}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &113961449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 113961450}
+  m_Layer: 14
+  m_Name: ShotgunTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &113961450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113961449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.73, y: 2.1840003, z: 1.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1939542422}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &539019346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539019347}
+  m_Layer: 14
+  m_Name: MachineGunTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &539019347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539019346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.05, y: -0.05, z: 1.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1939542422}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1125847778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125847779}
+  m_Layer: 14
+  m_Name: PistolTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1125847779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125847778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.05, y: 2.184, z: 1.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1939542422}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1939542421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1939542422}
+  m_Layer: 14
+  m_Name: PetLookAtTargets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1939542422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939542421}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5999999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1125847779}
+  - {fileID: 113961450}
+  - {fileID: 539019347}
+  - {fileID: 87381677}
+  m_Father: {fileID: 3325013371347335784}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &896857969744151479
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +165,7 @@ GameObject:
   - component: {fileID: 8027049128953838598}
   - component: {fileID: 5455671142696309893}
   - component: {fileID: 8508043155285106724}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +248,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.15
+  m_fontSize: 50.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -226,11 +380,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7755951482048889019}
-  - component: {fileID: 6574554280934538040}
   - component: {fileID: 4093390044325323273}
   - component: {fileID: 4727624842174189742}
   - component: {fileID: 4052659498483854515}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: CraftShotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,21 +407,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -289, y: 104}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 224, y: 104}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6574554280934538040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307040466518393191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d75880f7b16e714ca3327adf2cbaa5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &4093390044325323273
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -374,7 +515,7 @@ GameObject:
   - component: {fileID: 6972225509629505846}
   - component: {fileID: 4298176718254942447}
   - component: {fileID: 3121551936746194223}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,11 +647,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5044047780376093702}
-  - component: {fileID: 274787448345456451}
   - component: {fileID: 4933999186068717310}
   - component: {fileID: 108813602098170695}
   - component: {fileID: 1121366372384210183}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: CraftGrenadeLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,21 +674,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -285, y: -118}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: 224, y: -118}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &274787448345456451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2640926091561651076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d75880f7b16e714ca3327adf2cbaa5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &4933999186068717310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -891,6 +1019,7 @@ Transform:
   - {fileID: 3325013369903403089}
   - {fileID: 3325013370340685926}
   - {fileID: 628248897531397540}
+  - {fileID: 1939542422}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -992,11 +1121,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7786306061919085686}
-  - component: {fileID: 1709995361684735657}
   - component: {fileID: 8717245477323777284}
   - component: {fileID: 5149273006990173128}
   - component: {fileID: 2801999859870846555}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: CraftMachineGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1011,7 +1139,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3921345525121007439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8027049128953838598}
@@ -1020,21 +1148,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 294, y: -118}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: -220, y: -118}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1709995361684735657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3921345525121007439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d75880f7b16e714ca3327adf2cbaa5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &8717245477323777284
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1221,7 +1337,7 @@ GameObject:
   - component: {fileID: 5810238882912429836}
   - component: {fileID: 2729258061256480462}
   - component: {fileID: 6420392865971494243}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1357,7 +1473,8 @@ GameObject:
   - component: {fileID: 2677021524314656513}
   - component: {fileID: 6679427593086492116}
   - component: {fileID: 3737812230458383725}
-  m_Layer: 14
+  - component: {fileID: 786052698}
+  m_Layer: 5
   m_Name: ButtonsCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,9 +1488,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5904239517566018953}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 0.015, y: 0.015, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 3556614806901791789}
   - {fileID: 7755951482048889019}
@@ -1384,9 +1501,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!223 &9139719807393748995
 Canvas:
   m_ObjectHideFlags: 0
@@ -1396,7 +1513,7 @@ Canvas:
   m_GameObject: {fileID: 5904239517566018953}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1406,7 +1523,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &2677021524314656513
 MonoBehaviour:
@@ -1430,7 +1547,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6679427593086492116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1443,8 +1560,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_IgnoreReversedGraphics: 0
+  m_BlockingObjects: 1
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1460,12 +1577,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6113de1c89dcae04c8ed80d2e66eeff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pistolButton: {fileID: 3556614806901791789}
-  shotgunButton: {fileID: 7755951482048889019}
-  machineGunButton: {fileID: 7786306061919085686}
-  grenadeLauncherButton: {fileID: 5044047780376093702}
+  pistolButton: {fileID: 1125847779}
+  shotgunButton: {fileID: 113961450}
+  machineGunButton: {fileID: 539019347}
+  grenadeLauncherButton: {fileID: 87381677}
   lookAtPosition: {x: 0, y: 0, z: 0}
   lookAtButton: 0
+--- !u!114 &786052698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904239517566018953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d75880f7b16e714ca3327adf2cbaa5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6069693408178243788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,7 +1606,7 @@ GameObject:
   - component: {fileID: 8189784796448309655}
   - component: {fileID: 39825513576934690}
   - component: {fileID: 4253305177498519176}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1558,7 +1687,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.75
+  m_fontSize: 44.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1690,11 +1819,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3556614806901791789}
-  - component: {fileID: 7291514118715700093}
   - component: {fileID: 5979995545172101739}
   - component: {fileID: 4090301485926645574}
   - component: {fileID: 1124924324034854588}
-  m_Layer: 14
+  m_Layer: 5
   m_Name: CraftPistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1709,7 +1837,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7147560098037308172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5810238882912429836}
@@ -1718,21 +1846,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286, y: 105}
-  m_SizeDelta: {x: 400, y: 100}
+  m_AnchoredPosition: {x: -215, y: 105}
+  m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7291514118715700093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7147560098037308172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d75880f7b16e714ca3327adf2cbaa5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &5979995545172101739
 CanvasRenderer:
   m_ObjectHideFlags: 0
