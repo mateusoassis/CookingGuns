@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 1021103557}
   - component: {fileID: 1021103556}
   - component: {fileID: 1021103559}
-  m_Layer: 8
+  m_Layer: 17
   m_Name: GrowingArea
   m_TagString: ShieldocaAttack
   m_Icon: {fileID: 0}
@@ -876,6 +876,14 @@ PrefabInstance:
     - target: {fileID: 4522085815077935942, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950971020152022175, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950971020152022175, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
