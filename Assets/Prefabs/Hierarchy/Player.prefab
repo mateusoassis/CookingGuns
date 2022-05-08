@@ -8371,6 +8371,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4992303caf968a458924b1614d308bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rareColor: {r: 0.30240062, g: 0.2978373, b: 0.9150943, a: 1}
+  epicColor: {r: 0.45839286, g: 0.03123886, b: 0.735849, a: 1}
+  uniqueColor: {r: 0.8962264, g: 0.12259703, b: 0.12259703, a: 1}
+  legendaryColor: {r: 0.9150943, g: 0.56836337, b: 0.13381095, a: 1}
   pistolPrefixoDe:
   - "M\xE3o n"
   - Entortador pr
@@ -8382,6 +8386,7 @@ MonoBehaviour:
   pistolSufixo:
   - Denovo
   - ', Morrendo'
+  pistolUniqueName: []
   shotgunPrefixoDe: []
   shotgunSufixoDe: []
   shotgunPrefixo:
@@ -8390,6 +8395,7 @@ MonoBehaviour:
   shotgunSufixo:
   - Suspiro
   - Cano Torto
+  shotgunUniqueName: []
   machineGunPrefixoDe: []
   machineGunSufixoDe: []
   machineGunPrefixo:
@@ -8404,6 +8410,7 @@ MonoBehaviour:
   - 
   - 
   - 
+  machineGunUniqueName: []
   grenadeLauncherPrefixoDe:
   - Rainha d
   - 'Olha '
@@ -8414,6 +8421,7 @@ MonoBehaviour:
   - o Medo
   grenadeLauncherPrefixo: []
   grenadeLauncherSufixo: []
+  grenadeLauncherUniqueName: []
 --- !u!1 &6581419280651400486
 GameObject:
   m_ObjectHideFlags: 0
