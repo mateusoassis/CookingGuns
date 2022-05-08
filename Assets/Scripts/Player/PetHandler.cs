@@ -8,6 +8,7 @@ public class PetHandler : MonoBehaviour
     private GameObject mainUI;
     [Header("Pet Settings")]
     private Transform pet;
+    [SerializeField] private Transform petModel;
     public GameObject pressEKey;
     //public NavMeshAgent petNavMeshAgent;
     
@@ -44,6 +45,7 @@ public class PetHandler : MonoBehaviour
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         inventorytxt = GameObject.Find("Player").GetComponent<Inventory>();
         pet = GameObject.Find("Pet").GetComponent<Transform>();
+        petModel = GameObject.Find("PetAirFryer").GetComponent<Transform>();
         pet.transform.parent = null;
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
         playerOnArea = false;    
@@ -55,8 +57,11 @@ public class PetHandler : MonoBehaviour
         if(!playerManager.gameManager.pausedGame && !playerManager.isFading)
         {
             // sobe e desce senoidal
-            Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
-            pet.transform.position += sinMovement;
+            if(!craftingWindowOpen)
+            {
+                Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
+                petModel.transform.position += sinMovement;
+            }
 
             if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop)
             {
