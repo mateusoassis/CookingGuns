@@ -370,11 +370,11 @@ public class _WeaponHandler : MonoBehaviour
         }
         else
         {
-            if(Input.GetKeyDown(KeyCode.X) && !playerManager.isShooting)
+            if(Input.GetKeyDown(KeyCode.Q) && !playerManager.isShooting)
             {
                 PreviousWeapon();
             }
-            else if(Input.GetKeyDown(KeyCode.C) && !playerManager.isShooting)
+            else if(Input.GetKeyDown(KeyCode.E) && !playerManager.isShooting)
             {
                 NextWeapon();
             }

@@ -150,10 +150,11 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
-        craftingWindowOpen = true;
         //craftingWindowObject.SetActive(true);
         //inventorytxt.UpdateItem();
+        craftingWindowOpen = true;
         cinemachineSwitchBlend.SwitchPriority();
+        pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
         pressEKey.SetActive(false);
         buttonsCanvasObject.SetActive(true);
         //StartCoroutine(DisableCanvasGroup(cinemachineSwitchBlend.mainToPetDuration));
