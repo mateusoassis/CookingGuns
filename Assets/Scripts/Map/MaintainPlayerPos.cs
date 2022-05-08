@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MaintainPlayerPos : MonoBehaviour
-{
-    [SerializeField] private Transform player;
+{   
+    private Transform player;
     [SerializeField] private Vector3 offsetFromPlayer;
+
+    void Awake()
+    {
+        player = GameObject.Find("Player").GetComponent<Transform>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

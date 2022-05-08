@@ -62,6 +62,10 @@ public class PetHandler : MonoBehaviour
                 Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
                 petModel.transform.position += sinMovement;
             }
+            else
+            {
+                petBillboard.DeactivateOnEnemiesKilled();
+            }
 
             if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop)
             {
