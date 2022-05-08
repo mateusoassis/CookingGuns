@@ -34,6 +34,7 @@ public class _WeaponHandler : MonoBehaviour
     public int secondFalseIndex;
     public int numberOfFalseIndexes;
 
+
     void Awake()
     {
         playerManager = GetComponent<_PlayerManager>();

@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 4093390044325323273}
   - component: {fileID: 4727624842174189742}
   - component: {fileID: 4052659498483854515}
+  - component: {fileID: 484891701}
   m_Layer: 5
   m_Name: CraftShotgun
   m_TagString: Untagged
@@ -504,6 +505,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &484891701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307040466518393191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20abd25694dd874ea4ce7632efa1950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1447518395467215811
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +663,7 @@ GameObject:
   - component: {fileID: 4933999186068717310}
   - component: {fileID: 108813602098170695}
   - component: {fileID: 1121366372384210183}
+  - component: {fileID: 1864520317}
   m_Layer: 5
   m_Name: CraftGrenadeLauncher
   m_TagString: Untagged
@@ -771,6 +785,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1864520317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640926091561651076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20abd25694dd874ea4ce7632efa1950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3325013369903403090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1150,7 @@ GameObject:
   - component: {fileID: 8717245477323777284}
   - component: {fileID: 5149273006990173128}
   - component: {fileID: 2801999859870846555}
+  - component: {fileID: 1746713567}
   m_Layer: 5
   m_Name: CraftMachineGun
   m_TagString: Untagged
@@ -1245,6 +1272,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1746713567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3921345525121007439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20abd25694dd874ea4ce7632efa1950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4831234311620976424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,6 +1513,9 @@ GameObject:
   - component: {fileID: 6679427593086492116}
   - component: {fileID: 3737812230458383725}
   - component: {fileID: 786052698}
+  - component: {fileID: 786052699}
+  - component: {fileID: 786052700}
+  - component: {fileID: 786052701}
   m_Layer: 5
   m_Name: ButtonsCanvas
   m_TagString: Untagged
@@ -1488,9 +1530,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5904239517566018953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1.75}
+  m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
   m_Children:
   - {fileID: 3556614806901791789}
   - {fileID: 7755951482048889019}
@@ -1498,12 +1540,12 @@ RectTransform:
   - {fileID: 5044047780376093702}
   m_Father: {fileID: 3325013371347335784}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.12, y: 2.93}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9139719807393748995
 Canvas:
   m_ObjectHideFlags: 0
@@ -1513,7 +1555,7 @@ Canvas:
   m_GameObject: {fileID: 5904239517566018953}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1547,7 +1589,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6679427593086492116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1583,6 +1625,7 @@ MonoBehaviour:
   grenadeLauncherButton: {fileID: 87381677}
   lookAtPosition: {x: 0, y: 0, z: 0}
   lookAtButton: 0
+  canvasGroup: {fileID: 0}
 --- !u!114 &786052698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,6 +1638,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d75880f7b16e714ca3327adf2cbaa5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &786052699
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904239517566018953}
+  m_CullTransparentMesh: 1
+--- !u!225 &786052700
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904239517566018953}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &786052701
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904239517566018953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07a4cf0cd4f0212479e8ca0b93e2af08, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6069693408178243788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1904,7 @@ GameObject:
   - component: {fileID: 5979995545172101739}
   - component: {fileID: 4090301485926645574}
   - component: {fileID: 1124924324034854588}
+  - component: {fileID: 1980425156}
   m_Layer: 5
   m_Name: CraftPistol
   m_TagString: Untagged
@@ -1943,6 +2026,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1980425156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147560098037308172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20abd25694dd874ea4ce7632efa1950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7179814418984338853
 GameObject:
   m_ObjectHideFlags: 0

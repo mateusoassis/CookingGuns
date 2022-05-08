@@ -201,9 +201,4 @@ public class PetHandler : MonoBehaviour
         buttonsCanvasObject.SetActive(false);
     }
     */
-
-    public void DisableButtonsCanvas()
-    {
-        buttonsCanvasObject.SetActive(false);
-    }
 }
