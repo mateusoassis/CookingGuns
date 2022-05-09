@@ -95,6 +95,14 @@ public class _PlayerStats : MonoBehaviour
                 TakeHPDamage(pudimAreaDamage.damageDone); 
             }
         }
+        if (other.gameObject.tag == "BarrelExplosion")
+        {
+            if ((other.gameObject.TryGetComponent(out BarrelTrapExplosion barrelAreaDamage)))
+            {
+                //simpleFlashEffect.Flash();
+                TakeHPDamage(barrelAreaDamage.damageDoneInPlayer);
+            }
+        }
     }
 
     public void StartHPDamage()

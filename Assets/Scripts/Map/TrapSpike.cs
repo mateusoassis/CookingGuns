@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class TrapSpike : MonoBehaviour
 {
-    [SerializeField] private int trapDamage;
+    [SerializeField] private int trapDamagePlayer;
+    [SerializeField] private int trapDamageEnemy;
     private void OnTriggerEnter(Collider other)
     {
         if ((other.gameObject.TryGetComponent(out _PlayerStats playerStats)))
         {
-            playerStats.TakeHPDamage(trapDamage);
+            playerStats.TakeHPDamage(trapDamagePlayer);
+        }
 
+        if ((other.gameObject.TryGetComponent(out EnemyStats enemyStats)))
+        {
+            enemyStats.TakeDamage(trapDamageEnemy);
         }
     }
 }

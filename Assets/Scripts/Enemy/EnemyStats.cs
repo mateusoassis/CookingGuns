@@ -147,5 +147,13 @@ public class EnemyStats : MonoBehaviour
                 TakeDamage(granadeAreaDamage.damageDone);
             }
         }
+        if (other.gameObject.tag == "BarrelExplosion")
+        {
+            if ((other.gameObject.TryGetComponent(out BarrelTrapExplosion barrealAreaDamage)))
+            {
+                //flashEffect.FlashStart();
+                TakeDamage(barrealAreaDamage.damageDoneInEnemy);
+            }
+        }
     }
 }
