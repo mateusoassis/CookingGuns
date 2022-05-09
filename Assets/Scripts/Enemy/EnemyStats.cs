@@ -9,6 +9,7 @@ public class EnemyStats : MonoBehaviour
     public int enemyMaxHealth;
     public int enemyHealth;
     [SerializeField] private PlayerController playerController;
+    
     public List<GameObject> dropPrefab;
     public GameObject smokePrefab;
     public float dropPrefabYOffset;
@@ -18,7 +19,7 @@ public class EnemyStats : MonoBehaviour
     public bool hitRecently;
     public HealthbarBehaviour healthbarScript;
     public bool underOneFourthHP;
-    public DamageFlash flashEffect;
+    [SerializeField] private ParticleSystem damageParticle;
 
 
     [SerializeField] private float flashDuration;
@@ -38,9 +39,7 @@ public class EnemyStats : MonoBehaviour
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         healthbarScript = GetComponentInChildren<HealthbarBehaviour>();
-        flashEffect = GetComponent<DamageFlash>();
         oldMaterial = enemyFlashingPart.GetComponent<MeshRenderer>().material;
-        
     }
     
     public void TakeDamage(int damageTaken)
@@ -134,7 +133,7 @@ public class EnemyStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out BulletScript bulletScript)))
             {
-                //flashEffect.FlashStart();
+                damageParticle.Play();
                 TakeDamage(bulletScript.damageDone);
             }
 
@@ -143,7 +142,7 @@ public class EnemyStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out GranadeAreaDamage granadeAreaDamage)))
             {
-                //flashEffect.FlashStart();
+                damageParticle.Play();
                 TakeDamage(granadeAreaDamage.damageDone);
             }
         }
@@ -151,7 +150,7 @@ public class EnemyStats : MonoBehaviour
         {
             if ((other.gameObject.TryGetComponent(out BarrelTrapExplosion barrealAreaDamage)))
             {
-                //flashEffect.FlashStart();
+                damageParticle.Play();
                 TakeDamage(barrealAreaDamage.damageDoneInEnemy);
             }
         }
