@@ -82,59 +82,55 @@ public class _PlayerShooting : MonoBehaviour
 
     public void MyInput()
     {
-        if(!playerManager.isRolling)
+        if(allowButtonHold)
         {
-            if(allowButtonHold)
+            shooting = Input.GetKey(KeyCode.Mouse0);
+            if(Input.GetKey(KeyCode.Mouse0)&& bulletsLeft > 0)
             {
-                shooting = Input.GetKey(KeyCode.Mouse0);
-                if(Input.GetKey(KeyCode.Mouse0)&& bulletsLeft > 0)
+                playerManager.playerMovement.PlayerAim();
+            }
+            
+        }else
+        {
+            shooting = Input.GetKeyDown(KeyCode.Mouse0);
+            if(Input.GetKeyDown(KeyCode.Mouse0) && bulletsLeft > 0)
+            {
+                playerManager.playerMovement.PlayerAim();
+            }     
+        }
+
+        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
+        {
+            Reload();
+        }
+
+        if(readyToShoot && !reloading && bulletsLeft <= 0)
+        {
+            Reload();
+        }
+
+        if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        {
+            bulletsShot = 0;
+
+            if(weaponHandler.weaponTypeEquipped != 2)
+            {
+                //playerManager.animationHandler.GetWeaponInt();
+                //playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
+                playerManager.playerMovement.PlayerAim();
+                Shoot();
+            }
+            else
+            {
+                //playerManager.animationHandler.GetWeaponInt();
+                //playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
+                Shoot();
+                if(Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     playerManager.playerMovement.PlayerAim();
-                }
-                
-            }else
-            {
-                shooting = Input.GetKeyDown(KeyCode.Mouse0);
-                if(Input.GetKeyDown(KeyCode.Mouse0) && bulletsLeft > 0)
-                {
-                    playerManager.playerMovement.PlayerAim();
-                }     
-            }
-
-            if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
-            {
-                Reload();
-            }
-
-            if(readyToShoot && !reloading && bulletsLeft <= 0)
-            {
-                Reload();
-            }
-
-            if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
-            {
-                bulletsShot = 0;
-
-                if(weaponHandler.weaponTypeEquipped != 2)
-                {
-                    //playerManager.animationHandler.GetWeaponInt();
-                    //playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
-                    playerManager.playerMovement.PlayerAim();
-                    Shoot();
-                }
-                else
-                {
-                    //playerManager.animationHandler.GetWeaponInt();
-                    //playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
-                    Shoot();
-                    if(Input.GetKeyDown(KeyCode.Mouse0))
-                    {
-                        playerManager.playerMovement.PlayerAim();
-                    }
                 }
             }
         }
-        
     }
 
     public void Shoot()

@@ -163,25 +163,25 @@ public class _PlayerManager : MonoBehaviour
             if(!gameManager.pausedGame && !petHandler.craftingWindowOpen)
             {
                 //playerWeaponHandler.WeaponBehaviour();
-                if(playerWeaponHandler.weaponTypeEquipped == 0 && !isEatingWeapon)
+                if(playerWeaponHandler.weaponTypeEquipped == 0 && !isEatingWeapon && !isRolling)
                 {
                     playerShootingPistol.MyInput();
                     //playerShootingPistol.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingPistol.AmmoDisplayUpdate();
                 }
-                else if(playerWeaponHandler.weaponTypeEquipped == 1 && !isEatingWeapon)
+                else if(playerWeaponHandler.weaponTypeEquipped == 1 && !isEatingWeapon && !isRolling)
                 {
                     playerShootingShotgun.MyInput();
                     //playerShootingShotgun.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingShotgun.AmmoDisplayUpdate();
                 }
-                else if(playerWeaponHandler.weaponTypeEquipped == 2 && !isEatingWeapon)
+                else if(playerWeaponHandler.weaponTypeEquipped == 2 && !isEatingWeapon && !isRolling)
                 {
                     playerShootingMachineGun.MyInput();
                     //playerShootingMachineGun.reloadDisplay.gameObject.GetComponent<Slider>();
                     playerShootingMachineGun.AmmoDisplayUpdate();
                 }
-                else if(playerWeaponHandler.weaponTypeEquipped == 3 && !isEatingWeapon)
+                else if(playerWeaponHandler.weaponTypeEquipped == 3 && !isEatingWeapon && !isRolling)
                 {
                     playerShootingGranadeLauncher.MyInput();
                     //playerShootingGranadeLauncher.reloadDisplay.gameObject.GetComponent<Slider>();
