@@ -30,6 +30,7 @@ public class ExplosionScript : MonoBehaviour
         }
     }
 
+    /*
     public void OnDestroy()
     {
         if(vermelhaBehaviour.explosionCollision)
@@ -40,4 +41,5 @@ public class ExplosionScript : MonoBehaviour
             }
         }
     }
+    */
 }

@@ -57,7 +57,7 @@ public class _PlayerStats : MonoBehaviour
 
     public void TakeHPDamage(int damage)
     {
-        if(!playerManager.isFading)
+        if(!playerManager.isFading && !playerManager.isRolling)
         {
             cameraShakeEffect.Shockwave();
             simpleFlashEffect.Flash();

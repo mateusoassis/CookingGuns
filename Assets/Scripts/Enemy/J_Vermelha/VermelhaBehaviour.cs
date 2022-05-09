@@ -197,6 +197,15 @@ public class VermelhaBehaviour : MonoBehaviour
             enemySpawner.enemiesKilled++;
         }
         Debug.Log("explodiu");
+
+        if(explosionCollision)
+        {
+            if(playerTransform != null)
+            {
+                playerTransform.GetComponent<_PlayerStats>().TakeHPDamage(explosionDamage);
+            }
+        }
+
         Destroy(this.gameObject);
     }
 
@@ -232,5 +241,10 @@ public class VermelhaBehaviour : MonoBehaviour
     public void MultipliedNormalMoveSpeed()
     {
         navMesh.speed = speedMultiplied;
+    }
+
+    void OnDestroy()
+    {
+        explosionTimer = explosionTime;
     }
 }

@@ -65,8 +65,11 @@ public class _WeaponHandler : MonoBehaviour
             {
                 realWeaponIcons[i] = GameObject.Find("Weapon" + (i+1) + "_Slot").GetComponent<Image>();
             }
-            UpdateWeaponHandler();
+            //UpdateWeaponHandler();
         }
+        
+        UpdateWeaponHandler();
+        //UpdateWeaponSlotSprites();
         
     }
 
@@ -74,11 +77,13 @@ public class _WeaponHandler : MonoBehaviour
     {   
         WeaponManager(weaponTypeEquipped);
         UpdateWeaponSlotSprites();
+        NextWeapon();
+        PreviousWeapon();
     }
 
     void Update()
     {
-        
+        //UpdateWeaponSlotSprites();
     }
 
     public void Roll()
@@ -172,7 +177,7 @@ public class _WeaponHandler : MonoBehaviour
             if(slotEquipped > 2)
             {
                 slotEquipped = 0;
-                playerManager.playerInfo.lastSlotEquipped = 0;
+                playerManager.playerInfo.lastSlotEquipped = slotEquipped;
             }
 
             if(!freeSlotArray[slotEquipped])
@@ -393,6 +398,7 @@ public class _WeaponHandler : MonoBehaviour
         //lastEquippedGun
         freeSlotArray = playerManager.playerInfo.freeSlotArraySaved;
         weaponTypeOnSlot = playerManager.playerInfo.weaponTypeOnSlotSaved;
+        UpdateWeaponSlotSprites();
     }
 
     public void ActivateLastWeaponEquipped()
