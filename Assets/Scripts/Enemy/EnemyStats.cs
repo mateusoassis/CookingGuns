@@ -117,7 +117,6 @@ public class EnemyStats : MonoBehaviour
 
     private IEnumerator EnemyFlashRoutine()
     {
-
         enemyFlashingPart.GetComponent<MeshRenderer>().material = flashMaterial;
 
         yield return new WaitForSeconds(flashDuration);
@@ -133,7 +132,10 @@ public class EnemyStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out BulletScript bulletScript)))
             {
-                damageParticle.Play();
+                if (damageParticle != null) 
+                {
+                    damageParticle.Play();
+                }
                 TakeDamage(bulletScript.damageDone);
             }
 
@@ -142,7 +144,10 @@ public class EnemyStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out GranadeAreaDamage granadeAreaDamage)))
             {
-                damageParticle.Play();
+                if (damageParticle != null)
+                {
+                    damageParticle.Play();
+                }
                 TakeDamage(granadeAreaDamage.damageDone);
             }
         }
@@ -150,7 +155,10 @@ public class EnemyStats : MonoBehaviour
         {
             if ((other.gameObject.TryGetComponent(out BarrelTrapExplosion barrealAreaDamage)))
             {
-                damageParticle.Play();
+                if (damageParticle != null)
+                {
+                    damageParticle.Play();
+                }
                 TakeDamage(barrealAreaDamage.damageDoneInEnemy);
             }
         }
