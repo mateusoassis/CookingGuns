@@ -147,7 +147,6 @@ public class _WeaponHandler : MonoBehaviour
         Image[] tempButtonImage = new Image[3];
         if(CountBool(freeSlotArray, true) < 2)
         {
-            Debug.Log("troca de arma");
             int newSlot = slotEquipped + 1;
             if(newSlot > 2)
             {
@@ -306,7 +305,6 @@ public class _WeaponHandler : MonoBehaviour
     {
         if(CountBool(freeSlotArray, true) < 2)
         {
-            Debug.Log("troca de arma");
             int newSlot = slotEquipped - 1;
             if(newSlot < 0)
             {
