@@ -9,6 +9,7 @@ public class _PlayerManager : MonoBehaviour
     [Header("Booleanos de Teste")]
     public bool testing;
     public bool testingWeapons;
+    public bool testingCredits;
 
     [Header("Componentes do player e cena")]
     public Rigidbody playerRigidbody;

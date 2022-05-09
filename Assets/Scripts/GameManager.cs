@@ -201,4 +201,9 @@ public class GameManager : MonoBehaviour
         restartConfirmationWindow.SetActive(false);
         quitConfirmationWindow.SetActive(false);
     }
+
+    public void CreditsScene()
+    {
+        SceneManager.LoadScene("_CreditsScene", LoadSceneMode.Single);
+    }
 }

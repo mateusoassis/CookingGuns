@@ -28,62 +28,70 @@ public class GenerateMap : MonoBehaviour
     {
         int roomNumber = Random.Range(0,6);
 
-        if(enemySpawner.playerInfo.playerCurrentRoom == 1) // cena 1
+        if(!playerStats.playerManager.testingCredits)
         {
-            SceneManager.LoadScene("_2_RoomScene");
-            if(!healEveryRoom)
+            if(enemySpawner.playerInfo.playerCurrentRoom == 1) // cena 1
             {
-                enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
+                SceneManager.LoadScene("_2_RoomScene");
+                if(!healEveryRoom)
+                {
+                    enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
+                }
+                else
+                {
+                    enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
+                }
             }
-            else
+            else if(enemySpawner.playerInfo.playerCurrentRoom == 2) // cena 2
             {
-                enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
+                SceneManager.LoadScene("_3_RoomScene");
+                if(!healEveryRoom)
+                {
+                    enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
+                }
+                else
+                {
+                    enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
+                }
+            }
+            else if(enemySpawner.playerInfo.playerCurrentRoom == 3) // cena 3
+            {
+                SceneManager.LoadScene("_4_RoomScene");
+                if(!healEveryRoom)
+                {
+                    enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
+                }
+                else
+                {
+                    enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
+                }
+            }
+            else if(enemySpawner.playerInfo.playerCurrentRoom == 4) // cena 4
+            {
+                SceneManager.LoadScene("_5_RoomScene");
+                if(!healEveryRoom)
+                {
+                    enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
+                }
+                else
+                {
+                    enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
+                }
+            }
+            else if(enemySpawner.playerInfo.playerCurrentRoom == 5) // cena 5
+            {
+                gameManager.PauseGame();
+                mainUI.GetComponent<ThankYouHolder>().thankYouWindow.SetActive(true);
+                gameManager.playerManager.endGame = true;
+                enemySpawner.playerInfo.playerCurrentRoom = 0;
+                enemySpawner.playerInfo.healthFromLastRoom = 0;
             }
         }
-        else if(enemySpawner.playerInfo.playerCurrentRoom == 2) // cena 2
+        else
         {
-            SceneManager.LoadScene("_3_RoomScene");
-            if(!healEveryRoom)
-            {
-                enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
-            }
-            else
-            {
-                enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
-            }
+            gameManager.CreditsScene();
         }
-        else if(enemySpawner.playerInfo.playerCurrentRoom == 3) // cena 3
-        {
-            SceneManager.LoadScene("_4_RoomScene");
-            if(!healEveryRoom)
-            {
-                enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
-            }
-            else
-            {
-                enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
-            }
-        }
-        else if(enemySpawner.playerInfo.playerCurrentRoom == 4) // cena 4
-        {
-            SceneManager.LoadScene("_5_RoomScene");
-            if(!healEveryRoom)
-            {
-                enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerCurrentHealth;
-            }
-            else
-            {
-                enemySpawner.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
-            }
-        }
-        else if(enemySpawner.playerInfo.playerCurrentRoom == 5) // cena 5
-        {
-            gameManager.PauseGame();
-            mainUI.GetComponent<ThankYouHolder>().thankYouWindow.SetActive(true);
-            gameManager.playerManager.endGame = true;
-            enemySpawner.playerInfo.playerCurrentRoom = 0;
-            enemySpawner.playerInfo.healthFromLastRoom = 0;
-        }
+        
     }    
 
     public void TestRoomSelector()
