@@ -105,6 +105,7 @@ public class GenerateMap : MonoBehaviour
         {
             if(!test)
             {
+                Debug.Log("porta");
                 RoomSelector();
             }
             else if(test)
