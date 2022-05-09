@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawner: {fileID: 0}
-  enemyMaxHealth: 2
+  enemyMaxHealth: 10
   enemyHealth: 0
   playerController: {fileID: 0}
   dropPrefab:
@@ -485,7 +485,7 @@ MonoBehaviour:
   explosionTimer: 0
   explosionSpeed: 6
   explosionCollision: 0
-  explosionDamage: 2
+  explosionDamage: 1
   ableToPatrol: 0
   exploding: 0
   delayToPatrolAgain: 3

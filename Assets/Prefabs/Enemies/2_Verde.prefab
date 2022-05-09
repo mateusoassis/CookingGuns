@@ -506,7 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerOnRange: 0
   motherDamaged: 0
-  randomRangeForPatrol: 15
+  randomRangeForPatrol: 20
   damage: 1
   state: 1
   timerToWalk: 0
@@ -517,17 +517,17 @@ MonoBehaviour:
   minRangeToLockTarget: 8
   playerTransform: {fileID: 0}
   lookingAtPlayer: 0
-  cooldown: 1
+  cooldown: 3
   cooldownFromHittingPlayer: 3
   cooldownTimer: 0
-  timeToStartCharging: 0.6
+  timeToStartCharging: 1
   isCooldown: 0
   rollDuration: 5
   chargeJujubaAnimator: {fileID: 4459417430785882517}
   rolling: 0
-  rollSpeed: 20
+  rollSpeed: 16
   rollDirection: {x: 0, y: 0, z: 0}
-  backwardForce: 30
+  backwardForce: 20
   reset: 0
   parent: {fileID: 0}
 --- !u!54 &4459417430785882519
