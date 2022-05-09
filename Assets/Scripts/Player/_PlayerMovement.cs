@@ -89,7 +89,7 @@ public class _PlayerMovement : MonoBehaviour
                 playerManager.canceledEating = false;
 
                 playerManager.isRolling = false;
-                gameObject.layer = 0;                
+                gameObject.layer = 18;                
                 playerManager.playerRigidbody.useGravity = true;
                 //playerManager.playerCapsuleCollider.enabled = true;
                 rollTimer = rollDuration;
