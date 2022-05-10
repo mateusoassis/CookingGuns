@@ -130,7 +130,7 @@ public class EnemyStats : MonoBehaviour
     {
         if(other.gameObject.tag == "PlayerBullet")
         {
-            if((other.gameObject.TryGetComponent(out BulletScript bulletScript)))
+            if(other.gameObject.TryGetComponent(out BulletScript bulletScript))
             {
                 if (damageParticle != null) 
                 {
@@ -142,7 +142,7 @@ public class EnemyStats : MonoBehaviour
         }
         if(other.gameObject.tag == "PlayerGranade")
         {
-            if((other.gameObject.TryGetComponent(out GranadeAreaDamage granadeAreaDamage)))
+            if(other.gameObject.TryGetComponent(out GranadeAreaDamage granadeAreaDamage))
             {
                 if (damageParticle != null)
                 {
@@ -153,13 +153,13 @@ public class EnemyStats : MonoBehaviour
         }
         if (other.gameObject.tag == "BarrelExplosion")
         {
-            if ((other.gameObject.TryGetComponent(out BarrelTrapExplosion barrealAreaDamage)))
+            if (other.gameObject.TryGetComponent(out BarrelTrapExplosion barrelAreaDamage))
             {
                 if (damageParticle != null)
                 {
                     damageParticle.Play();
                 }
-                TakeDamage(barrealAreaDamage.damageDoneInEnemy);
+                TakeDamage(barrelAreaDamage.damageDoneInEnemy);
             }
         }
     }
