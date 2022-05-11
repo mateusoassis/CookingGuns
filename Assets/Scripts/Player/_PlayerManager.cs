@@ -10,6 +10,7 @@ public class _PlayerManager : MonoBehaviour
     public bool testing;
     public bool testingWeapons;
     public bool testingCredits;
+    public bool tutorial;
 
     [Header("Componentes do player e cena")]
     public Rigidbody playerRigidbody;
@@ -26,6 +27,7 @@ public class _PlayerManager : MonoBehaviour
     public PetHandler petHandler;
     public PlayerInfo playerInfo;
     public CapsuleCollider playerCapsuleCollider;
+    public WindowContainer tutorialWindowContainer;
 
     [Header("Inventário")]
     public CraftingMainScript craftingHandlerInPlayer;
@@ -67,6 +69,10 @@ public class _PlayerManager : MonoBehaviour
     
     void Start()
     {
+        if(tutorial)
+        {
+            tutorialWindowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
+        }
         playerEatingWeaponBarSlider.maxValue = eatingWeaponDuration;
         playerReloadBar.SetActive(false);
         playerEatingWeaponBar.SetActive(false);
@@ -149,12 +155,23 @@ public class _PlayerManager : MonoBehaviour
             }
 
             
-            if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon)
+            if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && !tutorial)
             {
                 if(petHandler.playerOnArea && !petHandler.craftingWindowOpen)
                 {
                     petHandler.OpenCraftingWindow();
                     craftingHandlerInPlayer.ShowCraftOptions();
+                }
+            }
+            else if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && tutorial)
+            {
+                if(tutorialWindowContainer.currentDialogueIndex >= 4)
+                {
+                    if(petHandler.playerOnArea && !petHandler.craftingWindowOpen)
+                    {
+                        petHandler.OpenCraftingWindow();
+                        craftingHandlerInPlayer.ShowCraftOptions();
+                    }
                 }
             }
             
@@ -190,36 +207,79 @@ public class _PlayerManager : MonoBehaviour
 
                 if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading && !canceledEating) //&& !rmbHasToPressAgain)
                 {
-                    if(rmbHasToPressAgain)
+                    if(!tutorial)
                     {
-                        isEatingWeapon = false;
+                        if(rmbHasToPressAgain)
+                        {
+                            isEatingWeapon = false;
+                        }
+                        else
+                        {
+                            rmbHeldDown = true;
+                            playerWeaponHandler.UpdateAmountUnlocked();
+                            if(playerWeaponHandler.amountUnlocked > 1)
+                            {
+                                if(rmbHeldDown && !rmbHasToPressAgain)
+                                {
+                                    playerEatingWeaponBar.SetActive(true);
+                                    playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
+                                    isEatingWeapon = true;
+                                    eatingWeaponTimer += Time.deltaTime;
+                                    //animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
+
+                                    if(eatingWeaponTimer >= eatingWeaponDuration)
+                                    {
+                                        playerWeaponHandler.HealFromEatingWeapon();
+                                        isEatingWeapon = false;
+                                        
+                                        playerEatingWeaponBar.SetActive(false);
+                                        rmbHasToPressAgain = true;
+                                    }
+                                }
+                                else if(rmbHasToPressAgain)
+                                {
+                                    isEatingWeapon = false;
+                                }
+                            }
+                        }
                     }
                     else
                     {
-                        rmbHeldDown = true;
-                        playerWeaponHandler.UpdateAmountUnlocked();
-                        if(playerWeaponHandler.amountUnlocked > 1)
+                        if(tutorialWindowContainer.openDialogue[4])
                         {
-                            if(rmbHeldDown && !rmbHasToPressAgain)
-                            {
-                                playerEatingWeaponBar.SetActive(true);
-                                playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
-                                isEatingWeapon = true;
-                                eatingWeaponTimer += Time.deltaTime;
-                                //animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
-
-                                if(eatingWeaponTimer >= eatingWeaponDuration)
-                                {
-                                    playerWeaponHandler.HealFromEatingWeapon();
-                                    isEatingWeapon = false;
-                                    
-                                    playerEatingWeaponBar.SetActive(false);
-                                    rmbHasToPressAgain = true;
-                                }
-                            }
-                            else if(rmbHasToPressAgain)
+                            if(rmbHasToPressAgain)
                             {
                                 isEatingWeapon = false;
+                            }
+                            else
+                            {
+                                rmbHeldDown = true;
+                                playerWeaponHandler.UpdateAmountUnlocked();
+                                if(playerWeaponHandler.amountUnlocked > 1)
+                                {
+                                    if(rmbHeldDown && !rmbHasToPressAgain)
+                                    {
+                                        playerEatingWeaponBar.SetActive(true);
+                                        playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
+                                        isEatingWeapon = true;
+                                        eatingWeaponTimer += Time.deltaTime;
+                                        //animationHandler.anim[playerWeaponHandler.weaponEquipped].SetBool("Walking", false);
+
+                                        if(eatingWeaponTimer >= eatingWeaponDuration)
+                                        {
+                                            playerWeaponHandler.HealFromEatingWeapon();
+                                            tutorialWindowContainer.NextDialogue();
+                                            isEatingWeapon = false;
+                                            
+                                            playerEatingWeaponBar.SetActive(false);
+                                            rmbHasToPressAgain = true;
+                                        }
+                                    }
+                                    else if(rmbHasToPressAgain)
+                                    {
+                                        isEatingWeapon = false;
+                                    }
+                                }
                             }
                         }
                     }

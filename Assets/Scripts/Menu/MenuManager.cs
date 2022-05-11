@@ -119,4 +119,9 @@ public class MenuManager : MonoBehaviour
             Application.Quit();
         }
     }
+
+    public void StraightToTutorial()
+    {
+        SceneManager.LoadScene("New_Tutorial_RoomScene", LoadSceneMode.Additive);
+    }
 }

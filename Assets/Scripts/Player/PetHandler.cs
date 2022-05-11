@@ -38,6 +38,7 @@ public class PetHandler : MonoBehaviour
     private CinemachineSwitchBlend cinemachineSwitchBlend;
     [SerializeField] private GameObject buttonsCanvasObject;
     private PetLookAt petLookAt;
+    private Quaternion targetRotation;
     [SerializeField] private float lookAtSpeed;
     private float switchTimer;
     [SerializeField] private Animator canvasGroupAnimator;
@@ -89,7 +90,7 @@ public class PetHandler : MonoBehaviour
                 petBillboard.DeactivateOnEnemiesKilled();
                 if(!petLookAt.lookAtButton)
                 {
-                    var targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
+                    targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
                     petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
                     /*
                     petModel.LookAt(petLookAt.lookAtPosition);
@@ -154,7 +155,9 @@ public class PetHandler : MonoBehaviour
         //inventorytxt.UpdateItem();
         craftingWindowOpen = true;
         cinemachineSwitchBlend.SwitchPriority();
-        pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
+        //pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
+        targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - transform.position);
+        petLookAt.lookAtPosition = petLookAt.playerPos.position;
         pressEKey.SetActive(false);
         buttonsCanvasObject.SetActive(true);
         //StartCoroutine(DisableCanvasGroup(cinemachineSwitchBlend.mainToPetDuration));

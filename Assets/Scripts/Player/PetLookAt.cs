@@ -8,6 +8,7 @@ public class PetLookAt : MonoBehaviour
     [SerializeField] private Transform shotgunButton;
     [SerializeField] private Transform machineGunButton;
     [SerializeField] private Transform grenadeLauncherButton;
+    public Transform playerPos;
 
     public Vector3 lookAtPosition;
     public bool lookAtButton;

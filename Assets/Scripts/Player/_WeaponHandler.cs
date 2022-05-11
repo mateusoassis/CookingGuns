@@ -384,16 +384,10 @@ public class _WeaponHandler : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerInfo()
-    {
-
-    }
-
     public void UpdateWeaponHandler()
     {
         weaponTypeEquipped = playerManager.playerInfo.lastWeaponTypeEquipped;
         slotEquipped = playerManager.playerInfo.lastSlotEquipped;
-        //lastEquippedGun
         freeSlotArray = playerManager.playerInfo.freeSlotArraySaved;
         weaponTypeOnSlot = playerManager.playerInfo.weaponTypeOnSlotSaved;
         UpdateWeaponSlotSprites();
@@ -447,6 +441,10 @@ public class _WeaponHandler : MonoBehaviour
             UpdateWeaponSlotSprites();
         }
         playerManager.playerInfo.totalWeaponsCrafted++;
+        if(playerManager.tutorial)
+        {
+            playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+        }
     }
     public void DisablePistol()
     {
@@ -490,6 +488,10 @@ public class _WeaponHandler : MonoBehaviour
             UpdateWeaponSlotSprites();
         }
         playerManager.playerInfo.totalWeaponsCrafted++;
+        if(playerManager.tutorial)
+        {
+            playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+        }
     }
     public void DisableShotgun()
     {
@@ -530,6 +532,10 @@ public class _WeaponHandler : MonoBehaviour
             UpdateWeaponSlotSprites();
         }
         playerManager.playerInfo.totalWeaponsCrafted++;
+        if(playerManager.tutorial)
+        {
+            playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+        }
     }
     public void DisableMachineGun()
     {
@@ -571,6 +577,10 @@ public class _WeaponHandler : MonoBehaviour
             UpdateWeaponSlotSprites();
         }
         playerManager.playerInfo.totalWeaponsCrafted++;
+        if(playerManager.tutorial)
+        {
+            playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+        }
     }
     public void DisableGrenadeLauncher()
     {

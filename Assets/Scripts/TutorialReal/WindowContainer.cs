@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class WindowContainer : MonoBehaviour
 {
+    [Header("Referências")]
+    public _PlayerManager playerManager;
+    public ThirdPartKillTower thirdPartKillTower;
+
+
     public float canvasAlpha;
     public CanvasGroup dialogueContainerCanvasGroup;
     public bool enabledAlpha;
@@ -33,7 +38,20 @@ public class WindowContainer : MonoBehaviour
     public float transitionDuration;
 
     [Header("Booleanos de tutorial")]
-    public bool[] dialogueBools;
+    public bool[] openDialogue;
+    public bool[] closeDialogue;
+    public bool[] endedDialogue;
+    
+    public bool isWindowUp;
+    public bool waitingInput;
+    public bool vanishingLastOne;
+    public bool interact;
+
+    void Awake()
+    {
+        playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
+        thirdPartKillTower = GameObject.Find("3rd_KillTower").GetComponent<ThirdPartKillTower>();
+    }
 
     void Start()
     {
@@ -42,53 +60,69 @@ public class WindowContainer : MonoBehaviour
 
     void Update()
     {
-        if(switchState)
+        if(interact)
         {
-            enabledAlpha = !enabledAlpha;
-            switchState = false;
+            HandleDialogues(currentDialogueIndex);
         }
-        else
-        {
-            if(enabledAlpha && canvasAlpha < 1)
-            {
-                canvasAlpha += Time.deltaTime;
-                dialogueContainerCanvasGroup.alpha = canvasAlpha;
-            }
-            else if(!enabledAlpha && canvasAlpha > 0)
-            {
-                canvasAlpha -= Time.deltaTime;
-                dialogueContainerCanvasGroup.alpha = canvasAlpha;
-            }
-        }
+        
 
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(KeyCode.F))
         {
-            if(currentDialogueIndex < dialogueObjects.Length)
+            Debug.Log("apertei F");
+            if(waitingInput)
             {
-                SwitchState();
+                NextDialogue();
             }
         }
     }
 
-    public void SwitchState()
+
+    public void NextDialogue()
     {
-        if(enabledAlpha)
+        if(waitingInput && interact)
         {
-            lastDialogueIndex = currentDialogueIndex;
-            switchState = true;
+            Debug.Log("passa pro próximo");
+            waitingInput = false;
         }
-        else
+    }
+
+    public void HandleDialogues(int i)
+    {
+        if(!playerManager.isFading)
         {
-            currentDialogueIndex++;
-            if(dialogueObjects[currentDialogueIndex] != null)
+            if(!closeDialogue[i])
             {
-                if(lastDialogueIndex > -1)
+                if(openDialogue[i] && !waitingInput)
                 {
-                    dialogueObjects[lastDialogueIndex].SetActive(false);
+                    dialogueObjects[i].SetActive(true);
+                    canvasAlpha += Time.deltaTime;
+                    dialogueContainerCanvasGroup.alpha = canvasAlpha;
+                    if(canvasAlpha >= 1)
+                    {
+                        waitingInput = true;
+                        closeDialogue[i] = true;
+                    }
                 }
-                dialogueObjects[currentDialogueIndex].SetActive(true);
             }
-            switchState = true;
+
+           if(closeDialogue[i] && !waitingInput)
+            {
+                canvasAlpha -= Time.deltaTime;
+                dialogueContainerCanvasGroup.alpha = canvasAlpha;
+                if(Input.GetKeyDown(KeyCode.F))
+                {
+                    canvasAlpha = 0;
+                    dialogueContainerCanvasGroup.alpha = canvasAlpha;
+                }
+
+                if(canvasAlpha <= 0)
+                {
+                    dialogueObjects[i].SetActive(false);
+                    lastDialogueIndex = i;
+                    endedDialogue[i] = true;
+                    interact = false;
+                }
+            }
         }
     }
 }

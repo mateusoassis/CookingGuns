@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class PudimBehaviour : MonoBehaviour
 {
+    public bool tutorial;
     private Transform playerTransform;
     
     public bool isPlayerOnRange;
@@ -47,6 +48,10 @@ public class PudimBehaviour : MonoBehaviour
     void Awake()
     {
         navMesh = GetComponent<NavMeshAgent>();
+        if(tutorial)
+        {
+            enemyMaxSpeed = 0f;
+        }
     }
 
     void Start()

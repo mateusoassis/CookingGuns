@@ -113,5 +113,10 @@ public class GenerateMap : MonoBehaviour
                 TestRoomSelector();
             }
         }
+
+        if(other.gameObject.tag == "T_Door")
+        {
+            SceneManager.LoadScene("ANDRE_2_RoomScene1", LoadSceneMode.Single);
+        }
     }
 }
