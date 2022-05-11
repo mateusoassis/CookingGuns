@@ -13,7 +13,7 @@ public class SplashScreenHandler : MonoBehaviour
 
     void Start()
     {
-        //multiplierText.text = ("Hold SPACE to " + animatorSpeedMultiplier + "x speed");
+        multiplierText.text = ("Hold SPACE to " + animatorSpeedMultiplier + "x speed");
         anim = GetComponent<Animator>();
     }
 

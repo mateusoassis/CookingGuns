@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
     {
         isOnMenu = true;
 
+        /*
         if(playerInfo.playerCurrentRoom > 0)
         {
             continueButton.SetActive(true);
@@ -31,6 +32,7 @@ public class MenuManager : MonoBehaviour
         {
             continueButton.SetActive(false);
         }
+        */
     }
 
     public void StartGame()
@@ -122,6 +124,24 @@ public class MenuManager : MonoBehaviour
 
     public void StraightToTutorial()
     {
+        playerInfo.playerCurrentRoom = -1;
+        playerInfo.healthFromLastRoom = -1;
+
+        playerInfo.lastWeaponTypeEquipped = 0;
+        playerInfo.unlockedGuns = new bool[4];
+
+        playerInfo.lastSlotEquipped = 0;
+
+        playerInfo.freeSlotArraySaved = new bool[3];
+        playerInfo.freeSlotArraySaved[0] = false;
+        playerInfo.freeSlotArraySaved[1] = false;
+        playerInfo.freeSlotArraySaved[2] = false;
+
+        playerInfo.weaponTypeOnSlotSaved = new int[3];
+        playerInfo.weaponTypeOnSlotSaved[0] = 2;
+        playerInfo.weaponTypeOnSlotSaved[1] = 3;
+        playerInfo.weaponTypeOnSlotSaved[2] = 1;
+    
         SceneManager.LoadScene("Tutorial_Coitado", LoadSceneMode.Single);
     }
 }
