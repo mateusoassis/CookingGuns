@@ -122,6 +122,6 @@ public class MenuManager : MonoBehaviour
 
     public void StraightToTutorial()
     {
-        SceneManager.LoadScene("New_Tutorial_RoomScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Tutorial_Coitado", LoadSceneMode.Single);
     }
 }
