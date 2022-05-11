@@ -116,7 +116,7 @@ public class GenerateMap : MonoBehaviour
 
         if(other.gameObject.tag == "T_Door")
         {
-            SceneManager.LoadScene("_CreditsScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("Room_1_Bugada", LoadSceneMode.Single);
         }
     }
 }
