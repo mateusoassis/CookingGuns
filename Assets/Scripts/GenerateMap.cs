@@ -105,21 +105,28 @@ public class GenerateMap : MonoBehaviour
     {
         if(other.gameObject.tag == "Door" && enemySpawner.roomCleared == true)
         {
-            if(!test)
-            {
+            //if(!test)
+            //{
                 Debug.Log("porta");
                 RoomSelector();
-            }
-            else if(test)
-            {
-                TestRoomSelector();
-            }
+            //}
+            //else if(test)
+            //{
+            //    TestRoomSelector();
+            //}
         }
 
         if(other.gameObject.tag == "T_Door")
         {
             GetComponent<_PlayerManager>().playerInfo.isOnTutorial = false;
-            SceneManager.LoadScene("Room_1_Bugada", LoadSceneMode.Single);
+            SceneManager.LoadScene("_Room_01", LoadSceneMode.Single);
         }
+    }
+
+    public void LoadInitialGame()
+    {
+        SceneManager.LoadScene("_Room_01", LoadSceneMode.Single);
+        GetComponent<_PlayerManager>().playerInfo.isOnTutorial = false;
+        GetComponent<_PlayerManager>().playerInfo.NewGameReset();
     }
 }
