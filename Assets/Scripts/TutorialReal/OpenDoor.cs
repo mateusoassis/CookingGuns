@@ -28,7 +28,7 @@ public class OpenDoor : MonoBehaviour
     {
         if(open && tutorialWindowContainer.endedDialogue[targetIndex])
         {
-            targetBoxColliderToDisable.enabled = false;
+            //targetBoxColliderToDisable.enabled = false;
             targetBoxColliderToDisable.gameObject.transform.position = Vector3.MoveTowards(targetBoxColliderToDisable.gameObject.transform.position, targetPos, speedToOpen * Time.deltaTime);
         }
     }
