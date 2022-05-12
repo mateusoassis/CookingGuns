@@ -67,8 +67,9 @@ public class _PlayerStats : MonoBehaviour
 
 
             if(playerCurrentHealth > 0)
+            {
                 FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
-            
+            }
 
             if(playerCurrentHealth <= 0)
             {

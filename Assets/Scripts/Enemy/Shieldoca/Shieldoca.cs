@@ -97,7 +97,7 @@ public class Shieldoca : MonoBehaviour
 
     public void DamageIfPlayerInside()
     {
-        if(isPlayerInsideArea)
+        if(isPlayerInsideArea && !player.GetComponent<_PlayerManager>().isRolling)
         {
             player.gameObject.GetComponent<_PlayerStats>().TakeHPDamage(hitDamage);
         }

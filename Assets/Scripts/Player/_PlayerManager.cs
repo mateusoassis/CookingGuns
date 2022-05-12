@@ -125,6 +125,28 @@ public class _PlayerManager : MonoBehaviour
                         }
                     }
                 }
+                else
+                {
+                    isShooting = false;
+                    eatingWeaponTimer = 0f;
+                    canceledEating = true;
+                    playerEatingWeaponBar.SetActive(false);
+                    isRolling = true;
+                    playerWeaponHandler.Roll();
+                    gameObject.layer = 12;
+                    playerRigidbody.useGravity = false;
+                    playerMovement.rollTimer = playerMovement.rollDuration;
+                    playerMovement.rollCount++;
+                    playerInfo.totalTimesRolled++;
+
+                    // animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
+
+                    // parte que reseta a barra de comer arma
+                    if(rmbHeldDown)
+                    {
+                        rmbHasToPressAgain = true;
+                    }
+                }
             }
 
             // pause
