@@ -33,6 +33,7 @@ public class GranadeAreaDamage : MonoBehaviour
         yield return new WaitForSeconds(bombTimer);
         Instantiate(particleEffect, transform.position, Quaternion.identity);
         Instantiate(particleEffect2, transform.position, Quaternion.identity);
+        FindObjectOfType<SoundManager>().PlayOneShot("ExplosionSound");
         capsuleCollider.enabled = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
