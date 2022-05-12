@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: -4289561310629953442}
   - component: {fileID: -780011900864920927}
   - component: {fileID: 7126769851456414699}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Granade
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,10 @@ PrefabInstance:
     - target: {fileID: 2900994057694116048, guid: 1bba40420f170fa41ad7515b054df209, type: 3}
       propertyPath: m_Name
       value: ExplosionAreaCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900994057694116048, guid: 1bba40420f170fa41ad7515b054df209, type: 3}
+      propertyPath: m_Layer
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2900994057694116048, guid: 1bba40420f170fa41ad7515b054df209, type: 3}
       propertyPath: m_IsActive

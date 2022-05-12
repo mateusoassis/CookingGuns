@@ -74,5 +74,10 @@ public class GranadeScript : MonoBehaviour
             transform.rotation = Quaternion.identity;
             explosionArea.SetActive(true);
         }
+
+        if(other.gameObject.tag == "EnemyShield")
+        {
+            Destroy(gameObject);
+        }
     }
 }
