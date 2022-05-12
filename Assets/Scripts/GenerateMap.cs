@@ -116,6 +116,7 @@ public class GenerateMap : MonoBehaviour
 
         if(other.gameObject.tag == "T_Door")
         {
+            GetComponent<_PlayerManager>().playerInfo.isOnTutorial = false;
             SceneManager.LoadScene("Room_1_Bugada", LoadSceneMode.Single);
         }
     }

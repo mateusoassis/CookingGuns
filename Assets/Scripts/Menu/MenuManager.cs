@@ -41,24 +41,21 @@ public class MenuManager : MonoBehaviour
         {
             if(!playerInfo.hasPlayedTutorial)
             {
-                playerInfo.hasPlayedTutorial = true;
-                SceneManager.LoadScene("0_1_Tutorial", LoadSceneMode.Single);
-                playerInfo.playerCurrentRoom = 0;
-                playerInfo.healthFromLastRoom = 0;
-                playerInfo.NewGameReset();
+                StraightToTutorial();
             }
             else
             {
                 playerInfo.playerCurrentRoom = 1;
                 playerInfo.healthFromLastRoom = 0;
-                SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
+                SceneManager.LoadScene("_Room_01", LoadSceneMode.Single);
                 playerInfo.NewGameReset();
             }
         }
     }
 
-    public void ContinueGame()
+    public void ContinueGame() // depois reativo o menino, falta inclusive ativar ele no start
     {
+        /*
         if(playerInfo.playerCurrentRoom == 1)
         {
             SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
@@ -79,6 +76,7 @@ public class MenuManager : MonoBehaviour
         {
             SceneManager.LoadScene("_5_RoomScene", LoadSceneMode.Single);
         }
+        */
     }
     
     public void OpenOptions()
@@ -124,24 +122,7 @@ public class MenuManager : MonoBehaviour
 
     public void StraightToTutorial()
     {
-        playerInfo.playerCurrentRoom = -1;
-        playerInfo.healthFromLastRoom = -1;
-
-        playerInfo.lastWeaponTypeEquipped = 0;
-        playerInfo.unlockedGuns = new bool[4];
-
-        playerInfo.lastSlotEquipped = 0;
-
-        playerInfo.freeSlotArraySaved = new bool[3];
-        playerInfo.freeSlotArraySaved[0] = false;
-        playerInfo.freeSlotArraySaved[1] = false;
-        playerInfo.freeSlotArraySaved[2] = false;
-
-        playerInfo.weaponTypeOnSlotSaved = new int[3];
-        playerInfo.weaponTypeOnSlotSaved[0] = 2;
-        playerInfo.weaponTypeOnSlotSaved[1] = 3;
-        playerInfo.weaponTypeOnSlotSaved[2] = 1;
-    
-        SceneManager.LoadScene("Tutorial_Coitado", LoadSceneMode.Single);
+        playerInfo.TutorialReset();
+        SceneManager.LoadScene("2_TutorialScene", LoadSceneMode.Single);
     }
 }

@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
         SlowTime();
     }
 
+    /*
     public void Restart()
     {
         if(playerInfo.playerCurrentRoom < 1)
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("_1_RoomScene", LoadSceneMode.Single);
         }
     }
+    */
 
     public void StartSlowTime()
     {
@@ -177,8 +179,16 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        if(playerInfo.isOnTutorial)
+        {
+            playerInfo.TutorialReset();
+            SceneManager.LoadScene("2_TutorialScene", LoadSceneMode.Single);
+        }
+        else
+        {
+            playerInfo.NewGameReset();
+            SceneManager.LoadScene("_Room_01");
+        }
     }
 
     public void QuitConfirmation()
@@ -192,7 +202,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        SceneManager.LoadScene("0_MenuScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("1_MenuScene", LoadSceneMode.Single);
     }
 
     public void CloseAllConfirmationWindows()
@@ -204,6 +214,6 @@ public class GameManager : MonoBehaviour
 
     public void CreditsScene()
     {
-        SceneManager.LoadScene("_CreditsScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("2_CreditsScene", LoadSceneMode.Single);
     }
 }

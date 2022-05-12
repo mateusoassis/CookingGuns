@@ -17,9 +17,11 @@ public class ThirdPartKillTower : MonoBehaviour
     public bool craftedAnyWeapon;
 
     public WindowContainer windowContainer;
+    public PlayerInfo playerInfo;
 
     void Awake()
     {
+        playerInfo.isOnTutorial = true;
         windowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
     }
 
@@ -61,8 +63,9 @@ public class ThirdPartKillTower : MonoBehaviour
             else
             {
                 door.position = Vector3.MoveTowards(door.position, targetPos, speedToOpen * Time.deltaTime);
-            } 
-            
+                playerInfo.endedTutorial = true;
+                playerInfo.hasPlayedTutorial = true;
+            }
         }
     }
 }

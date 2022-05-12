@@ -19,7 +19,7 @@ public class SplashScreenHandler : MonoBehaviour
 
     public void ToMenu()
     {
-        SceneManager.LoadScene("0_MenuScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("1_MenuScene", LoadSceneMode.Single);
     }
 
     void Update()

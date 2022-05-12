@@ -2598,6 +2598,7 @@ MonoBehaviour:
   skipDialogueTwice: 0
   craftedAnyWeapon: 0
   windowContainer: {fileID: 0}
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
 --- !u!23 &344565281 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 6158775314902355791, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -17928,6 +17929,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 834766352}
+    - target: {fileID: 2648325733984800471, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
     - target: {fileID: 2648325734064128574, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_RaycastTarget
       value: 0

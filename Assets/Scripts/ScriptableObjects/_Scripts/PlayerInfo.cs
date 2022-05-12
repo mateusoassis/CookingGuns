@@ -7,6 +7,8 @@ public class PlayerInfo : ScriptableObject
 {
     [Header("Usable Variables")]
     public bool hasPlayedTutorial;
+    public bool isOnTutorial;
+    public bool endedTutorial;
     public int playerCurrentRoom;
     public int healthFromLastRoom;
     public int currentSceneIndex;
@@ -82,5 +84,26 @@ public class PlayerInfo : ScriptableObject
         weaponTypeOnSlotSaved[0] = 0;
         weaponTypeOnSlotSaved[1] = 4;
         weaponTypeOnSlotSaved[2] = 4;
+    }
+
+    public void TutorialReset()
+    {
+        playerCurrentRoom = 0;
+        healthFromLastRoom = 0;
+
+        lastWeaponTypeEquipped = 0;
+        unlockedGuns = new bool[4];
+
+        lastSlotEquipped = 0;
+
+        freeSlotArraySaved = new bool[3];
+        freeSlotArraySaved[0] = false;
+        freeSlotArraySaved[1] = false;
+        freeSlotArraySaved[2] = false;
+
+        weaponTypeOnSlotSaved = new int[3];
+        weaponTypeOnSlotSaved[0] = 2;
+        weaponTypeOnSlotSaved[1] = 3;
+        weaponTypeOnSlotSaved[2] = 1;
     }
 }
