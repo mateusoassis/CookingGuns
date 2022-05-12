@@ -26,10 +26,12 @@ public class GenerateMap : MonoBehaviour
 
     void RoomSelector()
     {
+        
         int roomNumber = Random.Range(0,6);
-
+        
         if(!playerStats.playerManager.testingCredits)
         {
+            /*
             if(enemySpawner.playerInfo.playerCurrentRoom == 1) // cena 1
             {
                 SceneManager.LoadScene("_2_RoomScene");
@@ -86,12 +88,12 @@ public class GenerateMap : MonoBehaviour
                 enemySpawner.playerInfo.playerCurrentRoom = 0;
                 enemySpawner.playerInfo.healthFromLastRoom = 0;
             }
+            */
         }
         else
         {
             gameManager.CreditsScene();
         }
-        
     }    
 
     public void TestRoomSelector()
