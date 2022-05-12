@@ -11,7 +11,7 @@ public class PlayerInfo : ScriptableObject
     public bool endedTutorial;
     public int playerCurrentRoom;
     public int healthFromLastRoom;
-    public int currentSceneIndex;
+    // public int currentSceneIndex;
 
     [Header("Armas")]
     public int lastWeaponTypeEquipped;
@@ -67,7 +67,7 @@ public class PlayerInfo : ScriptableObject
 
     public void NewGameReset()
     {
-        playerCurrentRoom = -1;
+        playerCurrentRoom = 0;
         healthFromLastRoom = -1;
 
         lastWeaponTypeEquipped = 0;

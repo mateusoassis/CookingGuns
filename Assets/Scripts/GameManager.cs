@@ -43,8 +43,6 @@ public class GameManager : MonoBehaviour
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         levelCounterText = GameObject.Find("LevelCounterText").GetComponent<TextMeshProUGUI>();
         shakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();
-
-        playerManager.playerInfo.playerCurrentRoom = playerManager.playerInfo.currentSceneIndex - 2;
     }
 
     void Start()

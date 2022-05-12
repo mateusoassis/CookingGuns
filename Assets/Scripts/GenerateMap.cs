@@ -27,10 +27,11 @@ public class GenerateMap : MonoBehaviour
     void RoomSelector()
     {
         
-        int roomNumber = Random.Range(0,6);
+        //int roomNumber = Random.Range(0,6);
         
         if(!playerStats.playerManager.testingCredits)
         {
+            NextRoom();
             /*
             if(enemySpawner.playerInfo.playerCurrentRoom == 1) // cena 1
             {
@@ -128,5 +129,12 @@ public class GenerateMap : MonoBehaviour
         SceneManager.LoadScene("_Room_01", LoadSceneMode.Single);
         GetComponent<_PlayerManager>().playerInfo.isOnTutorial = false;
         GetComponent<_PlayerManager>().playerInfo.NewGameReset();
+    }
+
+    public void NextRoom() // literalmente vai pra próxima sala a partir do build index
+    {
+        int buildIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(buildIndex + 1);
+        GetComponent<_PlayerManager>().playerInfo.playerCurrentRoom++;
     }
 }

@@ -36,8 +36,6 @@ public class _PlayerManager : MonoBehaviour
     [Header("Panel Preto de Fade Out")]
     public GameFadeout gameFadeOut;
 
-    [Header("Index da Cena Atual")]
-    public int sceneIndex;
 
     [Header("Comer arma")]
     private float eatingWeaponTimer;
@@ -60,8 +58,6 @@ public class _PlayerManager : MonoBehaviour
 
     void Awake()
     {
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        playerInfo.currentSceneIndex = sceneIndex;
         playerReloadBar = GameObject.Find("ReloadBar");
         playerEatingWeaponBar = GameObject.Find("EatingWeaponBar");
         playerEatingWeaponBarSlider = playerEatingWeaponBar.GetComponent<Slider>();

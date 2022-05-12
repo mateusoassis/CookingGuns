@@ -25,10 +25,12 @@ public class HeartContainerManager : MonoBehaviour
         //hpLost = playerStats.playerMaxHealth - playerStats.playerCurrentHealth;
         hpLost = playerStats.playerMaxHealth - playerStats.playerManager.playerInfo.healthFromLastRoom;
         
+        /*
         if(playerStats.playerManager.playerInfo.currentSceneIndex > 2)
         {
             //UpdateAllHearts();
         }
+        */
     }
 
     void Update()
