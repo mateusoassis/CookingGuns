@@ -61,6 +61,14 @@ public class _PlayerManager : MonoBehaviour
         playerReloadBar = GameObject.Find("ReloadBar");
         playerEatingWeaponBar = GameObject.Find("EatingWeaponBar");
         playerEatingWeaponBarSlider = playerEatingWeaponBar.GetComponent<Slider>();
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            tutorial = true;
+        }
+        else
+        {
+            tutorial = false;
+        }
     }
     
     void Start()
@@ -136,7 +144,7 @@ public class _PlayerManager : MonoBehaviour
 
                     playerMovement.rollTimer = playerMovement.rollDuration;
                     playerMovement.rollCount++;
-                    
+
                     playerInfo.totalTimesRolled++;
 
                     // animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
