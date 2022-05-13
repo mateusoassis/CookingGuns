@@ -20,7 +20,7 @@ public class EnemyCounter : MonoBehaviour
 
     void Update()
     {
-        if (numberOfEnemies.Length == 0 && waveManager == null)
+        if (transform.childCount == 0 && waveManager == null)
         {
             gameManagerScript.roomCleared = true;
             Debug.Log("Finalizou");

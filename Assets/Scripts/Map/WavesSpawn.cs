@@ -24,7 +24,6 @@ public class WavesSpawn : MonoBehaviour
     private void Start()
     {
         StartCoroutine("ControlSpawn");
-        numberOfWaves -= 1;
     }
     public void SpawnWave()
     {
@@ -36,9 +35,10 @@ public class WavesSpawn : MonoBehaviour
         if (numberOfWaves > 0)
         {
             SpawnWave();
+            numberOfWaves -= 1;
             waveIndex = waveIndex + 1;
             yield break;
-        }else if(numberOfWaves < 0) 
+        }else if (numberOfWaves <= 0)
         {
             gameManagerScript.roomCleared = true;
         }

@@ -6,9 +6,9 @@ public class WaveManager : MonoBehaviour
 {
     private WavesSpawn wavesSpawnScript;
 
-
+    
     private void Awake()
-    {
+    { 
         wavesSpawnScript = GameObject.Find("WaveManager").GetComponent<WavesSpawn>();
     }
     private void Update()
