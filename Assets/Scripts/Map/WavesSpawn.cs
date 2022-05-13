@@ -32,16 +32,15 @@ public class WavesSpawn : MonoBehaviour
     }
     private IEnumerator ControlSpawn()
     {
+        yield return new WaitForSeconds(1.0f);
         if (numberOfWaves > 0)
         {
-            yield return new WaitForSeconds(1.0f);
             SpawnWave();
-            yield return new WaitForSeconds(0.5f);
-            yield break;
         }else if(waveIndex > enemyWave.Length)
         {
-            waveIndex = enemyWave.Length;
             Debug.Log("Matou todos");
         }
+        yield return new WaitForSeconds(0.5f);
+        yield break;
     }
 }
