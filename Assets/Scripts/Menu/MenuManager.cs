@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
             {
                 playerInfo.playerCurrentRoom = 1;
                 playerInfo.healthFromLastRoom = 0;
-                SceneManager.LoadScene("_Room_01", LoadSceneMode.Single);
+                SceneManager.LoadScene("_Room01", LoadSceneMode.Single);
                 playerInfo.NewGameReset();
             }
         }

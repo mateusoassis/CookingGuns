@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
         else
         {
             playerInfo.NewGameReset();
-            SceneManager.LoadScene("_Room_01");
+            SceneManager.LoadScene("_Room01");
         }
     }
 
