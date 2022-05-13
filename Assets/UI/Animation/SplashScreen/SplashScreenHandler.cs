@@ -34,6 +34,11 @@ public class SplashScreenHandler : MonoBehaviour
         {
             anim.speed = 1;
         }
+
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            ToMenu();
+        }
     }
 
     public void StartVids()
