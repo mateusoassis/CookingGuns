@@ -121,7 +121,7 @@ public class _PlayerManager : MonoBehaviour
                         }
                     }
                 }
-                /*
+                
                 else
                 {
                     isShooting = false;
@@ -144,7 +144,7 @@ public class _PlayerManager : MonoBehaviour
                         rmbHasToPressAgain = true;
                     }
                 }
-                */
+                
             }
 
             // pause

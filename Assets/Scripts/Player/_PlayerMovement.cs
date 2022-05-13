@@ -174,8 +174,15 @@ public class _PlayerMovement : MonoBehaviour
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
         }
         */
-        
-        
+        else
+        {
+
+            playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.deltaTime);
+         
+            PlayRollParticle();
+            playerManager.animationHandler.GetWeaponInt();
+            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+        }
     }
 
     public void RollCountTimer()
