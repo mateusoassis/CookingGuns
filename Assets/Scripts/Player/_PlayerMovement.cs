@@ -135,7 +135,7 @@ public class _PlayerMovement : MonoBehaviour
                     playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.deltaTime);
                     transform.forward = skewedLastInput.normalized;
                 }
-                else if(playerManager.isWalking)
+                else
                 {
                     playerManager.isWalking = false;
                     //var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
@@ -147,19 +147,7 @@ public class _PlayerMovement : MonoBehaviour
                     PlayRollParticle();
                     playerManager.animationHandler.GetWeaponInt();
                     playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
-                }
-                /*
-                else if(!playerManager.isWalking && playerManager.isRolling)
-                {
-                    Debug.Log("opa");
-                    playerManager.isWalking = false;
-
-                    playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.deltaTime);
-                    PlayRollParticle();
-                    playerManager.animationHandler.GetWeaponInt();
-                    playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
-                }
-                */
+                }  
             }
         }
         else if(_input.x == 0 && _input.z == 0 && !playerManager.isRolling)
@@ -168,17 +156,15 @@ public class _PlayerMovement : MonoBehaviour
             playerManager.animationHandler.GetWeaponInt();
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
         }
-        else if(_input.x == 0 && _input.z == 0 && playerManager.isRolling && !playerManager.isWalking)
+        else
         {
-            playerManager.isWalking = false;
 
             playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.deltaTime);
+         
             PlayRollParticle();
             playerManager.animationHandler.GetWeaponInt();
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
         }
-        
-        
     }
 
     public void RollCountTimer()

@@ -123,6 +123,6 @@ public class MenuManager : MonoBehaviour
     public void StraightToTutorial()
     {
         playerInfo.TutorialReset();
-        SceneManager.LoadScene("2_TutorialScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("3_TutorialScene", LoadSceneMode.Single);
     }
 }

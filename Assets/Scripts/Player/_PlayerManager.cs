@@ -61,6 +61,14 @@ public class _PlayerManager : MonoBehaviour
         playerReloadBar = GameObject.Find("ReloadBar");
         playerEatingWeaponBar = GameObject.Find("EatingWeaponBar");
         playerEatingWeaponBarSlider = playerEatingWeaponBar.GetComponent<Slider>();
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            tutorial = true;
+        }
+        else
+        {
+            tutorial = false;
+        }
     }
     
     void Start()
@@ -121,18 +129,22 @@ public class _PlayerManager : MonoBehaviour
                         }
                     }
                 }
+                
                 else
                 {
                     isShooting = false;
                     eatingWeaponTimer = 0f;
                     canceledEating = true;
                     playerEatingWeaponBar.SetActive(false);
+
                     isRolling = true;
                     playerWeaponHandler.Roll();
                     gameObject.layer = 12;
                     playerRigidbody.useGravity = false;
+
                     playerMovement.rollTimer = playerMovement.rollDuration;
                     playerMovement.rollCount++;
+
                     playerInfo.totalTimesRolled++;
 
                     // animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
@@ -143,6 +155,7 @@ public class _PlayerManager : MonoBehaviour
                         rmbHasToPressAgain = true;
                     }
                 }
+                
             }
 
             // pause
