@@ -1667,7 +1667,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751332585}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 2.7237263, y: 27.492113, z: -30.057627}
+  m_LocalPosition: {x: 2.7237263, y: 27.49211, z: -30.057625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1824513498}
@@ -3469,7 +3469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166729}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 2.7237263, y: 27.492113, z: -30.057627}
+  m_LocalPosition: {x: 2.7237263, y: 27.49211, z: -30.057625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3548,6 +3548,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1850308445, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: tutorial
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
@@ -4721,7 +4725,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-10572
+  m_Name: pb_Mesh-139298
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7490,7 +7494,7 @@ PrefabInstance:
     - target: {fileID: 1250803169, guid: 685a5f72eb78f574d9ed5d64dd1a88f9, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 6634162e2707a3d4f954bef472c6ab06, type: 2}
+      objectReference: {fileID: 23800000, guid: 2637793be08092d49bcb35b2f8cc969b, type: 2}
     - target: {fileID: 1250803169, guid: 685a5f72eb78f574d9ed5d64dd1a88f9, type: 3}
       propertyPath: m_LayerMask.m_Bits
       value: 64

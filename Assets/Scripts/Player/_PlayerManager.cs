@@ -128,12 +128,15 @@ public class _PlayerManager : MonoBehaviour
                     eatingWeaponTimer = 0f;
                     canceledEating = true;
                     playerEatingWeaponBar.SetActive(false);
+
                     isRolling = true;
                     playerWeaponHandler.Roll();
                     gameObject.layer = 12;
                     playerRigidbody.useGravity = false;
+
                     playerMovement.rollTimer = playerMovement.rollDuration;
                     playerMovement.rollCount++;
+                    
                     playerInfo.totalTimesRolled++;
 
                     // animationHandler.anim[animationHandler.weapon].SetBool("Rolling", true);
