@@ -8,7 +8,7 @@ public class WavesSpawn : MonoBehaviour
 
     [SerializeField] private float timeBetweenWaves;
 
-    [SerializeField] private GameObject[] enemyWave;
+    [SerializeField] private GameObject[] enemyWaves;
 
     [HideInInspector] public int numberOfWaves;
 
@@ -20,7 +20,7 @@ public class WavesSpawn : MonoBehaviour
     {
         gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         waveIndex = 0;
-        numberOfWaves = enemyWave.Length;
+        numberOfWaves = enemyWaves.Length;
     }
 
     private void Start()
@@ -29,7 +29,7 @@ public class WavesSpawn : MonoBehaviour
     }
     public void SpawnWave()
     {
-        Instantiate(enemyWave[waveIndex], spawnPoint.position, Quaternion.identity);
+        Instantiate(enemyWaves[waveIndex], spawnPoint.position, Quaternion.identity);
     }
     private IEnumerator ControlSpawn()
     {
