@@ -6,6 +6,8 @@ public class WavesSpawn : MonoBehaviour
 {
     [SerializeField] private GameManager gameManagerScript;
 
+    [SerializeField] private float timeBetweenWaves;
+
     [SerializeField] private GameObject[] enemyWave;
 
     [SerializeField] public int numberOfWaves;
@@ -31,7 +33,7 @@ public class WavesSpawn : MonoBehaviour
     }
     private IEnumerator ControlSpawn()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(timeBetweenWaves);
         if (numberOfWaves > 0)
         {
             SpawnWave();
