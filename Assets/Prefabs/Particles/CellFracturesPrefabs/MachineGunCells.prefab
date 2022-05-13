@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 791404317170250573}
+  - component: {fileID: 2297751208226014925}
   m_Layer: 0
   m_Name: MachineGunCells
   m_TagString: Untagged
@@ -179,6 +180,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &2297751208226014925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121723238976121335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32eeffc9923ad5d4c9157edcde3535d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestroy: 3
 --- !u!1 &215445150565035917
 GameObject:
   m_ObjectHideFlags: 0
@@ -7538,8 +7552,8 @@ GameObject:
   - component: {fileID: 7786402241609025495}
   - component: {fileID: 2944168319341155521}
   - component: {fileID: 7698063819507019336}
-  - component: {fileID: 1645248811200868380}
   - component: {fileID: 338884283660230330}
+  - component: {fileID: 1645248811200868380}
   m_Layer: 0
   m_Name: Alca_cell.001
   m_TagString: Untagged
@@ -7610,6 +7624,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &338884283660230330
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4213105127592348421}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3902960125907150214, guid: 81091fb496258a5478747406aa05d880, type: 3}
 --- !u!54 &1645248811200868380
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7626,20 +7654,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &338884283660230330
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213105127592348421}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3902960125907150214, guid: 81091fb496258a5478747406aa05d880, type: 3}
 --- !u!1 &4286719376479051504
 GameObject:
   m_ObjectHideFlags: 0
