@@ -156,24 +156,6 @@ public class _PlayerMovement : MonoBehaviour
             playerManager.animationHandler.GetWeaponInt();
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
         }
-        /*
-        else if(_input.x == 0 && _input.z == 0 && !playerManager.isRolling)
-        {
-            //playerManager.isWalking = false;
-            playerManager.animationHandler.GetWeaponInt();
-            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
-        }
-        
-        else if(_input.x == 0 && _input.z == 0 && playerManager.isRolling)
-        {
-            playerManager.isWalking = false;
-
-            playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.deltaTime);
-            PlayRollParticle();
-            playerManager.animationHandler.GetWeaponInt();
-            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
-        }
-        */
         else
         {
 
