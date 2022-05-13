@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class WavesSpawn : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManagerScript;
+    private GameManager gameManagerScript;
 
     [SerializeField] private float timeBetweenWaves;
 
     [SerializeField] private GameObject[] enemyWave;
 
-    [SerializeField] public int numberOfWaves;
+    [HideInInspector] public int numberOfWaves;
 
-    [SerializeField] private int waveIndex;
+    private int waveIndex;
 
-    [SerializeField] private Transform mapCenter;
+    private Transform mapCenter;
 
     private void Awake()
     {
