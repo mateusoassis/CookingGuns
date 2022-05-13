@@ -14,7 +14,7 @@ public class WavesSpawn : MonoBehaviour
 
     private int waveIndex;
 
-    private Transform mapCenter;
+    [SerializeField] private Transform spawnPoint;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class WavesSpawn : MonoBehaviour
     }
     public void SpawnWave()
     {
-        Instantiate(enemyWave[waveIndex], mapCenter.position, Quaternion.identity);
+        Instantiate(enemyWave[waveIndex], spawnPoint.position, Quaternion.identity);
     }
     private IEnumerator ControlSpawn()
     {
