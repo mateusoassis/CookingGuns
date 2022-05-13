@@ -297,7 +297,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1554704249}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 2173238206205410730}
   - component: {fileID: 7121455048909591687}
   - component: {fileID: 347128590}
+  - component: {fileID: 1317874176}
   m_Layer: 8
   m_Name: 6_Shieldoca
   m_TagString: Enemy
@@ -671,6 +672,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1317874176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173238206205410723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a678217114a34048a4aea20d4ef8d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondPartOpenDoor: {fileID: 0}
+  windowContainer: {fileID: 0}
+  type: 1
 --- !u!1 &4394465919244473732
 GameObject:
   m_ObjectHideFlags: 0
