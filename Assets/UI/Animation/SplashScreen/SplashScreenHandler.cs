@@ -10,9 +10,11 @@ public class SplashScreenHandler : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private float animatorSpeedMultiplier;
     [SerializeField] private TextMeshProUGUI multiplierText;
+    private CreditsBugController credits;
 
     void Start()
     {
+        credits = GameObject.Find("5_Bugs").GetComponent<CreditsBugController>();
         multiplierText.text = ("Hold SPACE to " + animatorSpeedMultiplier + "x speed");
         anim = GetComponent<Animator>();
     }
@@ -32,5 +34,10 @@ public class SplashScreenHandler : MonoBehaviour
         {
             anim.speed = 1;
         }
+    }
+
+    public void StartVids()
+    {
+        credits.StartVideoLoop();
     }
 }

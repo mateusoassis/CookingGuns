@@ -6,11 +6,14 @@ using UnityEngine.Video;
 
 public class CreditsBugController : MonoBehaviour
 {
+    private SplashScreenHandler splashScreenHandler;
     public CanvasGroup waitCanvasGroup;
     public CanvasGroup targetCanvasGroup;
     public bool canPlay;
-    public bool vanishing;
     public bool vanished;
+    public bool start;
+    public bool canGoToMenu;
+    public bool videoPlaying;
 
     public float transitionDuration;
     public double currentClipDuration;
@@ -22,37 +25,45 @@ public class CreditsBugController : MonoBehaviour
 
     void Awake()
     {
+        splashScreenHandler = GameObject.Find("Canvas").GetComponent<SplashScreenHandler>();
         amountOfVideos = orderVideoClip.Length;
         PrepareNextVideo();
     }
 
     void Update()
     {
+        if(start)
+        {
+            if(targetCanvasGroup.alpha < 1 && !vanished)
+            {
+                targetCanvasGroup.alpha += Time.deltaTime/3;
+            }
+
+            if(targetCanvasGroup.alpha >= 1)
+            {
+                canPlay = true;
+                
+            }
+
+            if(canPlay && !videoPlaying)
+            {
+                if(vPlayer.isPrepared)
+                {
+                    PlayVideo();
+                }
+            }
+        }
+        else
+        {
+            targetCanvasGroup.alpha -= Time.deltaTime/3;
+            if(targetCanvasGroup.alpha == 0 && canGoToMenu)
+            {
+                splashScreenHandler.ToMenu();
+            }
+        }
         //waitCanvasGroupAlpha = waitCanvasGroup.alpha;
         //targetCanvasGroupAlpha = targetCanvasGroup.alpha;
-        if(targetCanvasGroup.alpha < 1 && !vanished)
-        {
-            targetCanvasGroup.alpha += Time.deltaTime/3;
-        }
-
-        if(targetCanvasGroup.alpha >= 1 && canPlay)
-        {
-            PlayVideo();
-        }
-
-        if(vanishing && !vanished)
-        {
-            if(targetCanvasGroup.alpha > 0)
-            {
-                targetCanvasGroup.alpha -= Time.deltaTime/3;
-            }
-            else
-            {
-
-                vanishing = false;
-                vanished = true;
-            }
-        }
+        
     }
 
     public void PrepareNextVideo()
@@ -60,23 +71,70 @@ public class CreditsBugController : MonoBehaviour
         vPlayer.clip = orderVideoClip[videoIndex];
         vPlayer.Prepare();
         currentClipDuration = orderVideoClip[videoIndex].length;
-
-        videoIndex++;
-        canPlay = true;
     }
 
     public void PlayVideo()
     {
         vPlayer.Play();
-        canPlay = false;
         StartCoroutine(WaitClipToEnd());
+        canPlay = false;
+        videoPlaying = true;
     }
 
     public IEnumerator WaitClipToEnd()
     {
+        UpdateVideoSpeed();
         yield return new WaitForSeconds((float)currentClipDuration/vPlayer.playbackSpeed);
+        videoIndex++;
         PrepareNextVideo();
-        vanishing = true;
+        //vanishing = true;
         canPlay = true;
+        videoPlaying = false;
+        if(videoIndex == 7)
+        {
+            start = false;
+            canGoToMenu = true;
+        }
+    }
+
+    public void StartVideoLoop()
+    {
+        start = true;
+    }
+
+    public void UpdateVideoSpeed()
+    {
+        if(videoIndex == 0)
+        {
+            vPlayer.playbackSpeed = 2;
+        }
+        else if(videoIndex == 1)
+        {
+            vPlayer.playbackSpeed = 1.5f;
+        }
+        else if(videoIndex == 2)
+        {
+            vPlayer.playbackSpeed = 1.5f;
+        }
+        else if(videoIndex == 3)
+        {
+            vPlayer.playbackSpeed = 1.5f;
+        }
+        else if(videoIndex == 4)
+        {
+            vPlayer.playbackSpeed = 1.5f;
+        }
+        else if(videoIndex == 5)
+        {
+            vPlayer.playbackSpeed = 1.5f;
+        }
+        else if(videoIndex == 6)
+        {
+            vPlayer.playbackSpeed = 1.5f;
+        }
+        else if(videoIndex == 7)
+        {
+            vPlayer.playbackSpeed = 1.5f;
+        }
     }
 }
