@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GenerateMap : MonoBehaviour
 {
 
-    public EnemySpawner enemySpawner;
+    //public EnemySpawner enemySpawner;
     public bool test;
 
     public GameManager gameManager;
@@ -18,7 +18,7 @@ public class GenerateMap : MonoBehaviour
 
     void Start()
     {
-        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        //enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerStats = GetComponent<_PlayerStats>();
         mainUI = GameObject.Find("MainUI");
@@ -104,7 +104,7 @@ public class GenerateMap : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Door" && enemySpawner.roomCleared == true)
+        if(other.gameObject.tag == "Door" && gameManager.roomCleared == true)
         {
             //if(!test)
             //{

@@ -53,7 +53,7 @@ public class VermelhaBehaviour : MonoBehaviour
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         targetedVector = new Vector3(1f * sizeOfExplosionScale, 0.25f, 1f * sizeOfExplosionScale);
         scaleVector = new Vector3(1f, 0.25f, 1f);
-        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        //enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         blinking = false;
         enemyAnimator = GetComponent<Animator>();
         enemySpeed = enemyMaxSpeed;
@@ -194,7 +194,7 @@ public class VermelhaBehaviour : MonoBehaviour
         }
         if(GetComponent<MinusOnDestroy>() == null)
         {
-            enemySpawner.enemiesKilled++;
+            Debug.Log("Morreu kk");
         }
         Debug.Log("explodiu");
 

@@ -9,13 +9,14 @@ public class WaveManager : MonoBehaviour
 
     private void Awake()
     {
-        wavesSpawnScript = GameObject.Find("WaveSpawner").GetComponent<WavesSpawn>();
+        wavesSpawnScript = GameObject.Find("WaveManager").GetComponent<WavesSpawn>();
     }
     private void Update()
     {
         if (transform.childCount <= 0)
         {
             wavesSpawnScript.StartCoroutine("ControlSpawn");
+            Destroy(this.gameObject);
         }
     }
 }

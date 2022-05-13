@@ -37,7 +37,7 @@ public class EnemyStats : MonoBehaviour
     void Start(){
         enemyHealth = enemyMaxHealth;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        //enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         healthbarScript = GetComponentInChildren<HealthbarBehaviour>();
         oldMaterial = enemyFlashingPart.GetComponent<MeshRenderer>().material;
     }
@@ -72,7 +72,7 @@ public class EnemyStats : MonoBehaviour
             if(GetComponent<MinusOnDestroy>() == null)
             {
                 //Debug.Log(name);
-                enemySpawner.enemiesKilled++;
+                //enemySpawner.enemiesKilled++;
                 Debug.Log(name);
             }
             playerInfo.totalEnemiesKilled++;

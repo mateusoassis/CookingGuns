@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WavesSpawn : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManagerScript;
+
     [SerializeField] private GameObject[] enemyWave;
 
     [SerializeField] public int numberOfWaves;
@@ -14,21 +16,19 @@ public class WavesSpawn : MonoBehaviour
 
     private void Awake()
     {
+        gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         waveIndex = 0;
         numberOfWaves = enemyWave.Length;
     }
 
     private void Start()
     {
-        if (numberOfWaves>0) 
-        {
-            SpawnWave();
-        }
+        StartCoroutine("ControlSpawn");
+        numberOfWaves -= 1;
     }
     public void SpawnWave()
     {
         Instantiate(enemyWave[waveIndex], mapCenter.position, Quaternion.identity);
-        waveIndex = waveIndex + 1;
     }
     private IEnumerator ControlSpawn()
     {
@@ -36,11 +36,11 @@ public class WavesSpawn : MonoBehaviour
         if (numberOfWaves > 0)
         {
             SpawnWave();
-        }else if(waveIndex > enemyWave.Length)
+            waveIndex = waveIndex + 1;
+            yield break;
+        }else if(numberOfWaves < 0) 
         {
-            Debug.Log("Matou todos");
+            gameManagerScript.roomCleared = true;
         }
-        yield return new WaitForSeconds(0.5f);
-        yield break;
     }
 }

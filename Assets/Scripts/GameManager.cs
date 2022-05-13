@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float slowdownFactor;
     public bool slowdown;
     public bool slowdownEnded;
+    public bool roomCleared;
 
     private float elapsedTime;
     public int hours;
@@ -35,11 +36,12 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        roomCleared = false;
         /*pauseUI = GameObject.Find("PauseUI");
         restartConfirmationWindow = GameObject.Find("RestartConfirmationWindow");
         quitConfirmationWindow = GameObject.Find("QuitConfirmationWindow");*/
         timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
-        enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
+        //enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         levelCounterText = GameObject.Find("LevelCounterText").GetComponent<TextMeshProUGUI>();
         shakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();
@@ -66,11 +68,11 @@ public class GameManager : MonoBehaviour
     {
         ConvertElapsedTimeToHMS();
         OverwriteTimestamp();
-        if(!enemySpawner.roomCleared)
+        if(!roomCleared)
         {
             return;
         }
-        else if(enemySpawner.roomCleared && !slowdown && !playerManager.isFading)
+        else if(roomCleared && !slowdown && !playerManager.isFading)
         {
             StartSlowTime();
         }
