@@ -58,7 +58,7 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
         if(delayTimer < 0 && lastAnimation == 0)
         {
             anim[modelIndex].SetBool("Walking", false);
-            if(modelIndex == 2)
+            if(modelIndex == 1)
             {
                 anim[modelIndex].Play("ShootShotgun");
             }

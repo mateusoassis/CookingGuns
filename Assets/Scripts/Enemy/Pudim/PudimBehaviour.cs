@@ -23,14 +23,14 @@ public class PudimBehaviour : MonoBehaviour
 
     [Header("Tiros")]
     public float timeBetweenShots;
-    private float timeBetweenShotsTimer;
+    public float timeBetweenShotsTimer;
     public float randomExtraTimeBetweenShots;
 
     [Header("Movimentação behaviour 2")]
     public float countToMove;
-    private float countToMoveTimer;
+    public float countToMoveTimer;
     public float retreatCooldown;
-    private float retreatCooldownTimer;
+    public float retreatCooldownTimer;
     public bool retreating;
     public bool retreatingOnCooldown;
 
@@ -213,7 +213,7 @@ public class PudimBehaviour : MonoBehaviour
     public void ShootProjectile()
     {
         Instantiate(enemyBulletPrefab, firePoint.position, Quaternion.identity);
-        float u = Random.Range(timeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
+        float u = Random.Range(timeBetweenShots - randomExtraTimeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
         timeBetweenShotsTimer = u;
         canMove = true;
     }
