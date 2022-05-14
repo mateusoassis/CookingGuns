@@ -44,6 +44,7 @@ public class WavesSpawn : MonoBehaviour
         }else if (numberOfWaves <= 0)
         {
             gameManagerScript.roomCleared = true;
+            gameManagerScript.playerManager.petHandler.petBillboard.ActivateOnEnemiesKilled();
         }
     }
 }

@@ -68,7 +68,7 @@ public class EnemySpawner : MonoBehaviour
             if (enemiesKilled >= totalEnemies && !roomCleared)
             {
                 roomCleared = true;
-                petHandler.pressEKey.SetActive(true);
+                petHandler.pressFKey.SetActive(true);
                 petBillboard.lockOnPlayer = true;
                 if(petBillboard.lockOnPlayer)
                 {

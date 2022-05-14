@@ -10,10 +10,10 @@ public class PetHandler : MonoBehaviour
     [Header("Pet Settings")]
     private Transform pet;
     public Transform petModel;
-    public GameObject pressEKey;
+    public GameObject pressFKey;
     //public NavMeshAgent petNavMeshAgent;
     
-    private PetBillboard petBillboard;
+    public PetBillboard petBillboard;
     public bool playerOnArea;
 
     [Header("Crafting")]
@@ -47,7 +47,7 @@ public class PetHandler : MonoBehaviour
     {
         petModel = GameObject.Find("PetAirFryer").GetComponent<Transform>();
         pet = GameObject.Find("Pet").GetComponent<Transform>();
-        pressEKey = GameObject.Find("ApertaE");
+        pressFKey = GameObject.Find("F_Container");
         cinemachineSwitchBlend = GameObject.Find("CinemachineCamSetup").GetComponent<CinemachineSwitchBlend>();
         buttonsCanvasObject = GameObject.Find("ButtonsCanvas");
         petLookAt = GameObject.Find("ButtonsCanvas").GetComponent<PetLookAt>();
@@ -56,7 +56,7 @@ public class PetHandler : MonoBehaviour
 
     void Start()
     {
-        pressEKey.SetActive(false);
+        pressFKey.SetActive(false);
         mainUI = GameObject.Find("MainUI");
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         inventorytxt = GameObject.Find("Player").GetComponent<Inventory>();
@@ -158,7 +158,7 @@ public class PetHandler : MonoBehaviour
         //pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
         targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - transform.position);
         petLookAt.lookAtPosition = petLookAt.playerPos.position;
-        pressEKey.SetActive(false);
+        pressFKey.SetActive(false);
         buttonsCanvasObject.SetActive(true);
         //StartCoroutine(DisableCanvasGroup(cinemachineSwitchBlend.mainToPetDuration));
     }
@@ -167,7 +167,7 @@ public class PetHandler : MonoBehaviour
         craftingWindowOpen = false;
         //craftingWindowObject.SetActive(false);
         cinemachineSwitchBlend.SwitchPriority();
-        pressEKey.SetActive(true);
+        pressFKey.SetActive(true);
         //buttonsCanvasObject.SetActive(false);
         //StartCoroutine(EnableCanvasGroup(cinemachineSwitchBlend.petToMainDuration));
         canvasGroupAnimator.SetTrigger("Disable");
