@@ -14,7 +14,10 @@ public class SplashScreenHandler : MonoBehaviour
 
     void Start()
     {
-        credits = GameObject.Find("5_Bugs").GetComponent<CreditsBugController>();
+        if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            credits = GameObject.Find("5_Bugs").GetComponent<CreditsBugController>();
+        }
         multiplierText.text = ("Hold SPACE to " + animatorSpeedMultiplier + "x speed");
         anim = GetComponent<Animator>();
     }
@@ -35,7 +38,7 @@ public class SplashScreenHandler : MonoBehaviour
             anim.speed = 1;
         }
 
-        if(Input.GetKey(KeyCode.Escape))
+        if(Input.GetKey(KeyCode.Escape) && credits != null)
         {
             ToMenu();
         }

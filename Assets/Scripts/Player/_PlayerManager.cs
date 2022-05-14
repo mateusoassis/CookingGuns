@@ -202,6 +202,7 @@ public class _PlayerManager : MonoBehaviour
                     {
                         petHandler.OpenCraftingWindow();
                         craftingHandlerInPlayer.ShowCraftOptions();
+                        tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
                     }
                 }
             }
