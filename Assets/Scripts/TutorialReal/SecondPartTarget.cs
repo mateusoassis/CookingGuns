@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SecondPartTarget : MonoBehaviour
 {
@@ -13,8 +14,11 @@ public class SecondPartTarget : MonoBehaviour
 
     void Start()
     {
-        secondPartOpenDoor = GameObject.Find("2nd_PartColliders").GetComponent<SecondPartOpenDoor>();
-        windowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            secondPartOpenDoor = GameObject.Find("2nd_PartColliders").GetComponent<SecondPartOpenDoor>();
+            windowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
+        }
     }
 
     void OnDestroy()

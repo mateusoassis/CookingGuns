@@ -9,11 +9,10 @@ public class _PlayerStats : MonoBehaviour
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
 
-    private YouLoseHolder youLoseHolder;
+    public YouLoseHolder youLoseHolder;
 
 
     [Header("Player Stats")]
-    [Range(0,7)]
     public int playerCurrentHealth;
     public int playerMaxHealth;
 
@@ -45,10 +44,9 @@ public class _PlayerStats : MonoBehaviour
 
     void Start()
     {
-        if(playerManager.playerInfo.playerCurrentRoom > 0)
-        {
-            youLoseHolder = GameObject.Find("MainCanvas").GetComponent<YouLoseHolder>();
-        }
+
+        youLoseHolder = GameObject.Find("MainCanvas").GetComponent<YouLoseHolder>();
+        
         //youLoseHolder.youLoseObject.SetActive(false);
         playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
         //youLoseScript = GameObject.Find("MainCanvas").GetComponent<YouLose>();
@@ -59,23 +57,33 @@ public class _PlayerStats : MonoBehaviour
     {
         if(!playerManager.isFading && !playerManager.isRolling)
         {
-            cameraShakeEffect.Shockwave();
-            simpleFlashEffect.Flash();
-            playerCurrentHealth -= damage;
-            heartScript.hpLost += damage;
-            heartScript.UpdateAllHearts();
+            int futureHP = playerCurrentHealth - damage;
+            if(futureHP > 0)
+            {
+                Debug.Log("n perdeu");
+                cameraShakeEffect.Shockwave();
+                simpleFlashEffect.Flash();
+                playerCurrentHealth = futureHP;
+                heartScript.hpLost += damage;
+                heartScript.UpdateAllHearts();
+                FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
+            }
+            
 
-
-            if(playerCurrentHealth > 0)
+            /*
+            if(futureHP > 0)
             {
                 FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
             }
+            */
 
-            if(playerCurrentHealth <= 0)
+            if(futureHP <= 0)
             {
+                Debug.Log("perdeu");
                 FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
-                playerManager.gameManager.PauseGame();
-                youLoseHolder.PlayerLost();
+                playerManager.gameManager.PauseAndLose();
+                //playerManager.gameManager.PauseGame();
+                //youLoseHolder.PlayerLost();
                 playerManager.playerInfo.totalPlayedTime += (int)playerManager.gameManager.elapsedTime;
                 //youLoseHolder.gameObject.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
                 //youLoseScript.PlayerLost();

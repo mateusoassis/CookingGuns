@@ -169,6 +169,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PauseAndLose()
+    {
+        if(!pausedGame)
+        {
+            pausedGame = true;
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
+            playerManager.playerStats.youLoseHolder.PlayerLost();
+        }
+    }
+
     public void ResumeGame()
     {
         if(pausedGame)
@@ -213,8 +224,8 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        playerInfo.totalPlayedTime += (int)elapsedTime;
         SceneManager.LoadScene("1_MenuScene", LoadSceneMode.Single);
+        playerInfo.totalPlayedTime += (int)elapsedTime;
     }
 
     public void CloseAllConfirmationWindows()

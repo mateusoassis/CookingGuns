@@ -356,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459417430785882523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5622439907570934823}
@@ -835,6 +835,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4459417430785882524}
     m_Modifications:
+    - target: {fileID: 4522085814175099382, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522085814175099382, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4522085815077935938, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -930,6 +938,14 @@ PrefabInstance:
     - target: {fileID: 4522085815077935942, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950971020152022175, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950971020152022175, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af70f080fdcf1744ad881da297caf7a, type: 3}
@@ -1060,6 +1076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 3602668774398098682, guid: 10a6398185d48c245951fa3071996cf1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a6398185d48c245951fa3071996cf1, type: 3}
 --- !u!4 &8334456752724368471 stripped
@@ -1072,3 +1092,21 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3602668774398098676, guid: 10a6398185d48c245951fa3071996cf1, type: 3}
   m_PrefabInstance: {fileID: 4780202030803067042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8334456752724368472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3602668774398098682, guid: 10a6398185d48c245951fa3071996cf1, type: 3}
+  m_PrefabInstance: {fileID: 4780202030803067042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4490152414707668525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334456752724368472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01118f2d49de96f4585e79a9f8556385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 4459417430785882524}
