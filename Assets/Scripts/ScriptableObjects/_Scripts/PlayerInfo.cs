@@ -39,8 +39,8 @@ public class PlayerInfo : ScriptableObject
     public int totalTimesRolled; //
     
     // tempo
-    public int totalPlayedTime;
-    public int fastestRunSoFar;
+    public int totalPlayedTime; //
+    public int fastestRunSoFar; //
 
 
 
