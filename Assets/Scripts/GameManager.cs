@@ -36,6 +36,14 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            playerInfo.isOnTutorial = true;
+        }
+        else
+        {
+            playerInfo.isOnTutorial = false;
+        }
         roomCleared = false;
         /*pauseUI = GameObject.Find("PauseUI");
         restartConfirmationWindow = GameObject.Find("RestartConfirmationWindow");
@@ -182,7 +190,7 @@ public class GameManager : MonoBehaviour
         if(playerInfo.isOnTutorial)
         {
             playerInfo.TutorialReset();
-            SceneManager.LoadScene("2_TutorialScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("3_TutorialScene", LoadSceneMode.Single);
         }
         else
         {
