@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     public PlayerInfo playerInfo;
     public CameraShake shakeEffect;
 
+    public bool fadeToChangeScene;
+    public bool stopFading;
+
     public bool outOfBoundsCollider;
 
     void Awake()
