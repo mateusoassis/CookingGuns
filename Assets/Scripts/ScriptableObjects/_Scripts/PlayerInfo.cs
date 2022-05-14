@@ -33,6 +33,7 @@ public class PlayerInfo : ScriptableObject
     // inimigos
     public int totalEnemiesKilled; //
     public int mostEnemiesKilledOnSameRun;
+    public int[] totalEnemiesKilledPerWeapon; //
 
     // player
     public int totalTimesRolled; //

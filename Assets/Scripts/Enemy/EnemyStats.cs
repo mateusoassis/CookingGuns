@@ -76,6 +76,7 @@ public class EnemyStats : MonoBehaviour
                 Debug.Log(name);
             }
             playerInfo.totalEnemiesKilled++;
+            playerInfo.totalEnemiesKilledPerWeapon[playerInfo.lastWeaponTypeEquipped]++;
             
             if(dropPrefab[0] != null)
             {

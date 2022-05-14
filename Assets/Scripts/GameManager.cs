@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public bool slowdownEnded;
     public bool roomCleared;
 
-    private float elapsedTime;
+    public float elapsedTime;
     public int hours;
     public int minutes;
     public int seconds;
@@ -213,6 +213,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
+        playerInfo.totalPlayedTime += (int)elapsedTime;
         SceneManager.LoadScene("1_MenuScene", LoadSceneMode.Single);
     }
 

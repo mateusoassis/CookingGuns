@@ -76,6 +76,7 @@ public class _PlayerStats : MonoBehaviour
                 FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
                 playerManager.gameManager.PauseGame();
                 youLoseHolder.PlayerLost();
+                playerManager.playerInfo.totalPlayedTime += (int)playerManager.gameManager.elapsedTime;
                 //youLoseHolder.gameObject.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
                 //youLoseScript.PlayerLost();
                 playerManager.playerInfo.healthFromLastRoom = 0;
