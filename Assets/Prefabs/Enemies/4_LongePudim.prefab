@@ -183,7 +183,7 @@ MonoBehaviour:
   underOneFourthHP: 0
   damageParticle: {fileID: 8555817675229243415}
   flashDuration: 0.1
-  enemyFlashingPart: {fileID: 552253258484783948}
+  enemyFlashingPart: {fileID: 5459234541946336398}
   flashMaterial: {fileID: 2100000, guid: d293cf513d79d4b4bb47f6ac2bf4a226, type: 2}
   enemyType: 2
 --- !u!114 &1771404955837624465
@@ -208,9 +208,12 @@ MonoBehaviour:
   retreatDistance: 8
   firePoint: {fileID: 3639722463019046557}
   timeBetweenShots: 3
+  timeBetweenShotsTimer: 0
   randomExtraTimeBetweenShots: 1
   countToMove: 3
+  countToMoveTimer: 0
   retreatCooldown: 3
+  retreatCooldownTimer: 0
   retreating: 0
   retreatingOnCooldown: 0
   ableToPatrol: 0
@@ -363,11 +366,6 @@ PrefabInstance:
 --- !u!4 &754770554506684721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a9c366dd45fd564c9efc8aa047cd4fd, type: 3}
-  m_PrefabInstance: {fileID: 1005361200771813082}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &552253258484783948 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8477395424318106218, guid: 1a9c366dd45fd564c9efc8aa047cd4fd, type: 3}
   m_PrefabInstance: {fileID: 1005361200771813082}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3435158964550626763
@@ -615,5 +613,10 @@ PrefabInstance:
 --- !u!4 &5049551542873671411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cd35e480b6c76b04cb8f410685e33152, type: 3}
+  m_PrefabInstance: {fileID: 4726850114457411864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5459234541946336398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8477395424318106218, guid: cd35e480b6c76b04cb8f410685e33152, type: 3}
   m_PrefabInstance: {fileID: 4726850114457411864}
   m_PrefabAsset: {fileID: 0}

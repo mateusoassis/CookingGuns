@@ -37,6 +37,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     public float rollDuration;
 
     public ChargeJujubaAnimator chargeJujubaAnimator;
+    public ParticleSystem trailParticle;
 
     public bool rolling;
     public float rollSpeed;
@@ -61,6 +62,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         canWalk = true;
         state = 1;
         parent = transform.parent;
+        trailParticle.Stop();
     }
 
     void FixedUpdate()
@@ -155,6 +157,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         var t = 0f;
         var start = transform.position;
 
+        trailParticle.Play();
         while (t < timeToWalk)
         {
             t += Time.deltaTime;
@@ -193,6 +196,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToStartCharging);
         chargeJujubaAnimator.StartRoll();
+        trailParticle.Play();
         yield return new WaitForSeconds(0.2f);
         state = 4;
         yield return new WaitForSeconds(rollDuration);
