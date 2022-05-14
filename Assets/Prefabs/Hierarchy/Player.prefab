@@ -8292,7 +8292,7 @@ MonoBehaviour:
   testing: 0
   testingWeapons: 0
   testingCredits: 0
-  tutorial: 1
+  tutorial: 0
   playerRigidbody: {fileID: 0}
   animationHandler: {fileID: 0}
   playerStats: {fileID: 0}
@@ -8332,6 +8332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45eb4dc99a0faa543999320c30ec2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  youLoseHolder: {fileID: 0}
   playerCurrentHealth: 0
   playerMaxHealth: 7
   heartScript: {fileID: 0}
@@ -8430,7 +8431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   petModel: {fileID: 0}
-  pressEKey: {fileID: 0}
+  pressFKey: {fileID: 0}
+  petBillboard: {fileID: 0}
   playerOnArea: 0
   craftingWindowOpen: 0
   craftingWindowObject: {fileID: 0}
@@ -8464,6 +8466,7 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   mainUI: {fileID: 0}
   healEveryRoom: 0
+  numberOfRoomsToEndGame: 5
 --- !u!33 &6581419280599443777
 MeshFilter:
   m_ObjectHideFlags: 0
