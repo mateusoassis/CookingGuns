@@ -226,6 +226,14 @@ public class GameManager : MonoBehaviour
 
     public void CreditsScene()
     {
+        if(playerInfo.fastestRunSoFar == 0)
+        {
+            playerInfo.fastestRunSoFar = (int)elapsedTime;
+        }
+        else if(playerInfo.fastestRunSoFar > (int)elapsedTime)
+        {
+            playerInfo.fastestRunSoFar = (int)elapsedTime;
+        }
         SceneManager.LoadScene("2_CreditsScene", LoadSceneMode.Single);
     }
 }
