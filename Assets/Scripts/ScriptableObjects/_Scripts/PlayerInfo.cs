@@ -67,7 +67,7 @@ public class PlayerInfo : ScriptableObject
 
     public void NewGameReset()
     {
-        playerCurrentRoom = 0;
+        playerCurrentRoom = 1;
         healthFromLastRoom = -1;
 
         lastWeaponTypeEquipped = 0;

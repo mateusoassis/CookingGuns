@@ -14,6 +14,8 @@ public class GenerateMap : MonoBehaviour
     public GameObject mainUI;
 
     public bool healEveryRoom;
+
+    public int numberOfRoomsToEndGame;
         
 
     void Start()
@@ -133,8 +135,15 @@ public class GenerateMap : MonoBehaviour
 
     public void NextRoom() // literalmente vai pra próxima sala a partir do build index
     {
-        int buildIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(buildIndex + 1);
-        GetComponent<_PlayerManager>().playerInfo.playerCurrentRoom++;
+        if(GetComponent<_PlayerManager>().playerInfo.playerCurrentRoom < numberOfRoomsToEndGame)
+        {
+            int buildIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(buildIndex + 1);
+            GetComponent<_PlayerManager>().playerInfo.playerCurrentRoom++;
+        }
+        else
+        {
+            SceneManager.LoadScene("2_CreditsScene", LoadSceneMode.Single);
+        }
     }
 }
