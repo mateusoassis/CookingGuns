@@ -24,7 +24,7 @@ public class PlayerInfo : ScriptableObject
     [Header("Estatisticas")]
     // tutorial
     
-    public int timeSpentOnTutorial;
+    public int timeSpentOnTutorial; //
 
     // armas
     public int totalWeaponsCrafted; //
