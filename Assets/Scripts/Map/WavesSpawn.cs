@@ -33,9 +33,10 @@ public class WavesSpawn : MonoBehaviour
     }
     private IEnumerator ControlSpawn()
     {
-        yield return new WaitForSeconds(timeBetweenWaves);
+        //yield return new WaitForSeconds(timeBetweenWaves);
         if (numberOfWaves > 0)
         {
+            yield return new WaitForSeconds(timeBetweenWaves);
             SpawnWave();
             numberOfWaves -= 1;
             waveIndex = waveIndex + 1;

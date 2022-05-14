@@ -8154,10 +8154,10 @@ MonoBehaviour:
   multiplier: 1
   rollSpeed: 20
   rollTimer: 0
-  rollDuration: 0.4
+  rollDuration: 0.3
   maxRoll: 1
   rollCount: 0
-  rollCountDuration: 1
+  rollCountDuration: 0.6
   rollSmokePrefab: {fileID: 1311658758351664214}
   playerAimLayerMask:
     serializedVersion: 2
@@ -8259,7 +8259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f5ee35cd8e7de4fb8fbee2e27ba128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawner: {fileID: 0}
   test: 0
   gameManager: {fileID: 0}
   playerStats: {fileID: 0}
