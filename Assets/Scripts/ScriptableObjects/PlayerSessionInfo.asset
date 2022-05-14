@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PlayerSessionInfo
   m_EditorClassIdentifier: 
   hasPlayedTutorial: 0
+  isOnTutorial: 0
+  endedTutorial: 0
   playerCurrentRoom: 1
   healthFromLastRoom: 0
-  currentSceneIndex: 3
   lastWeaponTypeEquipped: 0
   unlockedGuns: 00000000
   lastSlotEquipped: 0
@@ -26,6 +27,7 @@ MonoBehaviour:
   totalWeaponsEaten: 0
   totalEnemiesKilled: 0
   mostEnemiesKilledOnSameRun: 0
+  totalEnemiesKilledPerWeapon: 
   totalTimesRolled: 0
   totalPlayedTime: 0
   fastestRunSoFar: 0
