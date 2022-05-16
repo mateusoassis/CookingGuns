@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Glow
+  m_Shader: {fileID: -6465566751694194690, guid: d6ce18f32a3c05245af19ddf44e93f08, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - NoiseTex_:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - DistortAmplitude_: 1.58
+    - GrainColorBlend_: 0.8
+    - GrainPeriod_: 143
+    - GranShineStrenght_: 0.005
+    - NoiseScale_: 150
+    - NormalStrenght_: 0.4
+    - PolygonSides_: 5.54
+    - ScrollSpeed_: 0.002
+    - ShineDuneHeightMap_: 0.5
+    - ShineThreshold_: 0.9
+    - SineAmplitude_: 0.2
+    - SineFrequency_: 8.8
+    - SineRotation_: 10.04
+    - SubstrateDuneHeightMax_: 0.167
+    - SubstrateGrainHeightMax_: 0.35
+    - SubstrateTightening_: 1.7
+    - UVScale_: 1
+    - Vector1_0a4c4d4b88224c63af4b8f15b652db85: 0.5
+    - Vector1_14021b1f412043199533ff871017018d: 0.226
+    - Vector1_b2b0489b74d14de683457e162d9cd6d6: 3.16
+    - Vector1_d9d7d922adac423aa5fe0a39a7dbc953: 0.7
+    - Vector1_fb0e7ae5d9c446eca8b81a8c166b2ac4: 1
+    m_Colors:
+    - Color_11e89221b783494686865bb308dec0a1: {r: 0.38679245, g: 0.21451536, b: 0.18062475, a: 0}
+    - Color_d4fcc742c72148c7a4e66bac813d25f8: {r: 1, g: 1, b: 1, a: 1}
+    - Color_ee5f2e2d44dd492a95e0b555f0620b05: {r: 0.5294118, g: 0.29019603, b: 0.24313724, a: 1}
+    - OuterColor_: {r: 0.51886785, g: 0.09441555, b: 0, a: 1}
+    - SandHighColor_: {r: 0.38679245, g: 0.21451536, b: 0.18062475, a: 0}
+    - SandLowColor_: {r: 0.5294118, g: 0.29019606, b: 0.24313727, a: 0}
+    - ShineColor_: {r: 0.8207547, g: 0.70848167, b: 0.71753633, a: 0}
+    - SubstrateColor_: {r: 0.5294118, g: 0.2901961, b: 0.24313726, a: 0}
+    - Vector2_422b990400a34746ae89b39ae78b2c63: {r: 2, g: 2, b: 2, a: 2}
+    - Vector2_bf11f3c004d040aa9a5e1e76b927e037: {r: 2, g: 2, b: 0, a: 0}
+  m_BuildTextureStacks: []
