@@ -21,6 +21,7 @@ public class GranadeScript : MonoBehaviour
 
     void Start()
     {
+        arrived = false;
         parent = transform.parent;
         currentSlerpTime = 0f;
         savedSlerpPosition = parent.gameObject.GetComponent<Transform>().position; //+ new Vector3(0f, spawnYOffset, 0f);
@@ -48,7 +49,7 @@ public class GranadeScript : MonoBehaviour
 
             if(distance <= 0.1f)
             {
-                arrived = true;
+                //arrived = true;
                 GetComponent<Rigidbody>().useGravity = true;
             }
         }
@@ -73,9 +74,10 @@ public class GranadeScript : MonoBehaviour
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
             transform.rotation = Quaternion.identity;
             explosionArea.SetActive(true);
+            arrived = true;
         }
 
-        if(other.gameObject.tag == "EnemyShield")
+        if(other.gameObject.tag == "EnemyShield"&& !arrived)
         {
             Destroy(gameObject);
         }

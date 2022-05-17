@@ -13,7 +13,7 @@ public class BulletScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) 
     {
-        if(other.gameObject.tag == "Enemy"|| other.gameObject.tag == "Wall"|| other.gameObject.tag == "Barrel")
+        if(other.gameObject.tag == "Enemy"|| other.gameObject.tag == "Wall"|| other.gameObject.tag == "Barrel"|| other.gameObject.tag == "EnemyShield")
         {
             Destroy(this.gameObject);
         }

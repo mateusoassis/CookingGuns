@@ -11,7 +11,7 @@ public class Shieldy : MonoBehaviour
         if(other.gameObject.tag == "PlayerBullet")
         {
             parent.ShieldyWasHit();
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
     }
 }
