@@ -55,6 +55,7 @@ public class _PlayerManager : MonoBehaviour
     public bool isEatingWeapon;
     public bool isDead;
     public bool endGame;
+    public bool isImmune;
 
     void Awake()
     {

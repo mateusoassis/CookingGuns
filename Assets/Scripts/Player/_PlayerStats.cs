@@ -16,6 +16,9 @@ public class _PlayerStats : MonoBehaviour
     public int playerCurrentHealth;
     public int playerMaxHealth;
 
+    public float immuneDuration;
+    private float immuneTimer;
+
     private Animator playerTakeDamage;
 
     [Header("Container de Corações de Vida")]
@@ -44,7 +47,7 @@ public class _PlayerStats : MonoBehaviour
 
     void Start()
     {
-
+        immuneTimer = immuneDuration;
         youLoseHolder = GameObject.Find("MainCanvas").GetComponent<YouLoseHolder>();
         
         //youLoseHolder.youLoseObject.SetActive(false);
@@ -53,9 +56,27 @@ public class _PlayerStats : MonoBehaviour
         StartHPDamage();
     }
 
+    void Update()
+    {
+        if(playerManager.isImmune)
+        {
+            immuneTimer -= Time.deltaTime;
+            if(immuneTimer < 0)
+            {
+                playerManager.isImmune = false;
+            }
+        }
+    }
+
+    public void ImmuneNow()
+    {
+        immuneTimer = immuneDuration;
+        playerManager.isImmune = true;
+    }
+
     public void TakeHPDamage(int damage)
     {
-        if(!playerManager.isFading && !playerManager.isRolling)
+        if(!playerManager.isFading && !playerManager.isRolling && !playerManager.isImmune)
         {
             int futureHP = playerCurrentHealth - damage;
             if(futureHP > 0)
@@ -66,6 +87,7 @@ public class _PlayerStats : MonoBehaviour
                 playerCurrentHealth = futureHP;
                 heartScript.hpLost += damage;
                 heartScript.UpdateAllHearts();
+                ImmuneNow();
                 FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
             }
             
