@@ -381,7 +381,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2215548598762305798}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.7, y: 1.8594053, z: 1.7}
@@ -434,6 +434,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   isPlayerOnRange: 0
   focusPlayerDistance: 20
+  stoppingDistance: 2
   speedMultiplier: 1.5
   enemyMaxSpeed: 5
   explosionObject: {fileID: 4031838239753069914}

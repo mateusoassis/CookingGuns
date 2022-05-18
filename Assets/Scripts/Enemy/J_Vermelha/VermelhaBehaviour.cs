@@ -11,6 +11,7 @@ public class VermelhaBehaviour : MonoBehaviour
     // 3 = follow + explode (o que explode)
     public bool isPlayerOnRange;
     public float focusPlayerDistance;
+    public float stoppingDistance;
 
     private float enemySpeed;
     [SerializeField] private float speedMultiplier;
@@ -73,6 +74,21 @@ public class VermelhaBehaviour : MonoBehaviour
         {
             navMesh.ResetPath();
             isPlayerOnRange = true;
+        }
+        else if(Vector3.Distance(transform.position, playerTransform.position) < stoppingDistance && exploding)
+        {
+            Debug.Log("zera speed");
+            ZeroMovespeed();
+        }
+        else if(Vector3.Distance(transform.position, playerTransform.position) >= stoppingDistance && !exploding)
+        {
+            Debug.Log("normal speed");
+            NormalMovespeed();
+        }
+        else if(Vector3.Distance(transform.position, playerTransform.position) >= stoppingDistance && exploding)
+        {
+            Debug.Log("multiplied speed");
+            MultipliedNormalMoveSpeed();
         }
     }
 
