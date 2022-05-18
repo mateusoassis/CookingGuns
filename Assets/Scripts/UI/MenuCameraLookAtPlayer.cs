@@ -90,7 +90,15 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
     {
         if(durationTimer < 0)
         {
-            modelIndex = Random.Range(0, characterModels.Length);
+            if(modelIndex == 3)
+            {
+                modelIndex = 0;
+            }
+            else
+            {
+                modelIndex++;
+            }
+            
 
             for(int n = 0; n < characterModels.Length; n++)
             {
