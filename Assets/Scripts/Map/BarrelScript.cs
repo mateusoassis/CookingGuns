@@ -10,9 +10,7 @@ public class BarrelScript : MonoBehaviour
     {
         if (other.gameObject.tag == "PlayerBullet"|| other.gameObject.tag == "EnemyBullet"|| other.gameObject.tag == "PlayerGranade"|| other.gameObject.tag == "EnemyGranade")
         {
-            transform.rotation = Quaternion.identity;
-            barrelExplosionArea.SetActive(true);
-            StartCoroutine("TimeToDestroy");
+            ActivateBarrel();
         }
     }
     
@@ -21,4 +19,11 @@ public class BarrelScript : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         Destroy(this.gameObject);
     }   
+
+    public void ActivateBarrel()
+    {
+        transform.rotation = Quaternion.identity;
+        barrelExplosionArea.SetActive(true);
+        StartCoroutine("TimeToDestroy");
+    }
 }
