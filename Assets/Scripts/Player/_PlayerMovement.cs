@@ -98,7 +98,7 @@ public class _PlayerMovement : MonoBehaviour
             }
             else
             { 
-                rollTimer -= Time.fixedDeltaTime;
+                rollTimer -= Time.deltaTime;
             }
 
             if(playerManager.isEatingWeapon && !playerManager.canceledEating)
@@ -134,7 +134,7 @@ public class _PlayerMovement : MonoBehaviour
                         skewedInput = _input;
                         skewedLastInput = lastInput;
                     
-                        playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.deltaTime);
+                        playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.fixedDeltaTime);
                         transform.forward = skewedLastInput.normalized;
                     }
                 }
@@ -145,7 +145,7 @@ public class _PlayerMovement : MonoBehaviour
                     //skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
                     skewedLastInput = lastInput;
 
-                    playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * rollSpeed * Time.deltaTime);
+                    playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * rollSpeed * Time.fixedDeltaTime);
                     //Instantiate(rollSmokePrefab, rollSmokePoint.position, Quaternion.identity);
                     PlayRollParticle();
                     playerManager.animationHandler.GetWeaponInt();
@@ -162,7 +162,7 @@ public class _PlayerMovement : MonoBehaviour
         else
         {
 
-            playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.deltaTime);
+            playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.fixedDeltaTime);
          
             PlayRollParticle();
             playerManager.animationHandler.GetWeaponInt();
