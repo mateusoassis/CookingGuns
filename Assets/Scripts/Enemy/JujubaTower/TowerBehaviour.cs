@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class TowerBehaviour : MonoBehaviour
 {
+    [Header("Sair do chão")]
+    public float goUpVelocity;
+    public float playerDistance;
+    public bool isPlayerOnRange;
+    public bool switchingPlaces;
+    public bool modelReady;
+    private BoxCollider boxCollider;
+    public Transform modelTransform;
+    public Vector3 startPosition;
+    public Vector3 endPosition;
+    public Transform startObject;
+    public Transform endObject;
+
+    [Header("Variáveis de comportamento da torre")]
     public Transform slerpTarget;
     public Transform shootPoint;
     public GameObject spawnObject;
@@ -16,18 +30,61 @@ public class TowerBehaviour : MonoBehaviour
 
     public bool towerDamaged;
 
+    public Transform player;
+
+    void Awake()
+    {   
+        player = GameObject.Find("Player").GetComponent<Transform>();
+        boxCollider = GetComponent<BoxCollider>();
+        startPosition = startObject.position;
+        endPosition = endObject.position;
+    }
+
     void Start()
     {
-        
+        modelTransform.position = startPosition;
+        boxCollider.enabled = false;
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if(timer > delayToShoot)
+        if(modelReady)
         {
-            Shoot();
-            timer = 0f;
+            timer += Time.deltaTime;
+            if(timer > delayToShoot)
+            {
+                Shoot();
+                timer = 0f;
+            }
+        }
+        
+        if(!isPlayerOnRange)
+        {
+            UpdatePlayerDistance();
+        }
+
+        if(switchingPlaces)
+        {
+            if(modelTransform.position != endPosition)
+            {
+                modelTransform.position = Vector3.MoveTowards(modelTransform.position, endPosition, goUpVelocity * Time.deltaTime);
+            }
+            else
+            {
+                modelReady = true;
+                boxCollider.enabled = true;
+                switchingPlaces = false;
+            }
+            
+        }
+    }
+
+    public void UpdatePlayerDistance()
+    {
+        if(Vector3.Distance(transform.position, player.position) < playerDistance)
+        {
+            isPlayerOnRange = true;
+            switchingPlaces = true;
         }
     }
 
