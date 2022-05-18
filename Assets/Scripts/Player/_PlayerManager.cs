@@ -100,7 +100,6 @@ public class _PlayerManager : MonoBehaviour
         if(!isFading && !gameManager.outOfBoundsCollider)
         {
             // inputs de movimentação
-            playerMovement.HandleMovement();
 
             // roll
             if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
@@ -360,7 +359,7 @@ public class _PlayerManager : MonoBehaviour
     {
         if((!petHandler.craftingWindowOpen && !isFading) && !gameManager.outOfBoundsCollider) //&& !isEatingWeapon)
         {
-            //playerMovement.HandleMovement();
+            playerMovement.HandleMovement();
             playerMovement.Move();
         }
     }

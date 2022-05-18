@@ -233,6 +233,31 @@ public class ChargeJujubaBehaviour : MonoBehaviour
             canWalk = true;
             navMesh.isStopped = false;
         }
+        else if(other.gameObject.tag == "Barrel" && rolling)
+        {
+            GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
+            //other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
+            other.gameObject.GetComponent<BarrelScript>().ActivateBarrel();
+            //other.gameObject.GetComponent<_PlayerStats>().TakeHPDamage(damage);
+
+            StopAllCoroutines();
+            chargeJujubaAnimator.StopRoll();
+            cooldownTimer = cooldownFromHittingPlayer;
+            canWalk = true;
+            navMesh.isStopped = false;
+        }
+
+        else if(other.gameObject.tag == "Enemy" && rolling)
+        {
+            GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
+            other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
+
+            StopAllCoroutines();
+            chargeJujubaAnimator.StopRoll();
+            cooldownTimer = cooldownFromHittingPlayer;
+            canWalk = true;
+            navMesh.isStopped = false;
+        }
     }
 
     public IEnumerator CanWalkAgain()
