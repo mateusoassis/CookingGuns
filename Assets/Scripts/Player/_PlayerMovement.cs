@@ -100,20 +100,20 @@ public class _PlayerMovement : MonoBehaviour
             { 
                 rollTimer -= Time.fixedDeltaTime;
             }
+
+            if(playerManager.isEatingWeapon && !playerManager.canceledEating)
+            {
+                playerMoveSpeed = playerMaxMoveSpeed/2f;
+            }
+            else
+            {
+                playerMoveSpeed = playerMaxMoveSpeed;
+            }
         }
     }
 
     public void Move()
     {
-        if(playerManager.isEatingWeapon && !playerManager.canceledEating)
-        {
-            playerMoveSpeed = playerMaxMoveSpeed/2f;
-        }
-        else
-        {
-            playerMoveSpeed = playerMaxMoveSpeed;
-        }
-
         if(_input.x != 0 || _input.z != 0)
         {
             if(!playerManager.isShooting)

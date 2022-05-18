@@ -187,8 +187,8 @@ CapsuleCollider:
   m_GameObject: {fileID: 1021103554}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 0.5000001
+  m_Enabled: 1
+  m_Radius: 0.45
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -686,6 +686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondPartOpenDoor: {fileID: 0}
   windowContainer: {fileID: 0}
+  scene: 0
   type: 1
 --- !u!1 &4394465919244473732
 GameObject:
