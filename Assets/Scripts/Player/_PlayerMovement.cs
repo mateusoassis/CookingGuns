@@ -120,20 +120,23 @@ public class _PlayerMovement : MonoBehaviour
             {
                 if(!playerManager.isRolling)
                 {   
-                    playerManager.isWalking = true;
                     playerManager.animationHandler.GetWeaponInt();
-                    playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
-                    /*
-                    var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+                    if(!playerManager.playerShootingMachineGun.shooting)
+                    {
+                        playerManager.isWalking = true;
+                        playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
+                        /*
+                        var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
 
-                    skewedInput = matrix.MultiplyPoint3x4(_input);
-                    skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
-                    */
-                    skewedInput = _input;
-                    skewedLastInput = lastInput;
-                
-                    playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.deltaTime);
-                    transform.forward = skewedLastInput.normalized;
+                        skewedInput = matrix.MultiplyPoint3x4(_input);
+                        skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+                        */
+                        skewedInput = _input;
+                        skewedLastInput = lastInput;
+                    
+                        playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.deltaTime);
+                        transform.forward = skewedLastInput.normalized;
+                    }
                 }
                 else
                 {
