@@ -69,6 +69,12 @@ public class _PlayerShooting : MonoBehaviour
 
     void Update()
     {
+        if(playerManager.isRolling)
+        {
+            CancelInvoke("ReloadFinished");
+            ReloadInterrupted(); 
+        }
+
         if(reloading)
         {
             reloadTimeCounter += Time.deltaTime;
@@ -245,6 +251,14 @@ public class _PlayerShooting : MonoBehaviour
         playerManager.ReloadEndDisplay();
         reloadDisplay.gameObject.SetActive(false);
         bulletsLeft = magazineSize;
+        reloading = false;
+    }
+
+    public void ReloadInterrupted()
+    {
+        reloadTimeCounter = 0;
+        playerManager.ReloadEndDisplay();
+        reloadDisplay.gameObject.SetActive(false);
         reloading = false;
     }
 
