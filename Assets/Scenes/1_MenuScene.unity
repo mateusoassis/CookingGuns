@@ -11298,7 +11298,6 @@ GameObject:
   - component: {fileID: 710029277}
   - component: {fileID: 710029276}
   - component: {fileID: 710029275}
-  - component: {fileID: 710029274}
   - component: {fileID: 710029273}
   m_Layer: 0
   m_Name: Gato_Idle_Pistol_01
@@ -11354,19 +11353,6 @@ MonoBehaviour:
   - {fileID: 286215245}
   - {fileID: 2089638830}
   oldMaterials: []
---- !u!114 &710029274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710029271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e37b6aef507414f9b1df567b0ee00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pistolScript: {fileID: 999303851}
 --- !u!114 &710029275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12247,7 +12233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770357317}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be5f370f8d5089a43b31802232e1e435, type: 3}
   m_Name: 
@@ -16330,7 +16316,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999303849}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be5f370f8d5089a43b31802232e1e435, type: 3}
   m_Name: 
@@ -26256,7 +26242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596801014}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be5f370f8d5089a43b31802232e1e435, type: 3}
   m_Name: 
@@ -26708,7 +26694,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620465392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be5f370f8d5089a43b31802232e1e435, type: 3}
   m_Name: 
