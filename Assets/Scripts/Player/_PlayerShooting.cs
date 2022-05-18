@@ -71,8 +71,18 @@ public class _PlayerShooting : MonoBehaviour
     {
         if(playerManager.isRolling)
         {
-            CancelInvoke("ReloadFinished");
-            ReloadInterrupted(); 
+            ReloadInterrupted();
+        }
+        
+        if((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q)))
+        {
+            Debug.Log("interrompe");
+            if(_WeaponHandler.CountBool(weaponHandler.freeSlotArray, true) < 2)
+            {
+                Debug.Log("aqui");
+                ReloadInterrupted();
+            }
+            Debug.Log("foi");
         }
 
         if(reloading)
@@ -256,10 +266,12 @@ public class _PlayerShooting : MonoBehaviour
 
     public void ReloadInterrupted()
     {
+        CancelInvoke("ReloadFinished");
         reloadTimeCounter = 0;
         playerManager.ReloadEndDisplay();
         reloadDisplay.gameObject.SetActive(false);
         reloading = false;
+        Debug.Log("cancela reload");
     }
 
     public void AmmoDisplayUpdate()

@@ -8320,6 +8320,7 @@ MonoBehaviour:
   isEatingWeapon: 0
   isDead: 0
   endGame: 0
+  isImmune: 0
 --- !u!114 &6587241120315746939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8335,6 +8336,7 @@ MonoBehaviour:
   youLoseHolder: {fileID: 0}
   playerCurrentHealth: 0
   playerMaxHealth: 7
+  immuneDuration: 2
   heartScript: {fileID: 0}
   playerManager: {fileID: 0}
 --- !u!114 &687828141336132091
@@ -8418,6 +8420,11 @@ MonoBehaviour:
   firstFalseIndex: 0
   secondFalseIndex: 0
   numberOfFalseIndexes: 0
+  playerShooting:
+  - {fileID: 6581419281407714245}
+  - {fileID: 6581419281013731405}
+  - {fileID: 6581419281103858913}
+  - {fileID: 6581419280762816960}
 --- !u!114 &2287382207225990894
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,6 +34,8 @@ public class _WeaponHandler : MonoBehaviour
     public int secondFalseIndex;
     public int numberOfFalseIndexes;
 
+    public _PlayerShooting[] playerShooting;
+
 
     void Awake()
     {
@@ -147,6 +149,10 @@ public class _WeaponHandler : MonoBehaviour
         Image[] tempButtonImage = new Image[3];
         if(CountBool(freeSlotArray, true) < 2)
         {
+            if(playerShooting[weaponTypeEquipped].reloading)
+            {
+                playerShooting[weaponTypeEquipped].ReloadInterrupted();
+            }
             int newSlot = slotEquipped + 1;
             if(newSlot > 2)
             {
@@ -184,6 +190,10 @@ public class _WeaponHandler : MonoBehaviour
                 weaponTypeEquipped = weaponTypeOnSlot[slotEquipped];
                 WeaponManager(weaponTypeEquipped);
             }
+
+            //weaponObjects[weaponTypeEquipped].GetComponent<_PlayerShooting>().ReloadInterrupted();
+
+            
             UpdateWeaponSlotSprites();
         }
     }
@@ -305,6 +315,11 @@ public class _WeaponHandler : MonoBehaviour
     {
         if(CountBool(freeSlotArray, true) < 2)
         {
+            if(playerShooting[weaponTypeEquipped].reloading)
+            {
+                playerShooting[weaponTypeEquipped].ReloadInterrupted();
+            }
+
             int newSlot = slotEquipped - 1;
             if(newSlot < 0)
             {
@@ -343,6 +358,9 @@ public class _WeaponHandler : MonoBehaviour
                 WeaponManager(weaponTypeEquipped);
             }
 
+            //weaponObjects[weaponTypeEquipped].GetComponent<_PlayerShooting>().ReloadInterrupted();
+
+            
             UpdateWeaponSlotSprites();
         }
     }
@@ -439,8 +457,9 @@ public class _WeaponHandler : MonoBehaviour
                 realWeaponIcons[slotFree].sprite = realWeaponIconsPool[0];
             }
             UpdateWeaponSlotSprites();
+            playerManager.playerInfo.totalWeaponsCrafted++;
         }
-        playerManager.playerInfo.totalWeaponsCrafted++;
+        
         if(playerManager.tutorial)
         {
             playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
@@ -486,8 +505,9 @@ public class _WeaponHandler : MonoBehaviour
                 //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[1];
             }
             UpdateWeaponSlotSprites();
+            playerManager.playerInfo.totalWeaponsCrafted++;
         }
-        playerManager.playerInfo.totalWeaponsCrafted++;
+        
         if(playerManager.tutorial)
         {
             playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
@@ -530,8 +550,9 @@ public class _WeaponHandler : MonoBehaviour
                 //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[2];  
             }
             UpdateWeaponSlotSprites();
+            playerManager.playerInfo.totalWeaponsCrafted++;
         }
-        playerManager.playerInfo.totalWeaponsCrafted++;
+        
         if(playerManager.tutorial)
         {
             playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
@@ -575,8 +596,9 @@ public class _WeaponHandler : MonoBehaviour
                 //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[3];
             }
             UpdateWeaponSlotSprites();
+            playerManager.playerInfo.totalWeaponsCrafted++;
         }
-        playerManager.playerInfo.totalWeaponsCrafted++;
+        
         if(playerManager.tutorial)
         {
             playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
