@@ -18,6 +18,5 @@ public class EnemyTimeRoomManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeSurvivalRoomScript.timeBetweenWaves);
         timeSurvivalRoomScript.StartCoroutine("ControlSpawn");
-        
     }
 }

@@ -25,12 +25,15 @@ public class TimeSurvivalRoom : MonoBehaviour
 
     [HideInInspector] public int numberOfWaves;
 
+    private bool enemyDestroyerActivated;
+
     private int waveIndex;
 
     [SerializeField] private Transform spawnPoint;
 
     private void Awake()
     {
+        enemyDestroyerActivated = false;
         elapsedTime = roomDuration;
         gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         waveIndex = 0;
@@ -48,9 +51,13 @@ public class TimeSurvivalRoom : MonoBehaviour
 
         if(elapsedTime <= 0)
         {
-            Instantiate(enemyDestroyer, spawnPoint.position, Quaternion.identity);
-            gameManagerScript.roomCleared = true;
-            gameManagerScript.playerManager.petHandler.petBillboard.ActivateOnEnemiesKilled();
+            if (enemyDestroyerActivated == false) 
+            {
+                StartCoroutine("SpawnEnemyDestroyer");
+                gameManagerScript.roomCleared = true;
+                gameManagerScript.playerManager.petHandler.petBillboard.ActivateOnEnemiesKilled();
+            }
+            
         }
         //OverwriteTimestamp();
     }
@@ -91,5 +98,13 @@ public class TimeSurvivalRoom : MonoBehaviour
         {
             timeHolderText.SetText(seconds.ToString("D2") + "s");
         }
+    }
+
+    private IEnumerator SpawnEnemyDestroyer() 
+    {
+        Instantiate(enemyDestroyer, spawnPoint.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        enemyDestroyerActivated = true;
+        yield break;
     }
 }

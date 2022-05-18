@@ -129,7 +129,7 @@ public class EnemyStats : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "PlayerBullet")
+        if(other.gameObject.tag == "PlayerBullet"|| other.gameObject.tag == "EnemyDestroyer")
         {
             if(other.gameObject.TryGetComponent(out BulletScript bulletScript))
             {
