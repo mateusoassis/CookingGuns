@@ -190,8 +190,12 @@ public class _PlayerManager : MonoBehaviour
             {
                 if(petHandler.playerOnArea && !petHandler.craftingWindowOpen)
                 {
-                    petHandler.OpenCraftingWindow();
-                    craftingHandlerInPlayer.ShowCraftOptions();
+                    if(gameManager.roomCleared)
+                    {
+                        petHandler.OpenCraftingWindow();
+                        craftingHandlerInPlayer.ShowCraftOptions();
+                    }
+                    
                 }
             }
             else if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && tutorial)
