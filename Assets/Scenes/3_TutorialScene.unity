@@ -9582,6 +9582,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2443710081821591692, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 93737f01536629f4aba08fd819e176be, type: 2}
     - target: {fileID: 6581419280599443781, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: m_Name
       value: Player
@@ -13256,7 +13260,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-312486
+  m_Name: pb_Mesh-1338230
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14685,6 +14689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondPartOpenDoor: {fileID: 0}
   windowContainer: {fileID: 0}
+  scene: 0
   type: 0
 --- !u!23 &1582747020 stripped
 MeshRenderer:
