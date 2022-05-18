@@ -91,8 +91,7 @@ public class MenuManager : MonoBehaviour
     {
         if(isOnMenu)
         {
-            creditsPanel.SetActive(true);
-            isOnMenu = false;
+            SceneManager.LoadScene("2_CreditsScene", LoadSceneMode.Single);
         }
     }
 
