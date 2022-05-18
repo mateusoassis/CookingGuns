@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex == 3)
         {
+            Debug.Log("lul");
             playerInfo.isOnTutorial = true;
         }
         else
@@ -65,8 +66,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         confirmationWindowOpen = false;
         elapsedTime = 0f;
-        if(playerManager.playerInfo.playerCurrentRoom < 1)
+        if(playerManager.playerInfo.isOnTutorial)
         {
+            Debug.Log("lul 2");
             levelCounterText.text = ("Tutorial");
         }
         else
