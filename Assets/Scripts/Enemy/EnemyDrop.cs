@@ -22,6 +22,14 @@ public class EnemyDrop : MonoBehaviour
     public string ItemName;
 
     public int itemType;
+    // 0 = biscoito
+    // 1 = caramelo
+    // 2 = chocolate
+    // 3 = donut
+    // 4 = ice cream
+    // 5 = marshmallow
+    // 6 = maça
+    // 7 = sugar cane
     
     void Awake()
     {
@@ -31,7 +39,7 @@ public class EnemyDrop : MonoBehaviour
 
     void Start()
     {
-        playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        playerTransform = GameObject.Find("LootTransform").GetComponent<Transform>();
         canGoToPlayer = true;
         x = Random.Range(-2f, 2f);
         z = Random.Range(-2f, 2f);
@@ -62,6 +70,7 @@ public class EnemyDrop : MonoBehaviour
         }
     }
 
+    /*
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.tag == "Player")
@@ -74,11 +83,12 @@ public class EnemyDrop : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        /*
-        if(other.gameObject.tag == "Ground")
-        {
-            Debug.Log("ativa colisão entre drops");
-        }
-        */
+        
+        //if(other.gameObject.tag == "Ground")
+        //{
+        //    Debug.Log("ativa colisão entre drops");
+        //}
+        
     }
+    */
 }

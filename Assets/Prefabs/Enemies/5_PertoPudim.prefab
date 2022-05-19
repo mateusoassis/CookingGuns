@@ -138,6 +138,7 @@ MonoBehaviour:
   dropPrefab:
   - {fileID: 6058910667991397440, guid: 81731a8afc09e8b43b3504b4944138ba, type: 3}
   - {fileID: 6058910667991397440, guid: 05f483a65017c6a488369a84d72db5db, type: 3}
+  smokePrefab: {fileID: 0}
   dropPrefabYOffset: 0
   dropChance:
   - 0
@@ -147,7 +148,10 @@ MonoBehaviour:
   hitRecently: 0
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
-  flashEffect: {fileID: 0}
+  damageParticle: {fileID: 0}
+  flashDuration: 0
+  enemyFlashingPart: {fileID: 0}
+  flashMaterial: {fileID: 0}
   enemyType: 2
 --- !u!114 &430105550708223428
 MonoBehaviour:
@@ -184,6 +188,10 @@ MonoBehaviour:
   timeBetweenShots: 5
   timeBetweenShotsTimer: 0
   randomExtraTimeBetweenShots: 2
+  countToMove: 0
+  retreatCooldown: 0
+  retreating: 0
+  retreatingOnCooldown: 0
   enemyAnimator: {fileID: 0}
   canMove: 0
 --- !u!114 &430105550708223037

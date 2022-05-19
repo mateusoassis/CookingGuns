@@ -21,10 +21,12 @@ public class LootContainer : MonoBehaviour
 
     public void CreateNewLoot(int n)
     {
-        if(_WeaponHandler.FindAny(itemTypeOnSlot, n) != -1)
-        {
-            GameObject clone = Instantiate(lootPrefab, lootContainer.position, Quaternion.identity);
-            clone.transform.SetParent(lootContainer);
+        Debug.Log("criou item");
+        //if(_WeaponHandler.FindAny(itemTypeOnSlot, n) != -1)
+        //{
+            Debug.Log("check");
+            GameObject clone = Instantiate(lootPrefab, lootContainer.position, lootContainer.localRotation) as GameObject;
+            clone.transform.SetParent(lootContainer, false);
             clone.transform.SetAsFirstSibling();
             
 
@@ -35,14 +37,21 @@ public class LootContainer : MonoBehaviour
 
             clone.transform.GetComponent<LootPull>().quantity = 1;
             clone.transform.GetComponent<LootPull>().UpdateValuesAndTexture(indexForItem, n, durationUntilFadeout);
-        }
+        //}
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "PlayerLoot")
         {
-            CreateNewLoot(other.gameObject.GetComponent<EnemyDrop>().itemType);
+            if(other.gameObject.TryGetComponent(out EnemyDrop enemyDrop))
+            {
+                Debug.Log("colidiu com drop");
+                CreateNewLoot(enemyDrop.itemType);
+                Debug.Log("pegou lul " + enemyDrop.itemType);
+                Destroy(other.gameObject);
+            }
+            
         }
     }
 }

@@ -6,7 +6,7 @@ using TMPro;
 
 public class LootPull : MonoBehaviour
 {
-    public LootContainer lootContainer;
+    public LootContainer lootContainerScript;
     public float duration;
 
     public int quantity;
@@ -17,13 +17,13 @@ public class LootPull : MonoBehaviour
 
     void Awake()
     {
-        lootContainer = GameObject.Find("LootTransform").GetComponent<LootContainer>();
+        lootContainerScript = GameObject.Find("LootTransform").GetComponent<LootContainer>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void UpdateValuesAndTexture(int indexForItem, int n, float j)
     {
-        lootImage.sprite = lootContainer.dropIcons[n];
+        lootImage.sprite = lootContainerScript.dropIcons[n];
         lootText.text = quantity.ToString();
         duration = j;
     }

@@ -3,22 +3,30 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
-  tags: []
-=======
   tags:
-  - Wall
   - Enemy
+  - Weapon
+  - EnemyBullet
+  - Door
+  - PlayerBullet
+  - Pet
+  - Drop
+  - Wall
+  - Ground
+  - T_Checkpoint_1
+  - T_Checkpoint_2
+  - T_Checkpoint_3
   - EnemyShield
+  - PlayerGranade
+  - EnemyGrenade
+  - T_Door
   - ShieldocaAttack
   - MaterialFlash
+  - BarrelExplosion
+  - Barrel
+  - EnemyDestroyer
   - EnemyTower
-  - T_Door
-  - Ground
-  - Pet
-  - Door
   - PlayerLoot
->>>>>>> origin/main
   layers:
   - Default
   - TransparentFX
@@ -26,25 +34,25 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Wall
+  - Enemy
+  - ShootingLayer
+  - Doors
+  - EnemyDonut
+  - PlayerDash
+  - EnemyBullet
+  - Pet
+  - Drops
+  - DropGround
+  - IgnorePlayerBulletCollision
+  - Player
+  - PlayerBullet
+  - OnlyCollideWithGround
+  - Post Processing
+  - PlayerCollides
+  - EnemyShield
+  - PlayerGrenade
   - 
   - 
   - 
@@ -55,4 +63,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 1204349005
     locked: 0

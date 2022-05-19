@@ -5908,7 +5908,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751332585}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056356}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1824513498}
@@ -9475,7 +9475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166729}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056356}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9538,14 +9538,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1559849143, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_BlockingObjects
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1559849143, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
-      propertyPath: m_IgnoreReversedGraphics
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1559849145, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: m_Camera
       value: 
@@ -9557,6 +9549,46 @@ PrefabInstance:
     - target: {fileID: 1850308445, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081340, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: lootContainer
+      value: 
+      objectReference: {fileID: 1768566608}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: itemTypeOnSlot.Array.data[0]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: itemTypeOnSlot.Array.data[1]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: itemTypeOnSlot.Array.data[2]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: itemTypeOnSlot.Array.data[3]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: itemTypeOnSlot.Array.data[4]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: itemTypeOnSlot.Array.data[5]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: itemTypeOnSlot.Array.data[6]
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938081343, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: itemTypeOnSlot.Array.data[7]
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1060690019319271764, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
       propertyPath: craftingHandlerInPlayer
@@ -18205,6 +18237,11 @@ Transform:
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8877326422427933318, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
   m_PrefabInstance: {fileID: 9199694515903201188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1768566608 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1768566608, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+  m_PrefabInstance: {fileID: 1041688472}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &1781503888 stripped
 MeshRenderer:
