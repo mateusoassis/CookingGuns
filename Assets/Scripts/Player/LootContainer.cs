@@ -9,10 +9,12 @@ public class LootContainer : MonoBehaviour
     [Header("Array com texturas de loot")]
     public Sprite[] dropIcons;
     public int indexForItem;
+    public Transform[] createdLoot;
 
     public bool[] hasItemOnSlot;
     public int[] itemTypeOnSlot;
     public int[] itemQuantityOnSlot;
+    public Transform[] lootTransforms;
 
     public GameObject lootPrefab;
     public Transform lootContainer;
@@ -22,22 +24,57 @@ public class LootContainer : MonoBehaviour
     public void CreateNewLoot(int n)
     {
         Debug.Log("criou item");
-        //if(_WeaponHandler.FindAny(itemTypeOnSlot, n) != -1)
-        //{
+        Debug.Log(_WeaponHandler.FindAny(itemTypeOnSlot,n));
+        if(_WeaponHandler.FindAny(itemTypeOnSlot, n) != -1)
+        {
             Debug.Log("check");
+            //GameObject clone = Instantiate(lootPrefab, lootContainer.position, lootContainer.localRotation) as GameObject;
+            //clone.transform.SetParent(lootContainer, false);
+            //clone.transform.SetAsFirstSibling();
+            
+
+            indexForItem = _WeaponHandler.FindAny(itemTypeOnSlot, n);
+            //hasItemOnSlot[indexForItem] = true;
+            //itemTypeOnSlot[indexForItem] = n;
+            itemQuantityOnSlot[indexForItem]++;
+            if(!createdLoot[indexForItem].GetComponent<LootPull>().vanishing)
+            {
+                createdLoot[indexForItem].GetComponent<LootPull>().DurationRefresh();
+            }
+            else
+            {
+                Debug.Log("check else");
+                GameObject clone = Instantiate(lootPrefab, lootContainer.position, lootContainer.localRotation) as GameObject;
+                clone.transform.SetParent(lootContainer, false);
+                clone.transform.SetAsFirstSibling();
+
+                indexForItem = _WeaponHandler.FindFirstFalseIndex(hasItemOnSlot);
+                hasItemOnSlot[indexForItem] = true;
+                itemTypeOnSlot[indexForItem] = n;
+                itemQuantityOnSlot[indexForItem] = 1;
+                createdLoot[indexForItem] = clone.transform;
+
+                clone.transform.GetComponent<LootPull>().quantity = 1;
+                clone.transform.GetComponent<LootPull>().UpdateValuesAndTexture(indexForItem, n, durationUntilFadeout);
+            }
+            
+        }
+        else
+        {
+            Debug.Log("else");
             GameObject clone = Instantiate(lootPrefab, lootContainer.position, lootContainer.localRotation) as GameObject;
             clone.transform.SetParent(lootContainer, false);
             clone.transform.SetAsFirstSibling();
-            
 
             indexForItem = _WeaponHandler.FindFirstFalseIndex(hasItemOnSlot);
             hasItemOnSlot[indexForItem] = true;
             itemTypeOnSlot[indexForItem] = n;
             itemQuantityOnSlot[indexForItem] = 1;
+            createdLoot[indexForItem] = clone.transform;
 
             clone.transform.GetComponent<LootPull>().quantity = 1;
             clone.transform.GetComponent<LootPull>().UpdateValuesAndTexture(indexForItem, n, durationUntilFadeout);
-        //}
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -53,5 +90,13 @@ public class LootContainer : MonoBehaviour
             }
             
         }
+    }
+
+    public void DeleteThisIconFromEverything(int index)
+    {
+        hasItemOnSlot[index] = false;
+        itemTypeOnSlot[index] = -1;
+        itemQuantityOnSlot[index] = 0;
+        createdLoot[index] = null;
     }
 }

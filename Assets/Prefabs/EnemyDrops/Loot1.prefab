@@ -51,10 +51,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f5e717d0aa0344db5e732df703ac26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootContainer: {fileID: 0}
+  lootContainerScript: {fileID: 0}
+  duration: 0
+  passedDuration: 0
+  index: 0
+  fadeoutDuration: 1
+  targetParentRect: {fileID: 0}
+  savedStartParentRect: {x: 0, y: 0}
+  savedPos: {x: 0, y: 0, z: 0}
+  vanishing: 0
   quantity: 0
   lootText: {fileID: 831558459422838998}
   lootImage: {fileID: 7990540284106595487}
+  canvasGroup: {fileID: 0}
+  targetParent: {fileID: 0}
 --- !u!225 &5237049042378119801
 CanvasGroup:
   m_ObjectHideFlags: 0
