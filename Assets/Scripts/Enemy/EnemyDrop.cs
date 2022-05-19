@@ -20,6 +20,8 @@ public class EnemyDrop : MonoBehaviour
 
     [Header("Nome do Item")]
     public string ItemName;
+
+    public int itemType;
     
     void Awake()
     {
