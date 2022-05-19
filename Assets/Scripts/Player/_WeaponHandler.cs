@@ -699,6 +699,20 @@ public class _WeaponHandler : MonoBehaviour
         return n;
     }
 
+    public static int FindAny(int[] array, int flag)
+    {
+        int n = -1;
+        for(int i = 0; i < array.Length; i++)
+        {
+            if(array[i] == flag)
+            {
+                n = i;
+                break;
+            }
+        }
+        return n;
+    }
+
     public static int FindFirstTrueIndex(bool[] array)
     {
         int index = -1;
