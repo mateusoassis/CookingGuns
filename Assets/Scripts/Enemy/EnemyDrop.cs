@@ -21,6 +21,8 @@ public class EnemyDrop : MonoBehaviour
     [Header("Nome do Item")]
     public string ItemName;
 
+    public PlayerInfo playerInfo;
+
     public int itemType;
     // 0 = biscoito
     // 1 = caramelo
@@ -88,7 +90,42 @@ public class EnemyDrop : MonoBehaviour
         //{
         //    Debug.Log("ativa colisão entre drops");
         //}
-        
     }
     */
+
+    public void AddIngredient()
+    {
+        if(itemType == 0)
+        {
+            playerInfo.ingrediente0++;
+        }
+        else if(itemType == 1)
+        {
+            playerInfo.ingrediente1++;
+        }
+        else if(itemType == 2)
+        {
+            playerInfo.ingrediente2++;
+        }
+        else if(itemType == 3)
+        {
+            playerInfo.ingrediente3++;
+        }
+        else if(itemType == 4)
+        {
+            playerInfo.ingrediente4++;
+        }
+        else if(itemType == 5)
+        {
+            playerInfo.ingrediente5++;
+        }
+        else if(itemType == 6)
+        {
+            playerInfo.ingrediente6++;
+        }
+        else if(itemType == 7)
+        {
+            playerInfo.ingrediente7++;
+        }
+    }
 }

@@ -42,6 +42,16 @@ public class PlayerInfo : ScriptableObject
     public int totalPlayedTime; //
     public int fastestRunSoFar; //
 
+    [Header("Ingredientes")]
+    public int ingrediente0;
+    public int ingrediente1;
+    public int ingrediente2;
+    public int ingrediente3;
+    public int ingrediente4;
+    public int ingrediente5;
+    public int ingrediente6;
+    public int ingrediente7;
+
 
 
     public void ResetThisObject()

@@ -21,7 +21,7 @@ public class LootPull : MonoBehaviour
 
     public int quantity;
     public TextMeshProUGUI lootText;
-
+    
     public Image lootImage;
     public CanvasGroup canvasGroup;
     public Transform targetParent;

@@ -6,6 +6,7 @@ using TMPro;
 
 public class LootContainer : MonoBehaviour
 {
+    public PlayerInfo playerInfo;
     [Header("Array com texturas de loot")]
     public Sprite[] dropIcons;
     public int indexForItem;
@@ -86,9 +87,9 @@ public class LootContainer : MonoBehaviour
                 Debug.Log("colidiu com drop");
                 CreateNewLoot(enemyDrop.itemType);
                 Debug.Log("pegou lul " + enemyDrop.itemType);
+                enemyDrop.AddIngredient();
                 Destroy(other.gameObject);
             }
-            
         }
     }
 
