@@ -121,7 +121,7 @@ public class GenerateMap : MonoBehaviour
 
         if(other.gameObject.tag == "T_Door")
         {
-            GetComponent<_PlayerManager>().playerInfo.timeSpentOnTutorial += (int)gameManager.elapsedTime;
+            //GetComponent<_PlayerManager>().playerInfo.timeSpentOnTutorial += (int)gameManager.elapsedTime;
             LoadInitialGame();
         }
     }

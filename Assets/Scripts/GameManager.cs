@@ -246,7 +246,7 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         SceneManager.LoadScene("1_MenuScene", LoadSceneMode.Single);
-        playerInfo.totalPlayedTime += (int)elapsedTime;
+        //playerInfo.totalPlayedTime += (int)elapsedTime;
     }
 
     public void CloseAllConfirmationWindows()

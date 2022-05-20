@@ -107,7 +107,7 @@ public class _PlayerStats : MonoBehaviour
                 playerManager.gameManager.PauseAndLose();
                 //playerManager.gameManager.PauseGame();
                 //youLoseHolder.PlayerLost();
-                playerManager.playerInfo.totalPlayedTime += (int)playerManager.gameManager.elapsedTime;
+                //playerManager.playerInfo.totalPlayedTime += (int)playerManager.gameManager.elapsedTime;
                 //youLoseHolder.gameObject.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
                 //youLoseScript.PlayerLost();
                 playerManager.playerInfo.healthFromLastRoom = 0;

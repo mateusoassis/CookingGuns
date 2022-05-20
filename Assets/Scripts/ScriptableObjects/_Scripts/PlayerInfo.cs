@@ -24,7 +24,7 @@ public class PlayerInfo : ScriptableObject
     [Header("Estatisticas")]
     // tutorial
     
-    public int timeSpentOnTutorial; //
+    //public int timeSpentOnTutorial; //
 
     // armas
     public int totalWeaponsCrafted; //
@@ -57,7 +57,7 @@ public class PlayerInfo : ScriptableObject
     public void ResetThisObject()
     {
         hasPlayedTutorial = false;
-        timeSpentOnTutorial = 0;
+        //timeSpentOnTutorial = 0;
 
         totalWeaponsCrafted = 0;
         totalWeaponsEaten = 0;
@@ -67,7 +67,7 @@ public class PlayerInfo : ScriptableObject
 
         totalTimesRolled = 0;
 
-        totalPlayedTime = 0;
+        //totalPlayedTime = 0;
         fastestRunSoFar = 0;
 
         playerCurrentRoom = -1;
