@@ -89,6 +89,7 @@ public class _PlayerStats : MonoBehaviour
                 heartScript.UpdateAllHearts();
                 ImmuneNow();
                 FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
+                playerManager.playerInfo.healthFromLastRoom = playerCurrentHealth;
             }
             
 

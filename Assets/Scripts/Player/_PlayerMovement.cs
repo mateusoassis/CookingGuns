@@ -123,11 +123,8 @@ public class _PlayerMovement : MonoBehaviour
                     playerManager.animationHandler.GetWeaponInt();
                     if(!playerManager.playerShootingMachineGun.shooting)
                     {
-                        if(playerManager.isWalking == false)
-                        {
-                            playerManager.isWalking = true;
-                            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
-                        }
+                        playerManager.isWalking = true;
+                        playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
                         
                         /*
                         var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
