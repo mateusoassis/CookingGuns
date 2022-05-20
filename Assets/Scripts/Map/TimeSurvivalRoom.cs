@@ -15,7 +15,7 @@ public class TimeSurvivalRoom : MonoBehaviour
 
     [SerializeField] public float roomDuration;
 
-    [SerializeField] public float elapsedTime, hours, minutes, seconds;
+    [SerializeField] public float elapsedTime;
 
     [SerializeField] private GameObject[] enemyWaves;
 
@@ -33,6 +33,7 @@ public class TimeSurvivalRoom : MonoBehaviour
 
     private void Awake()
     {
+        timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
         enemyDestroyerActivated = false;
         elapsedTime = roomDuration;
         gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -47,19 +48,17 @@ public class TimeSurvivalRoom : MonoBehaviour
 
     private void Update()
     {
-        ConvertElapsedTimeToHMS();
-
+        //ConvertElapsedTimeToHMS();
+        OverwriteTimestamp();
         if(elapsedTime <= 0)
         {
-            if (enemyDestroyerActivated == false) 
+            if (enemyDestroyerActivated == false && !gameManagerScript.roomCleared) 
             {
                 StartCoroutine("SpawnEnemyDestroyer");
                 gameManagerScript.roomCleared = true;
                 gameManagerScript.playerManager.petHandler.petBillboard.ActivateOnEnemiesKilled();
             }
-            
         }
-        //OverwriteTimestamp();
     }
 
     public IEnumerator ControlSpawn()
@@ -75,15 +74,30 @@ public class TimeSurvivalRoom : MonoBehaviour
         Instantiate(enemyWaves[waveIndex], spawnPoint.position, Quaternion.identity);
     }
 
-    public void ConvertElapsedTimeToHMS()
+    public void SubtractRoomDuration()
     {
         elapsedTime -= Time.deltaTime;
-        hours = (int)elapsedTime / 3600;
-        minutes = (int)(elapsedTime - (hours * 3600)) / 60;
-        seconds = (int)(elapsedTime - (hours * 3600) - (minutes * 60));
+        //hours = (int)elapsedTime / 3600;
+        //minutes = (int)(elapsedTime - (hours * 3600)) / 60;
+        //seconds = (int)(elapsedTime - (hours * 3600) - (minutes * 60));
     }
     public void OverwriteTimestamp()
     {
+        if(!gameManagerScript.roomCleared && !gameManagerScript.playerManager.isFading)
+        {
+            SubtractRoomDuration();
+
+            if(elapsedTime > 0)
+            {
+                timeHolderText.SetText(elapsedTime.ToString("0.00") + " s");
+            }
+            else
+            {
+                timeHolderText.SetText("0 s");
+            }
+        }
+        
+        /*
         if (hours > 0)
         {
             timeHolderText.SetText(hours.ToString("D2") + "h " + minutes.ToString("D2") + "m " + seconds.ToString("D2") + "s");
@@ -98,6 +112,7 @@ public class TimeSurvivalRoom : MonoBehaviour
         {
             timeHolderText.SetText(seconds.ToString("D2") + "s");
         }
+        */
     }
 
     private IEnumerator SpawnEnemyDestroyer() 

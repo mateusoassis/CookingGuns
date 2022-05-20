@@ -50,11 +50,18 @@ public class WindowContainer : MonoBehaviour
     void Awake()
     {
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
-        thirdPartKillTower = GameObject.Find("3rd_KillTower").GetComponent<ThirdPartKillTower>();
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            thirdPartKillTower = GameObject.Find("3rd_KillTower").GetComponent<ThirdPartKillTower>();
+        }
     }
 
     void Start()
     {
+        if(SceneManager.GetActiveScene().buildIndex != 3)
+        {
+            gameObject.SetActive(false);
+        }
         Debug.Log("começa janela");
     }
 

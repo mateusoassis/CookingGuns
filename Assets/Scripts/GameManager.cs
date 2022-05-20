@@ -10,17 +10,17 @@ public class GameManager : MonoBehaviour
     [Header("Player Info")]
     public PlayerInfo playerInfo;
 
-    [Header("Tipo de Sala (abre pra ler comentário")]
+    [Header("Tipo de Sala (abre pra ler comentário)")]
     public int roomType;
-    // 0 - sala regular, matar bixos em waves
-    // 1 - sala com temporizador que você tem x tempo pra terminá-la
+    // 0 - sala regular
+    // 1 - sala de sobrevivência
 
     [Header("Referências à objetos e scripts")]
     public GameObject pauseUI;
     public GameObject restartConfirmationWindow;
     public GameObject quitConfirmationWindow;
-    private TextMeshProUGUI timeHolderText;
     private GameObject timeHolderObject;
+    private TextMeshProUGUI timeHolderText;
     private TextMeshProUGUI levelCounterText;
     public _PlayerManager playerManager;
     private CameraShake shakeEffect;
@@ -66,7 +66,8 @@ public class GameManager : MonoBehaviour
         /*pauseUI = GameObject.Find("PauseUI");
         restartConfirmationWindow = GameObject.Find("RestartConfirmationWindow");
         quitConfirmationWindow = GameObject.Find("QuitConfirmationWindow");*/
-        timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
+        timeHolderObject = GameObject.Find("TimeHolder");
+        //timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         levelCounterText = GameObject.Find("LevelCounterText").GetComponent<TextMeshProUGUI>();
         shakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();
@@ -88,12 +89,17 @@ public class GameManager : MonoBehaviour
         {
             levelCounterText.text = ("Room " + playerManager.playerInfo.playerCurrentRoom.ToString());
         }
+
+        if(roomType == 0)
+        {
+            timeHolderObject.SetActive(false);
+        }
     }
 
     void Update()
     {
-        ConvertElapsedTimeToHMS();
-        OverwriteTimestamp();
+        //ConvertElapsedTimeToHMS();
+        //OverwriteTimestamp();
         if(!roomCleared)
         {
             return;
