@@ -10,12 +10,20 @@ public class GameManager : MonoBehaviour
     [Header("Player Info")]
     public PlayerInfo playerInfo;
 
-    [Header("Referências")]
+    [Header("Tipo de Sala (abre pra ler comentário")]
+    public int roomType;
+    // 0 - sala regular, matar bixos em waves
+    // 1 - sala com temporizador que você tem x tempo pra terminá-la
+
+    [Header("Referências à objetos e scripts")]
     public GameObject pauseUI;
     public GameObject restartConfirmationWindow;
     public GameObject quitConfirmationWindow;
     private TextMeshProUGUI timeHolderText;
+    private GameObject timeHolderObject;
     private TextMeshProUGUI levelCounterText;
+    public _PlayerManager playerManager;
+    private CameraShake shakeEffect;
 
     [Header("Slowdown ao finalizar sala")]
     public float slowdownDuration;
@@ -35,8 +43,6 @@ public class GameManager : MonoBehaviour
     [Header("Variáveis de pause")]
     public bool pausedGame;
     public bool confirmationWindowOpen;
-    public _PlayerManager playerManager;
-    public CameraShake shakeEffect;
 
     [Header("Booleanos de fade")]
     public bool fadeToChangeScene;
