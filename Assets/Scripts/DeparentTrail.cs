@@ -15,7 +15,8 @@ public class DeparentTrail : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine("WaitBeforeDeparent");
+        transform.SetParent(null);
+        //StartCoroutine("WaitBeforeDeparent");
     }
     private void LateUpdate()
     {
