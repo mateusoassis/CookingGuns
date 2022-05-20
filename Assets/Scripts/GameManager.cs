@@ -7,34 +7,42 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Player Info")]
+    public PlayerInfo playerInfo;
+
+    [Header("Referências")]
     public GameObject pauseUI;
     public GameObject restartConfirmationWindow;
     public GameObject quitConfirmationWindow;
-    [SerializeField] private TextMeshProUGUI timeHolderText;
+    private TextMeshProUGUI timeHolderText;
+    private TextMeshProUGUI levelCounterText;
 
     [Header("Slowdown ao finalizar sala")]
-    public EnemySpawner enemySpawner;
     public float slowdownDuration;
     public float slowdownFactor;
     public bool slowdown;
     public bool slowdownEnded;
+
+    [Header("Booleano de fim de sala")]
     public bool roomCleared;
 
+    [Header("Variáveis de temporizador")]
     public float elapsedTime;
     public int hours;
     public int minutes;
     public int seconds;
     
+    [Header("Variáveis de pause")]
     public bool pausedGame;
     public bool confirmationWindowOpen;
     public _PlayerManager playerManager;
-    public TextMeshProUGUI levelCounterText;
-    public PlayerInfo playerInfo;
     public CameraShake shakeEffect;
 
+    [Header("Booleanos de fade")]
     public bool fadeToChangeScene;
     public bool stopFading;
 
+    [Header("Booleano de queda na água")]
     public bool outOfBoundsCollider;
 
     void Awake()
@@ -53,7 +61,6 @@ public class GameManager : MonoBehaviour
         restartConfirmationWindow = GameObject.Find("RestartConfirmationWindow");
         quitConfirmationWindow = GameObject.Find("QuitConfirmationWindow");*/
         timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
-        //enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         levelCounterText = GameObject.Find("LevelCounterText").GetComponent<TextMeshProUGUI>();
         shakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();
