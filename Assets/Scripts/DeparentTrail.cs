@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DeparentTrail : MonoBehaviour
 {
-    private Transform trailParent;
-    private Vector3 fixedDistance;
+    public Transform trailParent;
+    public Vector3 fixedDistance;
 
     [SerializeField] private float deparentTime;
     void Awake()
     {
-        trailParent = GetComponentInParent<Transform>();
+        trailParent = transform.parent;
     }
 
     private void Start()
@@ -19,12 +19,15 @@ public class DeparentTrail : MonoBehaviour
     }
     private void LateUpdate()
     {
-        transform.position = trailParent.position;
+        if(trailParent != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, trailParent.position, Time.deltaTime * 100f);
+        }
     }
 
     public IEnumerator WaitBeforeDeparent() 
     {
         yield return new WaitForSeconds(deparentTime);
-        trailParent.SetParent(null);
+        transform.SetParent(null);
     }
 }
