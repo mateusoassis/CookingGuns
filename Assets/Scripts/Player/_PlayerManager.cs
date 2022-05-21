@@ -12,8 +12,8 @@ public class _PlayerManager : MonoBehaviour
     public bool testingCredits;
 
     [Header("Comer arma")]
-    private float eatingWeaponTimer;
     public float eatingWeaponDuration;
+    private float eatingWeaponTimer;
     public bool rmbHeldDown;
     private bool rmbHasToPressAgain;
     public bool canceledEating;
@@ -21,8 +21,8 @@ public class _PlayerManager : MonoBehaviour
     private Slider playerEatingWeaponBarSlider;
 
     [Header("Tutorial")]
-    private DialogueBox tutorialDialogueForPet;
     public TutorialBrain tutorialBrain;
+    private DialogueBox tutorialDialogueForPet;
 
     [Header("Player Flags")]
     public bool isShooting;
@@ -43,7 +43,7 @@ public class _PlayerManager : MonoBehaviour
     public CraftingMainScript craftingHandlerInPlayer;
     public Inventory inventory;
     */
-    
+
     [Header("Componentes do player e cena")]
     public Rigidbody playerRigidbody;
     public _AnimationHandler animationHandler;
