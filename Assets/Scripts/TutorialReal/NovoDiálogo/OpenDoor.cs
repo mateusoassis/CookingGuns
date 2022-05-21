@@ -15,6 +15,7 @@ public class OpenDoor : MonoBehaviour
     [Header("Ignora")]
     private Vector3 targetPos;
     private bool open;
+    public bool blockedOpen;
 
     void Awake()
     {
@@ -29,7 +30,7 @@ public class OpenDoor : MonoBehaviour
 
     void Update()
     {
-        if(dialogueBoxScript.ended && open)
+        if(dialogueBoxScript.ended && open && !blockedOpen)
         {
             targetDoor.position = Vector3.MoveTowards(targetDoor.position, targetPos, speedToOpen * Time.deltaTime);
         }

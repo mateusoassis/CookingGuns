@@ -27,7 +27,11 @@ public class _PlayerManager : MonoBehaviour
     public PetHandler petHandler;
     public PlayerInfo playerInfo;
     public CapsuleCollider playerCapsuleCollider;
+
+    [Header("Tutorial")]
     public WindowContainer tutorialWindowContainer;
+    public DialogueBox tutorialDialogueForPet;
+    public TutorialBrain tutorialBrain;
 
     [Header("Inventário")]
     public CraftingMainScript craftingHandlerInPlayer;
@@ -77,6 +81,8 @@ public class _PlayerManager : MonoBehaviour
         if(tutorial)
         {
             tutorialWindowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
+            tutorialDialogueForPet = GameObject.Find("3rd_KillTowerIntroCraftOnPet").GetComponent<DialogueBox>();
+            tutorialBrain = GameObject.Find("TutorialStuff").GetComponent<TutorialBrain>();
         }
         playerEatingWeaponBarSlider.maxValue = eatingWeaponDuration;
         playerReloadBar.SetActive(false);
@@ -100,10 +106,13 @@ public class _PlayerManager : MonoBehaviour
         if(!isFading && !gameManager.outOfBoundsCollider)
         {
             // inputs de movimentação
-            playerMovement.HandleMovement();
+            if(!gameManager.pausedGame)
+            {
+                playerMovement.HandleMovement();
+            }
 
             // roll
-            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen) //&& !isEatingWeapon)
+            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen && !gameManager.pausedGame) //&& !isEatingWeapon)
             {
                 if(isWalking)
                 {
@@ -190,7 +199,7 @@ public class _PlayerManager : MonoBehaviour
             }
 
             
-            if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && !tutorial)
+            if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && !tutorial && !gameManager.pausedGame)
             {
                 if(petHandler.playerOnArea && !petHandler.craftingWindowOpen)
                 {
@@ -199,19 +208,16 @@ public class _PlayerManager : MonoBehaviour
                         petHandler.OpenCraftingWindow();
                         craftingHandlerInPlayer.ShowCraftOptions();
                     }
-                    
                 }
             }
-            else if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && tutorial)
+            else if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && tutorial && !gameManager.pausedGame)
             {
-                if(tutorialWindowContainer.currentDialogueIndex >= 4)
+            
+                if(petHandler.playerOnArea && !petHandler.craftingWindowOpen && tutorialDialogueForPet.ended)
                 {
-                    if(petHandler.playerOnArea && !petHandler.craftingWindowOpen)
-                    {
-                        petHandler.OpenCraftingWindow();
-                        craftingHandlerInPlayer.ShowCraftOptions();
-                        tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
-                    }
+                    petHandler.OpenCraftingWindow();
+                    craftingHandlerInPlayer.ShowCraftOptions();
+                    //tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
                 }
             }
             
@@ -285,7 +291,7 @@ public class _PlayerManager : MonoBehaviour
                     }
                     else
                     {
-                        if(tutorialWindowContainer.openDialogue[4])
+                        if(tutorialBrain.playerCanEatWeapon)
                         {
                             if(rmbHasToPressAgain)
                             {

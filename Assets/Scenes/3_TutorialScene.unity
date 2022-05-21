@@ -1070,7 +1070,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-31058
+  m_Name: pb_Mesh-479482
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3030,6 +3030,24 @@ MonoBehaviour:
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
+--- !u!1 &348490733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2173238206205410723, guid: cad0a33778f774546a0af1e47e676a10, type: 3}
+  m_PrefabInstance: {fileID: 885276294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &348490743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348490733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34591d1e45b5a9d4b92c0d2ebde2515a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openDoor: {fileID: 1247016216}
 --- !u!23 &348609242 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4809243982116743741, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -4376,6 +4394,7 @@ GameObject:
   - component: {fileID: 446938957}
   - component: {fileID: 446938959}
   - component: {fileID: 446938958}
+  - component: {fileID: 446938960}
   m_Layer: 7
   m_Name: 3rd_IntroEatWeapon
   m_TagString: Untagged
@@ -4443,6 +4462,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagTarget: Player
   dialogueBoxScript: {fileID: 0}
+--- !u!114 &446938960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446938955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5105a074262a4a149862337de39413ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialBrain: {fileID: 0}
+  targetTag: Player
 --- !u!23 &448155886 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 9190078878794872980, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -6533,7 +6566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751332585}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.163401, y: 27.164713, z: -29.86874}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1824513498}
@@ -6626,6 +6659,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755025972}
+  - component: {fileID: 755025973}
+  - component: {fileID: 755025974}
   m_Layer: 7
   m_Name: TutorialStuff
   m_TagString: Untagged
@@ -6652,6 +6687,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755025973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755025971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31da502af54a9d41808cfb8eb864796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCanEatWeapon: 0
+  playerEatWeapon: 0
+  playerCraftedWeapon: 0
+--- !u!114 &755025974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755025971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7eaa098b8a8f914ead6961200cc6484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDoor: {fileID: 2100247399}
+  speedToOpen: 5
+  yOffset: -5.9
 --- !u!23 &756747546 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 6464855764879573801, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -10365,7 +10430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166729}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.163402, y: 27.294432, z: -29.86874}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12101,6 +12166,7 @@ MonoBehaviour:
   targetDoor: {fileID: 1925865927}
   speedToOpen: 5
   yOffset: 6
+  blockedOpen: 0
 --- !u!23 &1250062094 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7827913352533200045, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -12664,6 +12730,7 @@ MonoBehaviour:
   targetDoor: {fileID: 2004705676}
   speedToOpen: 5
   yOffset: 6
+  blockedOpen: 0
 --- !u!65 &1261724302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15596,6 +15663,37 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4809243982116743741, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
   m_PrefabInstance: {fileID: 938409690}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1494666091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4778793461042536120, guid: 3a876f70eb97a6f4e8e2d9cae8c53414, type: 3}
+  m_PrefabInstance: {fileID: 1284342368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1494666093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494666091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199b58c0b7c565f40a08d4a25cb337d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBoxScript: {fileID: 343998988}
+--- !u!114 &1494666097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494666091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e123856e060dd4089df1c4b1b9ab9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  petHandler: {fileID: 0}
 --- !u!23 &1494983751 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7827913352533200045, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -21353,6 +21451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100105189}
   - component: {fileID: 2100105191}
+  - component: {fileID: 2100105192}
   - component: {fileID: 2100105190}
   m_Layer: 7
   m_Name: 2nd_IntroChangeWeapon
@@ -21407,6 +21506,20 @@ MonoBehaviour:
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
+--- !u!114 &2100105192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100105188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12c6e6cabaabec44a02506fc0cbedb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagTarget: Player
+  dialogueBoxScript: {fileID: 0}
 --- !u!1001 &2100247398
 PrefabInstance:
   m_ObjectHideFlags: 0

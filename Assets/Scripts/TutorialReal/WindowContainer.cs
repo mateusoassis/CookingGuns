@@ -52,7 +52,7 @@ public class WindowContainer : MonoBehaviour
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         if(SceneManager.GetActiveScene().buildIndex == 3)
         {
-            thirdPartKillTower = GameObject.Find("3rd_KillTower").GetComponent<ThirdPartKillTower>();
+            //thirdPartKillTower = GameObject.Find("3rd_KillTower").GetComponent<ThirdPartKillTower>();
         }
     }
 

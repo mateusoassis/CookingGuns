@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class CallDialogueOnKill : MonoBehaviour
 {
+    [Header("Arrastar objeto com diálogo")]
     public DialogueBox dialogueBoxScript;
-    public GameManager gameManager;
-    public bool startedDialogue;
 
-    void Awake()
+    void OnDestroy()
     {
-        dialogueBoxScript = GetComponent<DialogueBox>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        dialogueBoxScript.StartDialogue();
     }
 }

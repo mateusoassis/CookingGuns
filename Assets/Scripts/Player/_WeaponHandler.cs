@@ -462,7 +462,8 @@ public class _WeaponHandler : MonoBehaviour
         
         if(playerManager.tutorial)
         {
-            playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            playerManager.tutorialBrain.playerCraftedWeapon = true;
         }
     }
     public void DisablePistol()
@@ -510,7 +511,8 @@ public class _WeaponHandler : MonoBehaviour
         
         if(playerManager.tutorial)
         {
-            playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            playerManager.tutorialBrain.playerCraftedWeapon = true;
         }
     }
     public void DisableShotgun()
@@ -555,7 +557,8 @@ public class _WeaponHandler : MonoBehaviour
         
         if(playerManager.tutorial)
         {
-            playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            playerManager.tutorialBrain.playerCraftedWeapon = true;
         }
     }
     public void DisableMachineGun()
@@ -601,7 +604,8 @@ public class _WeaponHandler : MonoBehaviour
         
         if(playerManager.tutorial)
         {
-            playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            playerManager.tutorialBrain.playerCraftedWeapon = true;
         }
     }
     public void DisableGrenadeLauncher()
@@ -671,6 +675,12 @@ public class _WeaponHandler : MonoBehaviour
         }
         playerManager.playerStats.heartScript.FullHeal();
         playerManager.playerInfo.totalWeaponsEaten++;
+
+        if(playerManager.tutorial)
+        {
+            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
+            playerManager.tutorialBrain.playerEatWeapon = true;
+        }
     }
 
     public void UpdateAmountUnlocked()
