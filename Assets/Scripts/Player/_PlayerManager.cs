@@ -10,6 +10,39 @@ public class _PlayerManager : MonoBehaviour
     public bool testing;
     //public bool testingWeapons;
     public bool testingCredits;
+
+    [Header("Comer arma")]
+    private float eatingWeaponTimer;
+    public float eatingWeaponDuration;
+    public bool rmbHeldDown;
+    private bool rmbHasToPressAgain;
+    public bool canceledEating;
+    private GameObject playerEatingWeaponBar;
+    private Slider playerEatingWeaponBarSlider;
+
+    [Header("Tutorial")]
+    private DialogueBox tutorialDialogueForPet;
+    public TutorialBrain tutorialBrain;
+
+    [Header("Player Flags")]
+    public bool isShooting;
+    public bool isRolling;
+    public bool isFading;
+    public bool isWalking;
+    public bool isEatingWeapon;
+    public bool isDead;
+    public bool endGame;
+    public bool isImmune;
+    public bool tutorial;
+
+    [Header("Panel Preto de Fade Out")]
+    public GameFadeout gameFadeOut;
+
+    /*
+    [Header("Inventário")]
+    public CraftingMainScript craftingHandlerInPlayer;
+    public Inventory inventory;
+    */
     
     [Header("Componentes do player e cena")]
     public Rigidbody playerRigidbody;
@@ -26,39 +59,6 @@ public class _PlayerManager : MonoBehaviour
     public PetHandler petHandler;
     public PlayerInfo playerInfo;
     public CapsuleCollider playerCapsuleCollider;
-
-    [Header("Tutorial")]
-    public DialogueBox tutorialDialogueForPet;
-    public TutorialBrain tutorialBrain;
-
-    [Header("Inventário")]
-    public CraftingMainScript craftingHandlerInPlayer;
-    public Inventory inventory;
-
-    [Header("Panel Preto de Fade Out")]
-    public GameFadeout gameFadeOut;
-
-
-    [Header("Comer arma")]
-    private float eatingWeaponTimer;
-    public float eatingWeaponDuration;
-    public bool rmbHeldDown;
-    private bool rmbHasToPressAgain;
-    public bool canceledEating;
-    private GameObject playerEatingWeaponBar;
-    private Slider playerEatingWeaponBarSlider;
-
-    
-    [Header("Player Flags")]
-    public bool isShooting;
-    public bool isRolling;
-    public bool isFading;
-    public bool isWalking;
-    public bool isEatingWeapon;
-    public bool isDead;
-    public bool endGame;
-    public bool isImmune;
-    public bool tutorial;
 
     void Awake()
     {
@@ -94,8 +94,8 @@ public class _PlayerManager : MonoBehaviour
         playerCapsuleCollider = GetComponent<CapsuleCollider>();
         gameFadeOut = GameObject.Find("StartFadeIn").GetComponent<GameFadeout>();
         playerStats = GetComponent<_PlayerStats>();
-        craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
-        inventory = GetComponent<Inventory>();
+        //craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
+        //inventory = GetComponent<Inventory>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         eatingWeaponTimer = 0f;
     }
