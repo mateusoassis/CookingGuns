@@ -190,6 +190,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PauseForDialogue()
+    {
+        if(!pausedGame)
+        {
+            pausedGame = true;
+            Time.timeScale = 0;
+        }
+    }
+    public void ResumeForDialogue()
+    {
+        if(pausedGame)
+        {
+            pausedGame = false;
+            Time.timeScale = 1;
+        }
+    }
+
     public void PauseAndLose()
     {
         if(!pausedGame)
