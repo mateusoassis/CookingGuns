@@ -15,6 +15,7 @@ public class FirstCollider : MonoBehaviour
     5 - interagir_pet
     */
 
+    /*
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
@@ -37,4 +38,5 @@ public class FirstCollider : MonoBehaviour
             }
         }
     }
+    */
 }

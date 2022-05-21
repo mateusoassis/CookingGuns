@@ -8,10 +8,9 @@ public class _PlayerManager : MonoBehaviour
 {
     [Header("Booleanos de Teste")]
     public bool testing;
-    public bool testingWeapons;
+    //public bool testingWeapons;
     public bool testingCredits;
-    public bool tutorial;
-
+    
     [Header("Componentes do player e cena")]
     public Rigidbody playerRigidbody;
     public _AnimationHandler animationHandler;
@@ -29,7 +28,6 @@ public class _PlayerManager : MonoBehaviour
     public CapsuleCollider playerCapsuleCollider;
 
     [Header("Tutorial")]
-    public WindowContainer tutorialWindowContainer;
     public DialogueBox tutorialDialogueForPet;
     public TutorialBrain tutorialBrain;
 
@@ -60,6 +58,7 @@ public class _PlayerManager : MonoBehaviour
     public bool isDead;
     public bool endGame;
     public bool isImmune;
+    public bool tutorial;
 
     void Awake()
     {
@@ -80,7 +79,7 @@ public class _PlayerManager : MonoBehaviour
     {
         if(tutorial)
         {
-            tutorialWindowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
+            //tutorialWindowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
             tutorialDialogueForPet = GameObject.Find("3rd_KillTowerIntroCraftOnPet").GetComponent<DialogueBox>();
             tutorialBrain = GameObject.Find("TutorialStuff").GetComponent<TutorialBrain>();
         }
@@ -314,7 +313,7 @@ public class _PlayerManager : MonoBehaviour
                                         if(eatingWeaponTimer >= eatingWeaponDuration)
                                         {
                                             playerWeaponHandler.HealFromEatingWeapon();
-                                            tutorialWindowContainer.NextDialogue();
+                                            //tutorialWindowContainer.NextDialogue();
                                             isEatingWeapon = false;
                                             
                                             playerEatingWeaponBar.SetActive(false);
