@@ -9,9 +9,6 @@ public class _PlayerStats : MonoBehaviour
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
 
-    public YouLoseHolder youLoseHolder;
-
-
     [Header("Player Stats")]
     public int playerCurrentHealth;
     public int playerMaxHealth;
@@ -26,6 +23,11 @@ public class _PlayerStats : MonoBehaviour
 
     [Header("Referência de _PlayerManager")]
     public _PlayerManager playerManager;
+
+    [Header("Referência de Player Perdeu")]
+    public YouLoseHolder youLoseHolder;
+
+    [Header("VFX")]
     private SimpleFlash simpleFlashEffect;
     private CameraShake cameraShakeEffect;
 

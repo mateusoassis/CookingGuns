@@ -30,6 +30,8 @@ public class CraftingMainScript : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }*/
+
+    /*
     void Start(){
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
         weaponHandler = GameObject.Find("Player").GetComponent<_WeaponHandler>(); 
@@ -98,4 +100,5 @@ public class CraftingMainScript : MonoBehaviour
         }
         
     }
+    */
 }

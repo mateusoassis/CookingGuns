@@ -7,11 +7,11 @@ public class _PlayerMovement : MonoBehaviour
     private _PlayerManager playerManager;
 
     [Header("Player Stats")]
-    public float playerMoveSpeed;
+    private float playerMoveSpeed;
     public float playerMaxMoveSpeed;
-    public Rigidbody playerRigidbody;
+    private Rigidbody playerRigidbody;
 
-    [Header("Roll")]
+    [Header("Roll")] // eu poderia ter criado as funções nesse script e chamado todas elas no playermanager ao invés de mudar tantas variáveis daqui direto lá no playermanager
     public float multiplier; // pode ser pra algum buff de movespeed talvez
     public float rollSpeed;
     public float rollTimer = 0f;

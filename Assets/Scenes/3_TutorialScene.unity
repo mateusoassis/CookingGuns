@@ -6566,7 +6566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751332585}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1824513498}
@@ -10430,7 +10430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166729}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056356}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10605,7 +10605,8 @@ PrefabInstance:
       propertyPath: InventoryQuantityText
       value: 
       objectReference: {fileID: 1711962410}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1965072294433361020, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
 --- !u!114 &1041688473 stripped
 MonoBehaviour:

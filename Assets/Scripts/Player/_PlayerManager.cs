@@ -206,7 +206,7 @@ public class _PlayerManager : MonoBehaviour
                     if(gameManager.roomCleared)
                     {
                         petHandler.OpenCraftingWindow();
-                        craftingHandlerInPlayer.ShowCraftOptions();
+                        //craftingHandlerInPlayer.ShowCraftOptions();
                     }
                 }
             }
@@ -216,7 +216,7 @@ public class _PlayerManager : MonoBehaviour
                 if(petHandler.playerOnArea && !petHandler.craftingWindowOpen && tutorialDialogueForPet.ended)
                 {
                     petHandler.OpenCraftingWindow();
-                    craftingHandlerInPlayer.ShowCraftOptions();
+                    //craftingHandlerInPlayer.ShowCraftOptions();
                     //tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
                 }
             }
