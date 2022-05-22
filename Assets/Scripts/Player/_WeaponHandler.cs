@@ -15,7 +15,7 @@ public class _WeaponHandler : MonoBehaviour
     [Header("Variáveis de armas")]
     public int amountUnlocked;
     public int weaponTypeEquipped;
-    private int slotEquipped;
+    public int slotEquipped;
     private int numberOfFalseIndexes;
     private int firstFalseIndex;
     private int secondFalseIndex;
@@ -30,7 +30,7 @@ public class _WeaponHandler : MonoBehaviour
     //private Image[] weaponImages;
     public GameObject[] weaponObjects;
     public bool[] freeSlotArray;
-    private int[] weaponTypeOnSlot;
+    public int[] weaponTypeOnSlot;
     public _PlayerShooting[] playerShooting;
 
     [Header("Referências à scripts")]
@@ -136,6 +136,7 @@ public class _WeaponHandler : MonoBehaviour
         if(!playerManager.testingWeapons)
         {*/
             playerManager.playerInfo.lastWeaponTypeEquipped = n;
+            playerManager.playerInfo.lastSlotEquipped = slotEquipped;
             for(int i = 0; i < weaponObjects.Length; i++)
             {
                 if(i == n)
@@ -152,7 +153,7 @@ public class _WeaponHandler : MonoBehaviour
 
     public void NextWeapon()
     {   
-        Image[] tempButtonImage = new Image[3];
+        //Image[] tempButtonImage = new Image[3];
         if(CountBool(freeSlotArray, true) < 2)
         {
             if(playerShooting[weaponTypeEquipped].reloading)
@@ -188,6 +189,60 @@ public class _WeaponHandler : MonoBehaviour
             if(slotEquipped > 2)
             {
                 slotEquipped = 0;
+                playerManager.playerInfo.lastSlotEquipped = slotEquipped;
+            }
+
+            if(!freeSlotArray[slotEquipped])
+            {
+                weaponTypeEquipped = weaponTypeOnSlot[slotEquipped];
+                WeaponManager(weaponTypeEquipped);
+            }
+
+            //weaponObjects[weaponTypeEquipped].GetComponent<_PlayerShooting>().ReloadInterrupted();
+
+            
+            UpdateWeaponSlotSprites();
+        }
+    }
+
+    public void PreviousWeapon()
+    {
+        if(CountBool(freeSlotArray, true) < 2)
+        {
+            if(playerShooting[weaponTypeEquipped].reloading)
+            {
+                playerShooting[weaponTypeEquipped].ReloadInterrupted();
+            }
+
+            int newSlot = slotEquipped - 1;
+            if(newSlot < 0)
+            {
+                newSlot = 2;
+                if(freeSlotArray[newSlot])
+                {
+                    newSlot--;
+                }
+            }
+
+            if(freeSlotArray[newSlot])
+            {
+                slotEquipped = newSlot - 1;
+                if(slotEquipped < 0)
+                {
+                    slotEquipped = 2;
+                    playerManager.playerInfo.lastSlotEquipped = slotEquipped;
+                }
+            }
+            
+            if(!freeSlotArray[newSlot])
+            {
+                slotEquipped = newSlot;
+                playerManager.playerInfo.lastSlotEquipped = newSlot;
+            }
+            
+            if(slotEquipped < 0)
+            {
+                slotEquipped = 2;
                 playerManager.playerInfo.lastSlotEquipped = slotEquipped;
             }
 
@@ -317,59 +372,7 @@ public class _WeaponHandler : MonoBehaviour
         
     }
 
-    public void PreviousWeapon()
-    {
-        if(CountBool(freeSlotArray, true) < 2)
-        {
-            if(playerShooting[weaponTypeEquipped].reloading)
-            {
-                playerShooting[weaponTypeEquipped].ReloadInterrupted();
-            }
-
-            int newSlot = slotEquipped - 1;
-            if(newSlot < 0)
-            {
-                newSlot = 2;
-                if(freeSlotArray[newSlot])
-                {
-                    newSlot--;
-                }
-            }
-
-            if(freeSlotArray[newSlot])
-            {
-                slotEquipped = newSlot - 1;
-                if(slotEquipped < 0)
-                {
-                    slotEquipped = 2;
-                    playerManager.playerInfo.lastSlotEquipped = slotEquipped;
-                }
-            }
-            
-            if(!freeSlotArray[newSlot])
-            {
-                slotEquipped = newSlot;
-                playerManager.playerInfo.lastSlotEquipped = newSlot;
-            }
-            
-            if(slotEquipped < 0)
-            {
-                slotEquipped = 2;
-                playerManager.playerInfo.lastSlotEquipped = slotEquipped;
-            }
-
-            if(!freeSlotArray[slotEquipped])
-            {
-                weaponTypeEquipped = weaponTypeOnSlot[slotEquipped];
-                WeaponManager(weaponTypeEquipped);
-            }
-
-            //weaponObjects[weaponTypeEquipped].GetComponent<_PlayerShooting>().ReloadInterrupted();
-
-            
-            UpdateWeaponSlotSprites();
-        }
-    }
+    
 
     public void SwitchGuns()
     {
