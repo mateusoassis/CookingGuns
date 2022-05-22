@@ -64,6 +64,7 @@ public class HeartContainerManager : MonoBehaviour
     public void FullHeal()
     {
         playerStats.playerCurrentHealth = playerStats.playerMaxHealth;
+        playerStats.playerManager.playerInfo.healthFromLastRoom = playerStats.playerMaxHealth;
         hpLost = 0;
         for(int i = 0; i < playerStats.playerMaxHealth; i++)
         {
