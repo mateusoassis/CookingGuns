@@ -2,35 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoor : MonoBehaviour
+public class OpenDoorAfterEatWeapon : MonoBehaviour
 {
     [Header("Preencher")] // referenciar o diálogo responsável pelo booleano que deixará a porta abrir
-    [SerializeField] private DialogueBox dialogueBoxScript;
-    [SerializeField] private string targetTag;
     //[SerializeField] string doorNameInHierarchy;
     [SerializeField] private Transform targetDoor;
+    [SerializeField] private string targetTag;
     public float speedToOpen;
     [SerializeField] private float yOffset;
 
     [Header("Ignora")]
     private Vector3 targetPos;
-    [SerializeField] private bool open;
-    public bool blockedOpen;
+    [SerializeField] private bool isPlayerInside;
+
+    private TutorialBrain tutorialBrain;
 
     void Awake()
     {
         //targetDoor = GameObject.Find(doorNameInHierarchy).GetComponent<Transform>();
         //dialogueBoxScript = GetComponent<DialogueBox>();
+        tutorialBrain = GameObject.Find("TutorialStuff").GetComponent<TutorialBrain>();
     }
 
     void Start()
     {
         targetPos = targetDoor.position + new Vector3(0f, -yOffset, 0f);
+        GetComponent<BoxCollider>().enabled = true;
     }
 
     void Update()
     {
-        if(dialogueBoxScript.ended && open)
+        if(isPlayerInside && tutorialBrain.playerEatWeapon)
         {
             targetDoor.position = Vector3.MoveTowards(targetDoor.position, targetPos, speedToOpen * Time.deltaTime);
         }
@@ -40,7 +42,15 @@ public class OpenDoor : MonoBehaviour
     {
         if(other.gameObject.tag == targetTag)
         {
-            open = true;
+            isPlayerInside = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == targetTag)
+        {
+            isPlayerInside = false;
         }
     }
 }
