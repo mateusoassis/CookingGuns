@@ -37,6 +37,7 @@ public class DialogueBox : MonoBehaviour
     {
         canSkip = false;
         dialogueText.text = string.Empty;
+        canvasGroupObject.SetActive(false);
     }
 
     void Update()

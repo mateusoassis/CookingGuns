@@ -1165,7 +1165,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-175356
+  m_Name: pb_Mesh-21894
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6808,7 +6808,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751332585}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 6.4219437, y: 30.62072, z: -31.83032}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1824513498}
@@ -10711,7 +10711,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.001
   far clip plane: 1000
   field of view: 40
   orthographic: 0
@@ -15127,6 +15127,30 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 3576600776728679271, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
   m_PrefabInstance: {fileID: 1290450173}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1420477695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 469533812094209873, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+  m_PrefabInstance: {fileID: 1711962409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1420477699
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420477695}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2c23bc8c9d8139448825ddd1a3b567c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1421596758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16377,10 +16401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a678217114a34048a4aea20d4ef8d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondPartOpenDoor: {fileID: 0}
-  windowContainer: {fileID: 0}
-  scene: 0
-  type: 0
 --- !u!23 &1582747020 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5896905976292298959, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -18818,12 +18838,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 877847704363042584, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 972114967, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_Alpha
       value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1382518033, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 877847704363042584, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026238608520392246, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1425752245492188297, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -19248,6 +19277,10 @@ PrefabInstance:
     - target: {fileID: 7611585314214741716, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785722454611962222, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9100295562838049154, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_AnchorMax.y

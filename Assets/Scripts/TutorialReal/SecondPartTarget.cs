@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SecondPartTarget : MonoBehaviour
 {
+    /*
     public SecondPartOpenDoor secondPartOpenDoor;
     public WindowContainer windowContainer;
     public int scene;
@@ -16,15 +17,22 @@ public class SecondPartTarget : MonoBehaviour
     void Awake()
     {
         scene = SceneManager.GetActiveScene().buildIndex;
-    }
-
-    void Start()
-    {
         if(scene == 3)
         {
             secondPartOpenDoor = GameObject.Find("2nd_PartColliders").GetComponent<SecondPartOpenDoor>();
             windowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
         }
+    }
+
+    void Start()
+    {
+        
+        if(scene == 3)
+        {
+            secondPartOpenDoor = GameObject.Find("2nd_PartColliders").GetComponent<SecondPartOpenDoor>();
+            windowContainer = GameObject.Find("TutorialWindowContainer").GetComponent<WindowContainer>();
+        }
+        
     }
 
     void OnDestroy()
@@ -40,4 +48,5 @@ public class SecondPartTarget : MonoBehaviour
             windowContainer.NextDialogue();
         }
     }
+    */
 }
