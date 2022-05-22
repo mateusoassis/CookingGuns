@@ -16,13 +16,13 @@ public class BarrelScript : MonoBehaviour
     
     private IEnumerator TimeToDestroy() 
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.6f);
+
         Destroy(this.gameObject);
     }   
 
     public void ActivateBarrel()
     {
-        transform.rotation = Quaternion.identity;
         barrelExplosionArea.SetActive(true);
         StartCoroutine("TimeToDestroy");
     }

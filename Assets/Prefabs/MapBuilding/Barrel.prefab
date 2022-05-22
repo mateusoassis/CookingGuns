@@ -112,6 +112,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrelExplosionArea: {fileID: 6486933679375185240}
+--- !u!1001 &1526202142759152550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1004296717604070025}
+    m_Modifications:
+    - target: {fileID: 7746462974388132892, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_Name
+      value: InnerArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156507885612127728, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f59c2e68bb8367b4eac08ee0a7b816af, type: 3}
 --- !u!1001 &2288486565935887285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +250,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7001734735016705043}
     m_Modifications:
+    - target: {fileID: 1265462969747299501, guid: c699e37e14cf56a4d941a22ba1b44266, type: 3}
+      propertyPath: damageDoneInEnemy
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265462969747299501, guid: c699e37e14cf56a4d941a22ba1b44266, type: 3}
+      propertyPath: barrelExplosionTimer
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2900994057694116048, guid: c699e37e14cf56a4d941a22ba1b44266, type: 3}
       propertyPath: m_Name
       value: BarrelExplosionArea
