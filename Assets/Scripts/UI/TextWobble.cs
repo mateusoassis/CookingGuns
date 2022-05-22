@@ -72,22 +72,12 @@ public class TextWobble : MonoBehaviour
  
                 int index = c.vertexIndex;
  
-                //colors[index] = rainbow.Evaluate(Mathf.Repeat(Time.time + vertices[index].x*0.001f, 1f));
-                //colors[index + 1] = rainbow.Evaluate(Mathf.Repeat(Time.time + vertices[index + 1].x*0.001f, 1f));
-                //colors[index + 2] = rainbow.Evaluate(Mathf.Repeat(Time.time + vertices[index + 2].x*0.001f, 1f));
-                //colors[index + 3] = rainbow.Evaluate(Mathf.Repeat(Time.time + vertices[index + 3].x*0.001f, 1f));
- 
                 vertices[index] += offset;
                 vertices[index + 1] += offset;
                 vertices[index + 2] += offset;
                 vertices[index + 3] += offset;
- 
-                
             }
         }
- 
-        
- 
         mesh.vertices = vertices;
         //mesh.colors = colors;
         textMesh.canvasRenderer.SetMesh(mesh);
