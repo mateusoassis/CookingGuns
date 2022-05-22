@@ -16,7 +16,7 @@ public class BarrelScript : MonoBehaviour
     
     private IEnumerator TimeToDestroy() 
     {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(2.5f);
         Destroy(this.gameObject);
     }   
 

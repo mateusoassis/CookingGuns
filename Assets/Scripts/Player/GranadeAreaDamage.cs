@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class GranadeAreaDamage : MonoBehaviour
 {
-    public float bombTimer;
+    [SerializeField]private float bombTimer;
+    public GranadeInnerArea granadeInnerAreaScript;
     public GameObject particleEffect;
     public GameObject particleEffect2;
     public GameObject granade;
+    //public GameObject innerArea;
     public int damageDone;
     public CapsuleCollider capsuleCollider;
 
     void Awake()
     {
+        granadeInnerAreaScript = GetComponentInChildren<GranadeInnerArea>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         capsuleCollider.enabled = false;
         transform.rotation = Quaternion.identity;
@@ -20,7 +23,7 @@ public class GranadeAreaDamage : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0, 0.2f, 0 * Time.deltaTime);
+        transform.Rotate(0, 2f, 0 * Time.deltaTime);
     }
 
     void Start()
@@ -35,6 +38,8 @@ public class GranadeAreaDamage : MonoBehaviour
         Instantiate(particleEffect2, transform.position, Quaternion.identity);
         FindObjectOfType<SoundManager>().PlayOneShot("ExplosionSound");
         capsuleCollider.enabled = true;
+        granadeInnerAreaScript.isMaxSize = true;
+        granadeInnerAreaScript.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
         yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
         Destroy(granade);
