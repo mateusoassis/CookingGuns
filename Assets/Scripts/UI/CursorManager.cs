@@ -8,6 +8,7 @@ public class CursorManager : MonoBehaviour
     public PlayerInfo playerInfo;
     public Image crosshairImage;
     public Transform crosshair;
+    public bool mouseVisible;
 
     void Awake()
     {
@@ -17,7 +18,7 @@ public class CursorManager : MonoBehaviour
 
     void Start()
     {
-        //Cursor.visible = false;
+        Cursor.visible = mouseVisible;
         // UpdateCrosshair();  
         crosshairImage.sprite = playerInfo.crosshairImages[playerInfo.crosshairIndex];
         
