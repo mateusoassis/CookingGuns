@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CursorManager : MonoBehaviour
 {
@@ -27,31 +28,43 @@ public class CursorManager : MonoBehaviour
     {
         crosshair = GameObject.Find("Crosshair").GetComponent<Transform>();
         crosshairImage = crosshair.GetComponent<Image>();
-        crosshairAnim = crosshair.GetComponent<Animator>();
+        if(SceneManager.GetActiveScene().buildIndex > 2)
+        {
+            crosshairAnim = crosshair.GetComponent<Animator>();
+        }
         normalColor = crosshairImage.color;
         zeroAlphaColor = new Color(normalColor.r, normalColor.g, normalColor.b, 0f);
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if(SceneManager.GetActiveScene().buildIndex > 2)
+        {
+            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
     }
 
     void Start()
     {
         Cursor.visible = mouseVisible;
-        currentAnimationSpeed = crosshairAnim.GetFloat("speed");
+        if(SceneManager.GetActiveScene().buildIndex > 2)
+        {
+            currentAnimationSpeed = crosshairAnim.GetFloat("speed");
+        }
         // UpdateCrosshair(); 
     }
 
     void Update()
     {
         crosshair.position = Input.mousePosition;
-        if(gameManager.pausedGame || gameManager.playerManager.petHandler.craftingWindowOpen)
+        if(SceneManager.GetActiveScene().buildIndex > 2)
         {
-            crosshairImage.color = zeroAlphaColor;
-            Cursor.visible = true;
-        }
-        else
-        {
-            crosshairImage.color = normalColor;
-            Cursor.visible = mouseVisible;
+            if(gameManager.pausedGame || gameManager.playerManager.petHandler.craftingWindowOpen)
+            {
+                crosshairImage.color = zeroAlphaColor;
+                Cursor.visible = true;
+            }
+            else
+            {
+                crosshairImage.color = normalColor;
+                Cursor.visible = mouseVisible;
+            }
         }
 
         /*

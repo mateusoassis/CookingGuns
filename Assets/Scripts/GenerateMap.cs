@@ -138,6 +138,7 @@ public class GenerateMap : MonoBehaviour
         if(GetComponent<_PlayerManager>().playerInfo.playerCurrentRoom < numberOfRoomsToEndGame)
         {
             int buildIndex = SceneManager.GetActiveScene().buildIndex;
+            Debug.Log(buildIndex + 1);
             SceneManager.LoadScene(buildIndex + 1);
             GetComponent<_PlayerManager>().playerInfo.playerCurrentRoom++;
         }
