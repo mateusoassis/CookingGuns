@@ -39,7 +39,10 @@ public class EnemyStats : MonoBehaviour
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         //enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         healthbarScript = GetComponentInChildren<HealthbarBehaviour>();
-        oldMaterial = enemyFlashingPart.GetComponent<MeshRenderer>().material;
+        if(enemyType != 0)
+        {
+            oldMaterial = enemyFlashingPart.GetComponent<MeshRenderer>().material;
+        }
     }
     
     public void TakeDamage(int damageTaken)

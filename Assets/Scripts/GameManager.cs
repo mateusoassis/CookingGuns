@@ -140,13 +140,16 @@ public class GameManager : MonoBehaviour
 
     public void SlowTime()
     {
-        if(slowdown && !slowdownEnded)
+        if(!pausedGame)
         {
-            Time.timeScale += (1f / slowdownDuration) * Time.unscaledDeltaTime;
-            Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
-            if(Time.timeScale >= 1f)
+            if(slowdown && !slowdownEnded)
             {
-                slowdownEnded = true;
+                Time.timeScale += (1f / slowdownDuration) * Time.unscaledDeltaTime;
+                Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+                if(Time.timeScale >= 1f)
+                {
+                    slowdownEnded = true;
+                }
             }
         }
     }
@@ -200,6 +203,12 @@ public class GameManager : MonoBehaviour
     }
     public void ResumeForDialogue()
     {
+        StartCoroutine(ResumeDialogueCoroutine());
+    }
+
+    public IEnumerator ResumeDialogueCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
         if(pausedGame)
         {
             pausedGame = false;

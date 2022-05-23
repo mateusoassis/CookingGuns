@@ -402,11 +402,11 @@ public class _WeaponHandler : MonoBehaviour
         else
         {
             */
-            if(Input.GetKeyDown(KeyCode.Q) && !playerManager.isShooting)
+            if(Input.GetKeyDown(KeyCode.Q) && !playerManager.isShooting && !playerManager.gameManager.pausedGame)
             {
                 PreviousWeapon();
             }
-            else if(Input.GetKeyDown(KeyCode.E) && !playerManager.isShooting)
+            else if(Input.GetKeyDown(KeyCode.E) && !playerManager.isShooting && !playerManager.gameManager.pausedGame)
             {
                 NextWeapon();
             }
