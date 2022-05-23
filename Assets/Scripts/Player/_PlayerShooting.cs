@@ -122,6 +122,10 @@ public class _PlayerShooting : MonoBehaviour
 
         if(readyToShoot && !reloading && bulletsLeft <= 0)
         {
+            if(playerManager.playerWeaponHandler.weaponTypeEquipped != 3)
+            {
+                FindObjectOfType<SoundManager>().PlayOneShot("EmptyGunPistolAndMachineGun");
+            }
             Reload();
         }
 
@@ -247,6 +251,24 @@ public class _PlayerShooting : MonoBehaviour
         reloadDisplay.gameObject.SetActive(true);
         reloadTimeCounter = 0;
         Invoke("ReloadFinished", reloadTime);
+
+        // som do reload
+        if(playerManager.playerWeaponHandler.weaponTypeEquipped == 0)
+        {
+            FindObjectOfType<SoundManager>().PlayOneShot("PistolReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 1)
+        {
+            FindObjectOfType<SoundManager>().PlayOneShot("ShotgunReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 2)
+        {
+            FindObjectOfType<SoundManager>().PlayOneShot("MachineGunReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 3)
+        {
+            FindObjectOfType<SoundManager>().PlayOneShot("GrenadeLauncherReload");
+        } 
     }
 
     public IEnumerator ResetWalk()

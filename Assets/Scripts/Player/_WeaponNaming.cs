@@ -5,6 +5,7 @@ using UnityEngine;
 public class _WeaponNaming : MonoBehaviour
 {
     [Header("Cores/qualidade de nomes de armas")]
+    public Color uncommonColor;
     public Color rareColor;
     public Color epicColor;
     public Color uniqueColor;

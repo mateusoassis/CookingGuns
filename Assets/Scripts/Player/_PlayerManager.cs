@@ -260,6 +260,10 @@ public class _PlayerManager : MonoBehaviour
                         }
                         else
                         {
+                            if(!rmbHeldDown)
+                            {
+                                FindObjectOfType<SoundManager>().PlayOneShot("Eating");
+                            }
                             rmbHeldDown = true;
                             playerWeaponHandler.UpdateAmountUnlocked();
                             if(playerWeaponHandler.amountUnlocked > 1)
@@ -338,6 +342,7 @@ public class _PlayerManager : MonoBehaviour
                     rmbHeldDown = false;
                     eatingWeaponTimer = 0f;
                     playerEatingWeaponBar.SetActive(false);
+                    FindObjectOfType<SoundManager>().StopSound("Eating");
                 }
                 
                 //playerMovement.RollCountTimer();
