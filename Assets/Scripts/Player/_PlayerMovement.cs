@@ -7,7 +7,7 @@ public class _PlayerMovement : MonoBehaviour
     private _PlayerManager playerManager;
 
     [Header("Player Stats")]
-    private float playerMoveSpeed;
+    public float playerMoveSpeed;
     public float playerMaxMoveSpeed;
     private Rigidbody playerRigidbody;
 

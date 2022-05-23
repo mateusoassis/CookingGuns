@@ -259,8 +259,8 @@ public class _PlayerManager : MonoBehaviour
                             isEatingWeapon = false;
                         }
                         else
-                        {
-                            if(!rmbHeldDown)
+                        {   
+                            if(!rmbHeldDown && playerWeaponHandler.amountUnlocked > 1)
                             {
                                 FindObjectOfType<SoundManager>().PlayOneShot("Eating");
                             }
