@@ -26,21 +26,21 @@ public class CursorManager : MonoBehaviour
     void Start()
     {
         Cursor.visible = mouseVisible;
-        // UpdateCrosshair();  
-        
-        
+        // UpdateCrosshair(); 
     }
 
     void Update()
     {
         crosshair.position = Input.mousePosition;
-        if(gameManager.pausedGame)
+        if(gameManager.pausedGame || gameManager.playerManager.petHandler.craftingWindowOpen)
         {
             crosshairImage.color = zeroAlphaColor;
+            Cursor.visible = true;
         }
         else
         {
             crosshairImage.color = normalColor;
+            Cursor.visible = false;
         }
     }
 
