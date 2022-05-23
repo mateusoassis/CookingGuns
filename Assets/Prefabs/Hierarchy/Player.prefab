@@ -4186,7 +4186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4329122371078903646
 Transform:
   m_ObjectHideFlags: 0
@@ -4319,17 +4319,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab04fd8954564540a8f248ee394b46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayToDissolve: 1
-  dissolveMaterial: {fileID: 2100000, guid: ad59d56773d800c449d748d777afff9e, type: 2}
-  playerRenderers:
-  - {fileID: 7138177443355732726}
-  - {fileID: 198730237050069303}
-  - {fileID: 8296877865505748500}
-  - {fileID: 1816626107667780221}
-  - {fileID: 3218410947267327006}
-  - {fileID: 831511662389406541}
-  - {fileID: 5781106107073980156}
-  oldMaterials: []
+  delayToDissolve: 2
+  dissolveSpeed: 5
+  dissolveMaterialsCorrectNow:
+  - {fileID: 2100000, guid: f57235bd3b428e54f8f53d785e62a910, type: 2}
+  - {fileID: 2100000, guid: 8de7c00464e4a754cba5ceb8224d3f90, type: 2}
+  - {fileID: 2100000, guid: 77c900f46cf73be428798438c79ac0c9, type: 2}
+  - {fileID: 2100000, guid: 6c49d298b06ecf14a906c4cc51ce973a, type: 2}
+  - {fileID: 2100000, guid: 9e83756761cd62e42ae7538e8db7d4e3, type: 2}
 --- !u!1 &5495748793711576187
 GameObject:
   m_ObjectHideFlags: 0
@@ -10012,8 +10009,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   index: 0
   moveToNextDelay: 1
   buttonsCanvasObject: {fileID: 0}
@@ -10505,6 +10500,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &6581419280839189476
 GameObject:
   m_ObjectHideFlags: 0
@@ -10703,6 +10699,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &6581419281016446627
 GameObject:
   m_ObjectHideFlags: 0
@@ -10834,6 +10831,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &6581419281104439295
 GameObject:
   m_ObjectHideFlags: 0
@@ -11015,6 +11013,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &6581419281425229634
 GameObject:
   m_ObjectHideFlags: 0
