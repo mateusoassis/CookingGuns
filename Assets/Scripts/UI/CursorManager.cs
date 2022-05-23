@@ -16,11 +16,12 @@ public class CursorManager : MonoBehaviour
 
     private Animator crosshairAnim;
 
-    private float newAnimationSpeed;
-    private float currentReloadDuration;
-    private float currentAnimationSpeed;
-    private float baseReloadDuration = 1f;
-    private float baseAnimationSpeed = 1f;
+    [Header("Variáveis de animação")]
+    public float newAnimationSpeed = 1f;
+    //public float currentReloadDuration;
+    public float currentAnimationSpeed;
+    public float baseReloadDuration = 1f;
+    public float baseAnimationSpeed = 1f;
 
     void Awake()
     {
@@ -50,7 +51,7 @@ public class CursorManager : MonoBehaviour
         else
         {
             crosshairImage.color = normalColor;
-            Cursor.visible = false;
+            Cursor.visible = mouseVisible;
         }
 
         /*

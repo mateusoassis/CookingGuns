@@ -4186,7 +4186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4329122371078903646
 Transform:
   m_ObjectHideFlags: 0
@@ -4321,6 +4321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayToDissolve: 2
   dissolveSpeed: 5
+  delayTimer: 0
   dissolveMaterialsCorrectNow:
   - {fileID: 2100000, guid: f57235bd3b428e54f8f53d785e62a910, type: 2}
   - {fileID: 2100000, guid: 8de7c00464e4a754cba5ceb8224d3f90, type: 2}

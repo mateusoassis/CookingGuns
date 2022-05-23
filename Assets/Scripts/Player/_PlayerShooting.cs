@@ -289,6 +289,7 @@ public class _PlayerShooting : MonoBehaviour
         reloadDisplay.gameObject.SetActive(false);
         bulletsLeft = magazineSize;
         reloading = false;
+        cursorManager.InterruptReloadAnim();
     }
 
     public void ReloadInterrupted()
@@ -298,6 +299,23 @@ public class _PlayerShooting : MonoBehaviour
         playerManager.ReloadEndDisplay();
         reloadDisplay.gameObject.SetActive(false);
         reloading = false;
+        // som do reload
+        if(playerManager.playerWeaponHandler.weaponTypeEquipped == 0)
+        {
+            FindObjectOfType<SoundManager>().StopSound("PistolReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 1)
+        {
+            FindObjectOfType<SoundManager>().StopSound("ShotgunReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 2)
+        {
+            FindObjectOfType<SoundManager>().StopSound("MachineGunReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 3)
+        {
+            FindObjectOfType<SoundManager>().StopSound("GrenadeLauncherReload");
+        } 
         cursorManager.InterruptReloadAnim();
         Debug.Log("cancela reload");
     }
