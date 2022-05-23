@@ -46,6 +46,8 @@ public class _PlayerShooting : MonoBehaviour
 
     public int sceneInt;
 
+    public CursorManager cursorManager;
+
     private void Awake()
     {   
         sceneInt = SceneManager.GetActiveScene().buildIndex;
@@ -60,6 +62,7 @@ public class _PlayerShooting : MonoBehaviour
             weaponNameDisplay = GameObject.Find("WeaponNameDisplay").GetComponent<TextMeshProUGUI>();
         }
         granadeLauncherTarget = GameObject.Find("SlerpTarget");
+        cursorManager = GameObject.Find("CursorManager").GetComponent<CursorManager>();
     }
 
     private void Start()
@@ -118,6 +121,7 @@ public class _PlayerShooting : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
         {
             Reload();
+            cursorManager.ReloadCrosshairAnimation(reloadTime);
         }
 
         if(readyToShoot && !reloading && bulletsLeft <= 0)
@@ -127,6 +131,7 @@ public class _PlayerShooting : MonoBehaviour
                 FindObjectOfType<SoundManager>().PlayOneShot("EmptyGunPistolAndMachineGun");
             }
             Reload();
+            cursorManager.ReloadCrosshairAnimation(reloadTime);
         }
 
         if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
@@ -293,6 +298,7 @@ public class _PlayerShooting : MonoBehaviour
         playerManager.ReloadEndDisplay();
         reloadDisplay.gameObject.SetActive(false);
         reloading = false;
+        cursorManager.InterruptReloadAnim();
         Debug.Log("cancela reload");
     }
 

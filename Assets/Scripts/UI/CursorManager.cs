@@ -14,10 +14,19 @@ public class CursorManager : MonoBehaviour
     private Color normalColor;
     private Color zeroAlphaColor;
 
+    private Animator crosshairAnim;
+
+    private float newAnimationSpeed;
+    private float currentReloadDuration;
+    private float currentAnimationSpeed;
+    private float baseReloadDuration = 1f;
+    private float baseAnimationSpeed = 1f;
+
     void Awake()
     {
         crosshair = GameObject.Find("Crosshair").GetComponent<Transform>();
         crosshairImage = crosshair.GetComponent<Image>();
+        crosshairAnim = crosshair.GetComponent<Animator>();
         normalColor = crosshairImage.color;
         zeroAlphaColor = new Color(normalColor.r, normalColor.g, normalColor.b, 0f);
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -26,6 +35,7 @@ public class CursorManager : MonoBehaviour
     void Start()
     {
         Cursor.visible = mouseVisible;
+        currentAnimationSpeed = crosshairAnim.GetFloat("speed");
         // UpdateCrosshair(); 
     }
 
@@ -42,6 +52,14 @@ public class CursorManager : MonoBehaviour
             crosshairImage.color = normalColor;
             Cursor.visible = false;
         }
+
+        /*
+        if(currentReloadDuration != baseReloadDuration || currentAnimationSpeed != baseAnimationSpeed)
+        {
+            newAnimationSpeed = baseAnimationSpeed / (currentReloadDuration/baseReloadDuration);
+            crosshairAnim.SetFloat("speed", newAnimationSpeed);
+        }
+        */
     }
 
     void FixedUpdate()
@@ -52,5 +70,22 @@ public class CursorManager : MonoBehaviour
     public void UpdateCrosshair()
     {
         Cursor.SetCursor(playerInfo.crosshairTextures2D[playerInfo.crosshairIndex], Vector2.zero, CursorMode.Auto);
+    }
+
+    public void ReloadCrosshairAnimation(float reloadDuration)
+    {
+        if(reloadDuration != baseReloadDuration || currentAnimationSpeed != baseAnimationSpeed)
+        {
+            newAnimationSpeed = baseAnimationSpeed / (reloadDuration/baseReloadDuration);
+        }
+        crosshairAnim.SetFloat("speed", newAnimationSpeed);
+        crosshairAnim.ResetTrigger("CancelReloadAnim");
+        crosshairAnim.SetTrigger("Reload");
+    }
+
+    public void InterruptReloadAnim()
+    {
+        crosshairAnim.ResetTrigger("Reload");
+        crosshairAnim.SetTrigger("CancelReloadAnim");
     }
 }
