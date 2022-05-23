@@ -1,4 +1,4 @@
-using System.Diagnostics;
+//using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,7 +31,6 @@ public class CinemachineSwitchBlend : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.J) && conceptualCameraBool)
         {
-            UnityEngine.Debug.Log("troca");
             SwitchToConceptual();
         }
     }
@@ -68,6 +67,5 @@ public class CinemachineSwitchBlend : MonoBehaviour
             conceptualCamera.Priority = 0;
         }
         conceptualMode = !conceptualMode;
-        UnityEngine.Debug.Log("trocou");
     }
 }
