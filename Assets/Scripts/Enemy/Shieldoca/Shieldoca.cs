@@ -36,7 +36,7 @@ public class Shieldoca : MonoBehaviour
 
     void Start()
     {
-        attackParticle = GetComponentInChildren<ParticleSystem>();
+        attackParticle = transform.Find("ShieldocaAttack").GetComponent<ParticleSystem>();
         selfRigidbody = GetComponent<Rigidbody>();
         player = GameObject.Find("Player").GetComponent<Transform>();
         moveSpeed = maxMoveSpeed;
@@ -151,7 +151,7 @@ public class Shieldoca : MonoBehaviour
         attacking = false;
     }
 
-    void ActivateAttackParticle() 
+    public void ActivateAttackParticle() 
     {
         attackParticle.Play();
     }
