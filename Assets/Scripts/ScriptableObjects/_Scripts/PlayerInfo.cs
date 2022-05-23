@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "PlayerInfo", menuName = "Cooking Guns/PlayerInfo", order = 5)]
 public class PlayerInfo : ScriptableObject
@@ -12,6 +13,12 @@ public class PlayerInfo : ScriptableObject
     public int playerCurrentRoom;
     public int healthFromLastRoom;
     // public int currentSceneIndex;
+
+    [Header("In-game Crosshair")]
+    public Texture2D[] crosshairTextures2D;
+    public Sprite[] crosshairImages;
+    public int crosshairIndex;
+    public int crosshairColor;
 
     [Header("Armas")]
     public int lastWeaponTypeEquipped;
