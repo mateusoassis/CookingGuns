@@ -494,6 +494,7 @@ public class _WeaponHandler : MonoBehaviour
             UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
+            playerManager.playerShootingPistol.bulletsLeft = playerManager.playerShootingPistol.magazineSize;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
         //}
@@ -544,6 +545,7 @@ public class _WeaponHandler : MonoBehaviour
             UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
+            playerManager.playerShootingShotgun.bulletsLeft = playerManager.playerShootingShotgun.magazineSize;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
         //}
@@ -594,6 +596,7 @@ public class _WeaponHandler : MonoBehaviour
             UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
+            playerManager.playerShootingMachineGun.bulletsLeft = playerManager.playerShootingMachineGun.magazineSize;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
         //}
@@ -645,6 +648,7 @@ public class _WeaponHandler : MonoBehaviour
             UpdateAmountUnlocked();
             weaponTypeOnSlot[slotEquipped] = 4;
             playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
+            playerManager.playerShootingGranadeLauncher.bulletsLeft = playerManager.playerShootingGranadeLauncher.magazineSize;
             //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
             UpdateWeaponSlotSprites();
         //}

@@ -22,7 +22,7 @@ public class _PlayerShooting : MonoBehaviour
 
     public float reloadTimeCounter;
 
-    int bulletsLeft, bulletsShot;
+    public int bulletsLeft, bulletsShot;
 
     //bools
     public bool shooting, readyToShoot, reloading; 
@@ -67,7 +67,7 @@ public class _PlayerShooting : MonoBehaviour
 
     private void Start()
     {
-        AmmoDisplayUpdate();
+
     }
 
     void Update()
@@ -97,6 +97,7 @@ public class _PlayerShooting : MonoBehaviour
                 reloading = false;
             }
         }
+        AmmoDisplayUpdate();
     }
 
     public void MyInput()
@@ -206,6 +207,8 @@ public class _PlayerShooting : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot++;
+
+        AmmoDisplayUpdate();
 
         if(allowInvoke)
         {
