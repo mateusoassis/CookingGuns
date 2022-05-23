@@ -222,6 +222,7 @@ public class GameManager : MonoBehaviour
     {
         if(pausedGame)
         {
+            SoundButton();
             pausedGame = false;
             pauseUI.SetActive(false);
             Time.timeScale = 1;
@@ -232,6 +233,7 @@ public class GameManager : MonoBehaviour
     {
         if(!confirmationWindowOpen)
         {
+            SoundButton();
             confirmationWindowOpen = true;
             restartConfirmationWindow.SetActive(true);
         }
@@ -239,6 +241,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        SoundButton();
         if(playerInfo.isOnTutorial)
         {
             playerInfo.TutorialReset();
@@ -255,6 +258,7 @@ public class GameManager : MonoBehaviour
     {
         if(!confirmationWindowOpen)
         {
+            SoundButton();
             confirmationWindowOpen = true;
             quitConfirmationWindow.SetActive(true);
         }
@@ -262,6 +266,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
+        SoundButton();
         SceneManager.LoadScene("1_MenuScene", LoadSceneMode.Single);
         //playerInfo.totalPlayedTime += (int)elapsedTime;
     }
@@ -284,5 +289,10 @@ public class GameManager : MonoBehaviour
             playerInfo.fastestRunSoFar = (int)elapsedTime;
         }
         SceneManager.LoadScene("2_CreditsScene", LoadSceneMode.Single);
+    }
+
+    public void SoundButton()
+    {
+        FindObjectOfType<SoundManager>().PlayOneShot("Butao");
     }
 }

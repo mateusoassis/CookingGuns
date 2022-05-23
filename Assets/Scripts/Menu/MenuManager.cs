@@ -39,6 +39,7 @@ public class MenuManager : MonoBehaviour
     {
         if(isOnMenu)
         {
+            ButaoSound();
             if(!playerInfo.hasPlayedTutorial)
             {
                 StraightToTutorial();
@@ -55,6 +56,7 @@ public class MenuManager : MonoBehaviour
 
     public void ContinueGame() // depois reativo o menino, falta inclusive ativar ele no start
     {
+        ButaoSound();
         /*
         if(playerInfo.playerCurrentRoom == 1)
         {
@@ -83,6 +85,7 @@ public class MenuManager : MonoBehaviour
     {
         if(isOnMenu)
         {
+            ButaoSound();
             optionsPanel.SetActive(true);
             isOnMenu = false;
         } 
@@ -91,6 +94,7 @@ public class MenuManager : MonoBehaviour
     {
         if(isOnMenu)
         {
+            ButaoSound();
             SceneManager.LoadScene("2_CreditsScene", LoadSceneMode.Single);
         }
     }
@@ -99,6 +103,7 @@ public class MenuManager : MonoBehaviour
     {
         if(!isOnMenu)
         {
+            ButaoSound();
             CloseWindows();
         }
         
@@ -115,13 +120,20 @@ public class MenuManager : MonoBehaviour
     {
         if(isOnMenu)
         {
+            ButaoSound();
             Application.Quit();
         }
     }
 
     public void StraightToTutorial()
     {
+        ButaoSound();
         playerInfo.TutorialReset();
         SceneManager.LoadScene("3_TutorialScene", LoadSceneMode.Single);
+    }
+
+    public void ButaoSound()
+    {
+        FindObjectOfType<SoundManager>().PlayOneShot("Butao");
     }
 }

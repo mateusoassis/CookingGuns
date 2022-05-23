@@ -101,12 +101,14 @@ public class DialogueBox : MonoBehaviour
     {
         if(index < dialogueString.Length - 1)
         {
+            gameManager.SoundButton();
             index++;
             dialogueText.text = string.Empty;
             StartCoroutine(TypeDialogue());
         }
         else
         {
+            gameManager.SoundButton();
             canvasGroup.alpha = 0;
             canvasGroupObject.SetActive(false);
             gameManager.ResumeForDialogue();

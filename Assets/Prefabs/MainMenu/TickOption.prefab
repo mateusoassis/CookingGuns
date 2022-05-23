@@ -163,6 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5673502192375547754}
+  - component: {fileID: 2480234191942719133}
   m_Layer: 5
   m_Name: TickOption
   m_TagString: Untagged
@@ -191,6 +192,18 @@ RectTransform:
   m_AnchoredPosition: {x: 40, y: -167.99998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2480234191942719133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673502192375547755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4208b27b17c8d41972726e16c60822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5673502192558408668
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +288,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2480234191942719133}
+        m_TargetAssemblyTypeName: ButaoSoundNow, Assembly-CSharp
+        m_MethodName: ButaoScriptSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &5673502192859768732
 GameObject:

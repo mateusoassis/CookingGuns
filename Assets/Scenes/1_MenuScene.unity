@@ -7885,6 +7885,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 259641489}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ButaoSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &502288543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8546,6 +8558,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &532480291
 GameObject:
   m_ObjectHideFlags: 0
@@ -12458,6 +12471,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &789587785
 GameObject:
   m_ObjectHideFlags: 0
@@ -16542,6 +16556,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1001 &1002610511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20306,6 +20321,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 259641489}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ButaoSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1217797127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22393,6 +22420,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &1338206251
 GameObject:
   m_ObjectHideFlags: 0
@@ -23530,6 +23558,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 259641489}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ButaoSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1401831571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24005,6 +24045,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 259641489}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ButaoSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26809,6 +26861,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1001 &1597268727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27138,6 +27191,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: TickOption_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5673502192558408666, guid: 2a34115f726da68499d2973959c32f10, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673502192558408666, guid: 2a34115f726da68499d2973959c32f10, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673502192558408666, guid: 2a34115f726da68499d2973959c32f10, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5673502192859768730, guid: 2a34115f726da68499d2973959c32f10, type: 3}
       propertyPath: m_text
       value: Fullscreen
@@ -27277,6 +27342,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &1629249309
 GameObject:
   m_ObjectHideFlags: 0
@@ -30572,6 +30638,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &1920583241
 GameObject:
   m_ObjectHideFlags: 0
@@ -31543,6 +31610,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &1970851381
 GameObject:
   m_ObjectHideFlags: 0
@@ -33621,6 +33689,7 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   weaponHandler: {fileID: 0}
   sceneInt: 0
+  cursorManager: {fileID: 0}
 --- !u!1 &2089638830
 GameObject:
   m_ObjectHideFlags: 0
