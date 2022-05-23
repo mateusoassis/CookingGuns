@@ -24,6 +24,7 @@ public class Shieldoca : MonoBehaviour
     public bool sitStill;
 
     public Animator anim;
+    public ParticleSystem attackParticle;
 
     public bool isPlayerInsideArea;
     public int hitDamage;
@@ -35,6 +36,7 @@ public class Shieldoca : MonoBehaviour
 
     void Start()
     {
+        attackParticle = GetComponentInChildren<ParticleSystem>();
         selfRigidbody = GetComponent<Rigidbody>();
         player = GameObject.Find("Player").GetComponent<Transform>();
         moveSpeed = maxMoveSpeed;
@@ -147,5 +149,10 @@ public class Shieldoca : MonoBehaviour
     public void AttackingFalse()
     {
         attacking = false;
+    }
+
+    void ActivateAttackParticle() 
+    {
+        attackParticle.Play();
     }
 }
