@@ -39,7 +39,6 @@ public class _WeaponHandler : MonoBehaviour
 
     void Awake()
     {
-        playerManager = GetComponent<_PlayerManager>();
         //testingGameObjects = GameObject.Find("TestingWeaponIcons");
         realGameObjects = GameObject.Find("RealWeaponIcons");
 

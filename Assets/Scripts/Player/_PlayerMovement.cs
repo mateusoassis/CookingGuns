@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class _PlayerMovement : MonoBehaviour
 {
-    private _PlayerManager playerManager;
+    public _PlayerManager playerManager;
 
     [Header("Player Stats")]
     public float playerMoveSpeed;
     public float playerMaxMoveSpeed;
-    private Rigidbody playerRigidbody;
+    public Rigidbody playerRigidbody;
 
     [Header("Roll")] // eu poderia ter criado as funções nesse script e chamado todas elas no playermanager ao invés de mudar tantas variáveis daqui direto lá no playermanager
     public float multiplier; // pode ser pra algum buff de movespeed talvez
@@ -39,8 +39,6 @@ public class _PlayerMovement : MonoBehaviour
 
     void Start() 
     {
-        playerRigidbody = GetComponent<Rigidbody>();
-        playerManager = GetComponent<_PlayerManager>();
         playerMoveSpeed = playerMaxMoveSpeed;
     }
 

@@ -9891,19 +9891,19 @@ MonoBehaviour:
   isImmune: 0
   tutorial: 0
   gameFadeOut: {fileID: 0}
-  playerRigidbody: {fileID: 0}
-  animationHandler: {fileID: 0}
-  playerStats: {fileID: 0}
-  playerMovement: {fileID: 0}
+  playerRigidbody: {fileID: 6581419280599443778}
+  animationHandler: {fileID: 6581419280599443789}
+  playerStats: {fileID: 6587241120315746939}
+  playerMovement: {fileID: 687828141336132091}
   playerShootingPistol: {fileID: 6581419281407714245}
   playerShootingShotgun: {fileID: 6581419281013731405}
   playerShootingMachineGun: {fileID: 6581419281103858913}
   playerShootingGranadeLauncher: {fileID: 6581419280762816960}
   playerWeaponHandler: {fileID: 6581419280599443791}
   gameManager: {fileID: 0}
-  petHandler: {fileID: 0}
+  petHandler: {fileID: 2287382207225990894}
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
-  playerCapsuleCollider: {fileID: 0}
+  playerCapsuleCollider: {fileID: 6581419280599443779}
 --- !u!114 &6587241120315746939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9920,7 +9920,7 @@ MonoBehaviour:
   playerMaxHealth: 7
   immuneDuration: 2
   heartScript: {fileID: 0}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 1060690019319271764}
   youLoseHolder: {fileID: 0}
 --- !u!114 &687828141336132091
 MonoBehaviour:
@@ -9934,8 +9934,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423237816b0bd3045a339b23e4f3b5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 1060690019319271764}
   playerMoveSpeed: 0
   playerMaxMoveSpeed: 8
+  playerRigidbody: {fileID: 6581419280599443778}
   multiplier: 1
   rollSpeed: 20
   rollTimer: 0
@@ -9985,7 +9987,7 @@ MonoBehaviour:
   - {fileID: 6581419281013731405}
   - {fileID: 6581419281103858913}
   - {fileID: 6581419280762816960}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 1060690019319271764}
 --- !u!114 &2287382207225990894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10004,6 +10006,7 @@ MonoBehaviour:
   playerOnArea: 0
   craftingWindowOpen: 0
   craftingWindowObject: {fileID: 0}
+  playerManager: {fileID: 1060690019319271764}
   sinRadius: 0.02
   petSpeed: 8
   targetTransforms:
@@ -10031,7 +10034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   test: 0
   gameManager: {fileID: 0}
-  playerStats: {fileID: 0}
+  playerStats: {fileID: 6587241120315746939}
   mainUI: {fileID: 0}
   healEveryRoom: 0
   numberOfRoomsToEndGame: 5
@@ -10177,7 +10180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4992303caf968a458924b1614d308bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uncommonColor: {r: 0.376602, g: 0.8773585, b: 0.487063, a: 1}
+  uncommonColor: {r: 0, g: 1, b: 0.028794289, a: 1}
   rareColor: {r: 0.30240062, g: 0.2978373, b: 0.9150943, a: 1}
   epicColor: {r: 0.45839286, g: 0.03123886, b: 0.735849, a: 1}
   uniqueColor: {r: 0.8962264, g: 0.12259703, b: 0.12259703, a: 1}
@@ -10489,6 +10492,8 @@ MonoBehaviour:
   bulletPerTap: 1
   allowButtonHold: 0
   reloadTimeCounter: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0
@@ -10688,6 +10693,8 @@ MonoBehaviour:
   bulletPerTap: 5
   allowButtonHold: 0
   reloadTimeCounter: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0
@@ -10820,6 +10827,8 @@ MonoBehaviour:
   bulletPerTap: 3
   allowButtonHold: 1
   reloadTimeCounter: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0
@@ -11002,6 +11011,8 @@ MonoBehaviour:
   bulletPerTap: 1
   allowButtonHold: 0
   reloadTimeCounter: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0

@@ -86,14 +86,7 @@ public class _PlayerManager : MonoBehaviour
         playerEatingWeaponBarSlider.maxValue = eatingWeaponDuration;
         playerReloadBar.SetActive(false);
         playerEatingWeaponBar.SetActive(false);
-        playerRigidbody = GetComponent<Rigidbody>();
-        animationHandler = GetComponent<_AnimationHandler>();
-        playerMovement = GetComponent<_PlayerMovement>();  
-        playerWeaponHandler = GetComponent<_WeaponHandler>();
-        petHandler = GetComponent<PetHandler>();
-        playerCapsuleCollider = GetComponent<CapsuleCollider>();
         gameFadeOut = GameObject.Find("StartFadeIn").GetComponent<GameFadeout>();
-        playerStats = GetComponent<_PlayerStats>();
         //craftingHandlerInPlayer = GameObject.Find("CraftingManager").GetComponent<CraftingMainScript>();
         //inventory = GetComponent<Inventory>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();

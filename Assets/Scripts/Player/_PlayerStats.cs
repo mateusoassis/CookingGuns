@@ -33,7 +33,6 @@ public class _PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        playerManager = GetComponent<_PlayerManager>();
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
         simpleFlashEffect = GetComponentInChildren<SimpleFlash>();
         cameraShakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();

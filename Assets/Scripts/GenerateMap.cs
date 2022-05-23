@@ -22,7 +22,6 @@ public class GenerateMap : MonoBehaviour
     {
         //enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        playerStats = GetComponent<_PlayerStats>();
         mainUI = GameObject.Find("MainUI");
     }
 

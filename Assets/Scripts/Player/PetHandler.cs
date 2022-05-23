@@ -20,7 +20,7 @@ public class PetHandler : MonoBehaviour
     public bool craftingWindowOpen;
     public GameObject craftingWindowObject; // tem que arrastar pra o inspector
     private Inventory inventorytxt;
-    private _PlayerManager playerManager;
+    public _PlayerManager playerManager;
 
     [Header("Controle de movimentação")]
     [SerializeField] private float sinRadius;
@@ -58,7 +58,6 @@ public class PetHandler : MonoBehaviour
     {
         pressFKey.SetActive(false);
         mainUI = GameObject.Find("MainUI");
-        playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         inventorytxt = GameObject.Find("Player").GetComponent<Inventory>();
         pet.transform.parent = null;
         petBillboard = GameObject.Find("PetCanvas").GetComponent<PetBillboard>();
