@@ -229,25 +229,25 @@ public class _PlayerManager : MonoBehaviour
                 {
                     playerShootingPistol.MyInput();
                     //playerShootingPistol.reloadDisplay.gameObject.GetComponent<Slider>();
-                    playerShootingPistol.AmmoDisplayUpdate();
+                    //playerShootingPistol.AmmoDisplayUpdate();
                 }
                 else if(playerWeaponHandler.weaponTypeEquipped == 1 && !isEatingWeapon && !isRolling)
                 {
                     playerShootingShotgun.MyInput();
                     //playerShootingShotgun.reloadDisplay.gameObject.GetComponent<Slider>();
-                    playerShootingShotgun.AmmoDisplayUpdate();
+                    //playerShootingShotgun.AmmoDisplayUpdate();
                 }
                 else if(playerWeaponHandler.weaponTypeEquipped == 2 && !isEatingWeapon && !isRolling)
                 {
                     playerShootingMachineGun.MyInput();
                     //playerShootingMachineGun.reloadDisplay.gameObject.GetComponent<Slider>();
-                    playerShootingMachineGun.AmmoDisplayUpdate();
+                    //playerShootingMachineGun.AmmoDisplayUpdate();
                 }
                 else if(playerWeaponHandler.weaponTypeEquipped == 3 && !isEatingWeapon && !isRolling)
                 {
                     playerShootingGranadeLauncher.MyInput();
                     //playerShootingGranadeLauncher.reloadDisplay.gameObject.GetComponent<Slider>();
-                    playerShootingGranadeLauncher.AmmoDisplayUpdate();
+                    //playerShootingGranadeLauncher.AmmoDisplayUpdate();
                 }
 
                 if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading && !canceledEating) //&& !rmbHasToPressAgain)
@@ -260,12 +260,10 @@ public class _PlayerManager : MonoBehaviour
                         }
                         else
                         {   
-                            /*
                             if(!rmbHeldDown && playerWeaponHandler.amountUnlocked > 1)
                             {
                                 FindObjectOfType<SoundManager>().PlayOneShot("Eating");
                             }
-                            */
                             rmbHeldDown = true;
                             playerWeaponHandler.UpdateAmountUnlocked();
                             if(playerWeaponHandler.amountUnlocked > 1)
@@ -298,12 +296,17 @@ public class _PlayerManager : MonoBehaviour
                     {
                         if(tutorialBrain.playerCanEatWeapon)
                         {
+                            
                             if(rmbHasToPressAgain)
                             {
                                 isEatingWeapon = false;
                             }
                             else
                             {
+                                if(!rmbHeldDown && playerWeaponHandler.amountUnlocked > 1)
+                                {
+                                    FindObjectOfType<SoundManager>().PlayOneShot("Eating");
+                                }
                                 rmbHeldDown = true;
                                 playerWeaponHandler.UpdateAmountUnlocked();
                                 if(playerWeaponHandler.amountUnlocked > 1)
