@@ -260,10 +260,12 @@ public class _PlayerManager : MonoBehaviour
                         }
                         else
                         {   
+                            /*
                             if(!rmbHeldDown && playerWeaponHandler.amountUnlocked > 1)
                             {
                                 FindObjectOfType<SoundManager>().PlayOneShot("Eating");
                             }
+                            */
                             rmbHeldDown = true;
                             playerWeaponHandler.UpdateAmountUnlocked();
                             if(playerWeaponHandler.amountUnlocked > 1)
