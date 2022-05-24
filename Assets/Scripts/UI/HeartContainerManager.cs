@@ -59,7 +59,14 @@ public class HeartContainerManager : MonoBehaviour
             {
                 heartsObjects[i].GetComponent<HeartAnimatorScript>().CheckIfActiveOrNot();
             }
-        } 
+        }
+        else
+        {
+            for(int i = 0; i < heartsObjects.Length; i++)
+            {
+                heartsObjects[i].SetActive(false);
+            }
+        }
     }
     public void FullHeal()
     {

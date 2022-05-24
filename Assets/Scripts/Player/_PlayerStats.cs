@@ -90,7 +90,10 @@ public class _PlayerStats : MonoBehaviour
                 heartScript.hpLost += damage;
                 heartScript.UpdateAllHearts();
                 ImmuneNow();
-                FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
+                if(!playerManager.isDead)
+                {
+                    FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
+                }
                 playerManager.playerInfo.healthFromLastRoom = playerCurrentHealth;
             }
             
@@ -105,15 +108,21 @@ public class _PlayerStats : MonoBehaviour
             if(futureHP <= 0)
             {
                 // switch pra câmera de dead
+                if(!playerManager.isDead)
+                {
+                    FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
+                }
                 playerManager.isDead = true;
-                FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
                 deadModel.SetActive(true);
                 playerManager.petHandler.cinemachineSwitchBlend.DeadCamera();
                 playerManager.playerWeaponHandler.PlayerIsDead();
                 playerManager.playerWeaponHandler.breakWeaponScript.BreakTheWeapon();
                 //DeadPlayer();
             }
-            playerTakeDamage.SetTrigger("Pressed");
+            if(!playerManager.isDead)
+            {
+                playerTakeDamage.SetTrigger("Pressed");
+            }
         }  
     }
 
