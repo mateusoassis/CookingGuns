@@ -48,10 +48,12 @@ MonoBehaviour:
   crosshairImage: {fileID: 0}
   crosshair: {fileID: 0}
   mouseVisible: 0
+  mainAim: 0
   newAnimationSpeed: 1
   currentAnimationSpeed: 0
   baseReloadDuration: 1
   baseAnimationSpeed: 1
+  miniCursor: {fileID: 1743549517}
 --- !u!114 &1743549517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,3 +68,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetGroup: {fileID: 0}
   miniCrosshair: {fileID: 0}
+  miniAim: 0
+  thisAnimator: {fileID: 0}

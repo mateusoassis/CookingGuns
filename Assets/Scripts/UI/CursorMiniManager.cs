@@ -11,12 +11,15 @@ public class CursorMiniManager : MonoBehaviour
     private Vector3 realPos;
     public bool miniAim;
 
+    public Animator thisAnimator;
+
     void Awake()
     {
         if(SceneManager.GetActiveScene().buildIndex > 2)
         {
             targetGroup = GameObject.Find("MiniCrosshairTargetGroup").GetComponent<Transform>();
             miniCrosshair = GameObject.Find("MiniCrosshair").GetComponent<Transform>();
+            thisAnimator = miniCrosshair.GetComponent<Animator>();
         }
     }
 

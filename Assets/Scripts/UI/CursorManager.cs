@@ -24,6 +24,7 @@ public class CursorManager : MonoBehaviour
     public float currentAnimationSpeed;
     public float baseReloadDuration = 1f;
     public float baseAnimationSpeed = 1f;
+    public CursorMiniManager miniCursor;
 
     void Awake()
     {
@@ -105,14 +106,19 @@ public class CursorManager : MonoBehaviour
             newAnimationSpeed = baseAnimationSpeed / (reloadDuration/baseReloadDuration);
         }
         crosshairAnim.SetFloat("speed", newAnimationSpeed);
+        miniCursor.thisAnimator.SetFloat("speed", newAnimationSpeed);
         crosshairAnim.ResetTrigger("CancelReloadAnim");
+        miniCursor.thisAnimator.ResetTrigger("CancelReloadAnim");
         crosshairAnim.SetTrigger("Reload");
+        miniCursor.thisAnimator.SetTrigger("Reload");
     }
 
     public void InterruptReloadAnim()
     {
         crosshairAnim.ResetTrigger("Reload");
+        miniCursor.thisAnimator.ResetTrigger("Reload");
         crosshairAnim.SetTrigger("CancelReloadAnim");
+        miniCursor.thisAnimator.SetTrigger("CancelReloadAnim");
     }
 
     public void DisableMainCursor()
