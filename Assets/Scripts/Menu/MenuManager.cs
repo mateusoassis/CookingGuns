@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject creditsPanel;
     public PlayerInfo playerInfo;
-    public GameObject continueButton;
+    public GameObject tutorialButton;
 
     public bool isOnMenu;
 
@@ -33,6 +33,15 @@ public class MenuManager : MonoBehaviour
             continueButton.SetActive(false);
         }
         */
+
+        if(!playerInfo.hasPlayedTutorial || !playerInfo.endedTutorial)
+        {
+            tutorialButton.SetActive(false);
+        }
+        else
+        {
+            tutorialButton.SetActive(true);
+        }
     }
 
     public void StartGame()
@@ -40,7 +49,7 @@ public class MenuManager : MonoBehaviour
         if(isOnMenu)
         {
             ButaoSound();
-            if(!playerInfo.hasPlayedTutorial)
+            if(!playerInfo.hasPlayedTutorial || !playerInfo.endedTutorial)
             {
                 StraightToTutorial();
             }
@@ -130,6 +139,15 @@ public class MenuManager : MonoBehaviour
         ButaoSound();
         playerInfo.TutorialReset();
         SceneManager.LoadScene("3_TutorialScene", LoadSceneMode.Single);
+    }
+
+    public void CheckTutorialAndPlay()
+    {
+        if(playerInfo.endedTutorial)
+        {
+            ButaoSound();
+
+        }
     }
 
     public void ButaoSound()

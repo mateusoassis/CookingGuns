@@ -121,12 +121,15 @@ public class GenerateMap : MonoBehaviour
         if(other.gameObject.tag == "T_Door")
         {
             //GetComponent<_PlayerManager>().playerInfo.timeSpentOnTutorial += (int)gameManager.elapsedTime;
+            
             LoadInitialGame();
         }
     }
 
     public void LoadInitialGame()
     {
+        GetComponent<_PlayerManager>().playerInfo.endedTutorial = true;
+        GetComponent<_PlayerManager>().playerInfo.hasPlayedTutorial = true;
         SceneManager.LoadScene("_Room01", LoadSceneMode.Single);
         GetComponent<_PlayerManager>().playerInfo.isOnTutorial = false;
         GetComponent<_PlayerManager>().playerInfo.NewGameReset();
