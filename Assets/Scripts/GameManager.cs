@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     
     [Header("Variáveis de pause")]
     public bool pausedGame;
+    public bool pauseBlock;
     public bool confirmationWindowOpen;
 
     [Header("Booleanos de fade")]
@@ -197,6 +198,7 @@ public class GameManager : MonoBehaviour
     {
         if(!pausedGame)
         {
+            pauseBlock = true;
             pausedGame = true;
             Time.timeScale = 0;
         }
@@ -211,6 +213,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f);
         if(pausedGame)
         {
+            pauseBlock = false;
             pausedGame = false;
             Time.timeScale = 1;
         }
@@ -229,7 +232,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        if(pausedGame)
+        if(pausedGame && !pauseBlock)
         {
             SoundButton();
             pausedGame = false;

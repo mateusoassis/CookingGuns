@@ -10,6 +10,7 @@ public class CinemachineSwitchBlend : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera mainCamera;
     [SerializeField] private CinemachineVirtualCamera petCamera;
     [SerializeField] private CinemachineVirtualCamera conceptualCamera;
+    [SerializeField] private CinemachineVirtualCamera deadCamera;
     private bool mainCameraMode;
     private bool conceptualMode;
 
@@ -19,7 +20,7 @@ public class CinemachineSwitchBlend : MonoBehaviour
 
     void Awake()
     {
-
+        deadCamera = GameObject.Find("Dead VCAM").GetComponent<CinemachineVirtualCamera>();
     }
 
     void Start()
