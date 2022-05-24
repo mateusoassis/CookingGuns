@@ -180,11 +180,13 @@ public class _PlayerManager : MonoBehaviour
                         }
                         else if(!petHandler.craftingWindowOpen)
                         {
+                            gameManager.DisableCursors();
                             gameManager.PauseGame();
                         }
                     }
                     else if(gameManager.pausedGame)
                     {
+                        gameManager.EnableCursors();
                         gameManager.ResumeGame();
                     }
                 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6554290746778142118}
   - component: {fileID: 2025970261467485834}
+  - component: {fileID: 1743549517}
   m_Layer: 0
   m_Name: CursorManager
   m_TagString: Untagged
@@ -46,8 +47,22 @@ MonoBehaviour:
   playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
   crosshairImage: {fileID: 0}
   crosshair: {fileID: 0}
-  mouseVisible: 1
+  mouseVisible: 0
   newAnimationSpeed: 1
   currentAnimationSpeed: 0
   baseReloadDuration: 1
   baseAnimationSpeed: 1
+--- !u!114 &1743549517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152407998869218050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e20baad769d9fb44a2e7e27614a6edd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGroup: {fileID: 0}
+  miniCrosshair: {fileID: 0}

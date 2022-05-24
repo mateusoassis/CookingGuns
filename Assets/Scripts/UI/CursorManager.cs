@@ -9,13 +9,14 @@ public class CursorManager : MonoBehaviour
     public PlayerInfo playerInfo;
     public Image crosshairImage;
     public Transform crosshair;
-    public bool mouseVisible;
+    public bool mouseVisible; // MANTER DESLIGADO OK
     private GameManager gameManager;
 
     private Color normalColor;
     private Color zeroAlphaColor;
 
     private Animator crosshairAnim;
+    public bool mainAim;
 
     [Header("Variáveis de animação")]
     public float newAnimationSpeed = 1f;
@@ -42,17 +43,28 @@ public class CursorManager : MonoBehaviour
 
     void Start()
     {
-        Cursor.visible = mouseVisible;
         if(SceneManager.GetActiveScene().buildIndex > 2)
         {
+            Cursor.visible = mouseVisible;
             currentAnimationSpeed = crosshairAnim.GetFloat("speed");
+            mainAim = true;
         }
+        else
+        {
+            Cursor.visible = true;
+            mainAim = false;
+        }
+        
         // UpdateCrosshair(); 
     }
 
     void Update()
     {
-        crosshair.position = Input.mousePosition;
+        if(mainAim)
+        {
+            crosshair.position = Input.mousePosition;
+        }
+        
         if(SceneManager.GetActiveScene().buildIndex > 2)
         {
             if(gameManager.pausedGame || gameManager.playerManager.petHandler.craftingWindowOpen)
@@ -101,5 +113,18 @@ public class CursorManager : MonoBehaviour
     {
         crosshairAnim.ResetTrigger("Reload");
         crosshairAnim.SetTrigger("CancelReloadAnim");
+    }
+
+    public void DisableMainCursor()
+    {
+        mainAim = false;
+        crosshair.transform.gameObject.SetActive(false);
+        Cursor.visible = true;
+    }
+    public void EnableMainCursor()
+    {
+        mainAim = true;
+        crosshair.transform.gameObject.SetActive(true);
+        Cursor.visible = mouseVisible;
     }
 }

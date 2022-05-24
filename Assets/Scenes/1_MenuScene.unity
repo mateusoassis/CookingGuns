@@ -9187,6 +9187,8 @@ MonoBehaviour:
   bulletPerTap: 1
   allowButtonHold: 1
   reloadTimeCounter: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0
@@ -10878,6 +10880,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2025970261467485834, guid: 9428ee338d83f8d498c92f996d287998, type: 3}
+      propertyPath: mouseVisible
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6152407998869218050, guid: 9428ee338d83f8d498c92f996d287998, type: 3}
       propertyPath: m_Name
       value: CursorManager
@@ -11868,6 +11874,8 @@ MonoBehaviour:
   bulletPerTap: 1
   allowButtonHold: 0
   reloadTimeCounter: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0
@@ -18835,6 +18843,8 @@ MonoBehaviour:
   bulletPerTap: 5
   allowButtonHold: 0
   reloadTimeCounter: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0
@@ -19255,6 +19265,8 @@ MonoBehaviour:
   bulletPerTap: 1
   allowButtonHold: 0
   reloadTimeCounter: 0
+  bulletsLeft: 0
+  bulletsShot: 0
   shooting: 0
   readyToShoot: 0
   reloading: 0

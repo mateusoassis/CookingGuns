@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
     public bool slowdown;
     public bool slowdownEnded;
 
+    [Header("Cursores")]
+    public CursorManager mainCursor;
+    public CursorMiniManager miniCursor;
+
     [Header("Booleano de fim de sala")]
     public bool roomCleared;
 
@@ -72,6 +76,8 @@ public class GameManager : MonoBehaviour
         playerManager = GameObject.Find("Player").GetComponent<_PlayerManager>();
         levelCounterText = GameObject.Find("LevelCounterText").GetComponent<TextMeshProUGUI>();
         shakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();
+        mainCursor = GameObject.Find("CursorManager").GetComponent<CursorManager>();
+        miniCursor = mainCursor.gameObject.GetComponent<CursorMiniManager>();
     }
 
     void Start()
@@ -188,6 +194,8 @@ public class GameManager : MonoBehaviour
     {
         if(!pausedGame)
         {
+            DisableCursors();
+            SoundButton();
             pausedGame = true;
             pauseUI.SetActive(true);
             Time.timeScale = 0;
@@ -198,6 +206,8 @@ public class GameManager : MonoBehaviour
     {
         if(!pausedGame)
         {
+            DisableCursors();
+            SoundButton();
             pauseBlock = true;
             pausedGame = true;
             Time.timeScale = 0;
@@ -213,6 +223,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f);
         if(pausedGame)
         {
+            EnableCursors();
             pauseBlock = false;
             pausedGame = false;
             Time.timeScale = 1;
@@ -223,6 +234,7 @@ public class GameManager : MonoBehaviour
     {
         if(!pausedGame)
         {
+            DisableCursors();
             pausedGame = true;
             pauseUI.SetActive(true);
             Time.timeScale = 0;
@@ -234,6 +246,7 @@ public class GameManager : MonoBehaviour
     {
         if(pausedGame && !pauseBlock)
         {
+            EnableCursors();
             SoundButton();
             pausedGame = false;
             pauseUI.SetActive(false);
@@ -311,5 +324,18 @@ public class GameManager : MonoBehaviour
     public void DeadStuff()
     {
         playerManager.playerStats.DeadPlayer();
+        DisableCursors();
+    }
+
+    public void DisableCursors()
+    {
+        miniCursor.DisableMiniCursor();
+        mainCursor.DisableMainCursor();
+    }
+
+    public void EnableCursors()
+    {
+        miniCursor.EnableMiniCursor();
+        mainCursor.EnableMainCursor();
     }
 }
