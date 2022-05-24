@@ -96,14 +96,6 @@ public class _PlayerStats : MonoBehaviour
                 }
                 playerManager.playerInfo.healthFromLastRoom = playerCurrentHealth;
             }
-            
-
-            /*
-            if(futureHP > 0)
-            {
-                FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
-            }
-            */
 
             if(futureHP <= 0)
             {
