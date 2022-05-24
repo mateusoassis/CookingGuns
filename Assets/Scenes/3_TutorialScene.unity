@@ -1160,7 +1160,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-21440
+  m_Name: pb_Mesh-269426
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3234,8 +3234,9 @@ MonoBehaviour:
     now
   - Just choose the gun you want to cook, and press the cook button if you have the
     right ingredients
-  typeInterval: 0.05
-  skipDuration: 1
+  - 'And remember, you can only cook guns after clearing all the room challenges '
+  typeInterval: 0.025
+  skipDuration: 0.5
   ended: 0
 --- !u!1 &348490733 stripped
 GameObject:
@@ -4675,12 +4676,11 @@ MonoBehaviour:
   - Now I will teach you how to HEAL yourself by EATING a gun
   - Yes, you have to EAT one of your guns, healing is important, so don't forget
     that
-  - Just equip any gun, PRESS and HOLD the RMB button on your mouse and wait a few
-    seconds
-  - You can move, while eating, but other actions like rolling will interrupt it
+  - Just equip any gun, PRESS and HOLD the RMB key on your mouse and wait a few seconds
+  - You can move while eating, but other actions like rolling will interrupt it
   - OK, now EAT one gun but don't worry, we can cook another one later
-  typeInterval: 0.05
-  skipDuration: 1
+  typeInterval: 0.025
+  skipDuration: 0.5
   ended: 0
 --- !u!65 &446938958
 BoxCollider:
@@ -4965,8 +4965,8 @@ MonoBehaviour:
   - Ok, here you gonna find some enemies, I will show you how to fight them
   - Use your MOUSE to aim, and the LMB key to shoot
   - Don't worry, you got this!
-  typeInterval: 0.05
-  skipDuration: 1
+  typeInterval: 0.025
+  skipDuration: 0.5
   ended: 0
 --- !u!23 &498090378 stripped
 MeshRenderer:
@@ -6794,8 +6794,8 @@ MonoBehaviour:
   - Press the SPACE BAR key to ROLL, you can't take damage while rolling
   - Try to use your ROLL and pass these TRAPS, don't worry if you miss it, just keep
     going!
-  typeInterval: 0.05
-  skipDuration: 1
+  typeInterval: 0.025
+  skipDuration: 0.5
   ended: 0
 --- !u!114 &743221211
 MonoBehaviour:
@@ -6962,7 +6962,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751332585}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056356}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1824513498}
@@ -7982,8 +7982,8 @@ MonoBehaviour:
   dialogueString:
   - Hey, you forgot how to eat a gun?
   - Choose one gun, then press and hold the RMB button on your mouse
-  typeInterval: 0.05
-  skipDuration: 1
+  typeInterval: 0.025
+  skipDuration: 0.5
   ended: 0
 --- !u!23 &849693663 stripped
 MeshRenderer:
@@ -10803,7 +10803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166729}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056356}
+  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19426,6 +19426,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8785722454611962222, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9100295562838049154, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -20735,10 +20739,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueString:
   - Hello, are you new here?
-  - k, I will teach you how to navigate on this dungeonn
+  - Ok, I will teach you how to navigate on this dungeon
   - First, use W, A, S and D keys to walk and follow me
-  typeInterval: 0.05
-  skipDuration: 1
+  typeInterval: 0.025
+  skipDuration: 0.5
   ended: 0
 --- !u!114 &1932709937
 MonoBehaviour:
@@ -20986,8 +20990,8 @@ MonoBehaviour:
   - But hey, let's go to the final test!
   - There is a though enemy nearby that spawns other enemies
   - Just pay attention and try to destroy it before it spawns a lot of enemies
-  typeInterval: 0.05
-  skipDuration: 1
+  typeInterval: 0.025
+  skipDuration: 0.5
   ended: 0
 --- !u!23 &1953365439 stripped
 MeshRenderer:
@@ -22202,8 +22206,8 @@ MonoBehaviour:
   - This is one is a bit tricky, he can BLOCK your shots with the cookie shield
   - But your can choose a better weapon to deal with it, try the GRENADE LAUNCHER
   - Use Q or E key to swap between your weapons, and shoot with the GRENADE LAUNCHER
-  typeInterval: 0.05
-  skipDuration: 1
+  typeInterval: 0.025
+  skipDuration: 0.5
   ended: 0
 --- !u!114 &2100105192
 MonoBehaviour:
