@@ -307,4 +307,9 @@ public class GameManager : MonoBehaviour
     {
         FindObjectOfType<SoundManager>().PlayOneShot("Butao");
     }
+
+    public void DeadStuff()
+    {
+        playerManager.playerStats.DeadPlayer();
+    }
 }

@@ -35,7 +35,7 @@ public class _WeaponHandler : MonoBehaviour
 
     [Header("Referências à scripts")]
     public _PlayerManager playerManager;
-    private BreakWeapon breakWeaponScript;
+    public BreakWeapon breakWeaponScript;
 
     void Awake()
     {
@@ -726,6 +726,16 @@ public class _WeaponHandler : MonoBehaviour
             */
             amountUnlocked = CountBool(freeSlotArray, false);
         //}
+    }
+
+    public void PlayerIsDead()
+    {
+        for(int i = 0; i < weaponObjects.Length; i++)
+        {
+            {
+                weaponObjects[i].SetActive(false);
+            }
+        }
     }
 
     public static int CountBool(bool[] array, bool flag)

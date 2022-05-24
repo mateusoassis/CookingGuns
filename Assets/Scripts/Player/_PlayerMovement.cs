@@ -112,7 +112,7 @@ public class _PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        if(_input.x != 0 || _input.z != 0)
+        if((_input.x != 0 || _input.z != 0) && !playerManager.isDead)
         {
             if(!playerManager.isShooting)
             {
@@ -160,10 +160,20 @@ public class _PlayerMovement : MonoBehaviour
         }
         else
         {
-
-            playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.fixedDeltaTime);
+            if(!playerManager.isDead)
+            {
+                playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.fixedDeltaTime);
          
-            PlayRollParticle();
+                PlayRollParticle();
+                playerManager.animationHandler.GetWeaponInt();
+                playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+            }
+            
+        }
+
+        if(playerManager.isDead)
+        {
+            playerManager.isWalking = false;
             playerManager.animationHandler.GetWeaponInt();
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
         }

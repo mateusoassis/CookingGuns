@@ -26,6 +26,7 @@ public class _PlayerStats : MonoBehaviour
 
     [Header("Referência de Player Perdeu")]
     public YouLoseHolder youLoseHolder;
+    public GameObject deadModel;
 
     [Header("VFX")]
     private SimpleFlash simpleFlashEffect;
@@ -103,19 +104,31 @@ public class _PlayerStats : MonoBehaviour
 
             if(futureHP <= 0)
             {
-                Debug.Log("perdeu");
+                // switch pra câmera de dead
+                playerManager.isDead = true;
                 FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
-                playerManager.gameManager.PauseAndLose();
-                //playerManager.gameManager.PauseGame();
-                //youLoseHolder.PlayerLost();
-                //playerManager.playerInfo.totalPlayedTime += (int)playerManager.gameManager.elapsedTime;
-                //youLoseHolder.gameObject.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
-                //youLoseScript.PlayerLost();
-                playerManager.playerInfo.healthFromLastRoom = 0;
-                playerManager.playerInfo.playerCurrentRoom = 0;
+                deadModel.SetActive(true);
+                playerManager.petHandler.cinemachineSwitchBlend.DeadCamera();
+                playerManager.playerWeaponHandler.PlayerIsDead();
+                playerManager.playerWeaponHandler.breakWeaponScript.BreakTheWeapon();
+                //DeadPlayer();
             }
             playerTakeDamage.SetTrigger("Pressed");
         }  
+    }
+
+    public void DeadPlayer()
+    {
+        Debug.Log("perdeu");
+        //FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
+        playerManager.gameManager.PauseAndLose();
+        //playerManager.gameManager.PauseGame();
+        //youLoseHolder.PlayerLost();
+        //playerManager.playerInfo.totalPlayedTime += (int)playerManager.gameManager.elapsedTime;
+        //youLoseHolder.gameObject.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
+        //youLoseScript.PlayerLost();
+        playerManager.playerInfo.healthFromLastRoom = 0;
+        playerManager.playerInfo.playerCurrentRoom = 0;
     }
 
     public void OnTriggerEnter(Collider other)

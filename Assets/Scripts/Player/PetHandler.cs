@@ -35,7 +35,7 @@ public class PetHandler : MonoBehaviour
     private bool stop;
 
     [Header("Troca de câmera e LookAt nos botões")]
-    private CinemachineSwitchBlend cinemachineSwitchBlend;
+    public CinemachineSwitchBlend cinemachineSwitchBlend;
     [SerializeField] private GameObject buttonsCanvasObject;
     private PetLookAt petLookAt;
     private Quaternion targetRotation;

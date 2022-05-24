@@ -95,7 +95,7 @@ public class _PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if(!isFading && !gameManager.outOfBoundsCollider)
+        if(!isFading && !gameManager.outOfBoundsCollider && !isDead)
         {
             // inputs de movimentação
             if(!gameManager.pausedGame)
