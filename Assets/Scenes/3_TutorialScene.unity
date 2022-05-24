@@ -1160,7 +1160,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1701970
+  m_Name: pb_Mesh-125066
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3884,11 +3884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2130576675692543086, guid: c43dd97501021ce4cbffdb92d10bb618, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 127.59
+      value: 127.25
       objectReference: {fileID: 0}
     - target: {fileID: 2130576675692543086, guid: c43dd97501021ce4cbffdb92d10bb618, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 2130576675692543086, guid: c43dd97501021ce4cbffdb92d10bb618, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7999,7 +7999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2130576675692543086, guid: c43dd97501021ce4cbffdb92d10bb618, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 2130576675692543086, guid: c43dd97501021ce4cbffdb92d10bb618, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14602,9 +14602,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wobbleSin: 3
-  horizontalMultiplier: 2
+  horizontalMultiplier: 1
   wobbleCos: 3
-  verticalMultiplier: 2
+  verticalMultiplier: 1
 --- !u!23 &1383769639 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 8060737184433317796, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -18656,7 +18656,23 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 1cce86b4c5147274b9f59c180498e8f6, type: 3}
     - target: {fileID: 1382518033, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_text
+      value: asdasdasd asdasd asd  asdasd
+      objectReference: {fileID: 0}
+    - target: {fileID: 290568427195354177, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_fontAsset
       value: 
+      objectReference: {fileID: 11400000, guid: de36b8658fa024d468e421c546fead16, type: 2}
+    - target: {fileID: 290568427195354177, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 290568427195354177, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7118223593167697221, guid: de36b8658fa024d468e421c546fead16, type: 2}
+    - target: {fileID: 469533812094209873, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_Name
+      value: bg
       objectReference: {fileID: 0}
     - target: {fileID: 877847704363042584, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_IsActive
@@ -18678,6 +18694,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1041688479}
+    - target: {fileID: 1833633836777195362, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2648325733100219582, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -18798,6 +18818,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 834766352}
+    - target: {fileID: 2648325735016145570, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2804436409588958614, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -18846,6 +18870,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3283292931407781398, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 398.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575133540715659198, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575133540715659198, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326538134458410422, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: de36b8658fa024d468e421c546fead16, type: 2}
+    - target: {fileID: 4326538134458410422, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326538134458410422, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7118223593167697221, guid: de36b8658fa024d468e421c546fead16, type: 2}
     - target: {fileID: 4837052937396490369, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -19089,6 +19137,22 @@ PrefabInstance:
     - target: {fileID: 7611585314214741716, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281685549041791, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: de36b8658fa024d468e421c546fead16, type: 2}
+    - target: {fileID: 7632281685549041791, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281685549041791, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7118223593167697221, guid: de36b8658fa024d468e421c546fead16, type: 2}
+    - target: {fileID: 8220569740551989921, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 8785722454611962222, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
       propertyPath: m_Color.a
@@ -19795,11 +19859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2130576675692543086, guid: c43dd97501021ce4cbffdb92d10bb618, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 137.72
+      value: 138.07
       objectReference: {fileID: 0}
     - target: {fileID: 2130576675692543086, guid: c43dd97501021ce4cbffdb92d10bb618, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 2130576675692543086, guid: c43dd97501021ce4cbffdb92d10bb618, type: 3}
       propertyPath: m_LocalPosition.z
@@ -20402,9 +20466,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - "Ol\xE1, somos jogadores fil\xE9"
-  - Dale, WASD pra andar boy
-  - "Sai andando por a\xED catando loot por gentilezaAAAAAA"
+  - Hello, are you new here?
+  - Ok, I will teach you how to navigate on this dungeon
+  - First, use WASD to move and follow me
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
