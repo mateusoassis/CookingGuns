@@ -4260,21 +4260,81 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 7118223593167697221, guid: de36b8658fa024d468e421c546fead16, type: 2}
+    - target: {fileID: 695401338687791083, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 695401338687791083, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 695401338687791083, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 690238162}
+    - target: {fileID: 695401338687791083, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 695401338687791083, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChangeTargetFPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 695401338687791083, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: FPSManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 695401338687791083, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086295976151927029, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086295976151927029, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086295976151927029, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 690238162}
+    - target: {fileID: 2086295976151927029, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086295976151927029, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChangeTargetFPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086295976151927029, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: FPSManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086295976151927029, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7329215158961708488, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: optionsArray.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7329215158961708488, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: optionsArray.Array.data[0]
-      value: 60 FPS
+      value: Automatic
       objectReference: {fileID: 0}
     - target: {fileID: 7329215158961708488, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: optionsArray.Array.data[1]
-      value: Unlimited
+      value: 30 FPS
       objectReference: {fileID: 0}
     - target: {fileID: 7329215158961708488, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: optionsArray.Array.data[2]
-      value: 30 FPS
+      value: 60 FPS
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329215158961708488, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+      propertyPath: optionsArray.Array.data[3]
+      value: Unlimited
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
@@ -8217,8 +8277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7680fcb0b10894f8580c0c27c9aaaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullScreenController: {fileID: 1458876959}
-  fullScreen: 0
+  fpsController: {fileID: 1458876959}
+  currentFPStarget: 0
+  currentRefreshRate: 0
 --- !u!1 &692174578
 GameObject:
   m_ObjectHideFlags: 0
