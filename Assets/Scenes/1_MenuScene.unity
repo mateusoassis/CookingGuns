@@ -953,7 +953,7 @@ RectTransform:
   m_Children:
   - {fileID: 127332792}
   m_Father: {fileID: 1166066200}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -10690,7 +10690,7 @@ RectTransform:
   - {fileID: 1640916009}
   - {fileID: 2070764751}
   m_Father: {fileID: 1166066200}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -13500,10 +13500,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 745050181}
+  - {fileID: 1788318158}
   - {fileID: 72087641}
   - {fileID: 892937911}
   - {fileID: 1935856510}
-  - {fileID: 1788318158}
   m_Father: {fileID: 2027779836}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21037,7 +21037,7 @@ GameObject:
   - component: {fileID: 1788318160}
   - component: {fileID: 1788318159}
   m_Layer: 5
-  m_Name: BG_01
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21055,11 +21055,11 @@ RectTransform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 1166066200}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 444, y: 177}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -476, y: -260}
   m_SizeDelta: {x: 2657, y: 1048}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788318159
@@ -21076,7 +21076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.9198113, b: 0.96513534, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -22470,11 +22470,11 @@ RectTransform:
   - {fileID: 225001316}
   - {fileID: 1250996986}
   m_Father: {fileID: 1166066200}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -960, y: 405}
+  m_AnchoredPosition: {x: -960, y: 373}
   m_SizeDelta: {x: 1920, y: 810}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1966322877
