@@ -155,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4212427}
   m_LocalRotation: {x: -0, y: 0.6975889, z: -0, w: 0.7164982}
-  m_LocalPosition: {x: 159.22, y: 2.83, z: -47.22}
+  m_LocalPosition: {x: 159.23, y: 2.83, z: -47.59}
   m_LocalScale: {x: 18.33525, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 755025972}
@@ -1160,7 +1160,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-295042
+  m_Name: pb_Mesh-21440
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3214,7 +3214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 972338920}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &343998988
 MonoBehaviour:
@@ -3229,9 +3229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - "Agora tu vai aprender \xE0 criar armas"
-  - "Converse comigo, sou este cubo azul LINDO que t\xE1 olhando pra voc\xEA"
-  - "Clique em alguma das armas para cri\xE1-la novamente, sem custo"
+  - Great job chef! Now let's cook some guns!
+  - Come closer and interact with me, remember those ingredients? You will use them
+    now
+  - Just choose the gun you want to cook, and press the cook button if you have the
+    right ingredients
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
@@ -4669,9 +4671,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - "Agora que tu aprendeu isso tudo, hora de aprender \xE0 se curar."
-  - "Troque para uma arma que voc\xEA deseja COMER para recuperar sua vida completamente."
-  - "Ap\xF3s isso, segure o bot\xE3o DIREITO do mouse"
+  - Good job! See, it wasn't that hard
+  - Now I will teach you how to HEAL yourself by EATING a gun
+  - Yes, you have to EAT one of your guns, healing is important, so don't forget
+    that
+  - Just equip any gun, PRESS and HOLD the RMB button on your mouse and wait a few
+    seconds
+  - You can move, while eating, but other actions like rolling will interrupt it
+  - OK, now EAT one gun but don't worry, we can cook another one later
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
@@ -4955,9 +4962,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - "Ko\xE9, tu \xE9 brabo mermo, mano"
-  - "Agora vai atirar nos monstrinho com bot\xE3o esquerdo"
-  - Tente matar todos que estiverem no caminho!
+  - Ok, here you gonna find some enemies, I will show you how to fight them
+  - Use your MOUSE to aim, and the LMB key to shoot
+  - Don't worry, you got this!
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
@@ -6781,10 +6788,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - "Meu parceiro, agora sim vi que tu \xE9 BRONCA PESADA TITIOZINHO"
-  - "Utilize BARRA DE ESPA\xC7O para rolar na dire\xE7\xE3o que est\xE3o olhando"
-  - "Isso pode te torna invulner\xE1vel por um curto per\xEDodo, podendo lhe auxiliar
-    \xE0 desviar de ataques de inimigos e armadilhas"
+  - Hey, you are really good, have you done this before?
+  - Anyways, these are TRAPS that are very common on this place
+  - They activate when you step on them, so be careful
+  - Press the SPACE BAR key to ROLL, you can't take damage while rolling
+  - Try to use your ROLL and pass these TRAPS, don't worry if you miss it, just keep
+    going!
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
@@ -7938,7 +7947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848842347}
   m_LocalRotation: {x: -0, y: -0.15822236, z: -0, w: 0.9874035}
-  m_LocalPosition: {x: 29.39, y: 0, z: 3.2200005}
+  m_LocalPosition: {x: 29.55, y: 0, z: 2.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 972338920}
@@ -7970,9 +7979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - "Ei, voc\xEA esqueceu como que come armas para se curar?"
-  - "Troque para uma arma que voc\xEA deseja COMER para recuperar sua vida completamente."
-  - "Ap\xF3s isso, segure o bot\xE3o DIREITO do mouse"
+  - Hey, you forgot how to eat a gun?
+  - Choose one gun, then press and hold the RMB button on your mouse
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
@@ -9797,6 +9805,7 @@ Transform:
   - {fileID: 446938956}
   - {fileID: 848842348}
   - {fileID: 1923998497}
+  - {fileID: 1953115892}
   - {fileID: 343998987}
   m_Father: {fileID: 755025972}
   m_RootOrder: 5
@@ -13304,7 +13313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4778793461042536127, guid: 3a876f70eb97a6f4e8e2d9cae8c53414, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 158.29
+      value: 157.19
       objectReference: {fileID: 0}
     - target: {fileID: 4778793461042536127, guid: 3a876f70eb97a6f4e8e2d9cae8c53414, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13312,7 +13321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4778793461042536127, guid: 3a876f70eb97a6f4e8e2d9cae8c53414, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.86
+      value: -26.74
       objectReference: {fileID: 0}
     - target: {fileID: 4778793461042536127, guid: 3a876f70eb97a6f4e8e2d9cae8c53414, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20389,8 +20398,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueString:
   - Hello, are you new here?
-  - Ok, I will teach you how to navigate on this dungeon
-  - First, use WASD to move and follow me
+  - k, I will teach you how to navigate on this dungeonn
+  - First, use W, A, S and D keys to walk and follow me
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
@@ -20562,6 +20571,87 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1919724759628557911, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
   m_PrefabInstance: {fileID: 638382895}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1953115891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953115892}
+  - component: {fileID: 1953115895}
+  - component: {fileID: 1953115894}
+  - component: {fileID: 1953115893}
+  m_Layer: 7
+  m_Name: 3rd_KillTower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1953115892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953115891}
+  m_LocalRotation: {x: -0, y: -0.14571331, z: -0, w: 0.9893269}
+  m_LocalPosition: {x: 37.22, y: 0, z: 4.17}
+  m_LocalScale: {x: 1.3224641, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 972338920}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -16.757, z: 0}
+--- !u!65 &1953115893
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953115891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 4.25, y: 1, z: 11.343972}
+  m_Center: {x: 0.040444985, y: 0, z: -0.28519177}
+--- !u!114 &1953115894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953115891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12c6e6cabaabec44a02506fc0cbedb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagTarget: Player
+  dialogueBoxScript: {fileID: 0}
+--- !u!114 &1953115895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953115891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c06bf19e49f01647b719bd6eb89adde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueString:
+  - NAISUUUUU!!!!!!
+  - Sorry, i was watching an anime...
+  - But hey, let's go to the final test!
+  - There is a though enemy nearby that spawns other enemies
+  - Just pay attention and try to destroy it before it spawns a lot of enemies
+  typeInterval: 0.05
+  skipDuration: 1
+  ended: 0
 --- !u!23 &1953365439 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4809243982116743741, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -20607,7 +20697,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968166373}
-  m_LocalRotation: {x: 0.50724316, y: -0.38523048, z: 0.2707145, w: 0.7218141}
+  m_LocalRotation: {x: 0.5072432, y: -0.38523036, z: 0.27071446, w: 0.7218141}
   m_LocalPosition: {x: 3.068278, y: 10.255215, z: -2.0557814}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21770,9 +21860,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - "Beleza, tu \xE9 muito bom"
-  - "Agora aperta Q ou E pra trocar pro Lan\xE7a-granadas"
-  - "Bagun\xE7a esse maluco de escudo a\xED"
+  - Nice! you just got your first ingredients, every enemy drops some ingredients
+    when defeated, we will use then later
+  - This is one is a bit tricky, he can BLOCK your shots with the cookie shield
+  - But your can choose a better weapon to deal with it, try the GRENADE LAUNCHER
+  - Use Q or E key to swap between your weapons, and shoot with the GRENADE LAUNCHER
   typeInterval: 0.05
   skipDuration: 1
   ended: 0
