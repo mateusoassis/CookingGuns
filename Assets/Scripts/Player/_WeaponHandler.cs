@@ -629,7 +629,7 @@ public class _WeaponHandler : MonoBehaviour
         if(playerManager.tutorial)
         {
             //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
-            playerManager.tutorialBrain.playerCraftedWeapon = true;
+            playerManager.tutorialBrain.SuccessfullyCraftedWeapon();
         }
     }
     public void DisableGrenadeLauncher()

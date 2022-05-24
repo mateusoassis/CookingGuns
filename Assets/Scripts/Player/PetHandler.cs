@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class PetHandler : MonoBehaviour
 {
@@ -150,6 +151,10 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon)
+        {
+            playerManager.tutorialBrain.dialogueAfterCraftedWeapon.StartDialogue();
+        }
         //craftingWindowObject.SetActive(true);
         //inventorytxt.UpdateItem();
         playerManager.gameManager.DisableCursors();
