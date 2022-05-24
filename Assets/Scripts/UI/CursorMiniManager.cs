@@ -32,7 +32,7 @@ public class CursorMiniManager : MonoBehaviour
         }
     }
 
-    void Update()
+    void LateUpdate()
     {
         if(miniAim && SceneManager.GetActiveScene().buildIndex > 2)
         {   
