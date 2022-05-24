@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CursorMiniManager : MonoBehaviour
 {
+    public float speed;
     public Transform targetGroup;
     public Transform miniCrosshair;
     private Vector3 pos;
@@ -39,7 +40,7 @@ public class CursorMiniManager : MonoBehaviour
     {
         if(miniAim && SceneManager.GetActiveScene().buildIndex > 2)
         {   
-            miniCrosshair.position = Camera.main.WorldToScreenPoint(targetGroup.position);
+            miniCrosshair.position = Vector3.Lerp(miniCrosshair.position, Camera.main.WorldToScreenPoint(targetGroup.position), Time.deltaTime * speed);
         }
     }
 
