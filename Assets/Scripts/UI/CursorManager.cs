@@ -70,6 +70,7 @@ public class CursorManager : MonoBehaviour
         {
             if(gameManager.pausedGame || gameManager.playerManager.petHandler.craftingWindowOpen)
             {
+                //gameManager.DisableCursors();
                 crosshairImage.color = zeroAlphaColor;
                 Cursor.visible = true;
             }

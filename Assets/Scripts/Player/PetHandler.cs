@@ -32,7 +32,7 @@ public class PetHandler : MonoBehaviour
     [SerializeField] private int index;
     [SerializeField] private float moveToNextDelay;
     private float moveToNextDelayTimer;
-    private bool stop;
+    public bool stop;
 
     [Header("Troca de câmera e LookAt nos botões")]
     public CinemachineSwitchBlend cinemachineSwitchBlend;
@@ -152,6 +152,7 @@ public class PetHandler : MonoBehaviour
     {
         //craftingWindowObject.SetActive(true);
         //inventorytxt.UpdateItem();
+        playerManager.gameManager.DisableCursors();
         craftingWindowOpen = true;
         cinemachineSwitchBlend.SwitchPriority();
         //pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
@@ -163,6 +164,7 @@ public class PetHandler : MonoBehaviour
     }
     public void CloseCraftingWindow()
     {
+        playerManager.gameManager.EnableCursors();
         craftingWindowOpen = false;
         //craftingWindowObject.SetActive(false);
         cinemachineSwitchBlend.SwitchPriority();

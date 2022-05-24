@@ -4032,6 +4032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullScreenController: {fileID: 1131401200}
   fullScreen: 0
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
+  fullscreenText: {fileID: 337511219}
 --- !u!1001 &285774142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4105,7 +4107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 138819864952107665, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 163.6
       objectReference: {fileID: 0}
     - target: {fileID: 138819864952107665, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4625,6 +4627,17 @@ Transform:
   m_Father: {fileID: 951076795}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &337511219 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6143379973876207196, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+  m_PrefabInstance: {fileID: 1730959362}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &354593093
 GameObject:
   m_ObjectHideFlags: 0
@@ -6413,6 +6426,17 @@ Transform:
   m_Father: {fileID: 1620465393}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &548277784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6143379973876207196, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
+  m_PrefabInstance: {fileID: 285774142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &549434256
 GameObject:
   m_ObjectHideFlags: 0
@@ -8412,6 +8436,8 @@ MonoBehaviour:
   fpsController: {fileID: 1458876959}
   currentFPStarget: 0
   currentRefreshRate: 0
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
+  fpsText: {fileID: 548277784}
 --- !u!1 &692174578
 GameObject:
   m_ObjectHideFlags: 0
@@ -12810,7 +12836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977533047814339229, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_Name
-      value: SliderOption
+      value: FPSArrowOption
       objectReference: {fileID: 0}
     - target: {fileID: 2977533047814339229, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_IsActive
@@ -12827,6 +12853,10 @@ PrefabInstance:
     - target: {fileID: 2977533048625895828, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2977533049761140316, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
+      propertyPath: m_Name
+      value: FPSName
       objectReference: {fileID: 0}
     - target: {fileID: 2977533049761140318, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_text
@@ -19577,7 +19607,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5673502192375547755, guid: 2a34115f726da68499d2973959c32f10, type: 3}
       propertyPath: m_Name
-      value: TickOption_1
+      value: FullscreenName
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673502192375547755, guid: 2a34115f726da68499d2973959c32f10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5673502192558408666, guid: 2a34115f726da68499d2973959c32f10, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -20893,7 +20927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 138819864952107665, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 213.59998
       objectReference: {fileID: 0}
     - target: {fileID: 138819864952107665, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -20913,7 +20947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 138819864952107666, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: m_Name
-      value: DropDownOption_1
+      value: FullscreenArrowOption
       objectReference: {fileID: 0}
     - target: {fileID: 138819866386330362, guid: a95284f0cd6b57744ac8533d881cd9b9, type: 3}
       propertyPath: m_text

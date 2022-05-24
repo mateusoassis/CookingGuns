@@ -195,7 +195,7 @@ public class _PlayerManager : MonoBehaviour
             
             if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && !tutorial && !gameManager.pausedGame)
             {
-                if(petHandler.playerOnArea && !petHandler.craftingWindowOpen)
+                if(petHandler.playerOnArea && !petHandler.craftingWindowOpen && petHandler.stop)
                 {
                     if(gameManager.roomCleared)
                     {

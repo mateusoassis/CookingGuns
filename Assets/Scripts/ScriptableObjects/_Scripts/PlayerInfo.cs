@@ -14,6 +14,10 @@ public class PlayerInfo : ScriptableObject
     public int healthFromLastRoom;
     // public int currentSceneIndex;
 
+    [Header("Options")]
+    public int fpsIndex;
+    public int fullscreenIndex;
+
     [Header("In-game Crosshair")]
     public Texture2D[] crosshairTextures2D;
     public Sprite[] crosshairImages;
