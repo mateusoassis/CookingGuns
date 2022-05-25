@@ -151,10 +151,7 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon)
-        {
-            playerManager.tutorialBrain.dialogueAfterCraftedWeapon.StartDialogue();
-        }
+        
         //craftingWindowObject.SetActive(true);
         //inventorytxt.UpdateItem();
         playerManager.gameManager.DisableCursors();
@@ -170,6 +167,10 @@ public class PetHandler : MonoBehaviour
     public void CloseCraftingWindow()
     {
         playerManager.gameManager.EnableCursors();
+        if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon)
+        {
+            playerManager.tutorialBrain.dialogueAfterCraftedWeapon.StartDialogue();
+        }
         craftingWindowOpen = false;
         //craftingWindowObject.SetActive(false);
         cinemachineSwitchBlend.SwitchPriority();
