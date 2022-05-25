@@ -80,6 +80,7 @@ public class EnemyStats : MonoBehaviour
             }
             playerInfo.totalEnemiesKilled++;
             playerInfo.totalEnemiesKilledPerWeapon[playerInfo.lastWeaponTypeEquipped]++;
+            FindObjectOfType<SoundManager>().PlayOneShot("AnyEnemyDying");
             
             if(dropPrefab[0] != null)
             {

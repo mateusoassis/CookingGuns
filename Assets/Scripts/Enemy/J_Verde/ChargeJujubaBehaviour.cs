@@ -196,6 +196,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToStartCharging);
         chargeJujubaAnimator.StartRoll();
+        FindObjectOfType<SoundManager>().Play("JujubaVerdeAttack");
         trailParticle.Play();
         yield return new WaitForSeconds(0.2f);
         state = 4;
@@ -207,6 +208,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Wall" && rolling)
         {
+            FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce, ForceMode.VelocityChange);
             Debug.Log(name + "toma knockback");
             StopAllCoroutines();
@@ -216,6 +218,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         }
         else if(other.gameObject.tag == "Player" && rolling)
         {
+            FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
             other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
 
@@ -235,6 +238,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         }
         else if(other.gameObject.tag == "Barrel" && rolling)
         {
+            FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
             //other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
             other.gameObject.GetComponent<BarrelScript>().ActivateBarrel();
@@ -249,6 +253,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
 
         else if(other.gameObject.tag == "Enemy" && rolling)
         {
+            FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
             other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
 

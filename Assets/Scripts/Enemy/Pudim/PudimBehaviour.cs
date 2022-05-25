@@ -212,6 +212,7 @@ public class PudimBehaviour : MonoBehaviour
     }
     public void ShootProjectile()
     {
+        FindObjectOfType<SoundManager>().StopSound("PudimAttack");
         Instantiate(enemyBulletPrefab, firePoint.position, Quaternion.identity);
         float u = Random.Range(timeBetweenShots - randomExtraTimeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
         timeBetweenShotsTimer = u;
