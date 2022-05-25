@@ -65,9 +65,10 @@ public class PlayerInfo : ScriptableObject
 
 
 
+    /*
     public void ResetThisObject()
     {
-        hasPlayedTutorial = false;
+        //hasPlayedTutorial = false;
         //timeSpentOnTutorial = 0;
 
         totalWeaponsCrafted = 0;
@@ -86,6 +87,7 @@ public class PlayerInfo : ScriptableObject
 
         lastWeaponTypeEquipped = -1;
     }
+    */
 
     public void NewGameReset()
     {
