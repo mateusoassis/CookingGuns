@@ -10019,10 +10019,12 @@ MonoBehaviour:
   - {fileID: 0}
   index: 0
   moveToNextDelay: 1
+  stop: 0
   cinemachineSwitchBlend: {fileID: 0}
   buttonsCanvasObject: {fileID: 0}
   lookAtSpeed: 3
   canvasGroupAnimator: {fileID: 0}
+  fadeoutCanvasGroupWhenPetWindowOpen: {fileID: 0}
 --- !u!114 &6581419280599443788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11006,7 +11008,7 @@ MonoBehaviour:
   granadeLauncherTarget: {fileID: 0}
   shootForce: 30
   upwardForce: 0
-  timeBetweenShooting: 0.2
+  timeBetweenShooting: 0.3
   spread: 0
   reloadTime: 1
   timeBetweenShots: 0

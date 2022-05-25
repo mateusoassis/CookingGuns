@@ -70,6 +70,7 @@ public class EnemyStats : MonoBehaviour
 
         if(enemyHealth <= 0)
         {            
+            FindObjectOfType<SoundManager>().PlayOneShot("AnyEnemyDying");
             Destroy(this.gameObject);
             Instantiate(smokePrefab, transform.position , Quaternion.identity);
             if(GetComponent<MinusOnDestroy>() == null)
@@ -80,7 +81,6 @@ public class EnemyStats : MonoBehaviour
             }
             playerInfo.totalEnemiesKilled++;
             playerInfo.totalEnemiesKilledPerWeapon[playerInfo.lastWeaponTypeEquipped]++;
-            FindObjectOfType<SoundManager>().PlayOneShot("AnyEnemyDying");
             
             if(dropPrefab[0] != null)
             {

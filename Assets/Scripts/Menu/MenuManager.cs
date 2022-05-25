@@ -34,13 +34,13 @@ public class MenuManager : MonoBehaviour
         }
         */
 
-        if(!playerInfo.hasPlayedTutorial || !playerInfo.endedTutorial)
+        if(playerInfo.hasPlayedTutorial || playerInfo.endedTutorial)
         {
-            tutorialButton.SetActive(false);
+            tutorialButton.SetActive(true);
         }
         else
         {
-            tutorialButton.SetActive(true);
+            tutorialButton.SetActive(false);
         }
     }
 

@@ -43,7 +43,8 @@ public class TowerBehaviour : MonoBehaviour
     void Start()
     {
         modelTransform.position = startPosition;
-        boxCollider.enabled = false;
+        boxCollider.enabled = true;
+        
     }
 
     void Update()
@@ -72,6 +73,7 @@ public class TowerBehaviour : MonoBehaviour
             else
             {
                 modelReady = true;
+                transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z), transform.up);
                 boxCollider.enabled = true;
                 switchingPlaces = false;
             }

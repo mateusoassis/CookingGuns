@@ -196,7 +196,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToStartCharging);
         chargeJujubaAnimator.StartRoll();
-        FindObjectOfType<SoundManager>().Play("JujubaVerdeAttack");
+        FindObjectOfType<SoundManager>().Loopable("JujubaVerdeAttack", true);
         trailParticle.Play();
         yield return new WaitForSeconds(0.2f);
         state = 4;
