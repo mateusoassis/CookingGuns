@@ -26,6 +26,8 @@ public class Shieldoca : MonoBehaviour
     public Animator anim;
     public ParticleSystem attackParticle;
 
+    private EnemyStats enemyStatsScript;
+
     public bool isPlayerInsideArea;
     public int hitDamage;
     public bool canAttack;
@@ -39,6 +41,7 @@ public class Shieldoca : MonoBehaviour
         attackParticle = transform.Find("ShieldocaAttack").GetComponent<ParticleSystem>();
         selfRigidbody = GetComponent<Rigidbody>();
         player = GameObject.Find("Player").GetComponent<Transform>();
+        enemyStatsScript = GetComponent<EnemyStats>();
         moveSpeed = maxMoveSpeed;
         turnSpeed = maxTurnSpeed;
     }
@@ -92,6 +95,7 @@ public class Shieldoca : MonoBehaviour
         if(canAttack && playerOnRange)
         {
             anim.SetTrigger("Attack");
+            enemyStatsScript.EnemyFlash();
             attackTimer = 0f;
             canAttack = false;
         }

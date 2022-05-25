@@ -37,7 +37,6 @@ public class EnemyStats : MonoBehaviour
     void Start(){
         enemyHealth = enemyMaxHealth;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        //enemySpawner = GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>();
         healthbarScript = GetComponentInChildren<HealthbarBehaviour>();
         if(enemyType != 0)
         {
@@ -75,8 +74,6 @@ public class EnemyStats : MonoBehaviour
             Instantiate(smokePrefab, transform.position , Quaternion.identity);
             if(GetComponent<MinusOnDestroy>() == null)
             {
-                //Debug.Log(name);
-                //enemySpawner.enemiesKilled++;
                 Debug.Log(name);
             }
             playerInfo.totalEnemiesKilled++;
@@ -106,7 +103,6 @@ public class EnemyStats : MonoBehaviour
                     }
                 } 
             }
-            
         }
     }
 

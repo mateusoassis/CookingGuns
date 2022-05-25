@@ -21,6 +21,8 @@ public class PudimBehaviour : MonoBehaviour
 
     public Transform firePoint;
 
+    private EnemyStats enemyStatsScript;
+
     [Header("Tiros")]
     public float timeBetweenShots;
     public float timeBetweenShotsTimer;
@@ -58,6 +60,7 @@ public class PudimBehaviour : MonoBehaviour
     {
         enemyAnimator = GetComponent<Animator>();
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+        enemyStatsScript = GetComponent<EnemyStats>();
         canMove = true;
         enemySpeed = enemyMaxSpeed;
         navMesh.speed = enemyMaxSpeed;
@@ -212,6 +215,7 @@ public class PudimBehaviour : MonoBehaviour
     }
     public void ShootProjectile()
     {
+        enemyStatsScript.EnemyFlash();
         FindObjectOfType<SoundManager>().StopSound("PudimAttack");
         Instantiate(enemyBulletPrefab, firePoint.position, Quaternion.identity);
         float u = Random.Range(timeBetweenShots - randomExtraTimeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);

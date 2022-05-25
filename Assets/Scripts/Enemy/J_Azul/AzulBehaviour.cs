@@ -33,6 +33,7 @@ public class AzulBehaviour : MonoBehaviour
     public bool retreatingOnCooldown;
 
     private Animator enemyAnimator;
+    private EnemyStats enemyStatsScript;
 
     private bool canMove;
     private NavMeshAgent navMesh;
@@ -53,6 +54,7 @@ public class AzulBehaviour : MonoBehaviour
     {
         enemyAnimator = GetComponent<Animator>();
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+        enemyStatsScript = GetComponent<EnemyStats>();
         canMove = true;
         enemySpeed = enemyMaxSpeed;
         timeBetweenShotsTimer = timeBetweenShots + Random.Range(-randomExtraTimeBetweenShots, randomExtraTimeBetweenShots);
@@ -217,6 +219,7 @@ public class AzulBehaviour : MonoBehaviour
     }
     public void ShootProjectile()
     {
+        enemyStatsScript.EnemyFlash();
         Instantiate(enemyBulletPrefab, firePoint.position, Quaternion.identity);
         float u = Random.Range(timeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
         timeBetweenShotsTimer = u;

@@ -38,6 +38,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
 
     public ChargeJujubaAnimator chargeJujubaAnimator;
     public ParticleSystem trailParticle;
+    private EnemyStats enemyStatsScript;
 
     public bool rolling;
     public float rollSpeed;
@@ -53,6 +54,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navMesh = GetComponent<NavMeshAgent>();
+        enemyStatsScript = GetComponent<EnemyStats>();
     }
 
     void Start()
@@ -194,6 +196,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
 
     public IEnumerator WaitAFewSeconds()
     {
+        enemyStatsScript.EnemyFlash();
         yield return new WaitForSeconds(timeToStartCharging);
         chargeJujubaAnimator.StartRoll();
         FindObjectOfType<SoundManager>().Loopable("JujubaVerdeAttack", true);
