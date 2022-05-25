@@ -153,7 +153,6 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
-        
         //craftingWindowObject.SetActive(true);
         //inventorytxt.UpdateItem();
         fadeoutCanvasGroupWhenPetWindowOpen.alpha = 0f;
@@ -169,21 +168,24 @@ public class PetHandler : MonoBehaviour
     }
     public void CloseCraftingWindow()
     {
-        fadeoutCanvasGroupWhenPetWindowOpen.alpha = 1f;
-        playerManager.gameManager.EnableCursors();
-        if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon && !playerManager.tutorialBrain.lastDialogue)
+        if(!playerManager.gameManager.pausedGame)
         {
-            playerManager.tutorialBrain.dialogueAfterCraftedWeapon.StartDialogue();
-            playerManager.tutorialBrain.lastDialogue = true;
-        }
-        craftingWindowOpen = false;
-        //craftingWindowObject.SetActive(false);
-        cinemachineSwitchBlend.SwitchPriority();
-        pressFKey.SetActive(true);
-        //buttonsCanvasObject.SetActive(false);
-        //StartCoroutine(EnableCanvasGroup(cinemachineSwitchBlend.petToMainDuration));
-        canvasGroupAnimator.SetTrigger("Disable");
-        petModel.transform.forward = pet.transform.forward;
+            fadeoutCanvasGroupWhenPetWindowOpen.alpha = 1f;
+            playerManager.gameManager.EnableCursors();
+            if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon && !playerManager.tutorialBrain.lastDialogue)
+            {
+                playerManager.tutorialBrain.dialogueAfterCraftedWeapon.StartDialogue();
+                playerManager.tutorialBrain.lastDialogue = true;
+            }
+            craftingWindowOpen = false;
+            //craftingWindowObject.SetActive(false);
+            cinemachineSwitchBlend.SwitchPriority();
+            pressFKey.SetActive(true);
+            //buttonsCanvasObject.SetActive(false);
+            //StartCoroutine(EnableCanvasGroup(cinemachineSwitchBlend.petToMainDuration));
+            canvasGroupAnimator.SetTrigger("Disable");
+            petModel.transform.forward = pet.transform.forward;
+        }  
     }
 
     /*
