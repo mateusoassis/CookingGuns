@@ -171,9 +171,10 @@ public class PetHandler : MonoBehaviour
     {
         fadeoutCanvasGroupWhenPetWindowOpen.alpha = 1f;
         playerManager.gameManager.EnableCursors();
-        if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon)
+        if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon && !playerManager.tutorialBrain.lastDialogue)
         {
             playerManager.tutorialBrain.dialogueAfterCraftedWeapon.StartDialogue();
+            playerManager.tutorialBrain.lastDialogue = true;
         }
         craftingWindowOpen = false;
         //craftingWindowObject.SetActive(false);
