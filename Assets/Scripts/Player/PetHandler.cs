@@ -43,6 +43,7 @@ public class PetHandler : MonoBehaviour
     [SerializeField] private float lookAtSpeed;
     private float switchTimer;
     [SerializeField] private Animator canvasGroupAnimator;
+    [SerializeField] private CanvasGroup fadeoutCanvasGroupWhenPetWindowOpen;
 
     void Awake()
     {
@@ -52,6 +53,7 @@ public class PetHandler : MonoBehaviour
         cinemachineSwitchBlend = GameObject.Find("CinemachineCamSetup").GetComponent<CinemachineSwitchBlend>();
         buttonsCanvasObject = GameObject.Find("ButtonsCanvas");
         petLookAt = GameObject.Find("ButtonsCanvas").GetComponent<PetLookAt>();
+        fadeoutCanvasGroupWhenPetWindowOpen = GameObject.Find("MainUI").GetComponent<CanvasGroup>();
         
     }
 
@@ -154,6 +156,7 @@ public class PetHandler : MonoBehaviour
         
         //craftingWindowObject.SetActive(true);
         //inventorytxt.UpdateItem();
+        fadeoutCanvasGroupWhenPetWindowOpen.alpha = 0f;
         playerManager.gameManager.DisableCursors();
         craftingWindowOpen = true;
         cinemachineSwitchBlend.SwitchPriority();
@@ -166,6 +169,7 @@ public class PetHandler : MonoBehaviour
     }
     public void CloseCraftingWindow()
     {
+        fadeoutCanvasGroupWhenPetWindowOpen.alpha = 1f;
         playerManager.gameManager.EnableCursors();
         if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon)
         {
