@@ -62,10 +62,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("lul");
             playerInfo.isOnTutorial = true;
+            //roomCleared = true;
         }
         else
         {
             playerInfo.isOnTutorial = false;
+            //roomCleared = false;
         }
         roomCleared = false;
         /*pauseUI = GameObject.Find("PauseUI");
@@ -111,7 +113,7 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        else if(roomCleared && !slowdown && !playerManager.isFading)
+        else if(roomCleared && !slowdown && !playerManager.isFading && SceneManager.GetActiveScene().buildIndex != 3)
         {
             StartSlowTime();
         }
