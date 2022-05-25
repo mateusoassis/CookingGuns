@@ -131,6 +131,14 @@ public class PetHandler : MonoBehaviour
                 }
             }
 
+            if(stop && playerManager.gameManager.roomCleared && !craftingWindowOpen)
+            {
+                pressFKey.SetActive(true);
+            }
+            else
+            {
+                pressFKey.SetActive(false);
+            }
             
         }
     }
@@ -162,7 +170,7 @@ public class PetHandler : MonoBehaviour
         //pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
         targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - transform.position);
         petLookAt.lookAtPosition = petLookAt.playerPos.position;
-        pressFKey.SetActive(false);
+        //pressFKey.SetActive(false);
         buttonsCanvasObject.SetActive(true);
         //StartCoroutine(DisableCanvasGroup(cinemachineSwitchBlend.mainToPetDuration));
     }
@@ -180,7 +188,7 @@ public class PetHandler : MonoBehaviour
             craftingWindowOpen = false;
             //craftingWindowObject.SetActive(false);
             cinemachineSwitchBlend.SwitchPriority();
-            pressFKey.SetActive(true);
+            //pressFKey.SetActive(true);
             //buttonsCanvasObject.SetActive(false);
             //StartCoroutine(EnableCanvasGroup(cinemachineSwitchBlend.petToMainDuration));
             canvasGroupAnimator.SetTrigger("Disable");

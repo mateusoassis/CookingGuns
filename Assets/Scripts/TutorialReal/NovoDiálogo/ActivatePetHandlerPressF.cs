@@ -13,6 +13,6 @@ public class ActivatePetHandlerPressF : MonoBehaviour
 
     void OnDestroy()
     {
-        petHandler.pressFKey.SetActive(true);
+        //petHandler.pressFKey.SetActive(true);
     }
 }
