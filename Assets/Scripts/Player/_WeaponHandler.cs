@@ -22,6 +22,7 @@ public class _WeaponHandler : MonoBehaviour
 
     [Header("Objetos na cena")]
     public GameObject realGameObjects;
+    public ParticleSystem healingParticle;
 
     [Header("Arrays")]
     public Sprite[] realWeaponIconsPool;
@@ -705,6 +706,7 @@ public class _WeaponHandler : MonoBehaviour
             UpdateWeaponSlotSprites();
         //}
         playerManager.playerStats.heartScript.FullHeal();
+        healingParticle.Play();
         playerManager.playerInfo.totalWeaponsEaten++;
 
         if(playerManager.tutorial)
