@@ -23,7 +23,7 @@ public class CinemachineSwitchBlend : MonoBehaviour
     void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        deadCamera = GameObject.Find("Dead VCAM").GetComponent<CinemachineVirtualCamera>();
+        //deadCamera = GameObject.Find("Dead VCAM").GetComponent<CinemachineVirtualCamera>();
     }
 
     void Start()
