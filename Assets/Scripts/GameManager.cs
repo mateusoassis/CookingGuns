@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         if(SceneManager.GetActiveScene().buildIndex == 3)
         {
             Debug.Log("lul");

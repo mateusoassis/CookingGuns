@@ -73,6 +73,7 @@ public class _PlayerManager : MonoBehaviour
         {
             tutorial = false;
         }
+        
     }
     
     void Start()

@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
     void Awake()
     {
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Start() 
