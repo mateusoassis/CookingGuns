@@ -138,6 +138,7 @@ public class MenuManager : MonoBehaviour
     {
         ButaoSound();
         playerInfo.TutorialReset();
+        playerInfo.hasPlayedTutorial = true;
         SceneManager.LoadScene("3_TutorialScene", LoadSceneMode.Single);
     }
 
