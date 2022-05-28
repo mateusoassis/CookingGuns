@@ -12,6 +12,8 @@ public class PetHandler : MonoBehaviour
     private Transform pet;
     public Transform petModel;
     public GameObject pressFKey;
+    private Animator petAnimator;
+    private bool endAnimation;
     //public NavMeshAgent petNavMeshAgent;
     
     public PetBillboard petBillboard;
@@ -54,11 +56,43 @@ public class PetHandler : MonoBehaviour
         buttonsCanvasObject = GameObject.Find("ButtonsCanvas");
         petLookAt = GameObject.Find("ButtonsCanvas").GetComponent<PetLookAt>();
         fadeoutCanvasGroupWhenPetWindowOpen = GameObject.Find("MainUI").GetComponent<CanvasGroup>();
+        petAnimator = pet.GetComponent<Animator>();
         
+    }
+
+    public void PetIdle()
+    {
+        petAnimator.SetBool("Idle", true);
+        petAnimator.SetBool("Walking", false);
+        petAnimator.SetBool("LookAt", false);
+    }
+    public void PetWalking()
+    {
+        petAnimator.SetBool("Idle", false);
+        petAnimator.SetBool("Walking", true);
+        petAnimator.SetBool("LookAt", false);
+    }
+    public void PetEndRoom()
+    {
+        petAnimator.SetBool("Idle", false);
+        petAnimator.SetBool("Walking", false);
+        petAnimator.SetBool("LookAt", false);
+        petAnimator.SetTrigger("EndRoom");
+    }
+    public void IdleAfterEndRoom()
+    {
+        petAnimator.SetBool("Idle", true);
+    }
+    public void PetLookAtAnimation()
+    {
+        petAnimator.SetBool("Idle", false);
+        petAnimator.SetBool("Walking", false);
+        petAnimator.SetBool("LookAt", true);
     }
 
     void Start()
     {
+        PetIdle();
         pressFKey.SetActive(false);
         mainUI = GameObject.Find("MainUI");
         inventorytxt = GameObject.Find("Player").GetComponent<Inventory>();
@@ -84,6 +118,16 @@ public class PetHandler : MonoBehaviour
                 if(stop)
                 {
                     //Vector3 lookAtVector = Vector3.Lerp(new Vector3(transform.position.x, pet.transform.position))
+                    /*
+                    if(playerManager.gameManager.roomCleared)
+                    {
+                        PetEndRoom();
+                    }
+                    else
+                    {
+                        PetIdle();
+                    }
+                    */
                     pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
                 }
             }
@@ -104,12 +148,15 @@ public class PetHandler : MonoBehaviour
             if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop)
             {
                 pet.transform.position = Vector3.MoveTowards(pet.transform.position, targetTransforms[index].position, petSpeed * Time.deltaTime);
+                PetWalking();
 
                 if(targetTransforms[index].position == pet.transform.position)
                 {
                     if(index == (targetTransforms.Length - 1))
                     {
                         stop = true;
+                        endAnimation = true;
+                        PetIdle();
                     }
                     else
                     {
@@ -118,6 +165,7 @@ public class PetHandler : MonoBehaviour
                     }
                     moveToNextDelayTimer = moveToNextDelay;
                     arrived = true;
+                    PetIdle();
                 }
             }
 
@@ -134,6 +182,11 @@ public class PetHandler : MonoBehaviour
             if(stop && playerManager.gameManager.roomCleared && !craftingWindowOpen)
             {
                 pressFKey.SetActive(true);
+                if(endAnimation)
+                {
+                    PetEndRoom();
+                    endAnimation = false;
+                }
             }
             else
             {
@@ -161,6 +214,7 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
+        PetLookAtAnimation();
         //craftingWindowObject.SetActive(true);
         //inventorytxt.UpdateItem();
         fadeoutCanvasGroupWhenPetWindowOpen.alpha = 0f;
@@ -178,6 +232,7 @@ public class PetHandler : MonoBehaviour
     {
         if(!playerManager.gameManager.pausedGame)
         {
+            PetIdle();
             fadeoutCanvasGroupWhenPetWindowOpen.alpha = 1f;
             playerManager.gameManager.EnableCursors();
             if(SceneManager.GetActiveScene().buildIndex == 3 && playerManager.tutorialBrain.playerCraftedWeapon && !playerManager.tutorialBrain.lastDialogue)
