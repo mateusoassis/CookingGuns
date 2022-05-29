@@ -3057,8 +3057,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueString:
   - Great job, chef! Now let's cook some guns!
-  - Come closer and interact with me, remember those ingredients? You will use them
-    now
+  - Come closer and interact with me. Do you remember those ingredients? You will
+    use them now.
   - Just choose the gun you want to cook, and press the cook button if you have the
     right ingredients.
   typeInterval: 0.025
@@ -4498,13 +4498,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - Good job! See, it wasn't that hard.
-  - Now I will teach you how to HEAL yourself by EATING a gun.
-  - Yes, you have to EAT one of your guns, healing is important, so don't forget
-    that.
+  - Good job! See?! It wasn't that hard.
+  - Now, I will teach you how to HEAL yourself by EATING a gun.
+  - Yes! You have to EAT one of your guns. Healing is important! Don't forget that.
   - Just equip any gun, PRESS and HOLD the RMB key on your mouse and wait a few seconds.
   - You can move while eating, but other actions like rolling will interrupt it.
-  - OK, now EAT one gun but don't worry, we can cook another one later.
+  - OK, now EAT one gun, but don't worry, we can cook another one later!
   typeInterval: 0.025
   skipDuration: 0.5
   ended: 0
@@ -4788,7 +4787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - Ok, here you're gonna find some enemies, I will teach you how to fight them.
+  - Ok, here you're gonna find some enemies. I will teach you how to fight them!
   - Use your MOUSE to aim, and the LMB key to shoot.
   - Don't worry, you got this!
   typeInterval: 0.025
@@ -6561,11 +6560,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - Hey, you are really good, have you done this before?
+  - Hey, you are really good! Have you done this before?
   - Anyways, these are TRAPS that are very common on this place.
   - They activate when you step on them, so be careful.
   - Press the SPACE BAR key to ROLL, you can't take damage while rolling.
-  - Try to use your ROLL and pass these TRAPS, don't worry if you miss it, just keep
+  - Try to use your ROLL and pass these TRAPS. Don't worry if you miss it, just keep
     going!
   typeInterval: 0.025
   skipDuration: 0.5
@@ -7561,8 +7560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - Hey, you forgot how to eat a gun?
-  - Choose one gun, then press and hold the RMB button on your mouse.
+  - Hey, did you forget how to eat a gun?
+  - Choose one gun, then PRESS and HOLD the RMB key on your mouse.
   typeInterval: 0.025
   skipDuration: 0.5
   ended: 0
@@ -10481,6 +10480,10 @@ PrefabInstance:
       propertyPath: InventoryQuantityText
       value: 
       objectReference: {fileID: 1711962410}
+    - target: {fileID: 6581419281093508398, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 04f4d42550ff8184a914b1aa7fe597df, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb5bd010546cdbb44942dbe68efd0d97, type: 3}
 --- !u!114 &1041688473 stripped
@@ -15848,7 +15851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - And remember, you can only cook guns after clearing all the room challenges.
+  - 'And remember: you can only cook guns after clearing all the room challenges.'
   typeInterval: 0.025
   skipDuration: 0.5
   ended: 0
@@ -20085,8 +20088,8 @@ MonoBehaviour:
   dialogueString:
   - NAISUUUUU!!!!!!
   - Sorry, I was watching an anime...
-  - But hey, let's go to the final test!
-  - There is a though enemy nearby that spawns other enemies.
+  - But hey! Let's go to the final test!
+  - There is a tough enemy nearby that spawns other enemies.
   - Just pay attention and try to destroy it before it spawns a lot of enemies!
   typeInterval: 0.025
   skipDuration: 0.5
@@ -21285,11 +21288,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueString:
-  - Nice! You just got your first ingredients, every enemy drops some ingredients
-    when defeated, we will use them later
-  - This next one is a bit tricky, he can BLOCK your shots with the cookie shield
-  - But your can choose a better weapon to deal with it, try the GRENADE LAUNCHER.
-  - Use Q or E key to swap between your weapons, and shoot with the GRENADE LAUNCHER.
+  - Nice! You just got your first ingredients. Every enemy drops some ingredients
+    when defeated. We will use them later.
+  - This next one is a bit tricky! He can BLOCK your shots with the cookie shield.
+  - But you can choose a better weapon to deal with it. Try the GRENADE LAUNCHER.
+  - Use Q or E key to swap between your weapons, and shoot with the GRENADE LAUNCHER
+    near it.
   typeInterval: 0.025
   skipDuration: 0.5
   ended: 0
@@ -21744,15 +21748,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320588148552, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.65839565
+      value: 0.6583957
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320588148552, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25790554
+      value: 0.25790557
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320588148552, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6583956
+      value: -0.6583955
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320588148555, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_Follow

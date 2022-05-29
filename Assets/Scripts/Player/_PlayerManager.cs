@@ -19,6 +19,7 @@ public class _PlayerManager : MonoBehaviour
     public bool canceledEating;
     private GameObject playerEatingWeaponBar;
     private Slider playerEatingWeaponBarSlider;
+    private bool eatWeaponSoundBool;
 
     [Header("Tutorial")]
     public TutorialBrain tutorialBrain;
@@ -256,16 +257,23 @@ public class _PlayerManager : MonoBehaviour
                         }
                         else
                         {   
+                            /*
                             if(!rmbHeldDown && playerWeaponHandler.amountUnlocked > 1)
                             {
                                 FindObjectOfType<SoundManager>().PlayOneShot("Eating");
                             }
+                            */
                             rmbHeldDown = true;
                             playerWeaponHandler.UpdateAmountUnlocked();
                             if(playerWeaponHandler.amountUnlocked > 1)
                             {
                                 if(rmbHeldDown && !rmbHasToPressAgain)
                                 {
+                                    if(!eatWeaponSoundBool)
+                                    {
+                                        FindObjectOfType<SoundManager>().PlayOneShot("Eating");
+                                        eatWeaponSoundBool = true;
+                                    }
                                     playerEatingWeaponBar.SetActive(true);
                                     playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
                                     isEatingWeapon = true;
@@ -299,16 +307,23 @@ public class _PlayerManager : MonoBehaviour
                             }
                             else
                             {
+                                /*
                                 if(!rmbHeldDown && playerWeaponHandler.amountUnlocked > 1)
                                 {
                                     FindObjectOfType<SoundManager>().PlayOneShot("Eating");
                                 }
+                                */
                                 rmbHeldDown = true;
                                 playerWeaponHandler.UpdateAmountUnlocked();
                                 if(playerWeaponHandler.amountUnlocked > 1)
                                 {
                                     if(rmbHeldDown && !rmbHasToPressAgain)
                                     {
+                                        if(!eatWeaponSoundBool)
+                                        {
+                                            FindObjectOfType<SoundManager>().PlayOneShot("Eating");
+                                            eatWeaponSoundBool = true;
+                                        }
                                         playerEatingWeaponBar.SetActive(true);
                                         playerEatingWeaponBarSlider.value = eatingWeaponTimer/eatingWeaponDuration;
                                         isEatingWeapon = true;
@@ -339,10 +354,14 @@ public class _PlayerManager : MonoBehaviour
                 {
                     //canceledEating = false;
                     rmbHasToPressAgain = false;
-                    isEatingWeapon = false;
                     rmbHeldDown = false;
+
+                    isEatingWeapon = false;
                     eatingWeaponTimer = 0f;
+                    
                     playerEatingWeaponBar.SetActive(false);
+
+                    eatWeaponSoundBool = false;
                     FindObjectOfType<SoundManager>().StopSound("Eating");
                 }
                 
