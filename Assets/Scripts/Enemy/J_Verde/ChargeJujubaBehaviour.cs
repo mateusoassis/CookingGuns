@@ -200,8 +200,8 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         yield return new WaitForSeconds(timeToStartCharging);
         chargeJujubaAnimator.StartRoll();
         trailParticle.Play();
-        yield return new WaitForSeconds(0.2f);
         FindObjectOfType<SoundManager>().PlayOneShot("JujubaVerdeAttack");
+        yield return new WaitForSeconds(0.2f);
         state = 4;
         yield return new WaitForSeconds(rollDuration);
         chargeJujubaAnimator.StopRoll();
@@ -211,7 +211,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Wall" && rolling)
         {
-            FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
+            //FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce, ForceMode.VelocityChange);
             Debug.Log(name + "toma knockback");
             StopAllCoroutines();
@@ -221,7 +221,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         }
         else if(other.gameObject.tag == "Player" && rolling)
         {
-            FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
+            //FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
             other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
@@ -241,7 +241,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         }
         else if(other.gameObject.tag == "Barrel" && rolling)
         {
-            FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
+            //FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
             //other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
             other.gameObject.GetComponent<BarrelScript>().ActivateBarrel();
@@ -256,7 +256,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
 
         else if(other.gameObject.tag == "Enemy" && rolling)
         {
-            FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
+            //FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
             other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
 
