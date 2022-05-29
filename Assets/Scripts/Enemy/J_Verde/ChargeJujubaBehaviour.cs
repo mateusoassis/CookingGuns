@@ -223,8 +223,8 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         {
             FindObjectOfType<SoundManager>().StopSound("JujubaVerdeAttack");
             GetComponent<Rigidbody>().AddForce(-transform.forward.normalized * backwardForce/2, ForceMode.VelocityChange);
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * backwardForce, ForceMode.Impulse);
-
             other.gameObject.GetComponent<_PlayerStats>().TakeHPDamage(damage);
 
             StopAllCoroutines();
