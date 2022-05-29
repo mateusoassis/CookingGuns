@@ -199,9 +199,9 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         enemyStatsScript.EnemyFlash();
         yield return new WaitForSeconds(timeToStartCharging);
         chargeJujubaAnimator.StartRoll();
-        FindObjectOfType<SoundManager>().Loopable("JujubaVerdeAttack", true);
         trailParticle.Play();
         yield return new WaitForSeconds(0.2f);
+        FindObjectOfType<SoundManager>().PlayOneShot("JujubaVerdeAttack");
         state = 4;
         yield return new WaitForSeconds(rollDuration);
         chargeJujubaAnimator.StopRoll();
