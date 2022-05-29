@@ -48,7 +48,6 @@ public class _PlayerShooting : MonoBehaviour
 
     public CursorManager cursorManager;
     private bool emptyWeapon;
-    private bool reloadGun;
 
     private void Awake()
     {   
