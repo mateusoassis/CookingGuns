@@ -9,6 +9,8 @@ public class GranadeScript : MonoBehaviour
     public GameObject explosionArea;
     public Transform explosionAreaTransform;
 
+    [SerializeField] private GameObject destroyParticle;
+
     public Vector3 centerPivot;
     public float centerOffset;
     public Transform parent;
@@ -79,6 +81,7 @@ public class GranadeScript : MonoBehaviour
 
         if(other.gameObject.tag == "EnemyShield"&& !arrived)
         {
+            Instantiate(destroyParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
