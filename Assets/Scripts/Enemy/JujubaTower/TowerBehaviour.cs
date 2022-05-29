@@ -94,6 +94,7 @@ public class TowerBehaviour : MonoBehaviour
     {   
         if(amountSpawned < maxAmountSpawned)
         {
+            FindObjectOfType<SoundManager>().PlayOneShot("TowerThrow");
             amountSpawned++;
             GameObject bullet = Instantiate(bulletObject, shootPoint.position, Quaternion.identity);
             bullet.transform.SetParent(transform);

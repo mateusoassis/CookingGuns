@@ -47,6 +47,8 @@ public class _PlayerShooting : MonoBehaviour
     public int sceneInt;
 
     public CursorManager cursorManager;
+    private bool emptyWeapon;
+    private bool reloadGun;
 
     private void Awake()
     {   
@@ -129,7 +131,11 @@ public class _PlayerShooting : MonoBehaviour
         {
             if(playerManager.playerWeaponHandler.weaponTypeEquipped != 3)
             {
-                FindObjectOfType<SoundManager>().PlayOneShot("EmptyGunPistolAndMachineGun");
+                if(!emptyWeapon)
+                {
+                    FindObjectOfType<SoundManager>().PlayOneShot("EmptyGunPistolAndMachineGun");
+                    emptyWeapon = true;
+                }
             }
             Reload();
             cursorManager.ReloadCrosshairAnimation(reloadTime);
@@ -254,29 +260,31 @@ public class _PlayerShooting : MonoBehaviour
 
     private void Reload()
     {
+        // som do reloading
+        if(!reloading)
+        {
+            if(playerManager.playerWeaponHandler.weaponTypeEquipped == 0)
+            {
+                FindObjectOfType<SoundManager>().PlayOneShot("PistolReload");
+            }
+            else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 1)
+            {
+                FindObjectOfType<SoundManager>().PlayOneShot("ShotgunReload");
+            }
+            else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 2)
+            {
+                FindObjectOfType<SoundManager>().PlayOneShot("MachineGunReload");
+            }
+            else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 3)
+            {
+                FindObjectOfType<SoundManager>().PlayOneShot("GrenadeLauncherReload");
+            }
+        }
         reloading = true;
         playerManager.ReloadDisplayUpdate();
         reloadDisplay.gameObject.SetActive(true);
         reloadTimeCounter = 0;
         Invoke("ReloadFinished", reloadTime);
-
-        // som do reload
-        if(playerManager.playerWeaponHandler.weaponTypeEquipped == 0)
-        {
-            FindObjectOfType<SoundManager>().PlayOneShot("PistolReload");
-        }
-        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 1)
-        {
-            FindObjectOfType<SoundManager>().PlayOneShot("ShotgunReload");
-        }
-        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 2)
-        {
-            FindObjectOfType<SoundManager>().PlayOneShot("MachineGunReload");
-        }
-        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 3)
-        {
-            FindObjectOfType<SoundManager>().PlayOneShot("GrenadeLauncherReload");
-        } 
     }
 
     public IEnumerator ResetWalk()
@@ -293,6 +301,7 @@ public class _PlayerShooting : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
         cursorManager.InterruptReloadAnim();
+        emptyWeapon = false;
     }
 
     public void ReloadInterrupted()

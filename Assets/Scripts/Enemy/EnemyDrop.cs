@@ -41,6 +41,7 @@ public class EnemyDrop : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<SoundManager>().PlayOneShot("LootPickUp");
         playerTransform = GameObject.Find("LootTransform").GetComponent<Transform>();
         canGoToPlayer = true;
         x = Random.Range(-2f, 2f);
