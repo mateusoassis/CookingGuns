@@ -215,6 +215,7 @@ public class PetHandler : MonoBehaviour
     public void OpenCraftingWindow()
     {
         PetLookAtAnimation();
+        playerManager.playerMovement.StopMovingForPetHandlerCraftingWindow();
         //craftingWindowObject.SetActive(true);
         //inventorytxt.UpdateItem();
         fadeoutCanvasGroupWhenPetWindowOpen.alpha = 0f;

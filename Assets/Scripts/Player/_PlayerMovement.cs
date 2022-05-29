@@ -205,4 +205,11 @@ public class _PlayerMovement : MonoBehaviour
             Debug.Log("encostei no shield");
         }
     }
+
+    public void StopMovingForPetHandlerCraftingWindow()
+    {
+        playerManager.isWalking = false;
+        playerManager.animationHandler.GetWeaponInt();
+        playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+    }
 }
