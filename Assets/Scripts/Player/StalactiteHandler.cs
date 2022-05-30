@@ -31,7 +31,7 @@ public class StalactiteHandler : MonoBehaviour
 
     void Update()
     {
-        if(!isTutorial)
+        if(!isTutorial && !GetComponent<_PlayerManager>().gameManager.roomCleared)
         {
             dropTimer -= Time.deltaTime;
             {
