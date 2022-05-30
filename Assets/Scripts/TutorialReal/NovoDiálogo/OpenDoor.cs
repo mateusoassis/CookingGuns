@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     [Header("Preencher")] // referenciar o diálogo responsável pelo booleano que deixará a porta abrir
+    public bool callNextPetPosition;
     [SerializeField] private DialogueBox dialogueBoxScript;
     [SerializeField] private string targetTag;
     //[SerializeField] string doorNameInHierarchy;
@@ -41,6 +42,10 @@ public class OpenDoor : MonoBehaviour
         if(other.gameObject.tag == targetTag)
         {
             open = true;
+            if(callNextPetPosition)
+            {
+                dialogueBoxScript.gameManager.playerManager.petHandler.NextPetPosition();
+            }
         }
     }
 }

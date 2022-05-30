@@ -6,11 +6,12 @@ using TMPro;
 
 public class DialogueBox : MonoBehaviour
 {
+    public bool callNextPetPosition;
     [Header("Referências")]
     private CanvasGroup canvasGroup;
     private GameObject canvasGroupObject;
     private TextMeshProUGUI dialogueText;
-    private GameManager gameManager;
+    public GameManager gameManager;
 
     [Header("Texto")]
     public string[] dialogueString;
@@ -23,7 +24,7 @@ public class DialogueBox : MonoBehaviour
     private bool started;
     public bool ended;
     private bool canSkip;
-
+    
     void Awake()
     {
         canvasGroupObject = GameObject.Find("TutorialWindowContainer");
@@ -113,6 +114,10 @@ public class DialogueBox : MonoBehaviour
             canvasGroupObject.SetActive(false);
             gameManager.ResumeForDialogue();
             ended = true;
+            if(callNextPetPosition)
+            {
+                gameManager.playerManager.petHandler.NextPetPosition();
+            }
             gameObject.SetActive(false);
         }
     }

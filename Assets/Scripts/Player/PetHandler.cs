@@ -101,99 +101,188 @@ public class PetHandler : MonoBehaviour
         playerOnArea = false;    
         pet.transform.LookAt(targetTransforms[index].position, pet.transform.up);
         canvasGroupAnimator = buttonsCanvasObject.GetComponent<Animator>();
+        arrived = true;
+        stop = false;
+
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            index = 0;
+        }
     }
 
     public void HandlePet()
     {
-        if(!playerManager.gameManager.pausedGame && !playerManager.isFading)
+        if(SceneManager.GetActiveScene().buildIndex != 3)
         {
-            // sobe e desce senoidal
-            if(!craftingWindowOpen)
+            if(!playerManager.gameManager.pausedGame && !playerManager.isFading)
             {
-                /*
-                Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
-                petModel.transform.position += sinMovement;
-                */
-
-                if(stop)
+                // sobe e desce senoidal
+                if(!craftingWindowOpen)
                 {
-                    //Vector3 lookAtVector = Vector3.Lerp(new Vector3(transform.position.x, pet.transform.position))
                     /*
-                    if(playerManager.gameManager.roomCleared)
+                    Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
+                    petModel.transform.position += sinMovement;
+                    */
+
+                    if(stop)
+                    {
+                        //Vector3 lookAtVector = Vector3.Lerp(new Vector3(transform.position.x, pet.transform.position))
+                        /*
+                        if(playerManager.gameManager.roomCleared)
+                        {
+                            PetEndRoom();
+                        }
+                        else
+                        {
+                            PetIdle();
+                        }
+                        */
+                        pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
+                    }
+                }
+                else
+                {
+                    petBillboard.DeactivateOnEnemiesKilled();
+                    if(!petLookAt.lookAtButton)
+                    {
+                        targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
+                        petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
+                        /*
+                        petModel.LookAt(petLookAt.lookAtPosition);
+                        petLookAt.lookAtButton = true;
+                        */
+                    }
+                }
+
+                if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop)
+                {
+                    pet.transform.position = Vector3.MoveTowards(pet.transform.position, targetTransforms[index].position, petSpeed * Time.deltaTime);
+                    PetWalking();
+
+                    if(targetTransforms[index].position == pet.transform.position)
+                    {
+                        if(index == (targetTransforms.Length - 1))
+                        {
+                            stop = true;
+                            endAnimation = true;
+                            PetIdle();
+                        }
+                        else
+                        {
+                            index++;
+                            pet.transform.LookAt(targetTransforms[index].position);
+                        }
+                        moveToNextDelayTimer = moveToNextDelay;
+                        arrived = true;
+                        PetIdle();
+                    }
+                }
+
+                // isso já vai servir pro futuro quando for implementar o pet só andar pra próxima parte quando chegar perto do pet, NÃO TIRA
+                if(arrived)
+                {
+                    moveToNextDelayTimer -= Time.deltaTime;
+                    if(moveToNextDelayTimer < 0)
+                    {
+                        arrived = false;
+                    }
+                }
+
+                if(stop && playerManager.gameManager.roomCleared && !craftingWindowOpen)
+                {
+                    pressFKey.SetActive(true);
+                    if(endAnimation)
                     {
                         PetEndRoom();
+                        endAnimation = false;
                     }
-                    else
-                    {
-                        PetIdle();
-                    }
-                    */
-                    pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
                 }
-            }
-            else
-            {
-                petBillboard.DeactivateOnEnemiesKilled();
-                if(!petLookAt.lookAtButton)
+                else
                 {
-                    targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
-                    petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
-                    /*
-                    petModel.LookAt(petLookAt.lookAtPosition);
-                    petLookAt.lookAtButton = true;
-                    */
+                    pressFKey.SetActive(false);
                 }
+                
             }
-
-            if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop)
-            {
-                pet.transform.position = Vector3.MoveTowards(pet.transform.position, targetTransforms[index].position, petSpeed * Time.deltaTime);
-                PetWalking();
-
-                if(targetTransforms[index].position == pet.transform.position)
-                {
-                    if(index == (targetTransforms.Length - 1))
-                    {
-                        stop = true;
-                        endAnimation = true;
-                        PetIdle();
-                    }
-                    else
-                    {
-                        index++;
-                        pet.transform.LookAt(targetTransforms[index].position);
-                    }
-                    moveToNextDelayTimer = moveToNextDelay;
-                    arrived = true;
-                    PetIdle();
-                }
-            }
-
-            // isso já vai servir pro futuro quando for implementar o pet só andar pra próxima parte quando chegar perto do pet, NÃO TIRA
-            if(arrived)
-            {
-                moveToNextDelayTimer -= Time.deltaTime;
-                if(moveToNextDelayTimer < 0)
-                {
-                    arrived = false;
-                }
-            }
-
-            if(stop && playerManager.gameManager.roomCleared && !craftingWindowOpen)
-            {
-                pressFKey.SetActive(true);
-                if(endAnimation)
-                {
-                    PetEndRoom();
-                    endAnimation = false;
-                }
-            }
-            else
-            {
-                pressFKey.SetActive(false);
-            }
-            
         }
+        else
+        {
+            if(!playerManager.gameManager.pausedGame && !playerManager.isFading)
+            {
+                if(!craftingWindowOpen)
+                {
+                    if(stop || arrived)
+                    {
+                        pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
+                    }
+                }
+                else
+                {
+                    petBillboard.DeactivateOnEnemiesKilled();
+                    if(!petLookAt.lookAtButton)
+                    {
+                        targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
+                        petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
+                    }
+                }
+
+                if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop)
+                {
+                    pet.transform.position = Vector3.MoveTowards(pet.transform.position, targetTransforms[index].position, petSpeed * Time.deltaTime);
+                    pet.transform.LookAt(targetTransforms[index].position);
+                    PetWalking();
+
+                    if(targetTransforms[index].position == pet.transform.position)
+                    {
+                        if(index == (targetTransforms.Length - 1))
+                        {
+                            stop = true;
+                            endAnimation = true;
+                            PetIdle();
+                        }
+                        else
+                        {
+                            index++;
+                            //pet.transform.LookAt(targetTransforms[index].position);
+                        }
+                        //moveToNextDelayTimer = moveToNextDelay;
+                        arrived = true;
+                        pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
+                        // tem que chamar o NextPetPosition() dos diálogos do tutorial quando ele acaba
+                        PetIdle();
+                    }
+                }
+                
+                /*
+                if(arrived)
+                {
+                    moveToNextDelayTimer -= Time.deltaTime;
+                    if(moveToNextDelayTimer < 0)
+                    {
+                        arrived = false;
+                    }
+                }
+                */
+
+                if(stop && playerManager.gameManager.roomCleared && !craftingWindowOpen)
+                {
+                    pressFKey.SetActive(true);
+                    if(endAnimation)
+                    {
+                        PetEndRoom();
+                        endAnimation = false;
+                    }
+                }
+                else
+                {
+                    pressFKey.SetActive(false);
+                }
+            }
+        }
+    }
+
+    public void NextPetPosition()
+    {
+        arrived = false;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -251,36 +340,4 @@ public class PetHandler : MonoBehaviour
             petModel.transform.forward = pet.transform.forward;
         }  
     }
-
-    /*
-    public IEnumerator EnableCanvasGroup(float duration)
-    {
-        buttonsCanvasObject.SetActive(true);
-        switchTimer = 0f;
-        petLookAt.canvasGroup.alpha = 0f;
-        while(petLookAt.canvasGroup.alpha < 1)
-        {
-            switchTimer += Time.deltaTime / duration;
-            petLookAt.canvasGroup.alpha = Mathf.MoveTowards(petLookAt.canvasGroup.alpha, 1f, switchTimer);
-            break;
-        }
-        yield return new WaitForSeconds(0.1f);
-        //buttonsCanvasObject.SetActive(true);
-    }
-
-    public IEnumerator DisableCanvasGroup(float duration)
-    {
-        switchTimer = 0f;
-        petLookAt.canvasGroup.alpha = 1f;
-        while(petLookAt.canvasGroup.alpha > 0)
-        {
-            switchTimer += Time.deltaTime / duration;
-            petLookAt.canvasGroup.alpha = Mathf.MoveTowards(petLookAt.canvasGroup.alpha, 0f, switchTimer);
-            //petLookAt.canvasGroup.alpha -= Time.deltaTime;
-            break;
-        }
-        yield return new WaitForSeconds(0.1f);
-        buttonsCanvasObject.SetActive(false);
-    }
-    */
 }

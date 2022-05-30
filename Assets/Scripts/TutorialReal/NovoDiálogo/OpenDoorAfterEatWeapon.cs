@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OpenDoorAfterEatWeapon : MonoBehaviour
 {
+    public bool callNextPetPosition;
     [Header("Preencher")] // referenciar o diálogo responsável pelo booleano que deixará a porta abrir
     //[SerializeField] string doorNameInHierarchy;
     [SerializeField] private Transform targetDoor;
@@ -14,6 +15,7 @@ public class OpenDoorAfterEatWeapon : MonoBehaviour
     [Header("Ignora")]
     private Vector3 targetPos;
     [SerializeField] private bool isPlayerInside;
+    private bool checkIfNextPetPosition;
 
     private TutorialBrain tutorialBrain;
 
@@ -35,6 +37,10 @@ public class OpenDoorAfterEatWeapon : MonoBehaviour
         if(isPlayerInside && tutorialBrain.playerEatWeapon)
         {
             targetDoor.position = Vector3.MoveTowards(targetDoor.position, targetPos, speedToOpen * Time.deltaTime);
+            if(!checkIfNextPetPosition)
+            {
+                tutorialBrain.dialogueAfterCraftedWeapon.gameManager.playerManager.petHandler.NextPetPosition();
+            }
         }
     }
 
