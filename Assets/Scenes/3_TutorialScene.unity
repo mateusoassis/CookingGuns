@@ -1132,7 +1132,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-44386
+  m_Name: pb_Mesh-19072
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3086,6 +3086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 0
+  petPositionIndex: 0
   gameManager: {fileID: 0}
   dialogueString:
   - Great job, chef! Now let's cook some guns!
@@ -4530,6 +4531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 0
+  petPositionIndex: 0
   gameManager: {fileID: 0}
   dialogueString:
   - Good job! See?! It wasn't that hard.
@@ -4821,6 +4823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 1
+  petPositionIndex: 2
   gameManager: {fileID: 0}
   dialogueString:
   - Ok, here you're gonna find some enemies. I will teach you how to fight them!
@@ -5605,6 +5608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 0
+  petPositionIndex: 0
   gameManager: {fileID: 0}
   dialogueString:
   - Bora pae
@@ -6598,6 +6602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 1
+  petPositionIndex: 5
   gameManager: {fileID: 0}
   dialogueString:
   - Hey, you are really good! Have you done this before?
@@ -7600,6 +7605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 0
+  petPositionIndex: 0
   gameManager: {fileID: 0}
   dialogueString:
   - Hey, did you forget how to eat a gun?
@@ -10408,7 +10414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166729}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 8.181867, y: 27.492004, z: -30.056355}
+  m_LocalPosition: {x: 8.163402, y: 27.294432, z: -29.86874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -12271,6 +12277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 1
+  petPositionIndex: 4
   dialogueBoxScript: {fileID: 2100105191}
   targetTag: Player
   targetDoor: {fileID: 1925865927}
@@ -12837,6 +12844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 1
+  petPositionIndex: 1
   dialogueBoxScript: {fileID: 1932709936}
   targetTag: Player
   targetDoor: {fileID: 2004705676}
@@ -16020,6 +16028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 0
+  petPositionIndex: 0
   gameManager: {fileID: 0}
   dialogueString:
   - 'And remember: you can only cook guns after clearing all the room challenges.'
@@ -19863,6 +19872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 1
+  petPositionIndex: 6
   targetDoor: {fileID: 4212428}
   targetTag: Player
   speedToOpen: 5
@@ -20089,6 +20099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 1
+  petPositionIndex: 0
   gameManager: {fileID: 0}
   dialogueString:
   - Hello, are you new here?
@@ -20290,6 +20301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 1
+  petPositionIndex: 7
   gameManager: {fileID: 0}
   dialogueString:
   - NAISUUUUU!!!!!!
@@ -21494,6 +21506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callNextPetPosition: 1
+  petPositionIndex: 3
   gameManager: {fileID: 0}
   dialogueString:
   - Nice! You just got your first ingredients. Every enemy drops some ingredients
@@ -22036,15 +22049,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320822462484, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.181867
+      value: 8.163401
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320822462484, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.492004
+      value: 27.164713
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320822462484, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.056355
+      value: -29.86874
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320854500874, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_Targets.Array.data[0].target

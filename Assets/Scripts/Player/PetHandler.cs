@@ -280,9 +280,11 @@ public class PetHandler : MonoBehaviour
         }
     }
 
-    public void NextPetPosition()
+    public void NextPetPosition(int i)
     {
+        index = i;
         arrived = false;
+        //index = i;
     }
 
     public void OnTriggerEnter(Collider other)

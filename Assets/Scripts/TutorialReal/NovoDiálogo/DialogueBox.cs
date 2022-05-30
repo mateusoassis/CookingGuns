@@ -6,7 +6,8 @@ using TMPro;
 
 public class DialogueBox : MonoBehaviour
 {
-    public bool callNextPetPosition;
+    [SerializeField] private bool callNextPetPosition;
+    [SerializeField] private int petPositionIndex;
     [Header("Referências")]
     private CanvasGroup canvasGroup;
     private GameObject canvasGroupObject;
@@ -116,7 +117,7 @@ public class DialogueBox : MonoBehaviour
             ended = true;
             if(callNextPetPosition)
             {
-                gameManager.playerManager.petHandler.NextPetPosition();
+                gameManager.playerManager.petHandler.NextPetPosition(petPositionIndex);
             }
             gameObject.SetActive(false);
         }
