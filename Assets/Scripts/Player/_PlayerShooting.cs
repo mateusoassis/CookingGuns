@@ -73,30 +73,24 @@ public class _PlayerShooting : MonoBehaviour
 
     void Update()
     {
+        /*
         if(playerManager.isRolling)
         {
             ReloadInterrupted();
         }
+        */
         
         if((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q)))
         {
-            Debug.Log("interrompe");
             if(_WeaponHandler.CountBool(weaponHandler.freeSlotArray, true) < 2)
             {
-                Debug.Log("aqui");
                 ReloadInterrupted();
             }
-            Debug.Log("foi");
         }
 
         if(reloading)
         {
-            reloadTimeCounter += Time.deltaTime;
-            reloadDisplay.value = reloadTimeCounter/reloadTime;
-            if(reloadTimeCounter >= reloadTime)
-            {
-                reloading = false;
-            }
+            UpdateReloadBar();
         }
         AmmoDisplayUpdate();
     }
@@ -352,6 +346,16 @@ public class _PlayerShooting : MonoBehaviour
             {
                 weaponNameDisplay.SetText("Grenade Launcher");
             }
+        }
+    }
+
+    public void UpdateReloadBar()
+    {
+        reloadTimeCounter += Time.deltaTime;
+        reloadDisplay.value = reloadTimeCounter/reloadTime;
+        if(reloadTimeCounter >= reloadTime)
+        {
+            reloading = false;
         }
     }
 }
