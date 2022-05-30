@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StalactiteHandler : MonoBehaviour
 {   
@@ -13,6 +14,15 @@ public class StalactiteHandler : MonoBehaviour
     [SerializeField] private GameObject stalactitePrefab;
     [SerializeField] private float YOffset;
     private float dropTimer;
+    private bool isTutorial;
+
+    void Awake()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            isTutorial = true;
+        }
+    }
 
     void Start()
     {
@@ -21,13 +31,16 @@ public class StalactiteHandler : MonoBehaviour
 
     void Update()
     {
-        dropTimer -= Time.deltaTime;
+        if(!isTutorial)
         {
-            if(dropTimer <= 0)
+            dropTimer -= Time.deltaTime;
             {
-                GameObject Stalactite = Instantiate(stalactitePrefab, transform.position + new Vector3(0f, YOffset, 0f), Quaternion.identity) as GameObject;
-                dropTimer = dropDelay + Random.Range(-randomizer, randomizer);
+                if(dropTimer <= 0)
+                {
+                    GameObject Stalactite = Instantiate(stalactitePrefab, transform.position + new Vector3(0f, YOffset, 0f), Quaternion.identity) as GameObject;
+                    dropTimer = dropDelay + Random.Range(-randomizer, randomizer);
+                }
             }
-        }
+        } 
     }
 }
