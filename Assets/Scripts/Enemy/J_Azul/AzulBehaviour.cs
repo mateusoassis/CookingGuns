@@ -100,9 +100,6 @@ public class AzulBehaviour : MonoBehaviour
                             Vector3 movePosition = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
                             transform.position = Vector3.MoveTowards(transform.position, movePosition, enemySpeed * Time.fixedDeltaTime);
                             */
-                            
-                            
-                            
                             navMesh.isStopped = false;
                             retreating = false;
 
@@ -158,6 +155,7 @@ public class AzulBehaviour : MonoBehaviour
                     }
                     if(Vector3.Distance(playerTransform.position, transform.position) < shootPlayerDistance)
                     {
+                        transform.LookAt(new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z), Vector3.up);
                         Shoot();
                     }
                 }

@@ -43,19 +43,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8454449cfe0d9f94d84da1d38895d54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInfo: {fileID: 0}
+  roomType: 0
   pauseUI: {fileID: 0}
   restartConfirmationWindow: {fileID: 0}
   quitConfirmationWindow: {fileID: 0}
-  timeHolderText: {fileID: 0}
-  enemySpawner: {fileID: 0}
-  slowdownDuration: 3
-  slowdownFactor: 0.05
+  playerManager: {fileID: 0}
+  slowdownDuration: 4
+  slowdownFactor: 0.2
   slowdown: 0
   slowdownEnded: 0
+  mainCursor: {fileID: 0}
+  miniCursor: {fileID: 0}
+  roomCleared: 0
+  elapsedTime: 0
   hours: 0
   minutes: 0
   seconds: 0
   pausedGame: 0
+  pauseBlock: 0
   confirmationWindowOpen: 0
-  playerManager: {fileID: 0}
-  levelCounterText: {fileID: 0}
+  fadeToChangeScene: 0
+  stopFading: 0
+  outOfBoundsCollider: 0
