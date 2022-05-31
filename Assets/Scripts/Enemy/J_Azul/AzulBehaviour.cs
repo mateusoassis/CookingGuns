@@ -23,6 +23,9 @@ public class AzulBehaviour : MonoBehaviour
     public float timeBetweenShots;
     private float timeBetweenShotsTimer;
     public float randomExtraTimeBetweenShots;
+    [SerializeField] private Transform firePointLeft;
+    [SerializeField] private Transform firePointMiddle;
+    [SerializeField] private Transform firePointRight;
 
     [Header("Movimentação behaviour 2")]
     public float countToMove;
@@ -217,10 +220,21 @@ public class AzulBehaviour : MonoBehaviour
             timeBetweenShotsTimer -= Time.fixedDeltaTime;
         }
     }
-    public void ShootProjectile()
+    public void ShootProjectile(int index)
     {
         enemyStatsScript.EnemyFlash();
-        Instantiate(enemyBulletPrefab, firePoint.position, Quaternion.identity);
+        if(index == 0)
+        {
+            Instantiate(enemyBulletPrefab, firePointLeft.transform.position, firePointLeft.transform.rotation);
+        }
+        else if(index == 1)
+        {
+            Instantiate(enemyBulletPrefab, firePointMiddle.transform.position, firePointMiddle.transform.rotation);
+        }
+        else if(index == 2)
+        {
+            Instantiate(enemyBulletPrefab, firePointRight.transform.position, firePointRight.transform.rotation);
+        }
         float u = Random.Range(timeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
         timeBetweenShotsTimer = u;
         canMove = true;

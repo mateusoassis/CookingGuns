@@ -21,12 +21,14 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, bulletSpeed * Time.fixedDeltaTime);
+        transform.position = transform.position + (transform.forward * bulletSpeed * Time.fixedDeltaTime);//Vector3.MoveTowards(transform.position, transform.forward, bulletSpeed * Time.fixedDeltaTime);
 
+        /*
         if(transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
         {
             Destroy(this.gameObject);
         }
+        */
     }
 
     public void OnTriggerEnter(Collider other)
