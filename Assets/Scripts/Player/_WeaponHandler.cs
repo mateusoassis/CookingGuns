@@ -38,6 +38,9 @@ public class _WeaponHandler : MonoBehaviour
     public _PlayerManager playerManager;
     public BreakWeapon breakWeaponScript;
 
+    [Header("Gato Comemorando")]
+    public GameObject catEndRoom;
+
     void Awake()
     {
         //testingGameObjects = GameObject.Find("TestingWeaponIcons");
@@ -91,6 +94,23 @@ public class _WeaponHandler : MonoBehaviour
     void Update()
     {
         //UpdateWeaponSlotSprites();
+
+        if(playerManager.gameManager.roomCleared && !playerManager.endGame)
+        {
+            StartCoroutine(FinishRoomAnimation());
+            //playerManager.endGame = true;
+        }
+    }
+
+    public IEnumerator FinishRoomAnimation()
+    {
+        DeactivateAll();
+        playerManager.isEndRoomAnimation = true;
+        catEndRoom.SetActive(true);
+        yield return new WaitForSeconds(1.3f);
+        playerManager.isEndRoomAnimation = false;
+        catEndRoom.SetActive(false);
+        WeaponManager(weaponTypeEquipped);
     }
 
     public void Roll()
@@ -149,6 +169,14 @@ public class _WeaponHandler : MonoBehaviour
                 }
             }
         //}
+    }
+
+    public void DeactivateAll()
+    {
+        for(int i = 0; i < weaponObjects.Length; i++)
+        {
+            weaponObjects[i].SetActive(false);
+        }
     }
 
     public void NextWeapon()

@@ -112,70 +112,73 @@ public class _PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        if((_input.x != 0 || _input.z != 0) && !playerManager.isDead)
+        if(!playerManager.isEndRoomAnimation)
         {
-            if(!playerManager.isShooting)
+            if((_input.x != 0 || _input.z != 0) && !playerManager.isDead)
             {
-                if(!playerManager.isRolling)
-                {   
-                    playerManager.animationHandler.GetWeaponInt();
-                    if(!playerManager.playerShootingMachineGun.shooting)
-                    {
-                        playerManager.isWalking = true;
-                        playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
-                        
-                        /*
-                        var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
-
-                        skewedInput = matrix.MultiplyPoint3x4(_input);
-                        skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
-                        */
-                        skewedInput = _input;
-                        skewedLastInput = lastInput;
-                    
-                        playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.fixedDeltaTime);
-                        transform.forward = skewedLastInput.normalized;
-                    }
-                }
-                else
+                if(!playerManager.isShooting)
                 {
-                    playerManager.isWalking = false;
-                    //var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
-                    //skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
-                    skewedLastInput = lastInput;
+                    if(!playerManager.isRolling)
+                    {   
+                        playerManager.animationHandler.GetWeaponInt();
+                        if(!playerManager.playerShootingMachineGun.shooting)
+                        {
+                            playerManager.isWalking = true;
+                            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", true);
+                            
+                            /*
+                            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
 
-                    playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * rollSpeed * Time.fixedDeltaTime);
-                    //Instantiate(rollSmokePrefab, rollSmokePoint.position, Quaternion.identity);
-                    PlayRollParticle();
-                    playerManager.animationHandler.GetWeaponInt();
-                    playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
-                }  
+                            skewedInput = matrix.MultiplyPoint3x4(_input);
+                            skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+                            */
+                            skewedInput = _input;
+                            skewedLastInput = lastInput;
+                        
+                            playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * playerMoveSpeed * Time.fixedDeltaTime);
+                            transform.forward = skewedLastInput.normalized;
+                        }
+                    }
+                    else
+                    {
+                        playerManager.isWalking = false;
+                        //var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
+                        //skewedLastInput = matrix.MultiplyPoint3x4(lastInput);
+                        skewedLastInput = lastInput;
+
+                        playerRigidbody.MovePosition(transform.position + (skewedLastInput.normalized) * rollSpeed * Time.fixedDeltaTime);
+                        //Instantiate(rollSmokePrefab, rollSmokePoint.position, Quaternion.identity);
+                        PlayRollParticle();
+                        playerManager.animationHandler.GetWeaponInt();
+                        playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+                    }  
+                }
             }
-        }
-        else if(_input.x == 0 && _input.z == 0 && !playerManager.isRolling)
-        {
-            playerManager.isWalking = false;
-            playerManager.animationHandler.GetWeaponInt();
-            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
-        }
-        else
-        {
-            if(!playerManager.isDead)
+            else if(_input.x == 0 && _input.z == 0 && !playerManager.isRolling)
             {
-                playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.fixedDeltaTime);
-         
-                PlayRollParticle();
+                playerManager.isWalking = false;
                 playerManager.animationHandler.GetWeaponInt();
                 playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
             }
+            else
+            {
+                if(!playerManager.isDead)
+                {
+                    playerRigidbody.MovePosition(transform.position + (transform.forward.normalized) * rollSpeed * Time.fixedDeltaTime);
             
-        }
+                    PlayRollParticle();
+                    playerManager.animationHandler.GetWeaponInt();
+                    playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+                }
+                
+            }
 
-        if(playerManager.isDead)
-        {
-            playerManager.isWalking = false;
-            playerManager.animationHandler.GetWeaponInt();
-            playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+            if(playerManager.isDead)
+            {
+                playerManager.isWalking = false;
+                playerManager.animationHandler.GetWeaponInt();
+                playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
+            }
         }
     }
 

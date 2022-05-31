@@ -35,6 +35,7 @@ public class _PlayerManager : MonoBehaviour
     public bool endGame;
     public bool isImmune;
     public bool tutorial;
+    public bool isEndRoomAnimation;
 
     [Header("Panel Preto de Fade Out")]
     public GameFadeout gameFadeOut;
@@ -106,7 +107,7 @@ public class _PlayerManager : MonoBehaviour
             }
 
             // roll
-            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen && !gameManager.pausedGame) //&& !isEatingWeapon)
+            if(Input.GetKeyDown(KeyCode.Space) && !isRolling && !petHandler.craftingWindowOpen && !gameManager.pausedGame && !isEndRoomAnimation) //&& !isEatingWeapon)
             {
                 if(isWalking)
                 {
@@ -166,7 +167,7 @@ public class _PlayerManager : MonoBehaviour
             }
 
             // pause
-            if(Input.GetKeyDown(KeyCode.Escape) && !isDead && !endGame)
+            if(Input.GetKeyDown(KeyCode.Escape) && !isDead && !endGame && !isEndRoomAnimation)
             {
                 if(gameManager.confirmationWindowOpen)
                 {
@@ -195,7 +196,7 @@ public class _PlayerManager : MonoBehaviour
             }
 
             
-            if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && !tutorial && !gameManager.pausedGame)
+            if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && !tutorial && !gameManager.pausedGame && !isEndRoomAnimation)
             {
                 if(petHandler.playerOnArea && !petHandler.craftingWindowOpen && petHandler.stop)
                 {
@@ -206,7 +207,7 @@ public class _PlayerManager : MonoBehaviour
                     }
                 }
             }
-            else if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && tutorial && !gameManager.pausedGame)
+            else if(Input.GetKeyDown(KeyCode.F) && !isEatingWeapon && tutorial && !gameManager.pausedGame && !isEndRoomAnimation)
             {
             
                 if(petHandler.playerOnArea && !petHandler.craftingWindowOpen && tutorialDialogueForPet.ended)
@@ -247,7 +248,7 @@ public class _PlayerManager : MonoBehaviour
                     //playerShootingGranadeLauncher.AmmoDisplayUpdate();
                 }
 
-                if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading && !canceledEating) //&& !rmbHasToPressAgain)
+                if(Input.GetKey(KeyCode.Mouse1) && !isRolling && !isFading && !canceledEating && !isEndRoomAnimation) //&& !rmbHasToPressAgain)
                 {
                     if(!tutorial)
                     {
@@ -350,7 +351,7 @@ public class _PlayerManager : MonoBehaviour
                     }
                 }
 
-                if(Input.GetKeyUp(KeyCode.Mouse1))
+                if(Input.GetKeyUp(KeyCode.Mouse1) && !isEndRoomAnimation)
                 {
                     //canceledEating = false;
                     rmbHasToPressAgain = false;
@@ -369,7 +370,7 @@ public class _PlayerManager : MonoBehaviour
                 //playerMovement.PlayerAim();
             }
 
-            if(!petHandler.craftingWindowOpen && !isEatingWeapon)
+            if(!petHandler.craftingWindowOpen && !isEatingWeapon && !isEndRoomAnimation)
             {
                 playerWeaponHandler.SwitchGuns();
             }
@@ -388,7 +389,7 @@ public class _PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if((!petHandler.craftingWindowOpen && !isFading) && !gameManager.outOfBoundsCollider) //&& !isEatingWeapon)
+        if((!petHandler.craftingWindowOpen && !isFading) && !gameManager.outOfBoundsCollider && !isEndRoomAnimation) //&& !isEatingWeapon)
         {
             //playerMovement.HandleMovement();
             playerMovement.Move();
