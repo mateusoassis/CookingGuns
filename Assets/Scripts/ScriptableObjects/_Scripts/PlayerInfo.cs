@@ -58,14 +58,18 @@ public class PlayerInfo : ScriptableObject
     public int fastestRunSoFar; //
 
     [Header("Ingredientes")]
-    public int i_biscoito;
-    public int i_caramelo;
-    public int i_chocolate;
-    public int i_donut;
-    public int i_iceCream;
-    public int i_marshmallow;
-    public int i_apple;
-    public int i_sugarCane;
+    public int[] ingredientes;
+    /*
+    public int i_biscoito; // 0
+    public int i_caramelo; // 1
+    public int i_chocolate; // 2
+    public int i_donut; // 3
+    public int i_iceCream; // 4
+    public int i_marshmallow; // 5
+    public int i_apple; // 6
+    public int i_sugarCane; // 7
+    */
+    
 
 
 

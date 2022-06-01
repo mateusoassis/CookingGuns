@@ -96,6 +96,8 @@ public class EnemyDrop : MonoBehaviour
 
     public void AddIngredient()
     {
+        playerInfo.ingredientes[itemType]++;
+        /*
         if(itemType == 0)
         {
             playerInfo.i_biscoito++;
@@ -128,5 +130,6 @@ public class EnemyDrop : MonoBehaviour
         {
             playerInfo.i_sugarCane++;
         }
+        */
     }
 }
