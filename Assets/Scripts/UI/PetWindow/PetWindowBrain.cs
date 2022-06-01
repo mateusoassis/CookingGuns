@@ -10,6 +10,8 @@ public class PetWindowBrain : MonoBehaviour
     [Header("Preencher")]
     [SerializeField] private float openSpeed;
     [SerializeField] private float XOffset;
+    [SerializeField] private Color enoughIndregients;
+    [SerializeField] private Color notEnoughIndregients;
 
     [Header("Analisar")]
     [SerializeField] private bool[] openArray;
@@ -21,9 +23,6 @@ public class PetWindowBrain : MonoBehaviour
     [SerializeField] private Vector2[] initialPosArray;
 
     [SerializeField] private Vector2[] targetPosArray;
-
-    [SerializeField] private TextMeshProUGUI[] petWindowTexts;
-    [SerializeField] private String[] petWindowStrings;
     [SerializeField] private PlayerInfo playerInfo;
 
     void Awake()
@@ -83,10 +82,12 @@ public class PetWindowBrain : MonoBehaviour
     // abrir e fechar
     public void UpdateIngredientAmount()
     {
+        /*
         for(int i = 0; i < petWindowStrings.Length; i++)
         {
-            petWindowTexts[i].text = petWindowStrings.ToString();
+            petWindowTexts[i].text = petWindowStrings[i];
         }
+        */
     }
     public void CloseAll()
     {
