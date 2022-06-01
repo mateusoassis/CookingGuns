@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class PointerHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class PointerHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private PetWindowBrain petWindowBrain;
-    [SerializeField] private int weaponType;    
+    [SerializeField] private int weaponType;  
+    [SerializeField] private Sprite regularImage;
+    [SerializeField] private Sprite mouseOverSprite;
+    [SerializeField] private Sprite clickSprite;
+
+    void Start()
+    {
+        regularImage = GetComponent<Image>().sprite;
+    }
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         if(weaponType == 0)
@@ -54,5 +63,14 @@ public class PointerHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             petWindowBrain.CloseGrenadeLauncher();
             Debug.Log("fecha grenade launcher");
         }
+    }
+
+    public void OnPointerDown(PointerEventData pointerEventData)
+    {
+        
+    }
+    public void OnPointerUp(PointerEventData pointerEventData)
+    {
+        
     }
 }
