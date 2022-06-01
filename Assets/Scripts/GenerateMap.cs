@@ -16,6 +16,7 @@ public class GenerateMap : MonoBehaviour
     public bool healEveryRoom;
 
     public int numberOfRoomsToEndGame;
+    
         
 
     void Start()
@@ -94,6 +95,7 @@ public class GenerateMap : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<MusicPlayer>().PlayMenuMusic();
             gameManager.CreditsScene();
         }
     }    

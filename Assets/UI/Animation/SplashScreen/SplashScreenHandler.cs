@@ -12,6 +12,12 @@ public class SplashScreenHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI multiplierText;
     private CreditsBugController credits;
 
+    void Awake(){
+        if(SceneManager.GetActiveScene().buildIndex == 0){
+            PlayerPrefs.DeleteAll();
+        }
+
+    }
     void Start()
     {
         if(SceneManager.GetActiveScene().buildIndex == 2)
@@ -24,7 +30,9 @@ public class SplashScreenHandler : MonoBehaviour
 
     public void ToMenu()
     {
+        FindObjectOfType<SoundManager>().Play("Menu Music");
         SceneManager.LoadScene("1_MenuScene", LoadSceneMode.Single);
+        
     }
 
     void Update()

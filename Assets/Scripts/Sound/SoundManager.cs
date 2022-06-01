@@ -6,6 +6,7 @@ using Unity.Audio;
 using UnityEngine.UI;
 public class SoundManager : MonoBehaviour
 {
+    public PlayerInfo playerInfo;
     public Sounds[] sounds;
 
     [Range(0f, 1f)]
@@ -100,4 +101,14 @@ public class SoundManager : MonoBehaviour
         s.loop = loop;
 
     }
+
+    public bool IsPlaying(string name){
+        Sounds s = Array.Find(sounds, sound => sound.name == name);
+        if(s.source.isPlaying){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
