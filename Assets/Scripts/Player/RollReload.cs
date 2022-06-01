@@ -14,5 +14,9 @@ public class RollReload : MonoBehaviour
         {
             playerShooting[playerInfo.lastWeaponTypeEquipped].UpdateReloadBar();
         }
+        else
+        {
+            playerShooting[playerInfo.lastWeaponTypeEquipped].ZeroReloadBar();
+        }
     }
 }

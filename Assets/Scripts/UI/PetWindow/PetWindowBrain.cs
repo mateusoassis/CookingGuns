@@ -1,20 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PetWindowBrain : MonoBehaviour
 {
+    [Header("Preencher")]
     [SerializeField] private float openSpeed;
+    [SerializeField] private float XOffset;
+
+    [Header("Analisar")]
     [SerializeField] private bool[] openArray;
 
+    [Header("Ignorar")]
     [SerializeField] private RectTransform[] backImageArray;
     [SerializeField] private bool[] openToTheRight;
 
     [SerializeField] private Vector2[] initialPosArray;
 
-    [SerializeField] private float XOffset;
     [SerializeField] private Vector2[] targetPosArray;
+
+    [SerializeField] private TextMeshProUGUI[] petWindowTexts;
+    [SerializeField] private String[] petWindowStrings;
+    [SerializeField] private PlayerInfo playerInfo;
 
     void Awake()
     {
@@ -29,6 +39,8 @@ public class PetWindowBrain : MonoBehaviour
     {
         HandleOpenAndClose();
     }
+
+    
 
     private void HandleOpenAndClose()
     {
@@ -68,6 +80,23 @@ public class PetWindowBrain : MonoBehaviour
         }
     }
 
+    // abrir e fechar
+    public void UpdateIngredientAmount()
+    {
+        for(int i = 0; i < petWindowStrings.Length; i++)
+        {
+            petWindowTexts[i].text = petWindowStrings.ToString();
+        }
+    }
+    public void CloseAll()
+    {
+        for(int i = 0; i < openArray.Length; i++)
+        {
+            openArray[i] = false;
+        }
+    }
+
+    // pointer enter e exit nos botões
     public void OpenPistol()
     {
         openArray[0] = true;

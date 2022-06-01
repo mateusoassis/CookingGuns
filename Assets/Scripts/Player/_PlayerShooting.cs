@@ -92,6 +92,10 @@ public class _PlayerShooting : MonoBehaviour
         {
             UpdateReloadBar();
         }
+        else
+        {
+            ZeroReloadBar();
+        }
         AmmoDisplayUpdate();
     }
 
@@ -114,13 +118,13 @@ public class _PlayerShooting : MonoBehaviour
             }     
         }
 
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading)
+        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading && !playerManager.isEndRoomAnimation)
         {
             Reload();
             cursorManager.ReloadCrosshairAnimation(reloadTime);
         }
 
-        if(readyToShoot && !reloading && bulletsLeft <= 0)
+        if(readyToShoot && !reloading && bulletsLeft <= 0 && !playerManager.isEndRoomAnimation)
         {
             if(playerManager.playerWeaponHandler.weaponTypeEquipped != 3)
             {
@@ -357,5 +361,9 @@ public class _PlayerShooting : MonoBehaviour
         {
             reloading = false;
         }
+    }
+    public void ZeroReloadBar()
+    {
+        reloadDisplay.value = 0;
     }
 }

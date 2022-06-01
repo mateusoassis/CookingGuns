@@ -104,6 +104,7 @@ public class _WeaponHandler : MonoBehaviour
 
     public IEnumerator FinishRoomAnimation()
     {
+        playerShooting[weaponTypeEquipped].ReloadInterrupted();
         DeactivateAll();
         playerManager.calledEndRoomAnimation = true;
         playerManager.isEndRoomAnimation = true;

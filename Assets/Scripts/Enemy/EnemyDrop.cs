@@ -98,35 +98,35 @@ public class EnemyDrop : MonoBehaviour
     {
         if(itemType == 0)
         {
-            playerInfo.ingrediente0++;
+            playerInfo.i_biscoito++;
         }
         else if(itemType == 1)
         {
-            playerInfo.ingrediente1++;
+            playerInfo.i_caramelo++;
         }
         else if(itemType == 2)
         {
-            playerInfo.ingrediente2++;
+            playerInfo.i_chocolate++;
         }
         else if(itemType == 3)
         {
-            playerInfo.ingrediente3++;
+            playerInfo.i_donut++;
         }
         else if(itemType == 4)
         {
-            playerInfo.ingrediente4++;
+            playerInfo.i_iceCream++;
         }
         else if(itemType == 5)
         {
-            playerInfo.ingrediente5++;
+            playerInfo.i_marshmallow++;
         }
         else if(itemType == 6)
         {
-            playerInfo.ingrediente6++;
+            playerInfo.i_apple++;
         }
         else if(itemType == 7)
         {
-            playerInfo.ingrediente7++;
+            playerInfo.i_sugarCane++;
         }
     }
 }
