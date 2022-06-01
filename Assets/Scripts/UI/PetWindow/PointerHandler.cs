@@ -11,6 +11,7 @@ public class PointerHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] private Sprite regularImage;
     [SerializeField] private Sprite mouseOverSprite;
     [SerializeField] private Sprite clickSprite;
+    [SerializeField] private PetLookAt petLookAt;
 
     void Start()
     {
@@ -21,21 +22,25 @@ public class PointerHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         if(weaponType == 0)
         {
             petWindowBrain.OpenPistol();
+            petLookAt.LookAtPistol();
             Debug.Log("abre pistola");
         }
         else if(weaponType == 1)
         {
             petWindowBrain.OpenShotgun();
+            petLookAt.LookAtShotgun();
             Debug.Log("abre shotgun");
         }
         else if(weaponType == 2)
         {
             petWindowBrain.OpenMachineGun();
+            petLookAt.LookAtMachineGun();
             Debug.Log("abre metralhadora");
         }
         else if(weaponType == 3)
         {
             petWindowBrain.OpenGrenadeLauncher();
+            petLookAt.LookAtGrenadeLauncher();
             Debug.Log("abre grenade launcher");
         }
     }
@@ -63,6 +68,7 @@ public class PointerHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             petWindowBrain.CloseGrenadeLauncher();
             Debug.Log("fecha grenade launcher");
         }
+        petLookAt.lookAtPosition = petLookAt.playerPos.position;
     }
 
     public void OnPointerDown(PointerEventData pointerEventData)
