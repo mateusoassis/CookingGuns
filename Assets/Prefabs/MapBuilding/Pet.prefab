@@ -3056,6 +3056,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028887110874515165}
   - component: {fileID: 4053784898438810038}
+  - component: {fileID: 6794622556278728538}
   - component: {fileID: 1657719288375495547}
   m_Layer: 5
   m_Name: PistolBackImage
@@ -3096,6 +3097,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3227456063905487615}
   m_CullTransparentMesh: 1
+--- !u!114 &6794622556278728538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3227456063905487615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c833d4cefd59a82489692365d35f2932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
 --- !u!114 &1657719288375495547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4465,6 +4479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 669166429713775086}
   - component: {fileID: 2061636536767520447}
+  - component: {fileID: 6959273455929062631}
   - component: {fileID: 1598457470563023995}
   m_Layer: 5
   m_Name: GrenadeLauncherBackImage
@@ -4505,6 +4520,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3977858560144224764}
   m_CullTransparentMesh: 1
+--- !u!114 &6959273455929062631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977858560144224764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c833d4cefd59a82489692365d35f2932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
 --- !u!114 &1598457470563023995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5467,6 +5495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663057623447244509}
   - component: {fileID: 3383763221245834527}
+  - component: {fileID: 7015838947756763127}
   - component: {fileID: 8300933824168516872}
   m_Layer: 5
   m_Name: MachineGunBackImage
@@ -5507,6 +5536,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4909346934618832045}
   m_CullTransparentMesh: 1
+--- !u!114 &7015838947756763127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909346934618832045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c833d4cefd59a82489692365d35f2932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
 --- !u!114 &8300933824168516872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7408,6 +7450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3361374026865036770}
   - component: {fileID: 6302040075467060945}
+  - component: {fileID: 7315557580359754514}
   - component: {fileID: 1992597986431533828}
   m_Layer: 5
   m_Name: ShotgunBackImage
@@ -7448,6 +7491,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6874357194042632529}
   m_CullTransparentMesh: 1
+--- !u!114 &7315557580359754514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6874357194042632529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c833d4cefd59a82489692365d35f2932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInfo: {fileID: 11400000, guid: a899db3e039de6142a0d5207b112446e, type: 2}
 --- !u!114 &1992597986431533828
 MonoBehaviour:
   m_ObjectHideFlags: 0
