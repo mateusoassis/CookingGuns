@@ -20,6 +20,7 @@ public class PlayerInfo : ScriptableObject
     [Header("Video Options")]
     public int fpsIndex;
     public int fullscreenIndex;
+    public int resolutionIndex; // falta adicionar salvar isso aqui, mas depois troco pra um "apply" mesmo eu acho nas opções tudo
 
     [Header("In-game Crosshair")]
     public Texture2D[] crosshairTextures2D;
