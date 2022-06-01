@@ -47,6 +47,7 @@ public class PetHandler : MonoBehaviour
     private float switchTimer;
     [SerializeField] private Animator canvasGroupAnimator;
     [SerializeField] private CanvasGroup fadeoutCanvasGroupWhenPetWindowOpen;
+    private Vector3 initialPetModelTransformPosition;
 
     void Awake()
     {
@@ -59,7 +60,7 @@ public class PetHandler : MonoBehaviour
         fadeoutCanvasGroupWhenPetWindowOpen = GameObject.Find("MainUI").GetComponent<CanvasGroup>();
         petAnimator = pet.GetComponent<Animator>();
         petWindowBrain = pet.GetComponent<PetWindowBrain>();
-        
+        initialPetModelTransformPosition = petModel.localPosition;
     }
 
     public void PetIdle()
@@ -331,6 +332,8 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
+        petAnimator.enabled = false;
+        petModel.localPosition = initialPetModelTransformPosition;
         PetLookAtAnimation();
         playerManager.playerMovement.StopMovingForPetHandlerCraftingWindow();
         //craftingWindowObject.SetActive(true);
@@ -349,6 +352,7 @@ public class PetHandler : MonoBehaviour
     }
     public void CloseCraftingWindow()
     {
+        petAnimator.enabled = true;
         if(!playerManager.gameManager.pausedGame)
         {
             petLookAt.lookAtButton = false;
