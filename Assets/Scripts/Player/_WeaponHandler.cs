@@ -95,7 +95,7 @@ public class _WeaponHandler : MonoBehaviour
     {
         //UpdateWeaponSlotSprites();
 
-        if(playerManager.gameManager.roomCleared && !playerManager.endGame)
+        if(playerManager.gameManager.roomCleared && !playerManager.calledEndRoomAnimation && !playerManager.isEndRoomAnimation)
         {
             StartCoroutine(FinishRoomAnimation());
             //playerManager.endGame = true;
@@ -105,6 +105,7 @@ public class _WeaponHandler : MonoBehaviour
     public IEnumerator FinishRoomAnimation()
     {
         DeactivateAll();
+        playerManager.calledEndRoomAnimation = true;
         playerManager.isEndRoomAnimation = true;
         catEndRoom.SetActive(true);
         yield return new WaitForSeconds(1.3f);

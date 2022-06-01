@@ -8,6 +8,7 @@ public class StalactiteBehaviour : MonoBehaviour
     private bool isPlayerInside;
     [SerializeField] _PlayerStats playerStats;
     [SerializeField] private int damage;
+    [SerializeField] private bool doesDamageAfterEndRoom;
 
     void Awake()
     {
@@ -47,7 +48,10 @@ public class StalactiteBehaviour : MonoBehaviour
     {
         if(isPlayerInside)
         {
-            playerStats.TakeHPDamage(damage);
+            if(doesDamageAfterEndRoom)
+            {
+                playerStats.TakeHPDamage(damage);
+            }
         }
     }
 }

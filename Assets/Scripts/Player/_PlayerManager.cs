@@ -37,6 +37,9 @@ public class _PlayerManager : MonoBehaviour
     public bool tutorial;
     public bool isEndRoomAnimation;
 
+    [Header("Animação de fim de sala")]
+    public bool calledEndRoomAnimation;
+
     [Header("Panel Preto de Fade Out")]
     public GameFadeout gameFadeOut;
 
