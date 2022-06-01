@@ -15,6 +15,9 @@ public class PlayerInfo : ScriptableObject
     // public int currentSceneIndex;
 
     [Header("Options")]
+    public bool cameraShake;
+
+    [Header("Video Options")]
     public int fpsIndex;
     public int fullscreenIndex;
 

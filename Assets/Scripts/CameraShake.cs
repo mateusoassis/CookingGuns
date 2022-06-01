@@ -7,8 +7,12 @@ public class CameraShake : MonoBehaviour
 {
     [SerializeField]private UnityEvent shock;
 
+
     public void Shockwave()
     {
-        shock.Invoke();
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().playerInfo.cameraShake)
+        {
+            shock.Invoke();
+        }
     }
 }
