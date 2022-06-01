@@ -18,27 +18,28 @@ public class PetLookAt : MonoBehaviour
     public void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        lookAtPosition = playerPos.position;
     }
 
     public void LookAtPistol()
     {
         lookAtPosition = pistolButton.position;
-        lookAtButton = false;
+        //lookAtButton = false;
     }
     public void LookAtShotgun()
     {
         lookAtPosition = shotgunButton.position;
-        lookAtButton = false;
+        //lookAtButton = false;
     }
     public void LookAtMachineGun()
     {
         lookAtPosition = machineGunButton.position;
-        lookAtButton = false;
+        //lookAtButton = false;
     }
     public void LookAtGrenadeLauncher()
     {
         lookAtPosition = grenadeLauncherButton.position;
-        lookAtButton = false;
+        //lookAtButton = false;
     }
 
     public void DisableButtonsCanvas()
