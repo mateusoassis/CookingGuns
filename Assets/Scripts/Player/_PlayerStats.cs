@@ -78,7 +78,7 @@ public class _PlayerStats : MonoBehaviour
 
     public void TakeHPDamage(int damage)
     {
-        if(!playerManager.isFading && !playerManager.isRolling && !playerManager.isImmune)
+        if(!playerManager.isFading && !playerManager.isRolling && !playerManager.isImmune && !playerManager.isEndRoomAnimation)
         {
             int futureHP = playerCurrentHealth - damage;
             if(futureHP > 0)

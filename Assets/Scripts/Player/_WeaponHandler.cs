@@ -27,8 +27,6 @@ public class _WeaponHandler : MonoBehaviour
     [Header("Arrays")]
     public Sprite[] realWeaponIconsPool;
     public Image[] realWeaponIcons;
-    //public Transform[] weaponIcons;
-    //private Image[] weaponImages;
     public GameObject[] weaponObjects;
     public bool[] freeSlotArray;
     public int[] weaponTypeOnSlot;
@@ -37,50 +35,29 @@ public class _WeaponHandler : MonoBehaviour
     [Header("Referências à scripts")]
     public _PlayerManager playerManager;
     public BreakWeapon breakWeaponScript;
+    [SerializeField] private IngredientUpdater[] ingredientUpdater;
 
     [Header("Gato Comemorando")]
     public GameObject catEndRoom;
 
     void Awake()
     {
-        //testingGameObjects = GameObject.Find("TestingWeaponIcons");
         realGameObjects = GameObject.Find("RealWeaponIcons");
-
-        //weaponImages = new Image[4];
+        ingredientUpdater = new IngredientUpdater[4];
+        ingredientUpdater[0] = GameObject.Find("PistolBackImage").GetComponent<IngredientUpdater>();
+        ingredientUpdater[1] = GameObject.Find("ShotgunBackImage").GetComponent<IngredientUpdater>();
+        ingredientUpdater[2] = GameObject.Find("MachineGunBackImage").GetComponent<IngredientUpdater>();
+        ingredientUpdater[3] = GameObject.Find("GrenadeLauncherBackImage").GetComponent<IngredientUpdater>();
 
         breakWeaponScript = GameObject.Find("WeaponCellsHolder").GetComponent<BreakWeapon>();
 
-        //weaponImages[0] = GameObject.Find("PistolIcon").GetComponent<Image>();
-        //weaponImages[1] = GameObject.Find("ShotgunIcon").GetComponent<Image>();
-        //weaponImages[2] = GameObject.Find("MachineGunIcon").GetComponent<Image>();
-        //weaponImages[3] = GameObject.Find("GranadeLauncherIcon").GetComponent<Image>();
-        /*
-        if(playerManager.testingWeapons)
+        for(int i = 0; i < realWeaponIcons.Length; i++)
         {
-            realGameObjects.SetActive(false);
-            for(int i = 0; i < unlockedWeapons.Length; i++)
-            {
-                unlockedWeapons[i] = true;
-            }
+            realWeaponIcons[i] = GameObject.Find("Weapon" + (i+1) + "_Slot").GetComponent<Image>();
         }
-        else
-        {
-            */
-            //testingGameObjects.SetActive(false);
-            //unlockedWeapons = new bool[4];
-            for(int i = 0; i < realWeaponIcons.Length; i++)
-            {
-                realWeaponIcons[i] = GameObject.Find("Weapon" + (i+1) + "_Slot").GetComponent<Image>();
-            }
             
-            UpdateWeaponHandler();
-        /*
-        }
-        */
-        
         UpdateWeaponHandler();
-        //UpdateWeaponSlotSprites();
-        
+        UpdateWeaponHandler();
     }
 
     void Start()
@@ -93,12 +70,9 @@ public class _WeaponHandler : MonoBehaviour
 
     void Update()
     {
-        //UpdateWeaponSlotSprites();
-
         if(playerManager.gameManager.roomCleared && !playerManager.calledEndRoomAnimation && !playerManager.isEndRoomAnimation)
         {
             StartCoroutine(FinishRoomAnimation());
-            //playerManager.endGame = true;
         }
     }
 
@@ -126,51 +100,20 @@ public class _WeaponHandler : MonoBehaviour
     }
 
     public void WeaponManager(int n)
-    {
-        /*
-        if(playerManager.testingWeapons)
+    {  
+        playerManager.playerInfo.lastWeaponTypeEquipped = n;
+        playerManager.playerInfo.lastSlotEquipped = slotEquipped;
+        for(int i = 0; i < weaponObjects.Length; i++)
         {
-            for(int i = 0; i < weaponObjects.Length; i++)
+            if(i == n)
             {
-                if(i == n)
-                {
-                    if(unlockedWeapons[n])
-                    {
-                        weaponObjects[i].SetActive(true);
-                        weaponImages[i].color = Color.green;
-                    }
-                }
-                else if(i != n)
-                {
-                    weaponObjects[i].SetActive(false);
-                    if(unlockedWeapons[i])
-                    {
-                        weaponImages[i].color = Color.white;
-                    }
-                    else
-                    {
-                        weaponImages[i].color = Color.red;
-                    }
-                }
+                weaponObjects[i].SetActive(true);
+            }
+            else
+            {
+                weaponObjects[i].SetActive(false);
             }
         }
-        else
-        if(!playerManager.testingWeapons)
-        {*/
-            playerManager.playerInfo.lastWeaponTypeEquipped = n;
-            playerManager.playerInfo.lastSlotEquipped = slotEquipped;
-            for(int i = 0; i < weaponObjects.Length; i++)
-            {
-                if(i == n)
-                {
-                    weaponObjects[i].SetActive(true);
-                }
-                else
-                {
-                    weaponObjects[i].SetActive(false);
-                }
-            }
-        //}
     }
 
     public void DeactivateAll()
@@ -183,7 +126,6 @@ public class _WeaponHandler : MonoBehaviour
 
     public void NextWeapon()
     {   
-        //Image[] tempButtonImage = new Image[3];
         if(CountBool(freeSlotArray, true) < 2)
         {
             if(playerShooting[weaponTypeEquipped].reloading)
@@ -227,10 +169,6 @@ public class _WeaponHandler : MonoBehaviour
                 weaponTypeEquipped = weaponTypeOnSlot[slotEquipped];
                 WeaponManager(weaponTypeEquipped);
             }
-
-            //weaponObjects[weaponTypeEquipped].GetComponent<_PlayerShooting>().ReloadInterrupted();
-
-            
             UpdateWeaponSlotSprites();
         }
     }
@@ -281,17 +219,12 @@ public class _WeaponHandler : MonoBehaviour
                 weaponTypeEquipped = weaponTypeOnSlot[slotEquipped];
                 WeaponManager(weaponTypeEquipped);
             }
-
-            //weaponObjects[weaponTypeEquipped].GetComponent<_PlayerShooting>().ReloadInterrupted();
-
-            
             UpdateWeaponSlotSprites();
         }
     }
 
     public void SwitchToNextAvailableWeapon()
     {
-        
         int newSlot = FindFirstFalseIndex(freeSlotArray);
         slotEquipped = newSlot;
 
@@ -399,48 +332,20 @@ public class _WeaponHandler : MonoBehaviour
                 realWeaponIcons[2].sprite = realWeaponIconsPool[weaponTypeOnSlot[1]];
             }
         }
-        
     }
 
     
 
     public void SwitchGuns()
     {
-        /*
-        if(playerManager.testingWeapons)
+        if(Input.GetKeyDown(KeyCode.Q) && !playerManager.isShooting && !playerManager.gameManager.pausedGame)
         {
-            if(Input.GetKeyDown(KeyCode.Alpha1) && !playerManager.isShooting && unlockedWeapons[0])
-            {
-                ActivatePistol_();
-                WeaponManager(weaponTypeEquipped);
-            }
-            else if(Input.GetKeyDown(KeyCode.Alpha2) && !playerManager.isShooting && unlockedWeapons[1])
-            {
-                ActivateShotgun_();
-                WeaponManager(weaponTypeEquipped);
-            }
-            else if(Input.GetKeyDown(KeyCode.Alpha3) && !playerManager.isShooting && unlockedWeapons[2])
-            {
-                ActivateMachineGun_();
-                WeaponManager(weaponTypeEquipped);
-            }else if(Input.GetKeyDown(KeyCode.Alpha4) && !playerManager.isShooting && unlockedWeapons[3])
-            {
-                ActivateGranadeLauncher_();
-                WeaponManager(weaponTypeEquipped);
-            } 
+            PreviousWeapon();
         }
-        else
+        else if(Input.GetKeyDown(KeyCode.E) && !playerManager.isShooting && !playerManager.gameManager.pausedGame)
         {
-            */
-            if(Input.GetKeyDown(KeyCode.Q) && !playerManager.isShooting && !playerManager.gameManager.pausedGame)
-            {
-                PreviousWeapon();
-            }
-            else if(Input.GetKeyDown(KeyCode.E) && !playerManager.isShooting && !playerManager.gameManager.pausedGame)
-            {
-                NextWeapon();
-            }
-        //}
+            NextWeapon();
+        }
     }
 
     public void UpdateWeaponHandler()
@@ -481,283 +386,301 @@ public class _WeaponHandler : MonoBehaviour
 
     public void UnlockPistol()
     {
-        /*
-        if(playerManager.testingWeapons)
+        Debug.Log("você tem " + amountUnlocked + " armas");
+        if(amountUnlocked < 3)
         {
-            unlockedWeapons[0] = true;
+            bool canCraft = false;
+        
+            for(int j = 0; j < ingredientUpdater[0].typeOfIngredients.Length; j++)
+            {
+                canCraft = playerManager.playerInfo.ingredientes[ingredientUpdater[0].typeOfIngredients[j]] 
+                            >= ingredientUpdater[0].amountOfIngredients[j];
+            }
+
+            Debug.Log(canCraft);
+
+            if(canCraft)
+            {
+                int slotFree = FindFirstTrueIndex(freeSlotArray);
+                if(slotFree >= 0)
+                {
+                    freeSlotArray[slotFree] = false;
+                    playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
+                    //UpdateAmountUnlocked();
+                    weaponTypeOnSlot[slotFree] = 0;
+                    playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 0;
+                    realWeaponIcons[slotFree].sprite = realWeaponIconsPool[0];
+                }
+                UpdateWeaponSlotSprites();
+                playerManager.playerInfo.totalWeaponsCrafted++;
+
+                for(int j = 0; j < ingredientUpdater[0].typeOfIngredients.Length; j++)
+                {
+                    playerManager.playerInfo.ingredientes[ingredientUpdater[0].typeOfIngredients[j]] -= ingredientUpdater[0].amountOfIngredients[j];
+                    ingredientUpdater[0].UpdateIngredientAmount();
+                }
+                UpdateAmountUnlocked();
+            }
+            else
+            {
+                // algo acontece quando não pode craftar
+                Debug.Log("falta material");
+            }
+            
+            if(playerManager.tutorial)
+            {
+                playerManager.tutorialBrain.playerCraftedWeapon = true;
+            }
         }
         else
         {
-            */
-            int slotFree = FindFirstTrueIndex(freeSlotArray);
-            if(slotFree >= 0)
-            {
-                freeSlotArray[slotFree] = false;
-                playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
-                UpdateAmountUnlocked();
-                weaponTypeOnSlot[slotFree] = 0;
-                playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 0;
-                realWeaponIcons[slotFree].sprite = realWeaponIconsPool[0];
-            }
-            UpdateWeaponSlotSprites();
-            playerManager.playerInfo.totalWeaponsCrafted++;
-        //}
-        
-        if(playerManager.tutorial)
-        {
-            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
-            playerManager.tutorialBrain.playerCraftedWeapon = true;
+            // cheio de armas
+            Debug.Log("inventário cheio de armas");
         }
+        
     }
     public void DisablePistol()
     {
-        /*
-        if(playerManager.testingWeapons)
-        {
-            unlockedWeapons[0] = false;
-        }
-        else
-        {
-            */
-            freeSlotArray[slotEquipped] = true;
-            playerManager.playerInfo.freeSlotArraySaved[slotEquipped] = true;
-            UpdateAmountUnlocked();
-            weaponTypeOnSlot[slotEquipped] = 4;
-            playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
-            playerManager.playerShootingPistol.bulletsLeft = playerManager.playerShootingPistol.magazineSize;
-            //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
-            UpdateWeaponSlotSprites();
-        //}
+        freeSlotArray[slotEquipped] = true;
+        playerManager.playerInfo.freeSlotArraySaved[slotEquipped] = true;
+        weaponTypeOnSlot[slotEquipped] = 4;
+        playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
+        playerManager.playerShootingPistol.bulletsLeft = playerManager.playerShootingPistol.magazineSize;
+        UpdateAmountUnlocked();
+        UpdateWeaponSlotSprites();
     }
 
     public void UnlockShotgun()
     {
-        /*
-        if(playerManager.testingWeapons)
+        Debug.Log("você tem " + amountUnlocked + " armas");
+        if(amountUnlocked < 3)
         {
-            unlockedWeapons[1] = true;
+            bool canCraft = false;
+        
+            for(int j = 0; j < ingredientUpdater[1].typeOfIngredients.Length; j++)
+            {
+                canCraft = playerManager.playerInfo.ingredientes[ingredientUpdater[1].typeOfIngredients[j]] 
+                            >= ingredientUpdater[1].amountOfIngredients[j];
+            }
+
+            Debug.Log(canCraft);
+
+            if(canCraft)
+            {
+                int slotFree = FindFirstTrueIndex(freeSlotArray);
+                if(slotFree >= 0)
+                {
+                    freeSlotArray[slotFree] = false;
+                    playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
+                    weaponTypeOnSlot[slotFree] = 1;
+                    playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 1;
+                }
+                UpdateWeaponSlotSprites();
+                playerManager.playerInfo.totalWeaponsCrafted++;
+
+                for(int j = 0; j < ingredientUpdater[1].typeOfIngredients.Length; j++)
+                {
+                    playerManager.playerInfo.ingredientes[ingredientUpdater[1].typeOfIngredients[j]] -= ingredientUpdater[1].amountOfIngredients[j];
+                    ingredientUpdater[1].UpdateIngredientAmount();
+                }
+                UpdateAmountUnlocked();
+            }
+            else
+            {
+                // algo acontece quando não pode craftar
+                Debug.Log("falta material");
+            }
+            
+            if(playerManager.tutorial)
+            {
+                playerManager.tutorialBrain.playerCraftedWeapon = true;
+            }
         }
         else
         {
-            */
-            int slotFree = FindFirstTrueIndex(freeSlotArray);
-            if(slotFree >= 0)
-            {
-                freeSlotArray[slotFree] = false;
-                playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
-                UpdateAmountUnlocked();
-                weaponTypeOnSlot[slotFree] = 1;
-                playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 1;
-                //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[1];
-            }
-            UpdateWeaponSlotSprites();
-            playerManager.playerInfo.totalWeaponsCrafted++;
-        //}
-        
-        if(playerManager.tutorial)
-        {
-            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
-            playerManager.tutorialBrain.playerCraftedWeapon = true;
+            // cheio de armas
+            Debug.Log("inventário cheio de armas");
         }
     }
     public void DisableShotgun()
     {
-        /*
-        if(playerManager.testingWeapons)
-        {
-            unlockedWeapons[1] = false;
-        }
-        else
-        {
-            */
-            freeSlotArray[slotEquipped] = true;
-            playerManager.playerInfo.freeSlotArraySaved[slotEquipped] = true;
-            UpdateAmountUnlocked();
-            weaponTypeOnSlot[slotEquipped] = 4;
-            playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
-            playerManager.playerShootingShotgun.bulletsLeft = playerManager.playerShootingShotgun.magazineSize;
-            //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
-            UpdateWeaponSlotSprites();
-        //}
+        
+        freeSlotArray[slotEquipped] = true;
+        playerManager.playerInfo.freeSlotArraySaved[slotEquipped] = true;           
+        weaponTypeOnSlot[slotEquipped] = 4;
+        playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
+        playerManager.playerShootingShotgun.bulletsLeft = playerManager.playerShootingShotgun.magazineSize;
+        UpdateAmountUnlocked();
+        UpdateWeaponSlotSprites();
     }
 
     public void UnlockMachineGun()
     {
-        /*
-        if(playerManager.testingWeapons)
+        Debug.Log("você tem " + amountUnlocked + " armas");
+        if(amountUnlocked < 3)
         {
-            unlockedWeapons[2] = true;
+            bool canCraft = false;
+        
+            for(int j = 0; j < ingredientUpdater[2].typeOfIngredients.Length; j++)
+            {
+                canCraft = playerManager.playerInfo.ingredientes[ingredientUpdater[2].typeOfIngredients[j]] 
+                            >= ingredientUpdater[2].amountOfIngredients[j];
+            }
+
+            Debug.Log(canCraft);
+
+            if(canCraft)
+            {
+        
+                int slotFree = FindFirstTrueIndex(freeSlotArray);
+                if(slotFree >= 0)
+                {
+                    freeSlotArray[slotFree] = false;
+                    playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
+                    weaponTypeOnSlot[slotFree] = 2;
+                    playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 2;
+                }
+                UpdateWeaponSlotSprites();
+                playerManager.playerInfo.totalWeaponsCrafted++;
+
+                for(int j = 0; j < ingredientUpdater[2].typeOfIngredients.Length; j++)
+                {
+                    playerManager.playerInfo.ingredientes[ingredientUpdater[2].typeOfIngredients[j]] -= ingredientUpdater[2].amountOfIngredients[j];
+                    ingredientUpdater[2].UpdateIngredientAmount();
+                }
+                UpdateAmountUnlocked();
+            }
+            else
+            {
+                // algo acontece quando não pode craftar
+                Debug.Log("falta material");
+            }
+            
+            if(playerManager.tutorial)
+            {
+                playerManager.tutorialBrain.playerCraftedWeapon = true;
+            }
         }
         else
         {
-            */
-            int slotFree = FindFirstTrueIndex(freeSlotArray);
-            if(slotFree >= 0)
-            {
-                freeSlotArray[slotFree] = false;
-                playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
-                UpdateAmountUnlocked();
-                weaponTypeOnSlot[slotFree] = 2;
-                playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 2;
-                //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[2];  
-            }
-            UpdateWeaponSlotSprites();
-            playerManager.playerInfo.totalWeaponsCrafted++;
-        //}
-        
-        if(playerManager.tutorial)
-        {
-            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
-            playerManager.tutorialBrain.playerCraftedWeapon = true;
+            // cheio de armas
+            Debug.Log("inventário cheio de armas");
         }
     }
+    
     public void DisableMachineGun()
     {
-        /*
-        if(playerManager.testingWeapons)
-        {
-            unlockedWeapons[2] = false;
-        }
-        else
-        {
-            */
-            freeSlotArray[slotEquipped] = true;
-            playerManager.playerInfo.freeSlotArraySaved[slotEquipped] = true;
-            UpdateAmountUnlocked();
-            weaponTypeOnSlot[slotEquipped] = 4;
-            playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
-            playerManager.playerShootingMachineGun.bulletsLeft = playerManager.playerShootingMachineGun.magazineSize;
-            //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
-            UpdateWeaponSlotSprites();
-        //}
-        
+        freeSlotArray[slotEquipped] = true;
+        playerManager.playerInfo.freeSlotArraySaved[slotEquipped] = true;
+        weaponTypeOnSlot[slotEquipped] = 4;
+        playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
+        playerManager.playerShootingMachineGun.bulletsLeft = playerManager.playerShootingMachineGun.magazineSize;
+        UpdateAmountUnlocked();
+        UpdateWeaponSlotSprites();       
     } 
 
     public void UnlockGrenadeLauncher()
     {
-        /*
-        if(playerManager.testingWeapons)
+        Debug.Log("você tem " + amountUnlocked + " armas");
+        if(amountUnlocked < 3)
         {
-            unlockedWeapons[3] = true;
+            bool canCraft = false;
+        
+            for(int j = 0; j < ingredientUpdater[3].typeOfIngredients.Length; j++)
+            {
+                canCraft = playerManager.playerInfo.ingredientes[ingredientUpdater[3].typeOfIngredients[j]] 
+                            >= ingredientUpdater[3].amountOfIngredients[j];
+            }
+
+            Debug.Log(canCraft);
+
+            if(canCraft)
+            {
+                int slotFree = FindFirstTrueIndex(freeSlotArray);
+                if(slotFree >= 0)
+                {
+                    freeSlotArray[slotFree] = false;
+                    playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
+                    weaponTypeOnSlot[slotFree] = 3;
+                    playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 3;
+                }
+                UpdateWeaponSlotSprites();
+                playerManager.playerInfo.totalWeaponsCrafted++;
+
+                for(int j = 0; j < ingredientUpdater[3].typeOfIngredients.Length; j++)
+                {
+                    playerManager.playerInfo.ingredientes[ingredientUpdater[3].typeOfIngredients[j]] -= ingredientUpdater[3].amountOfIngredients[j];
+                    ingredientUpdater[3].UpdateIngredientAmount();
+                }
+                UpdateAmountUnlocked();
+            }
+            else
+            {
+                // algo acontece quando não pode craftar
+                Debug.Log("falta material");
+            }
+            
+            if(playerManager.tutorial)
+            {
+                playerManager.tutorialBrain.playerCraftedWeapon = true;
+            }
         }
         else
         {
-            */
-            int slotFree = FindFirstTrueIndex(freeSlotArray);
-            if(slotFree >= 0)
-            {
-                freeSlotArray[slotFree] = false;
-                playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
-                UpdateAmountUnlocked();
-                weaponTypeOnSlot[slotFree] = 3;
-                playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 3;
-                //realWeaponIcons[slotFree].sprite = realWeaponIconsPool[3];
-            }
-            UpdateWeaponSlotSprites();
-            playerManager.playerInfo.totalWeaponsCrafted++;
-        //}
-        
-        if(playerManager.tutorial)
-        {
-            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
-            playerManager.tutorialBrain.SuccessfullyCraftedWeapon();
+            // cheio de armas
+            Debug.Log("inventário cheio de armas");
         }
     }
     public void DisableGrenadeLauncher()
     {
-        /*
-        if(playerManager.testingWeapons)
-        {
-            unlockedWeapons[3] = false;
-        }
-        else
-        {
-            */
-            freeSlotArray[slotEquipped] = true;
-            playerManager.playerInfo.freeSlotArraySaved[slotEquipped] = true;
-            UpdateAmountUnlocked();
-            weaponTypeOnSlot[slotEquipped] = 4;
-            playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
-            playerManager.playerShootingGranadeLauncher.bulletsLeft = playerManager.playerShootingGranadeLauncher.magazineSize;
-            //realWeaponIcons[slotEquipped].sprite = realWeaponIconsPool[4];
-            UpdateWeaponSlotSprites();
-        //}
+        freeSlotArray[slotEquipped] = true;
+        playerManager.playerInfo.freeSlotArraySaved[slotEquipped] = true;
+        weaponTypeOnSlot[slotEquipped] = 4;
+        playerManager.playerInfo.weaponTypeOnSlotSaved[slotEquipped] = 4;
+        playerManager.playerShootingGranadeLauncher.bulletsLeft = playerManager.playerShootingGranadeLauncher.magazineSize;
+        UpdateAmountUnlocked();
+        UpdateWeaponSlotSprites();
     }
-    
-    /*
-    public void EatWeapon(int n)
-    {
-        if(CountBool(unlockedWeapons, true) >= 2)
-        {
-            if(unlockedWeapons[n])
-            {
-                breakWeaponScript.BreakTheWeapon();
-                unlockedWeapons[n] = false;
-                weaponTypeEquipped = FindFirstTrueIndex(unlockedWeapons);
-                WeaponManager(weaponTypeEquipped);
-            }
-        }
-    }
-    */
 
     public void HealFromEatingWeapon()
     {
-        /*
-        if(playerManager.testingWeapons)
+        if(weaponTypeEquipped == 0)
         {
-            EatWeapon(weaponTypeEquipped);
-        
+            DisablePistol();
+            // joga a função de quebrar referente a pistol
         }
-        else
+        else if(weaponTypeEquipped == 1)
         {
-            */
-            if(weaponTypeEquipped == 0)
-            {
-                DisablePistol();
-                // joga a função de quebrar referente a pistol
-            }
-            else if(weaponTypeEquipped == 1)
-            {
-                DisableShotgun();
-                // joga a função de quebrar referente a shotgun aqui
-            }
-            else if(weaponTypeEquipped == 2)
-            {
-                DisableMachineGun();
-                // joga a função de quebrar referente a metralhadoraaqui
-            }
-            else if(weaponTypeEquipped == 3)
-            {
-                DisableGrenadeLauncher();
-                // joga a função de quebrar referente ao grenade launcher aqui
-            }
-            breakWeaponScript.BreakTheWeapon(); // depois, tem que criar uma função separada que leva em consideração o weaponTypeEquipped pra destruir a certa
-            SwitchToNextAvailableWeapon();
-            UpdateWeaponSlotSprites();
-        //}
+            DisableShotgun();
+            // joga a função de quebrar referente a shotgun aqui
+        }
+        else if(weaponTypeEquipped == 2)
+        {
+            DisableMachineGun();
+            // joga a função de quebrar referente a metralhadora aqui
+        }
+        else if(weaponTypeEquipped == 3)
+        {
+            DisableGrenadeLauncher();
+            // joga a função de quebrar referente ao grenade launcher aqui
+        }
+        breakWeaponScript.BreakTheWeapon();
+        SwitchToNextAvailableWeapon();
+        UpdateWeaponSlotSprites();
+    
         playerManager.playerStats.heartScript.FullHeal();
         healingParticle.Play();
         playerManager.playerInfo.totalWeaponsEaten++;
 
         if(playerManager.tutorial)
         {
-            //playerManager.tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
             playerManager.tutorialBrain.playerEatWeapon = true;
         }
     }
 
     public void UpdateAmountUnlocked()
     {
-        /*
-        if(playerManager.testingWeapons)
-        {
-            amountUnlocked = CountBool(unlockedWeapons, true);
-        }
-        else
-        {
-            */
-            amountUnlocked = CountBool(freeSlotArray, false);
-        //}
+        amountUnlocked = CountBool(freeSlotArray, false);
     }
 
     public void PlayerIsDead()

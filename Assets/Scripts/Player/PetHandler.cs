@@ -24,7 +24,7 @@ public class PetHandler : MonoBehaviour
     public GameObject craftingWindowObject; // tem que arrastar pra o inspector
     private Inventory inventorytxt;
     public _PlayerManager playerManager;
-    [SerializeField] private PetWindowBrain petWindowBrain;
+    public PetWindowBrain petWindowBrain;
 
     [Header("Controle de movimentação")]
     [SerializeField] private float sinRadius;
@@ -332,6 +332,7 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
+        //petWindowBrain
         petAnimator.enabled = false;
         petModel.localPosition = initialPetModelTransformPosition;
         PetLookAtAnimation();
@@ -347,7 +348,8 @@ public class PetHandler : MonoBehaviour
         petLookAt.lookAtPosition = petLookAt.playerPos.position;
         //pressFKey.SetActive(false);
         buttonsCanvasObject.SetActive(true);
-        petWindowBrain.UpdateIngredientAmount();
+        playerManager.playerWeaponHandler.UpdateAmountUnlocked();
+        //petWindowBrain.UpdateIngredientAmount();
         //StartCoroutine(DisableCanvasGroup(cinemachineSwitchBlend.mainToPetDuration));
     }
     public void CloseCraftingWindow()

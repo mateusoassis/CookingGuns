@@ -14,9 +14,9 @@ public class IngredientUpdater : MonoBehaviour
     [Tooltip("How many different ingredients does it use")]
     [SerializeField] private int differentIngredients;
     [Tooltip("What are the types of ingredients based on PlayerInfo")]
-    [SerializeField] private int[] typeOfIngredients;
+    public int[] typeOfIngredients;
     [Tooltip("How many ingredients does it use")]
-    [SerializeField] private int[] amountOfIngredients;
+    public int[] amountOfIngredients;
     
 
     [Header("Hide and Show texts")]
@@ -42,7 +42,7 @@ public class IngredientUpdater : MonoBehaviour
 
     }
 
-    private void UpdateIngredientAmount()
+    public void UpdateIngredientAmount()
     {
         for(int i = 0; i < textContainers.Length; i++)
         {
@@ -70,7 +70,7 @@ public class IngredientUpdater : MonoBehaviour
     {
         for(int i = 0; i < typeOfIngredients.Length; i++)
         {
-            textAmountRequired[i].text = "/ " + amountOfIngredients[typeOfIngredients[i]].ToString();
+            textAmountRequired[i].text = "/ " + amountOfIngredients[i].ToString();
         }
     }
 }

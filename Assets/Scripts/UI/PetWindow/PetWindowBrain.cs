@@ -80,7 +80,7 @@ public class PetWindowBrain : MonoBehaviour
     }
 
     // abrir e fechar
-    public void UpdateIngredientAmount()
+    public void UpdateIngredients()
     {
         /*
         for(int i = 0; i < petWindowStrings.Length; i++)
