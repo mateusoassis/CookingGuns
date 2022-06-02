@@ -71,7 +71,7 @@ public class MoveWaveCounter : MonoBehaviour
     public IEnumerator ShowWaveNumber() 
     {
         //GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(GetComponent<RectTransform>().anchoredPosition, positionMiddle.anchoredPosition, percentageComplete);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.5f);
         TriggerMovement();
         yield return new WaitForSeconds(2.0f);
         BackToStartPos();

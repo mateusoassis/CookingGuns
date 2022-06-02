@@ -109,7 +109,7 @@ public class TimeSurvivalRoom : MonoBehaviour
                 timeHolderText.SetText(elapsedTime.ToString("0.00") + " s");
                 if (elapsedTime <= 10.0f) 
                 {
-                    timeHolderText.color = new Color(222, 0, 0, 255);
+                    timeHolderText.color = new Color(255, 0, 0, 255);
                 }
             }
             else

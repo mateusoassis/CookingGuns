@@ -38,7 +38,13 @@ public class SimpleFlash : MonoBehaviour
                 StopCoroutine(flashRoutine);
             }
             flashRoutine = StartCoroutine(FlashRoutine());
+
             Debug.Log("fez o flash");
+
+            /*for (float duration = 0; duration < 2; duration += Time.deltaTime)
+            {
+                StartCoroutine(FlashRoutine());
+            } */
         }
 
         private IEnumerator FlashRoutine()
