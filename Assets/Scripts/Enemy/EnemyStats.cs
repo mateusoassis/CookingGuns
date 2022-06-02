@@ -81,6 +81,11 @@ public class EnemyStats : MonoBehaviour
             
             if(dropPrefab[0] != null)
             {
+                for(int i = 0; i < dropPrefab.Count; i++)
+                {
+                    Instantiate(dropPrefab[i], transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
+                }
+                /*
                 if(!isPudim)
                 {
                     for(int i = 0; i < dropPrefab.Count; i++)
@@ -92,7 +97,8 @@ public class EnemyStats : MonoBehaviour
                             Instantiate(dropPrefab[i], transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
                         }
                     }
-                } else/* if(enemyType != 1)*/
+                }
+                else
                 {
                     int u = Random.Range(0, 100);
                     if(u > 50){
@@ -102,6 +108,7 @@ public class EnemyStats : MonoBehaviour
                         Instantiate(dropPrefab[1], transform.position + new Vector3(0f, dropPrefabYOffset, 0f), Quaternion.identity);
                     }
                 } 
+                */
             }
         }
     }

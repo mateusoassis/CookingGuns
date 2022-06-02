@@ -277,9 +277,12 @@ public class PetHandler : MonoBehaviour
         targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - transform.position);
         petLookAt.lookAtPosition = petLookAt.playerPos.position;
         buttonsCanvasObject.SetActive(true);
-        playerManager.playerWeaponHandler.UpdateAmountUnlocked();
-        //playerManager.playerWeaponHandler.UpdateAllIngredientAmount();
-        playerManager.playerWeaponHandler.LoopUpdateTextColor();
+        //playerManager.playerWeaponHandler.UpdateAmountUnlocked();
+        for(int i = 0; i < playerManager.playerWeaponHandler.ingredientUpdater.Length; i++)
+        {
+            playerManager.playerWeaponHandler.UpdateAllIngredientAmount(i);
+        } 
+        //playerManager.playerWeaponHandler.LoopUpdateTextColor();
     }
 
     public void CloseCraftingWindow()

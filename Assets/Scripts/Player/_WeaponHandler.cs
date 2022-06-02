@@ -35,7 +35,7 @@ public class _WeaponHandler : MonoBehaviour
     [Header("Referências à scripts")]
     public _PlayerManager playerManager;
     public BreakWeapon breakWeaponScript;
-    [SerializeField] private IngredientUpdater[] ingredientUpdater;
+    public IngredientUpdater[] ingredientUpdater;
 
     [Header("Gato Comemorando")]
     public GameObject catEndRoom;
@@ -411,8 +411,7 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
-                UpdateAllIngredientAmount();
-                LoopUpdateTextColor();
+                CraftWeapon(0);
             }
             else
             {
@@ -472,8 +471,7 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
                 
-                UpdateAllIngredientAmount();
-                LoopUpdateTextColor();
+                CraftWeapon(1);
             }
             else
             {
@@ -534,8 +532,7 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
-                UpdateAllIngredientAmount();
-                LoopUpdateTextColor();
+                CraftWeapon(2);
             }
             else
             {
@@ -595,8 +592,7 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
-                UpdateAllIngredientAmount(); 
-                LoopUpdateTextColor();
+                CraftWeapon(3);
             }
             else
             {
@@ -663,19 +659,24 @@ public class _WeaponHandler : MonoBehaviour
         ingredientUpdater[indexUpdater].textOwnAmount[indexAmount].color = Color.black;
     }
 
-    public void UpdateAllIngredientAmount()
+    public void CraftWeapon(int index)
     {
-        
-        for(int j = 0; j < ingredientUpdater[3].typeOfIngredients.Length; j++)
+        for(int j = 0; j < ingredientUpdater[index].typeOfIngredients.Length; j++)
         {
-            playerManager.playerInfo.ingredientes[ingredientUpdater[3].typeOfIngredients[j]] -= ingredientUpdater[3].amountOfIngredients[j];
-            
+            playerManager.playerInfo.ingredientes[ingredientUpdater[index].typeOfIngredients[j]] -= ingredientUpdater[index].amountOfIngredients[j];
         }
+        UpdateAllIngredientAmount(index);
+    }
+
+    public void UpdateAllIngredientAmount(int index)
+    { 
+        
         for(int i = 0; i < ingredientUpdater.Length; i++)
         {
             ingredientUpdater[i].UpdateIngredientAmount();
         }
         UpdateAmountUnlocked();
+        LoopUpdateTextColor();
     }
 
     public void HealFromEatingWeapon()
