@@ -12,6 +12,7 @@ public class StalactiteHandler : MonoBehaviour
     [Header("Não mexer")]
     [SerializeField] private Transform spawnTransform;
     [SerializeField] private GameObject stalactitePrefab;
+    [SerializeField] private GameObject groundCirclePrefab;
     [SerializeField] private float YOffset;
     private float dropTimer;
     private bool isTutorial;
@@ -38,6 +39,7 @@ public class StalactiteHandler : MonoBehaviour
                 if(dropTimer <= 0)
                 {
                     GameObject Stalactite = Instantiate(stalactitePrefab, transform.position + new Vector3(0f, YOffset, 0f), Quaternion.identity) as GameObject;
+                    GameObject StalactiteGroundArea = Instantiate(groundCirclePrefab, spawnTransform.position, Quaternion.identity) as GameObject;
                     dropTimer = dropDelay + Random.Range(-randomizer, randomizer);
                 }
             }
