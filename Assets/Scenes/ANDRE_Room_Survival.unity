@@ -1462,15 +1462,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320822462484, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6833229
+      value: 0.70186234
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320822462484, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.853148
+      value: 27.164711
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320822462484, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.132362
+      value: -32.714893
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320854500874, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_Targets.Array.data[0].target
@@ -3049,7 +3049,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166729}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 24.413322, y: 27.494432, z: -33.132362}
+  m_LocalPosition: {x: 24.431862, y: 27.294432, z: -32.714893}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3985,9 +3985,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1226818292}
+  - component: {fileID: 1226818295}
   - component: {fileID: 1226818294}
   - component: {fileID: 1226818293}
-  - component: {fileID: 1226818295}
   m_Layer: 5
   m_Name: WaveCounter
   m_TagString: Untagged
@@ -4123,9 +4123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39dc0b1d479510439f33fd20b4406f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionLeft: {fileID: 0}
-  positionMiddle: {fileID: 0}
-  positionRight: {fileID: 0}
+  positionLeft: {fileID: 719441591}
+  positionMiddle: {fileID: 472293279}
+  positionRight: {fileID: 395732687}
   moveDuration: 2
 --- !u!4 &1250803173 stripped
 Transform:
