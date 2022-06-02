@@ -82,7 +82,7 @@ public class TimeSurvivalRoom : MonoBehaviour
         yield return new WaitForSeconds(timeToStart);
         if (!gameManagerScript.roomCleared) 
         {
-            moveWaveScript.StartCoroutine("ShowWaveNumber");
+            moveWaveScript.TriggerMovement();
         }
         SpawnWave();
         numberOfWaves -= 1;
