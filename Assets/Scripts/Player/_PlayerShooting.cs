@@ -73,13 +73,6 @@ public class _PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        /*
-        if(playerManager.isRolling)
-        {
-            ReloadInterrupted();
-        }
-        */
-        
         if((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q)))
         {
             if(_WeaponHandler.CountBool(weaponHandler.freeSlotArray, true) < 2)
@@ -224,7 +217,7 @@ public class _PlayerShooting : MonoBehaviour
             {
                 playerManager.animationHandler.anim[playerManager.animationHandler.weapon].Play("ShootShotgun");
             }
-            
+         
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetTrigger("Shoot");
             playerManager.animationHandler.anim[playerManager.animationHandler.weapon].SetBool("Walking", false);
 
@@ -257,7 +250,6 @@ public class _PlayerShooting : MonoBehaviour
 
     private void Reload()
     {
-        // som do reloading
         if(!reloading)
         {
             if(playerManager.playerWeaponHandler.weaponTypeEquipped == 0)

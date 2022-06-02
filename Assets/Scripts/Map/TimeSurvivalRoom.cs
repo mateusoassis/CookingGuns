@@ -9,6 +9,12 @@ public class TimeSurvivalRoom : MonoBehaviour
 {
     private GameManager gameManagerScript;
 
+    private MoveWaveCounter moveWaveScript;
+
+    private TextMeshProUGUI waveCounterText;
+
+    private bool roomStarted;
+
     [SerializeField] private float timeToStart;
 
     [SerializeField] public float timeBetweenWaves;
@@ -25,6 +31,8 @@ public class TimeSurvivalRoom : MonoBehaviour
 
     [HideInInspector] public int numberOfWaves;
 
+    private int initialNumberofWaves;
+
     private bool enemyDestroyerActivated;
 
     private int waveIndex;
@@ -34,22 +42,30 @@ public class TimeSurvivalRoom : MonoBehaviour
     private void Awake()
     {
         timeHolderText = GameObject.Find("TimeHolderText").GetComponent<TextMeshProUGUI>();
+        moveWaveScript = GameObject.Find("WaveCounter").GetComponent<MoveWaveCounter>();
+        waveCounterText = moveWaveScript.gameObject.GetComponent<TextMeshProUGUI>();
+        roomStarted = false;
         enemyDestroyerActivated = false;
         elapsedTime = roomDuration;
         gameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         waveIndex = 0;
         numberOfWaves = enemyWaves.Length;
+        initialNumberofWaves = enemyWaves.Length;
     }
 
     private void Start()
     {
-        StartCoroutine("ControlSpawn");
+        waveCounterText.SetText(numberOfWaves + "/" + initialNumberofWaves);
+        StartCoroutine("StartRoom");
     }
 
     private void Update()
     {
-        //ConvertElapsedTimeToHMS();
-        OverwriteTimestamp();
+        if (roomStarted) 
+        {
+            OverwriteTimestamp();
+        }
+
         if(elapsedTime <= 0)
         {
             if (enemyDestroyerActivated == false && !gameManagerScript.roomCleared) 
@@ -64,10 +80,14 @@ public class TimeSurvivalRoom : MonoBehaviour
     public IEnumerator ControlSpawn()
     {
         yield return new WaitForSeconds(timeToStart);
+        if (!gameManagerScript.roomCleared) 
+        {
+            moveWaveScript.StartCoroutine("ShowWaveNumber");
+        }
         SpawnWave();
-        timeToStart = 0;
         numberOfWaves -= 1;
         waveIndex = waveIndex + 1;
+        waveCounterText.SetText((numberOfWaves + 1)  + "/" + initialNumberofWaves);
     }
     public void SpawnWave()
     {
@@ -77,9 +97,6 @@ public class TimeSurvivalRoom : MonoBehaviour
     public void SubtractRoomDuration()
     {
         elapsedTime -= Time.deltaTime;
-        //hours = (int)elapsedTime / 3600;
-        //minutes = (int)(elapsedTime - (hours * 3600)) / 60;
-        //seconds = (int)(elapsedTime - (hours * 3600) - (minutes * 60));
     }
     public void OverwriteTimestamp()
     {
@@ -96,23 +113,6 @@ public class TimeSurvivalRoom : MonoBehaviour
                 timeHolderText.SetText("0 s");
             }
         }
-        
-        /*
-        if (hours > 0)
-        {
-            timeHolderText.SetText(hours.ToString("D2") + "h " + minutes.ToString("D2") + "m " + seconds.ToString("D2") + "s");
-            return;
-        }
-        else if (minutes > 0)
-        {
-            timeHolderText.SetText(minutes.ToString("D2") + "m " + seconds.ToString("D2") + "s");
-            return;
-        }
-        else
-        {
-            timeHolderText.SetText(seconds.ToString("D2") + "s");
-        }
-        */
     }
 
     private IEnumerator SpawnEnemyDestroyer() 
@@ -121,5 +121,12 @@ public class TimeSurvivalRoom : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         enemyDestroyerActivated = true;
         yield break;
+    }
+
+    private IEnumerator StartRoom() 
+    {
+        yield return new WaitForSeconds(4.0f);
+        StartCoroutine("ControlSpawn");
+        roomStarted = true;
     }
 }
