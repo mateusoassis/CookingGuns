@@ -2835,7 +2835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036166729}
   m_LocalRotation: {x: 0.5001362, y: 0.0003905609, z: -0.00022557234, w: 0.86594665}
-  m_LocalPosition: {x: 2.7237263, y: 27.49211, z: -30.057625}
+  m_LocalPosition: {x: 2.7237263, y: 27.492105, z: -30.057625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4811,7 +4811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320588148552, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6583955
+      value: -0.6583956
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320588148555, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_Follow
@@ -4875,7 +4875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320822462484, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.49211
+      value: 27.492105
       objectReference: {fileID: 0}
     - target: {fileID: 3156839320822462484, guid: d6b39a51f11de00408ec36d8a157a630, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5803,6 +5803,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1033502006, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
   m_PrefabInstance: {fileID: 1711962409}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1711962416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7247002453517093841, guid: 4fc13c0f89111fc49a598717036f9850, type: 3}
+  m_PrefabInstance: {fileID: 1711962409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b59834af4eb3eb48bc7aca7980aa1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1717646420 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2019554067326914130, guid: d5c79f26f4eff7f4fbca9f321e13a160, type: 3}
@@ -7326,6 +7337,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6794622556278728538, guid: 5328ced2301fcb74b9b646b978b0ada4, type: 3}
+      propertyPath: ingredientsInfoWindow
+      value: 
+      objectReference: {fileID: 1711962416}
+    - target: {fileID: 6959273455929062631, guid: 5328ced2301fcb74b9b646b978b0ada4, type: 3}
+      propertyPath: ingredientsInfoWindow
+      value: 
+      objectReference: {fileID: 1711962416}
+    - target: {fileID: 7015838947756763127, guid: 5328ced2301fcb74b9b646b978b0ada4, type: 3}
+      propertyPath: ingredientsInfoWindow
+      value: 
+      objectReference: {fileID: 1711962416}
+    - target: {fileID: 7315557580359754514, guid: 5328ced2301fcb74b9b646b978b0ada4, type: 3}
+      propertyPath: ingredientsInfoWindow
+      value: 
+      objectReference: {fileID: 1711962416}
     - target: {fileID: 9139719807393748995, guid: 5328ced2301fcb74b9b646b978b0ada4, type: 3}
       propertyPath: m_Camera
       value: 

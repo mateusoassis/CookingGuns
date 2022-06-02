@@ -97,6 +97,7 @@ public class EnemyDrop : MonoBehaviour
     public void AddIngredient()
     {
         playerInfo.ingredientes[itemType]++;
+        playerTransform.GetComponentInParent<_PlayerManager>().isRecentlyLoot = true;
         /*
         if(itemType == 0)
         {

@@ -36,6 +36,7 @@ public class _PlayerManager : MonoBehaviour
     public bool isImmune;
     public bool tutorial;
     public bool isEndRoomAnimation;
+    public bool isRecentlyLoot;
 
     [Header("Animação de fim de sala")]
     public bool calledEndRoomAnimation;

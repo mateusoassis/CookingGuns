@@ -29,6 +29,7 @@ public class IngredientUpdater : MonoBehaviour
 
     [Tooltip("Don't even think about messing with this one")]
     [SerializeField] private PlayerInfo playerInfo;
+    [SerializeField] private IngredientsInfoWindow ingredientsInfoWindow;
 
     void Awake()
     {
@@ -69,6 +70,7 @@ public class IngredientUpdater : MonoBehaviour
         }
         UpdateAmountText();
         UpdateRequiredText();
+        ingredientsInfoWindow.UpdateAllSlots();
     }
 
     private void UpdateAmountText()
