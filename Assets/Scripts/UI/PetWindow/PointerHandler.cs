@@ -45,7 +45,6 @@ public class PointerHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         }
     }
 
-    //Detect when Cursor leaves the GameObject
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         if(weaponType == 0)

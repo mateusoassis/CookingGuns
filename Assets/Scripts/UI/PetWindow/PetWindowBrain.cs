@@ -79,16 +79,6 @@ public class PetWindowBrain : MonoBehaviour
         }
     }
 
-    // abrir e fechar
-    public void UpdateIngredients()
-    {
-        /*
-        for(int i = 0; i < petWindowStrings.Length; i++)
-        {
-            petWindowTexts[i].text = petWindowStrings[i];
-        }
-        */
-    }
     public void CloseAll()
     {
         for(int i = 0; i < openArray.Length; i++)
@@ -97,7 +87,6 @@ public class PetWindowBrain : MonoBehaviour
         }
     }
 
-    // pointer enter e exit nos botões
     public void OpenPistol()
     {
         openArray[0] = true;

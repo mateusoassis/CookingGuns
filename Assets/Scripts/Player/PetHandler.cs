@@ -14,7 +14,6 @@ public class PetHandler : MonoBehaviour
     public GameObject pressFKey;
     private Animator petAnimator;
     private bool endAnimation;
-    //public NavMeshAgent petNavMeshAgent;
     
     public PetBillboard petBillboard;
     public bool playerOnArea;
@@ -31,7 +30,6 @@ public class PetHandler : MonoBehaviour
     private bool move;
     private bool arrived;
     [SerializeField] private float petSpeed;
-    //public Vector3 moveTowards;
     [SerializeField] private Transform[] targetTransforms;
     [SerializeField] private int index;
     [SerializeField] private float moveToNextDelay;
@@ -119,27 +117,10 @@ public class PetHandler : MonoBehaviour
         {
             if(!playerManager.gameManager.pausedGame && !playerManager.isFading)
             {
-                // sobe e desce senoidal
                 if(!craftingWindowOpen)
                 {
-                    /*
-                    Vector3 sinMovement = new Vector3(0f, Mathf.Sin(Time.time * 3f) * sinRadius, 0f);
-                    petModel.transform.position += sinMovement;
-                    */
-
                     if(stop)
                     {
-                        //Vector3 lookAtVector = Vector3.Lerp(new Vector3(transform.position.x, pet.transform.position))
-                        /*
-                        if(playerManager.gameManager.roomCleared)
-                        {
-                            PetEndRoom();
-                        }
-                        else
-                        {
-                            PetIdle();
-                        }
-                        */
                         pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
                         Debug.Log("143");
                     }
@@ -147,24 +128,10 @@ public class PetHandler : MonoBehaviour
                 else
                 {
                     petBillboard.DeactivateOnEnemiesKilled();
-                    /*
-                    if(petLookAt.lookAtButton)
-                    {
-                        */
-                        targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
-                        petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
-                        Debug.Log("152");
-                        //petLookAt.lookAtButton = true;
-                        /*
-                        petModel.LookAt(petLookAt.lookAtPosition);
-                        petLookAt.lookAtButton = true;
-                        */
-                        /*
-                    }
-                    else
-                    {*/
-                        
-                    //}
+                    
+                    targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
+                    petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
+                    Debug.Log("152");
                 }
 
                 if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop && !craftingWindowOpen)
@@ -215,7 +182,6 @@ public class PetHandler : MonoBehaviour
                 {
                     pressFKey.SetActive(false);
                 }
-                
             }
         }
         else
@@ -232,24 +198,10 @@ public class PetHandler : MonoBehaviour
                 else
                 {
                     petBillboard.DeactivateOnEnemiesKilled();
-                    /*
-                    if(petLookAt.lookAtButton)
-                    {
-                        */
-                        targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
-                        petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
-                        Debug.Log("152");
-                        //petLookAt.lookAtButton = true;
-                        /*
-                        petModel.LookAt(petLookAt.lookAtPosition);
-                        petLookAt.lookAtButton = true;
-                        */
-                        /*
-                    }
-                    else
-                    {*/
-        
-                    //}
+                    
+                    targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
+                    petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
+                    Debug.Log("152");    
                 }
 
                 if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop && !craftingWindowOpen)
@@ -269,26 +221,13 @@ public class PetHandler : MonoBehaviour
                         else
                         {
                             index++;
-                            //pet.transform.LookAt(targetTransforms[index].position);
                         }
-                        //moveToNextDelayTimer = moveToNextDelay;
                         arrived = true;
                         pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
-                        // tem que chamar o NextPetPosition() dos diálogos do tutorial quando ele acaba
+                        
                         PetIdle();
                     }
                 }
-                
-                /*
-                if(arrived)
-                {
-                    moveToNextDelayTimer -= Time.deltaTime;
-                    if(moveToNextDelayTimer < 0)
-                    {
-                        arrived = false;
-                    }
-                }
-                */
 
                 if(stop && playerManager.gameManager.roomCleared && !craftingWindowOpen)
                 {
@@ -311,7 +250,6 @@ public class PetHandler : MonoBehaviour
     {
         index = i;
         arrived = false;
-        //index = i;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -332,26 +270,20 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
-        //petWindowBrain
         petAnimator.enabled = false;
         petModel.localPosition = initialPetModelTransformPosition;
         PetLookAtAnimation();
         playerManager.playerMovement.StopMovingForPetHandlerCraftingWindow();
-        //craftingWindowObject.SetActive(true);
-        //inventorytxt.UpdateItem();
         fadeoutCanvasGroupWhenPetWindowOpen.alpha = 0f;
         playerManager.gameManager.DisableCursors();
         craftingWindowOpen = true;
         cinemachineSwitchBlend.SwitchPriority();
-        //pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
         targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - transform.position);
         petLookAt.lookAtPosition = petLookAt.playerPos.position;
-        //pressFKey.SetActive(false);
         buttonsCanvasObject.SetActive(true);
         playerManager.playerWeaponHandler.UpdateAmountUnlocked();
-        //petWindowBrain.UpdateIngredientAmount();
-        //StartCoroutine(DisableCanvasGroup(cinemachineSwitchBlend.mainToPetDuration));
     }
+
     public void CloseCraftingWindow()
     {
         petAnimator.enabled = true;
@@ -368,11 +300,7 @@ public class PetHandler : MonoBehaviour
                 playerManager.tutorialBrain.lastDialogue = true;
             }
             craftingWindowOpen = false;
-            //craftingWindowObject.SetActive(false);
             cinemachineSwitchBlend.SwitchPriority();
-            //pressFKey.SetActive(true);
-            //buttonsCanvasObject.SetActive(false);
-            //StartCoroutine(EnableCanvasGroup(cinemachineSwitchBlend.petToMainDuration));
             canvasGroupAnimator.SetTrigger("Disable");
             petModel.transform.forward = pet.transform.forward;
             petWindowBrain.CloseAll();

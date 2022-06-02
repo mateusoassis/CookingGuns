@@ -334,8 +334,6 @@ public class _WeaponHandler : MonoBehaviour
         }
     }
 
-    
-
     public void SwitchGuns()
     {
         if(Input.GetKeyDown(KeyCode.Q) && !playerManager.isShooting && !playerManager.gameManager.pausedGame)
@@ -406,7 +404,6 @@ public class _WeaponHandler : MonoBehaviour
                 {
                     freeSlotArray[slotFree] = false;
                     playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
-                    //UpdateAmountUnlocked();
                     weaponTypeOnSlot[slotFree] = 0;
                     playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 0;
                     realWeaponIcons[slotFree].sprite = realWeaponIconsPool[0];
@@ -414,12 +411,7 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
-                for(int j = 0; j < ingredientUpdater[0].typeOfIngredients.Length; j++)
-                {
-                    playerManager.playerInfo.ingredientes[ingredientUpdater[0].typeOfIngredients[j]] -= ingredientUpdater[0].amountOfIngredients[j];
-                    ingredientUpdater[0].UpdateIngredientAmount();
-                }
-                UpdateAmountUnlocked();
+                UpdateAllIngredientAmount();
             }
             else
             {
@@ -474,16 +466,12 @@ public class _WeaponHandler : MonoBehaviour
                     playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
                     weaponTypeOnSlot[slotFree] = 1;
                     playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 1;
+                    realWeaponIcons[slotFree].sprite = realWeaponIconsPool[1];
                 }
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
-
-                for(int j = 0; j < ingredientUpdater[1].typeOfIngredients.Length; j++)
-                {
-                    playerManager.playerInfo.ingredientes[ingredientUpdater[1].typeOfIngredients[j]] -= ingredientUpdater[1].amountOfIngredients[j];
-                    ingredientUpdater[1].UpdateIngredientAmount();
-                }
-                UpdateAmountUnlocked();
+                
+                UpdateAllIngredientAmount();
             }
             else
             {
@@ -539,16 +527,12 @@ public class _WeaponHandler : MonoBehaviour
                     playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
                     weaponTypeOnSlot[slotFree] = 2;
                     playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 2;
+                    realWeaponIcons[slotFree].sprite = realWeaponIconsPool[2];
                 }
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
-                for(int j = 0; j < ingredientUpdater[2].typeOfIngredients.Length; j++)
-                {
-                    playerManager.playerInfo.ingredientes[ingredientUpdater[2].typeOfIngredients[j]] -= ingredientUpdater[2].amountOfIngredients[j];
-                    ingredientUpdater[2].UpdateIngredientAmount();
-                }
-                UpdateAmountUnlocked();
+                UpdateAllIngredientAmount();
             }
             else
             {
@@ -603,16 +587,12 @@ public class _WeaponHandler : MonoBehaviour
                     playerManager.playerInfo.freeSlotArraySaved[slotFree] = false;
                     weaponTypeOnSlot[slotFree] = 3;
                     playerManager.playerInfo.weaponTypeOnSlotSaved[slotFree] = 3;
+                    realWeaponIcons[slotFree].sprite = realWeaponIconsPool[3];
                 }
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
-                for(int j = 0; j < ingredientUpdater[3].typeOfIngredients.Length; j++)
-                {
-                    playerManager.playerInfo.ingredientes[ingredientUpdater[3].typeOfIngredients[j]] -= ingredientUpdater[3].amountOfIngredients[j];
-                    ingredientUpdater[3].UpdateIngredientAmount();
-                }
-                UpdateAmountUnlocked();
+                UpdateAllIngredientAmount(); 
             }
             else
             {
@@ -631,6 +611,7 @@ public class _WeaponHandler : MonoBehaviour
             Debug.Log("inventário cheio de armas");
         }
     }
+
     public void DisableGrenadeLauncher()
     {
         freeSlotArray[slotEquipped] = true;
@@ -640,6 +621,21 @@ public class _WeaponHandler : MonoBehaviour
         playerManager.playerShootingGranadeLauncher.bulletsLeft = playerManager.playerShootingGranadeLauncher.magazineSize;
         UpdateAmountUnlocked();
         UpdateWeaponSlotSprites();
+    }
+
+    private void UpdateAllIngredientAmount()
+    {
+        
+        for(int j = 0; j < ingredientUpdater[3].typeOfIngredients.Length; j++)
+        {
+            playerManager.playerInfo.ingredientes[ingredientUpdater[3].typeOfIngredients[j]] -= ingredientUpdater[3].amountOfIngredients[j];
+            
+        }
+        for(int i = 0; i < ingredientUpdater.Length; i++)
+        {
+            ingredientUpdater[i].UpdateIngredientAmount();
+        }
+        UpdateAmountUnlocked();
     }
 
     public void HealFromEatingWeapon()

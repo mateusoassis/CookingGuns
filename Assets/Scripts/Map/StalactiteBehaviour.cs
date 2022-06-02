@@ -26,7 +26,6 @@ public class StalactiteBehaviour : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             isPlayerInside = true;
-            Debug.Log("player dentro da estalactite");
         }
 
         if(other.gameObject.tag == "Ground")
@@ -48,10 +47,7 @@ public class StalactiteBehaviour : MonoBehaviour
     {
         if(isPlayerInside)
         {
-            if(doesDamageAfterEndRoom)
-            {
-                playerStats.TakeHPDamage(damage);
-            }
+            playerStats.TakeHPDamage(damage);
         }
     }
 }
