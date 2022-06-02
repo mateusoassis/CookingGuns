@@ -17,6 +17,9 @@ public class IngredientUpdater : MonoBehaviour
     public int[] typeOfIngredients;
     [Tooltip("How many ingredients does it use")]
     public int[] amountOfIngredients;
+
+    [Header("Icons")]
+    [SerializeField] private Image[] ingredientIcons;
     
 
     [Header("Hide and Show texts")]
@@ -30,6 +33,7 @@ public class IngredientUpdater : MonoBehaviour
     void Awake()
     {
         UpdateIngredientAmount();
+        UpdateIcons();
     }
 
     void Start()
@@ -40,6 +44,14 @@ public class IngredientUpdater : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void UpdateIcons()
+    {
+        for(int i = 0; i < differentIngredients; i++)
+        {
+            ingredientIcons[i].sprite = playerInfo.ingredientesIcons[typeOfIngredients[i]];
+        }
     }
 
     public void UpdateIngredientAmount()

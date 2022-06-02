@@ -59,6 +59,7 @@ public class PlayerInfo : ScriptableObject
 
     [Header("Ingredientes")]
     public int[] ingredientes;
+    public Sprite[] ingredientesIcons;
     /*
     public int i_biscoito; // 0
     public int i_caramelo; // 1
