@@ -9,6 +9,7 @@ public class StalactiteBehaviour : MonoBehaviour
     [SerializeField] _PlayerStats playerStats;
     [SerializeField] private int damage;
     [SerializeField] private bool doesDamageAfterEndRoom;
+    [SerializeField] private GameObject stalactictBurstParticle;
 
     void Awake()
     {
@@ -33,6 +34,7 @@ public class StalactiteBehaviour : MonoBehaviour
 
         if(other.gameObject.tag == "Ground")
         {
+            Instantiate(stalactictBurstParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
