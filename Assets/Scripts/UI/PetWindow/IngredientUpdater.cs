@@ -21,7 +21,7 @@ public class IngredientUpdater : MonoBehaviour
 
     [Header("Hide and Show texts")]
     [SerializeField] private GameObject[] textContainers;
-    [SerializeField] private TextMeshProUGUI[] textOwnAmount;
+    public TextMeshProUGUI[] textOwnAmount;
     [SerializeField] private TextMeshProUGUI[] textAmountRequired;
 
     [Tooltip("Don't even think about messing with this one")]

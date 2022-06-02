@@ -122,7 +122,6 @@ public class PetHandler : MonoBehaviour
                     if(stop)
                     {
                         pet.transform.LookAt(new Vector3(transform.position.x, pet.transform.position.y, transform.position.z));
-                        Debug.Log("143");
                     }
                 }
                 else
@@ -131,7 +130,6 @@ public class PetHandler : MonoBehaviour
                     
                     targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
                     petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
-                    Debug.Log("152");
                 }
 
                 if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop && !craftingWindowOpen)
@@ -151,7 +149,6 @@ public class PetHandler : MonoBehaviour
                         {
                             index++;
                             pet.transform.LookAt(targetTransforms[index].position);
-                            Debug.Log("178");
                         }
                         moveToNextDelayTimer = moveToNextDelay;
                         arrived = true;
@@ -201,7 +198,6 @@ public class PetHandler : MonoBehaviour
                     
                     targetRotation = Quaternion.LookRotation(petLookAt.lookAtPosition - petModel.transform.position);
                     petModel.transform.rotation = Quaternion.Lerp(petModel.transform.rotation, targetRotation, lookAtSpeed * Time.deltaTime);
-                    Debug.Log("152");    
                 }
 
                 if(pet.transform.position != targetTransforms[index].position && index < targetTransforms.Length && !arrived && !stop && !craftingWindowOpen)
@@ -282,6 +278,8 @@ public class PetHandler : MonoBehaviour
         petLookAt.lookAtPosition = petLookAt.playerPos.position;
         buttonsCanvasObject.SetActive(true);
         playerManager.playerWeaponHandler.UpdateAmountUnlocked();
+        //playerManager.playerWeaponHandler.UpdateAllIngredientAmount();
+        playerManager.playerWeaponHandler.LoopUpdateTextColor();
     }
 
     public void CloseCraftingWindow()

@@ -412,6 +412,7 @@ public class _WeaponHandler : MonoBehaviour
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
                 UpdateAllIngredientAmount();
+                LoopUpdateTextColor();
             }
             else
             {
@@ -472,6 +473,7 @@ public class _WeaponHandler : MonoBehaviour
                 playerManager.playerInfo.totalWeaponsCrafted++;
                 
                 UpdateAllIngredientAmount();
+                LoopUpdateTextColor();
             }
             else
             {
@@ -533,6 +535,7 @@ public class _WeaponHandler : MonoBehaviour
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
                 UpdateAllIngredientAmount();
+                LoopUpdateTextColor();
             }
             else
             {
@@ -593,6 +596,7 @@ public class _WeaponHandler : MonoBehaviour
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
                 UpdateAllIngredientAmount(); 
+                LoopUpdateTextColor();
             }
             else
             {
@@ -623,7 +627,43 @@ public class _WeaponHandler : MonoBehaviour
         UpdateWeaponSlotSprites();
     }
 
-    private void UpdateAllIngredientAmount()
+    public void LoopUpdateTextColor()
+    {
+        for(int i = 0; i < ingredientUpdater[i].amountOfIngredients.Length; i++)
+        {
+            UpdateAllTextColors(i);
+        }
+    }
+
+    public void UpdateAllTextColors(int index)
+    {
+        bool isBlack = false;
+
+        for(int j = 0; j < ingredientUpdater[index].amountOfIngredients.Length; j++)
+        {
+            isBlack = playerManager.playerInfo.ingredientes[ingredientUpdater[index].typeOfIngredients[j]] 
+                        >= ingredientUpdater[index].amountOfIngredients[j];
+            if(isBlack)
+            {
+                TurnAmountBlack(index, j);
+            }
+            else
+            {
+                TurnAmountRed(index, j);
+            }
+        }
+
+    }
+    private void TurnAmountRed(int indexUpdater, int indexAmount)
+    {
+        ingredientUpdater[indexUpdater].textOwnAmount[indexAmount].color = Color.red;
+    }
+    private void TurnAmountBlack(int indexUpdater, int indexAmount)
+    {
+        ingredientUpdater[indexUpdater].textOwnAmount[indexAmount].color = Color.black;
+    }
+
+    public void UpdateAllIngredientAmount()
     {
         
         for(int j = 0; j < ingredientUpdater[3].typeOfIngredients.Length; j++)

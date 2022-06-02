@@ -365,5 +365,21 @@ public class _PlayerShooting : MonoBehaviour
     public void ZeroReloadBar()
     {
         reloadDisplay.value = 0;
+        if(playerManager.playerWeaponHandler.weaponTypeEquipped == 0)
+        {
+            FindObjectOfType<SoundManager>().StopSound("PistolReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 1)
+        {
+            FindObjectOfType<SoundManager>().StopSound("ShotgunReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 2)
+        {
+            FindObjectOfType<SoundManager>().StopSound("MachineGunReload");
+        }
+        else if(playerManager.playerWeaponHandler.weaponTypeEquipped == 3)
+        {
+            FindObjectOfType<SoundManager>().StopSound("GrenadeLauncherReload");
+        }
     }
 }
