@@ -77,7 +77,6 @@ public class TowerBehaviour : MonoBehaviour
                 boxCollider.enabled = true;
                 switchingPlaces = false;
             }
-            
         }
     }
 
