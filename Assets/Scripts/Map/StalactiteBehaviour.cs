@@ -18,7 +18,10 @@ public class StalactiteBehaviour : MonoBehaviour
 
     void Update()
     {
-        
+        if(player.GetComponent<_PlayerManager>().isEndRoomAnimation)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerEnter(Collider other)
