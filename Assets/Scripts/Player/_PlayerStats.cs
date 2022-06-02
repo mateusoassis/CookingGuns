@@ -51,10 +51,7 @@ public class _PlayerStats : MonoBehaviour
     {
         immuneTimer = immuneDuration;
         youLoseHolder = GameObject.Find("MainCanvas").GetComponent<YouLoseHolder>();
-        
-        //youLoseHolder.youLoseObject.SetActive(false);
         playerTakeDamage = GameObject.Find("PlayerTakeDamage").GetComponent<Animator>();
-        //youLoseScript = GameObject.Find("MainCanvas").GetComponent<YouLose>();
         StartHPDamage();
     }
 
@@ -109,7 +106,6 @@ public class _PlayerStats : MonoBehaviour
                 playerManager.petHandler.cinemachineSwitchBlend.DeadCamera();
                 playerManager.playerWeaponHandler.PlayerIsDead();
                 playerManager.playerWeaponHandler.breakWeaponScript.BreakTheWeapon();
-                //DeadPlayer();
             }
             if(!playerManager.isDead)
             {
@@ -121,13 +117,7 @@ public class _PlayerStats : MonoBehaviour
     public void DeadPlayer()
     {
         Debug.Log("perdeu");
-        //FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
         playerManager.gameManager.PauseAndLose();
-        //playerManager.gameManager.PauseGame();
-        //youLoseHolder.PlayerLost();
-        //playerManager.playerInfo.totalPlayedTime += (int)playerManager.gameManager.elapsedTime;
-        //youLoseHolder.gameObject.GetComponentInChildren<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
-        //youLoseScript.PlayerLost();
         playerManager.playerInfo.healthFromLastRoom = 0;
         playerManager.playerInfo.playerCurrentRoom = 0;
     }
@@ -138,7 +128,6 @@ public class _PlayerStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out PudimAreaDamage pudimAreaDamage)))
             {
-                //flashEffect.FlashStart();
                 simpleFlashEffect.Flash();
                 TakeHPDamage(pudimAreaDamage.damageDone); 
             }
@@ -147,7 +136,6 @@ public class _PlayerStats : MonoBehaviour
         {
             if ((other.gameObject.TryGetComponent(out BarrelTrapExplosion barrelAreaDamage)))
             {
-                //simpleFlashEffect.Flash();
                 TakeHPDamage(barrelAreaDamage.damageDoneInPlayer);
             }
         }
