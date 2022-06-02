@@ -54,9 +54,4 @@ public class SimpleFlash : MonoBehaviour
             }
             flashRoutine = null;
         }
-
-        private IEnumerator InvulnerableFlashing() 
-        {
-
-        }
 }
