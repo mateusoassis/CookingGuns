@@ -39,7 +39,7 @@ public class StalactiteHandler : MonoBehaviour
                 if(dropTimer <= 0)
                 {
                     GameObject Stalactite = Instantiate(stalactitePrefab, transform.position + new Vector3(0f, YOffset, 0f), Quaternion.identity) as GameObject;
-                    Stalactite.transform.localScale = new Vector3(7f, 0.06f, 7f);
+                    //Stalactite.transform.localScale = new Vector3(7f, 0.06f, 7f);
                     GameObject StalactiteGroundArea = Instantiate(groundCirclePrefab, spawnTransform.position, Quaternion.identity) as GameObject;
                     //StalactiteGroundArea.transform.SetParent(spawnTransform);
                     StalactiteGroundArea.transform.localScale = new Vector3(9f, 0.0001f, 9f);

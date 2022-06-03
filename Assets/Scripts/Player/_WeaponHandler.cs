@@ -387,12 +387,15 @@ public class _WeaponHandler : MonoBehaviour
         Debug.Log("você tem " + amountUnlocked + " armas");
         if(amountUnlocked < 3)
         {
-            bool canCraft = false;
+            bool canCraft = true;
         
             for(int j = 0; j < ingredientUpdater[0].typeOfIngredients.Length; j++)
             {
-                canCraft = playerManager.playerInfo.ingredientes[ingredientUpdater[0].typeOfIngredients[j]] 
-                            >= ingredientUpdater[0].amountOfIngredients[j];
+                if(playerManager.playerInfo.ingredientes[ingredientUpdater[0].typeOfIngredients[j]] < ingredientUpdater[0].amountOfIngredients[j])
+                {
+                    canCraft = false;
+                    break;
+                }
             }
 
             Debug.Log(canCraft);
@@ -411,6 +414,10 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
+                if(playerManager.tutorial)
+                {
+                    playerManager.tutorialBrain.playerCraftedWeapon = true;
+                }
                 CraftWeapon(0);
             }
             else
@@ -418,18 +425,13 @@ public class _WeaponHandler : MonoBehaviour
                 // algo acontece quando não pode craftar
                 Debug.Log("falta material");
             }
-            
-            if(playerManager.tutorial)
-            {
-                playerManager.tutorialBrain.playerCraftedWeapon = true;
-            }
+
         }
         else
         {
             // cheio de armas
             Debug.Log("inventário cheio de armas");
         }
-        
     }
     public void DisablePistol()
     {
@@ -447,12 +449,15 @@ public class _WeaponHandler : MonoBehaviour
         Debug.Log("você tem " + amountUnlocked + " armas");
         if(amountUnlocked < 3)
         {
-            bool canCraft = false;
+            bool canCraft = true;
         
             for(int j = 0; j < ingredientUpdater[1].typeOfIngredients.Length; j++)
             {
-                canCraft = playerManager.playerInfo.ingredientes[ingredientUpdater[1].typeOfIngredients[j]] 
-                            >= ingredientUpdater[1].amountOfIngredients[j];
+                if(playerManager.playerInfo.ingredientes[ingredientUpdater[1].typeOfIngredients[j]] < ingredientUpdater[1].amountOfIngredients[j])
+                {
+                    canCraft = false;
+                    break;
+                }
             }
 
             Debug.Log(canCraft);
@@ -471,17 +476,16 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
                 
+                if(playerManager.tutorial)
+                {
+                    playerManager.tutorialBrain.playerCraftedWeapon = true;
+                }
                 CraftWeapon(1);
             }
             else
             {
                 // algo acontece quando não pode craftar
                 Debug.Log("falta material");
-            }
-            
-            if(playerManager.tutorial)
-            {
-                playerManager.tutorialBrain.playerCraftedWeapon = true;
             }
         }
         else
@@ -507,12 +511,15 @@ public class _WeaponHandler : MonoBehaviour
         Debug.Log("você tem " + amountUnlocked + " armas");
         if(amountUnlocked < 3)
         {
-            bool canCraft = false;
+            bool canCraft = true;
         
             for(int j = 0; j < ingredientUpdater[2].typeOfIngredients.Length; j++)
             {
-                canCraft = playerManager.playerInfo.ingredientes[ingredientUpdater[2].typeOfIngredients[j]] 
-                            >= ingredientUpdater[2].amountOfIngredients[j];
+                if(playerManager.playerInfo.ingredientes[ingredientUpdater[2].typeOfIngredients[j]] < ingredientUpdater[2].amountOfIngredients[j])
+                {
+                    canCraft = false;
+                    break;
+                }
             }
 
             Debug.Log(canCraft);
@@ -532,17 +539,16 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
+                if(playerManager.tutorial)
+                {
+                    playerManager.tutorialBrain.playerCraftedWeapon = true;
+                }
                 CraftWeapon(2);
             }
             else
             {
                 // algo acontece quando não pode craftar
                 Debug.Log("falta material");
-            }
-            
-            if(playerManager.tutorial)
-            {
-                playerManager.tutorialBrain.playerCraftedWeapon = true;
             }
         }
         else
@@ -568,12 +574,15 @@ public class _WeaponHandler : MonoBehaviour
         Debug.Log("você tem " + amountUnlocked + " armas");
         if(amountUnlocked < 3)
         {
-            bool canCraft = false;
+            bool canCraft = true;
         
             for(int j = 0; j < ingredientUpdater[3].typeOfIngredients.Length; j++)
             {
-                canCraft = playerManager.playerInfo.ingredientes[ingredientUpdater[3].typeOfIngredients[j]] 
-                            >= ingredientUpdater[3].amountOfIngredients[j];
+                if(playerManager.playerInfo.ingredientes[ingredientUpdater[3].typeOfIngredients[j]] < ingredientUpdater[3].amountOfIngredients[j])
+                {
+                    canCraft = false;
+                    break;
+                }
             }
 
             Debug.Log(canCraft);
@@ -592,17 +601,16 @@ public class _WeaponHandler : MonoBehaviour
                 UpdateWeaponSlotSprites();
                 playerManager.playerInfo.totalWeaponsCrafted++;
 
+                if(playerManager.tutorial)
+                {
+                    playerManager.tutorialBrain.playerCraftedWeapon = true;
+                }
                 CraftWeapon(3);
             }
             else
             {
                 // algo acontece quando não pode craftar
                 Debug.Log("falta material");
-            }
-            
-            if(playerManager.tutorial)
-            {
-                playerManager.tutorialBrain.playerCraftedWeapon = true;
             }
         }
         else

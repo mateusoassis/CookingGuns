@@ -58,6 +58,7 @@ public class PlayerInfo : ScriptableObject
     public int fastestRunSoFar; //
 
     [Header("Ingredientes")]
+    [Range(0, 99)]
     public int[] ingredientes;
     public Sprite[] ingredientesIcons;
     /*
