@@ -204,6 +204,7 @@ public class VermelhaBehaviour : MonoBehaviour
 
     public void Explode()
     {
+        FindObjectOfType<SoundManager>().PlayOneShot("EnemyExplosion");
         if(explosionCollision)
         {
             Debug.Log("player toma dano");

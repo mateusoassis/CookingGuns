@@ -137,6 +137,7 @@ public class Shieldoca : MonoBehaviour
     public void ShieldyWasHit()
     {
         Debug.Log("shieldy was hit");
+        FindObjectOfType<SoundManager>().PlayOneShot("ShieldocaAbsorb");
     }
     void OnCollisionEnter(Collision other)
     {
@@ -153,6 +154,7 @@ public class Shieldoca : MonoBehaviour
     public void AttackingFalse()
     {
         attacking = false;
+        FindObjectOfType<SoundManager>().PlayOneShot("ShieldocaKaboom");
     }
 
     public void ActivateAttackParticle() 

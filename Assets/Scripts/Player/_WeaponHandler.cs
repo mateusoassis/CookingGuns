@@ -665,6 +665,7 @@ public class _WeaponHandler : MonoBehaviour
         {
             playerManager.playerInfo.ingredientes[ingredientUpdater[index].typeOfIngredients[j]] -= ingredientUpdater[index].amountOfIngredients[j];
         }
+        FindObjectOfType<SoundManager>().PlayOneShot("Cook");
         UpdateAllIngredientAmount(index);
     }
 

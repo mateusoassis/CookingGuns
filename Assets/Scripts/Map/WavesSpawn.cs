@@ -29,6 +29,7 @@ public class WavesSpawn : MonoBehaviour
     }
     public void SpawnWave()
     {
+        FindObjectOfType<SoundManager>().PlayOneShot("EnemySpawn");
         Instantiate(enemyWaves[waveIndex], spawnPoint.position, Quaternion.identity);
     }
     private IEnumerator ControlSpawn()
