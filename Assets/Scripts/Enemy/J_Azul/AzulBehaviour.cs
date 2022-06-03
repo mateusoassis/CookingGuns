@@ -233,6 +233,7 @@ public class AzulBehaviour : MonoBehaviour
         {
             Instantiate(enemyBulletPrefab, firePointRight.transform.position, firePointRight.transform.rotation);
         }
+        FindObjectOfType<SoundManager>().PlayOneShot("EnemyShot");
         float u = Random.Range(timeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
         timeBetweenShotsTimer = u;
         canMove = true;

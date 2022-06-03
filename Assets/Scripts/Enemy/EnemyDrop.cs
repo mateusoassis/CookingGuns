@@ -36,7 +36,6 @@ public class EnemyDrop : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        //Physics.IgnoreLayerCollision(16, 16, true);
     }
 
     void Start()
@@ -73,64 +72,9 @@ public class EnemyDrop : MonoBehaviour
         }
     }
 
-    /*
-    void OnCollisionEnter(Collision other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            Debug.Log("ganhou material tal");
-            if(SceneManager.GetActiveScene().buildIndex != 1) // checando se o jogo está ou não no TUTORIAL
-            {
-                other.gameObject.GetComponent<Inventory>().AddItem(ItemName);
-            }
-            Destroy(this.gameObject);
-        }
-
-        
-        //if(other.gameObject.tag == "Ground")
-        //{
-        //    Debug.Log("ativa colisão entre drops");
-        //}
-    }
-    */
-
     public void AddIngredient()
     {
         playerInfo.ingredientes[itemType]++;
         playerTransform.GetComponentInParent<_PlayerManager>().isRecentlyLoot = true;
-        /*
-        if(itemType == 0)
-        {
-            playerInfo.i_biscoito++;
-        }
-        else if(itemType == 1)
-        {
-            playerInfo.i_caramelo++;
-        }
-        else if(itemType == 2)
-        {
-            playerInfo.i_chocolate++;
-        }
-        else if(itemType == 3)
-        {
-            playerInfo.i_donut++;
-        }
-        else if(itemType == 4)
-        {
-            playerInfo.i_iceCream++;
-        }
-        else if(itemType == 5)
-        {
-            playerInfo.i_marshmallow++;
-        }
-        else if(itemType == 6)
-        {
-            playerInfo.i_apple++;
-        }
-        else if(itemType == 7)
-        {
-            playerInfo.i_sugarCane++;
-        }
-        */
     }
 }

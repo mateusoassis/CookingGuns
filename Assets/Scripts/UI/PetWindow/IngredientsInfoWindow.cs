@@ -56,7 +56,7 @@ public class IngredientsInfoWindow : MonoBehaviour
     {
         for(int i = 0; i < slots.Length; i++)
         {
-            slots[i].GetComponentInChildren<TextMeshProUGUI>().text = "x" + playerInfo.ingredientes[i];
+            slots[i].GetComponentInChildren<TextMeshProUGUI>().text = "x" + playerInfo.ingredientes[i].ToString("D2");
         }
     }
 
