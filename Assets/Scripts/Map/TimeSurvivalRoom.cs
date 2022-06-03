@@ -87,7 +87,7 @@ public class TimeSurvivalRoom : MonoBehaviour
         SpawnWave();
         numberOfWaves -= 1;
         waveIndex = waveIndex + 1;
-        waveCounterText.SetText((numberOfWaves + 1)  + "/" + initialNumberofWaves);
+        waveCounterText.SetText("Wave " + (6 - numberOfWaves)  + "/" + initialNumberofWaves);
     }
     public void SpawnWave()
     {
