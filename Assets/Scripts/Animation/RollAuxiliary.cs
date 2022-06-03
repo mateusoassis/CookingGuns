@@ -43,6 +43,7 @@ public class RollAuxiliary : MonoBehaviour
     public void DeactivateThisObject()
     {
         gameObject.SetActive(false);
+        Debug.Log("desativou");
     }
     public void OnDisable()
     {
