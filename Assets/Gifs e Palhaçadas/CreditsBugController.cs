@@ -61,7 +61,7 @@ public class CreditsBugController : MonoBehaviour
                 FindObjectOfType<SoundManager>().StopSound("Menu Music");
                 FindObjectOfType<SoundManager>().StopSound("Game Music");
                 splashScreenHandler.ToMenu();
-                
+                canGoToMenu = false;
             }
         }
         //waitCanvasGroupAlpha = waitCanvasGroup.alpha;
