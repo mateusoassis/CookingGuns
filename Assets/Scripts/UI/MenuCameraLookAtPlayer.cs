@@ -128,7 +128,7 @@ public class MenuCameraLookAtPlayer : MonoBehaviour
         if(u == 1)
         {
             rotationMultiplier *= -1;
-            Debug.Log("troca rotação");
+            //Debug.Log("troca rotação");
         }
     }
 }

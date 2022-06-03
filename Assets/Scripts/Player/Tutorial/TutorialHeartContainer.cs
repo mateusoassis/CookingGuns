@@ -13,44 +13,47 @@ public class TutorialHeartContainer : MonoBehaviour
     {
         playerStats = GameObject.Find("TutorialPlayer").GetComponent<_PlayerStats>();
     }
+    private void Start()
+    {
+        //DrawHearts();
+    }
 
+    
     private void OnEnable()
     {
-        _PlayerStats.OnPlayerDamaged += DrawHearts;
+        //_PlayerStats.OnPlayerDamaged += DrawHearts;
     }
 
     private void OnDisable()
     {
-        _PlayerStats.OnPlayerDamaged -= DrawHearts;
+        //_PlayerStats.OnPlayerDamaged -= DrawHearts;
     }
 
-    private void Start()
-    {
-        DrawHearts();
-    }
-
+    
+    /*
     public void DrawHearts()
     {
         ClearHearts();
         
-        /*
+        
         float maxHealthRemainder = playerStats.playerMaxHealth % 2;
         int heartsToMake = (int)((playerStats.playerMaxHealth/ 2)  + maxHealthRemainder);
-        */
+        
         int heartsToMake = (int)playerStats.playerCurrentHealth;
         for(int i = 0; i < heartsToMake; i++)
         {
             CreateEmptyHeart();
         }
 
-        /*
+        
         for(int i = 0; i < hearts.Count ;i++)
         {
             int heartStatusRemainder = (int )Mathf.Clamp(playerStats.playerCurrentHealth - (i*2), 0, 2);
             hearts[i].SetHeartImage((_PlayerHeartManager.HeartStatus)heartStatusRemainder);
         }
-        */
+        
     }
+
 
     public void CreateEmptyHeart()
     {
@@ -61,6 +64,7 @@ public class TutorialHeartContainer : MonoBehaviour
         //heartComponent.SetHeartImage(_PlayerHeartManager.HeartStatus.Empty);
         //hearts.Add(heartComponent);
     }
+    
 
     public void ClearHearts()
     {
@@ -70,5 +74,6 @@ public class TutorialHeartContainer : MonoBehaviour
         }
         hearts = new List<_PlayerHeartManager>();
     }
+    */
 }
 

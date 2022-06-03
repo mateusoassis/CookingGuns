@@ -15,7 +15,7 @@ public class ShotgunReset : MonoBehaviour
 
     public void ResetThisShotgun()
     {
-        if(sceneIndex != 0)
+        if(sceneIndex != 1)
         {
             shotgunScript.playerManager.animationHandler.anim[shotgunScript.playerManager.animationHandler.weapon].ResetTrigger("Shoot");
         }

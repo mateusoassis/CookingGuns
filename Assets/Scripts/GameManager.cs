@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         if(SceneManager.GetActiveScene().buildIndex == 3)
         {
-            Debug.Log("lul");
+            //Debug.Log("lul");
             playerInfo.isOnTutorial = true;
             //roomCleared = true;
         }
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         elapsedTime = 0f;
         if(playerManager.playerInfo.isOnTutorial)
         {
-            Debug.Log("lul 2");
+            //Debug.Log("lul 2");
             levelCounterText.text = ("Tutorial");
         }
         else

@@ -642,6 +642,7 @@ GameObject:
   - component: {fileID: 40411190}
   - component: {fileID: 40411189}
   - component: {fileID: 40411188}
+  - component: {fileID: 40411192}
   m_Layer: 0
   m_Name: Gato_Idle_MachineGun_02
   m_TagString: Untagged
@@ -770,6 +771,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &40411192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40411186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acd708813497174c815dbd9d3158345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &43923102
 GameObject:
   m_ObjectHideFlags: 0
@@ -9049,6 +9062,7 @@ GameObject:
   - component: {fileID: 710029276}
   - component: {fileID: 710029275}
   - component: {fileID: 710029273}
+  - component: {fileID: 710029274}
   m_Layer: 0
   m_Name: Gato_Idle_Pistol_01
   m_TagString: Untagged
@@ -9103,6 +9117,18 @@ MonoBehaviour:
   - {fileID: 286215245}
   - {fileID: 2089638830}
   oldMaterials: []
+--- !u!114 &710029274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710029271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acd708813497174c815dbd9d3158345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &710029275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9937,6 +9963,7 @@ GameObject:
   - component: {fileID: 820048550}
   - component: {fileID: 820048549}
   - component: {fileID: 820048548}
+  - component: {fileID: 820048553}
   m_Layer: 0
   m_Name: Gato_Idle_Shotgun_01
   m_TagString: Untagged
@@ -10079,6 +10106,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &820048553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820048546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acd708813497174c815dbd9d3158345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &823023205
 GameObject:
   m_ObjectHideFlags: 0
@@ -23437,6 +23476,7 @@ GameObject:
   - component: {fileID: 1894064412}
   - component: {fileID: 1894064411}
   - component: {fileID: 1894064410}
+  - component: {fileID: 1894064413}
   m_Layer: 0
   m_Name: Gato_Idle_GrenadeLauncher_01
   m_TagString: Untagged
@@ -23555,6 +23595,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1894064413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894064408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acd708813497174c815dbd9d3158345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1923672377
 GameObject:
   m_ObjectHideFlags: 0

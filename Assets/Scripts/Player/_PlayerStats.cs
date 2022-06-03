@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class _PlayerStats : MonoBehaviour
 {
+    /*
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
+    */
 
     [Header("Player Stats")]
     public int playerCurrentHealth;
