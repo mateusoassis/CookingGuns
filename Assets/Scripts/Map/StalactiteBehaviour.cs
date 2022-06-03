@@ -17,10 +17,16 @@ public class StalactiteBehaviour : MonoBehaviour
         playerStats = player.GetComponent<_PlayerStats>();
     }
 
+    void Start()
+    {
+        Destroy(gameObject, 1.7f);
+    }
+
     void Update()
     {
         if(player.GetComponent<_PlayerManager>().isEndRoomAnimation)
         {
+            isPlayerInside = false;
             Destroy(gameObject);
         }
     }
@@ -30,12 +36,13 @@ public class StalactiteBehaviour : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             isPlayerInside = true;
+            Debug.Log("player entrou na estalactite");
         }
 
         if(other.gameObject.tag == "Ground")
         {
-            Instantiate(stalactictBurstParticle, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            //Instantiate(stalactictBurstParticle, transform.position, Quaternion.identity);
+            //Destroy(gameObject);
         }
     }
 
@@ -50,8 +57,10 @@ public class StalactiteBehaviour : MonoBehaviour
 
     void OnDestroy()
     {
+        Instantiate(stalactictBurstParticle, transform.position, Quaternion.identity);
         if(isPlayerInside)
         {
+            Debug.Log("destruiu");
             playerStats.TakeHPDamage(damage);
         }
     }

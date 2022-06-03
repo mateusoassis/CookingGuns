@@ -22,6 +22,7 @@ public class StalactiteArea : MonoBehaviour
         if(stalactiteObject != null)
         {
             gotObject = true;
+            Debug.Log("adeus");
         }
         StartCoroutine("BombTimer");
     }
@@ -31,6 +32,7 @@ public class StalactiteArea : MonoBehaviour
         transform.Rotate(0, 1f, 0 * Time.deltaTime);
         if(stalactiteObject == null && gotObject)
         {
+            Debug.Log("mano");
             Destroy(this.gameObject);
         }
     } 
