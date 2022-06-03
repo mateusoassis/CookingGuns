@@ -58,7 +58,10 @@ public class CreditsBugController : MonoBehaviour
             targetCanvasGroup.alpha -= Time.deltaTime/3;
             if(targetCanvasGroup.alpha == 0 && canGoToMenu)
             {
+                FindObjectOfType<SoundManager>().StopSound("Menu Music");
+                FindObjectOfType<SoundManager>().StopSound("Game Music");
                 splashScreenHandler.ToMenu();
+                
             }
         }
         //waitCanvasGroupAlpha = waitCanvasGroup.alpha;
