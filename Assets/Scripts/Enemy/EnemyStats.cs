@@ -21,6 +21,10 @@ public class EnemyStats : MonoBehaviour
     public bool underOneFourthHP;
     [SerializeField] private ParticleSystem damageParticle;
 
+    [SerializeField] private GameObject[] enemyMeshParts;
+
+    [SerializeField] private Material[] oldMaterials;
+
 
     [SerializeField] private float flashDuration;
     [SerializeField] private GameObject enemyFlashingPart;
@@ -34,6 +38,11 @@ public class EnemyStats : MonoBehaviour
     // 2 pudim
     // 3 shieldoca
 
+    private void Awake()
+    {
+        oldMaterials = new Material[enemyMeshParts.Length];
+    }
+
     void Start(){
         enemyHealth = enemyMaxHealth;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
@@ -41,6 +50,11 @@ public class EnemyStats : MonoBehaviour
         if(enemyType != 0)
         {
             oldMaterial = enemyFlashingPart.GetComponent<MeshRenderer>().material;
+        }
+
+        for (int n = 0; n < enemyMeshParts.Length; n++)
+        {
+            oldMaterials[n] = enemyMeshParts[n].GetComponent<MeshRenderer>().material;
         }
     }
     
@@ -125,12 +139,26 @@ public class EnemyStats : MonoBehaviour
 
     private IEnumerator EnemyFlashRoutine()
     {
-        enemyFlashingPart.GetComponent<MeshRenderer>().material = flashMaterial;
+        /*enemyFlashingPart.GetComponent<MeshRenderer>().material = flashMaterial;
 
         yield return new WaitForSeconds(flashDuration);
 
         enemyFlashingPart.GetComponent<MeshRenderer>().material = oldMaterial;
 
+        flashRoutine = null;
+        */
+
+        foreach (GameObject k in enemyMeshParts)
+        {
+            k.GetComponent<MeshRenderer>().material = flashMaterial;
+        }
+
+        yield return new WaitForSeconds(flashDuration);
+
+        for (int n = 0; n < enemyMeshParts.Length; n++)
+        {
+            enemyMeshParts[n].GetComponent<MeshRenderer>().material = oldMaterials[n];
+        }
         flashRoutine = null;
     }
 

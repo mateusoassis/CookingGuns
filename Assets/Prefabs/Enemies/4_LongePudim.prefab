@@ -182,6 +182,12 @@ MonoBehaviour:
   healthbarScript: {fileID: 0}
   underOneFourthHP: 0
   damageParticle: {fileID: 8555817675229243415}
+  enemyMeshParts:
+  - {fileID: 5459234541946336398}
+  - {fileID: 8025335600162478866}
+  - {fileID: 4156422121668869182}
+  - {fileID: 7947589769749327918}
+  oldMaterials: []
   flashDuration: 0.1
   enemyFlashingPart: {fileID: 5459234541946336398}
   flashMaterial: {fileID: 2100000, guid: d293cf513d79d4b4bb47f6ac2bf4a226, type: 2}
@@ -618,5 +624,20 @@ Transform:
 --- !u!1 &5459234541946336398 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8477395424318106218, guid: cd35e480b6c76b04cb8f410685e33152, type: 3}
+  m_PrefabInstance: {fileID: 4726850114457411864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8025335600162478866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3370554096603150858, guid: cd35e480b6c76b04cb8f410685e33152, type: 3}
+  m_PrefabInstance: {fileID: 4726850114457411864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4156422121668869182 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -560778660754596570, guid: cd35e480b6c76b04cb8f410685e33152, type: 3}
+  m_PrefabInstance: {fileID: 4726850114457411864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7947589769749327918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3446001292865982774, guid: cd35e480b6c76b04cb8f410685e33152, type: 3}
   m_PrefabInstance: {fileID: 4726850114457411864}
   m_PrefabAsset: {fileID: 0}
