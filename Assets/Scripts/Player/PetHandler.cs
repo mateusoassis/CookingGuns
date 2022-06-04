@@ -20,6 +20,7 @@ public class PetHandler : MonoBehaviour
 
     [Header("Crafting")]
     public bool craftingWindowOpen;
+    public bool noPetWindow;
     public GameObject craftingWindowObject; // tem que arrastar pra o inspector
     private Inventory inventorytxt;
     public _PlayerManager playerManager;
@@ -266,6 +267,7 @@ public class PetHandler : MonoBehaviour
 
     public void OpenCraftingWindow()
     {
+        noPetWindow = false;
         petAnimator.enabled = false;
         petModel.localPosition = initialPetModelTransformPosition;
         PetLookAtAnimation();
@@ -287,6 +289,7 @@ public class PetHandler : MonoBehaviour
 
     public void CloseCraftingWindow()
     {
+        noPetWindow = true;
         petAnimator.enabled = true;
         if(!playerManager.gameManager.pausedGame)
         {
@@ -300,11 +303,23 @@ public class PetHandler : MonoBehaviour
                 playerManager.tutorialBrain.dialogueAfterCraftedWeapon.StartDialogue();
                 playerManager.tutorialBrain.lastDialogue = true;
             }
+            /*
             craftingWindowOpen = false;
             cinemachineSwitchBlend.SwitchPriority();
             canvasGroupAnimator.SetTrigger("Disable");
             petModel.transform.forward = pet.transform.forward;
             petWindowBrain.CloseAll();
+            */
+            StartCoroutine(WaitSecondsBeforeClosingWindowBool(1f));
         }  
+    }
+    public IEnumerator WaitSecondsBeforeClosingWindowBool(float n)
+    {
+        cinemachineSwitchBlend.SwitchPriority();
+        canvasGroupAnimator.SetTrigger("Disable");
+        petModel.transform.forward = pet.transform.forward;
+        petWindowBrain.CloseAll();
+        yield return new WaitForSeconds(n);
+        craftingWindowOpen = false;
     }
 }

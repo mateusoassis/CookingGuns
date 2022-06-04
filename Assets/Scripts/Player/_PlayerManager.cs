@@ -181,7 +181,7 @@ public class _PlayerManager : MonoBehaviour
                 {
                     if(!gameManager.pausedGame)
                     {
-                        if(petHandler.craftingWindowOpen)
+                        if(petHandler.craftingWindowOpen && !petHandler.noPetWindow)
                         {
                             petHandler.CloseCraftingWindow();
                         }
@@ -204,7 +204,7 @@ public class _PlayerManager : MonoBehaviour
             {
                 if(petHandler.playerOnArea && !petHandler.craftingWindowOpen && petHandler.stop)
                 {
-                    if(gameManager.roomCleared)
+                    if(gameManager.roomCleared && petHandler.noPetWindow)
                     {
                         petHandler.OpenCraftingWindow();
                         //craftingHandlerInPlayer.ShowCraftOptions();
@@ -216,7 +216,10 @@ public class _PlayerManager : MonoBehaviour
             
                 if(petHandler.playerOnArea && !petHandler.craftingWindowOpen && tutorialDialogueForPet.ended)
                 {
-                    petHandler.OpenCraftingWindow();
+                    if(petHandler.noPetWindow)
+                    {
+                        petHandler.OpenCraftingWindow();
+                    }
                     //craftingHandlerInPlayer.ShowCraftOptions();
                     //tutorialWindowContainer.thirdPartKillTower.craftedAnyWeapon = true;
                 }
