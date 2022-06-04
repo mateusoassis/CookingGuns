@@ -29,6 +29,7 @@ public class TrapScript : MonoBehaviour
         Vector3 target = spikeTarget.transform.position;
         yield return new WaitForSeconds(trapDelay);
         spikeTrap.transform.position = Vector3.MoveTowards(spikeTrap.transform.position, spikeTarget.transform.position, trapActivationSpeed);
+        FindObjectOfType<SoundManager>().PlayOneShot("Trap");
         yield return new WaitForSeconds(trapDelay);
         spikeTrap.transform.position = Vector3.MoveTowards(spikeTrap.transform.position, spikeInitialPosition.transform.position, trapActivationSpeed);
     }

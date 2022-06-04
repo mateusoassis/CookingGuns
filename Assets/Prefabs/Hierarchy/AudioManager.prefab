@@ -184,7 +184,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ebc67bfe45a9c874bb3abd0db575ab7b, type: 3}
     volume: 0.3
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - tag: 1
     name: Menu Music
@@ -198,28 +198,28 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2e40c2735826caf47bc4c55a7a8980cb, type: 3}
     volume: 0.05
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - tag: 0
     name: EnemyExplosion
     clip: {fileID: 8300000, guid: a782947d32d607940bee4b60775f2d6a, type: 3}
     volume: 0.05
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - tag: 0
     name: EnemySpawn
     clip: {fileID: 8300000, guid: 4e029acbb64779e4ba98d5fa7b0aec12, type: 3}
     volume: 0.05
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - tag: 0
     name: ShieldocaAbsorb
     clip: {fileID: 8300000, guid: e99aa585e975e7341a26facb2841ff9d, type: 3}
     volume: 0.05
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - tag: 0
     name: ShieldocaKaboom
@@ -231,6 +231,48 @@ MonoBehaviour:
   - tag: 0
     name: StepRevise
     clip: {fileID: 8300000, guid: b321fdf5a48977845b05bd41cb617077, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: Trap
+    clip: {fileID: 8300000, guid: 24792c38aebcc6945a8f8bc8402502f0, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: Healing
+    clip: {fileID: 8300000, guid: e2c1a45a5cd01bd41bbc0ca6935ca2e9, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: Stalactite
+    clip: {fileID: 8300000, guid: 411b7ad575ca99c4091966e9c2bc6b16, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: CraftError
+    clip: {fileID: 8300000, guid: 1f9578003ac684745a2b0e6b9f7385a5, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - tag: 0
+    name: SwapWeapon
+    clip: {fileID: 8300000, guid: ea140a3a96766a74da6beba2fdb7ddb9, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - tag: 0
+    name: LootPickUp2
+    clip: {fileID: 8300000, guid: 016b6c3d565125645ac9093ef029c423, type: 3}
     volume: 0.05
     pitch: 1
     loop: 1

@@ -170,6 +170,10 @@ public class _WeaponHandler : MonoBehaviour
                 WeaponManager(weaponTypeEquipped);
             }
             UpdateWeaponSlotSprites();
+            if(!playerManager.isFading)
+            {
+                FindObjectOfType<SoundManager>().PlayOneShot("SwapWeapon");
+            }
         }
     }
 
@@ -220,6 +224,10 @@ public class _WeaponHandler : MonoBehaviour
                 WeaponManager(weaponTypeEquipped);
             }
             UpdateWeaponSlotSprites();
+            if(!playerManager.isFading)
+            {
+                FindObjectOfType<SoundManager>().PlayOneShot("SwapWeapon");
+            }
         }
     }
 
@@ -422,15 +430,16 @@ public class _WeaponHandler : MonoBehaviour
             }
             else
             {
-                // algo acontece quando não pode craftar
+                // não pode craftar
                 Debug.Log("falta material");
+                FindObjectOfType<SoundManager>().PlayOneShot("CraftError");
             }
-
         }
         else
         {
             // cheio de armas
             Debug.Log("inventário cheio de armas");
+            FindObjectOfType<SoundManager>().PlayOneShot("CraftError");
         }
     }
     public void DisablePistol()
@@ -484,14 +493,16 @@ public class _WeaponHandler : MonoBehaviour
             }
             else
             {
-                // algo acontece quando não pode craftar
+                // não pode craftar
                 Debug.Log("falta material");
+                FindObjectOfType<SoundManager>().PlayOneShot("CraftError");
             }
         }
         else
         {
             // cheio de armas
             Debug.Log("inventário cheio de armas");
+            FindObjectOfType<SoundManager>().PlayOneShot("CraftError");
         }
     }
     public void DisableShotgun()
@@ -547,14 +558,16 @@ public class _WeaponHandler : MonoBehaviour
             }
             else
             {
-                // algo acontece quando não pode craftar
+                // não pode craftar
                 Debug.Log("falta material");
+                FindObjectOfType<SoundManager>().PlayOneShot("CraftError");
             }
         }
         else
         {
             // cheio de armas
             Debug.Log("inventário cheio de armas");
+            FindObjectOfType<SoundManager>().PlayOneShot("CraftError");
         }
     }
     
@@ -609,14 +622,16 @@ public class _WeaponHandler : MonoBehaviour
             }
             else
             {
-                // algo acontece quando não pode craftar
+                // não pode craftar
                 Debug.Log("falta material");
+                FindObjectOfType<SoundManager>().PlayOneShot("CraftError");
             }
         }
         else
         {
             // cheio de armas
             Debug.Log("inventário cheio de armas");
+            FindObjectOfType<SoundManager>().PlayOneShot("CraftError");
         }
     }
 
@@ -716,6 +731,7 @@ public class _WeaponHandler : MonoBehaviour
     
         playerManager.playerStats.heartScript.FullHeal();
         healingParticle.Play();
+        FindObjectOfType<SoundManager>().PlayOneShot("Healing");
         playerManager.playerInfo.totalWeaponsEaten++;
 
         if(playerManager.tutorial)

@@ -84,7 +84,7 @@ public class LootContainer : MonoBehaviour
         {
             if(other.gameObject.TryGetComponent(out EnemyDrop enemyDrop))
             {
-                FindObjectOfType<SoundManager>().PlayOneShot("LootPickUp");
+                FindObjectOfType<SoundManager>().PlayOneShot("LootPickUp2");
                 Debug.Log("colidiu com drop");
                 CreateNewLoot(enemyDrop.itemType);
                 Debug.Log("pegou lul " + enemyDrop.itemType);
