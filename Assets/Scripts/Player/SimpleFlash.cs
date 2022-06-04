@@ -8,8 +8,7 @@ public class SimpleFlash : MonoBehaviour
         [SerializeField] private Material flashMaterial;
 
         [Tooltip("Duration of the flash.")]
-        [SerializeField] private float flashDuration;
-
+        public float flashDuration;
         [SerializeField] private GameObject[] playerMeshParts;
 
         private SkinnedMeshRenderer meshRenderer;
@@ -18,28 +17,35 @@ public class SimpleFlash : MonoBehaviour
 
         public Material[] oldMaterials;
 
+        private _PlayerStats playerStats;
+
         void Awake()
         {
             oldMaterials = new Material[7];
-        }
-
-        void Start()
-        {
             for(int n = 0; n< playerMeshParts.Length; n++)
             {
                 oldMaterials[n] = playerMeshParts[n].GetComponent<SkinnedMeshRenderer>().material;
             }
+            playerStats = GameObject.Find("Player").GetComponent<_PlayerStats>();
+            flashDuration = playerStats.immuneDuration;
+        }
+
+        void Start()
+        {
+            
         }
 
         public void Flash()
         {
+            
             if (flashRoutine != null)
             {
                 StopCoroutine(flashRoutine);
             }
+            
             flashRoutine = StartCoroutine(FlashRoutine());
 
-            Debug.Log("fez o flash");
+            Debug.Log("chama o flash");
 
             /*for (float duration = 0; duration < 2; duration += Time.deltaTime)
             {
@@ -49,6 +55,7 @@ public class SimpleFlash : MonoBehaviour
 
         private IEnumerator FlashRoutine()
         {
+            Debug.Log("fez o flash");
             foreach(GameObject k in playerMeshParts)
             {
                 k.GetComponent<SkinnedMeshRenderer>().material = flashMaterial;
@@ -59,5 +66,6 @@ public class SimpleFlash : MonoBehaviour
                 playerMeshParts[n].GetComponent<SkinnedMeshRenderer>().material = oldMaterials[n];
             }
             flashRoutine = null;
+            Debug.Log("acaba o flash");
         }
 }

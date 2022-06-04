@@ -31,13 +31,14 @@ public class _PlayerStats : MonoBehaviour
     public GameObject deadModel;
 
     [Header("VFX")]
-    private SimpleFlash simpleFlashEffect;
+    //private SimpleFlash simpleFlashEffect;
+    [SerializeField] private FlashEffect flashEffect;
     private CameraShake cameraShakeEffect;
 
     private void Awake()
     {
         heartScript = GameObject.Find("HeartContainer").GetComponent<HeartContainerManager>();
-        simpleFlashEffect = GetComponentInChildren<SimpleFlash>();
+        //simpleFlashEffect = GetComponentInChildren<SimpleFlash>();
         cameraShakeEffect = GameObject.Find("Shake").GetComponent<CameraShake>();
         if (playerManager.playerInfo.healthFromLastRoom > 0)
         {
@@ -84,7 +85,8 @@ public class _PlayerStats : MonoBehaviour
             {
                 Debug.Log("n perdeu");
                 cameraShakeEffect.Shockwave();
-                simpleFlashEffect.Flash();
+                //simpleFlashEffect.Flash();
+                flashEffect.simpleFlash[flashEffect.weaponHandler.weaponTypeEquipped].Flash();
                 playerCurrentHealth = futureHP;
                 heartScript.hpLost += damage;
                 heartScript.UpdateAllHearts();
@@ -102,12 +104,12 @@ public class _PlayerStats : MonoBehaviour
                 if(!playerManager.isDead)
                 {
                     FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowDeath");
+                    playerManager.playerWeaponHandler.breakWeaponScript.BreakTheWeapon();
                 }
                 playerManager.isDead = true;
                 deadModel.SetActive(true);
                 playerManager.petHandler.cinemachineSwitchBlend.DeadCamera();
                 playerManager.playerWeaponHandler.PlayerIsDead();
-                playerManager.playerWeaponHandler.breakWeaponScript.BreakTheWeapon();
             }
             if(!playerManager.isDead)
             {
@@ -130,7 +132,7 @@ public class _PlayerStats : MonoBehaviour
         {
             if((other.gameObject.TryGetComponent(out PudimAreaDamage pudimAreaDamage)))
             {
-                simpleFlashEffect.Flash();
+                //simpleFlashEffect.Flash();
                 TakeHPDamage(pudimAreaDamage.damageDone); 
             }
         }
