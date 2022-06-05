@@ -80,6 +80,7 @@ public class _WeaponHandler : MonoBehaviour
     {
         playerShooting[weaponTypeEquipped].ReloadInterrupted();
         DeactivateAll();
+        playerManager.animationHandler.rollCat.SetActive(false);
         playerManager.calledEndRoomAnimation = true;
         playerManager.isEndRoomAnimation = true;
         catEndRoom.SetActive(true);
@@ -96,7 +97,10 @@ public class _WeaponHandler : MonoBehaviour
     }
     public void EndRoll()
     {
-        weaponObjects[weaponTypeEquipped].SetActive(true);
+        if(playerManager.isEndRoomAnimation)
+        {
+            weaponObjects[weaponTypeEquipped].SetActive(true);
+        }
     }
 
     public void WeaponManager(int n)

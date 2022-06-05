@@ -53,7 +53,7 @@ public class HeartContainerManager : MonoBehaviour
 
     public void UpdateAllHearts()
     {
-        if(playerStats.playerCurrentHealth > 0)
+        if(playerStats.playerCurrentHealth >= 0)
         {
             for(int i = 0; i < playerStats.playerMaxHealth; i++)
             {

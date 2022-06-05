@@ -104,7 +104,8 @@ public class _PlayerStats : MonoBehaviour
             if(futureHP <= 0)
             {
                 playerManager.isImmune = true;
-                heartScript.hpLost += damage;
+                playerCurrentHealth = futureHP = 0;
+                heartScript.hpLost = 7;
                 heartScript.UpdateAllHearts();
                 // switch pra câmera de dead
                 if(!playerManager.isDead)
