@@ -26,10 +26,16 @@ public class GameManager : MonoBehaviour
     private CameraShake shakeEffect;
 
     [Header("Slowdown ao finalizar sala")]
-    public float slowdownDuration;
-    public float slowdownFactor;
-    public bool slowdown;
-    public bool slowdownEnded;
+    [SerializeField] private float slowdownDuration;
+    [SerializeField] private float slowdownFactor;
+    private bool slowdown;
+    private bool slowdownEnded;
+
+    [Header("Slowdown ao tomar dano")]
+    [SerializeField] private float damageSlowdownDuration;
+    private float damageSlowdownTimer;
+    [SerializeField] private float damageSlowdownFactor;
+    private bool damageSlowdown;
 
     [Header("Cursores")]
     public CursorManager mainCursor;
@@ -108,6 +114,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(damageSlowdown)
+        {
+            DamageSlowtime();
+        }
         //ConvertElapsedTimeToHMS();
         //OverwriteTimestamp();
         if(!roomCleared)
@@ -140,6 +150,26 @@ public class GameManager : MonoBehaviour
     }
     */
 
+    public void DamageCausedSlowtime()
+    {
+        damageSlowdown = true;
+        damageSlowdownTimer = damageSlowdownDuration;
+        Time.timeScale = damageSlowdownFactor;
+    }
+    public void DamageSlowtimeEnded()
+    {
+        Time.timeScale = 1;
+        damageSlowdown = false;
+    }
+    public void DamageSlowtime()
+    {
+        damageSlowdownTimer -= Time.unscaledDeltaTime;
+        if(damageSlowdownTimer < 0)
+        {
+            DamageSlowtimeEnded();
+        }
+    }
+
     public void StartSlowTime()
     {
         slowdown = true;
@@ -159,6 +189,7 @@ public class GameManager : MonoBehaviour
                 if(Time.timeScale >= 1f)
                 {
                     slowdownEnded = true;
+                    DamageSlowtimeEnded();
                 }
             }
         }

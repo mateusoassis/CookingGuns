@@ -60,7 +60,7 @@ public class _PlayerStats : MonoBehaviour
 
     void Update()
     {
-        if(playerManager.isImmune)
+        if(playerManager.isImmune && !playerManager.isDead)
         {
             immuneTimer -= Time.deltaTime;
             if(immuneTimer < 0)
@@ -96,10 +96,16 @@ public class _PlayerStats : MonoBehaviour
                     FindObjectOfType<SoundManager>().PlayOneShot("Mr.MeowAttacked");
                 }
                 playerManager.playerInfo.healthFromLastRoom = playerCurrentHealth;
+
+                // slowdown ao tomar dano
+                playerManager.gameManager.DamageCausedSlowtime();
             }
 
             if(futureHP <= 0)
             {
+                playerManager.isImmune = true;
+                heartScript.hpLost += damage;
+                heartScript.UpdateAllHearts();
                 // switch pra câmera de dead
                 if(!playerManager.isDead)
                 {
