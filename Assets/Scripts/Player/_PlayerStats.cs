@@ -86,7 +86,7 @@ public class _PlayerStats : MonoBehaviour
                 Debug.Log("n perdeu");
                 cameraShakeEffect.Shockwave();
                 //simpleFlashEffect.Flash();
-                flashEffect.simpleFlash[flashEffect.weaponHandler.weaponTypeEquipped].Flash();
+                flashEffect.Flash();
                 playerCurrentHealth = futureHP;
                 heartScript.hpLost += damage;
                 heartScript.UpdateAllHearts();

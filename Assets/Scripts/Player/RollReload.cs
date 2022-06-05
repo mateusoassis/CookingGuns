@@ -7,6 +7,8 @@ public class RollReload : MonoBehaviour
     [SerializeField] private _PlayerShooting[] playerShooting;
     [SerializeField] private PlayerInfo playerInfo;
 
+    [SerializeField] private SimpleFlash[] simpleFlash;
+
     // Update is called once per frame
     void Update()
     {

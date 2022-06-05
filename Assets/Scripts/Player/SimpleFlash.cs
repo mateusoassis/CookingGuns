@@ -5,15 +5,15 @@ using UnityEngine;
 public class SimpleFlash : MonoBehaviour
 {
         [Tooltip("Material to switch to during the flash.")]
-        [SerializeField] private Material flashMaterial;
+        public Material flashMaterial;
 
         [Tooltip("Duration of the flash.")]
         public float flashDuration;
-        [SerializeField] private GameObject[] playerMeshParts;
+        public GameObject[] playerMeshParts;
 
         private SkinnedMeshRenderer meshRenderer;
 
-        private Coroutine flashRoutine;
+        public Coroutine flashRoutine;
 
         public Material[] oldMaterials;
 
@@ -35,6 +35,8 @@ public class SimpleFlash : MonoBehaviour
             
         }
 
+        /*
+
         public void Flash()
         {
             
@@ -47,10 +49,10 @@ public class SimpleFlash : MonoBehaviour
 
             Debug.Log("chama o flash");
 
-            /*for (float duration = 0; duration < 2; duration += Time.deltaTime)
-            {
-                StartCoroutine(FlashRoutine());
-            } */
+            //for (float duration = 0; duration < 2; duration += Time.deltaTime)
+            //{
+            //    StartCoroutine(FlashRoutine());
+            //} 
         }
 
         private IEnumerator FlashRoutine()
@@ -68,4 +70,5 @@ public class SimpleFlash : MonoBehaviour
             flashRoutine = null;
             Debug.Log("acaba o flash");
         }
+        */
 }
