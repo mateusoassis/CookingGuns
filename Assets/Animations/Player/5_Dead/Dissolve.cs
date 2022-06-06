@@ -8,20 +8,35 @@ public class Dissolve : MonoBehaviour
     public float dissolveSpeed;
     public float delayTimer;
 
-    public Material[] dissolveMaterialsCorrectNow;
+    private int i;
+
+    private float sliderValue;
+
+    [SerializeField] private float decreaseSpeed;
+
+    [SerializeField] private SkinnedMeshRenderer[] meshParts;
+
+    [SerializeField] private Material[] dissolveMaterials;
 
     void Awake()
     {
-        //oldMaterials = new Material[7];
-        for(int i = 0; i < dissolveMaterialsCorrectNow.Length; i++)
+        dissolveMaterials = new Material[meshParts.Length];
+
+        for (i = 0; i < meshParts.Length; i++)
         {
-            dissolveMaterialsCorrectNow[i].SetFloat("AlphaControl_", -1.0f);
+            dissolveMaterials[i] = meshParts[i].GetComponent<SkinnedMeshRenderer>().material;
         }
+
+        /*for (int i = 0; i < dissolveMaterials.Length; i++)
+        {
+            dissolveMaterials[i].SetFloat("AlphaControl_", -1.0f);
+        }*/
     }
 
     void Start()
     {
-        Debug.Log(dissolveMaterialsCorrectNow[0].GetFloat("AlphaControl_"));
+        //Debug.Log(dissolveMaterials[0].GetFloat("AlphaControl_"));
+
         /*
         for(int i = 0; i < playerRenderers.Length; i++)
         {
@@ -48,15 +63,55 @@ public class Dissolve : MonoBehaviour
 
     void Update()
     {
-        delayTimer += Time.deltaTime;
+        //sliderValue -= Time.deltaTime;
+
+        AlphaSlider();
+
+        /*delayTimer += Time.deltaTime;
 
         if(delayTimer > delayToDissolve)
         {
-            for(int i = 0; i < dissolveMaterialsCorrectNow.Length; i++)
+            for(int i = 0; i < dissolveMaterials.Length; i++)
             {
-                dissolveMaterialsCorrectNow[i].SetFloat("AlphaControl_", Mathf.MoveTowards(dissolveMaterialsCorrectNow[i].GetFloat("AlphaControl_"), 1.0f, Time.deltaTime * dissolveSpeed/5));
+                dissolveMaterials[i].SetFloat("AlphaControl_", Mathf.MoveTowards(dissolveMaterials[i].GetFloat("AlphaControl_"), 1.0f, Time.deltaTime * dissolveSpeed/5));
             }
-            Debug.Log(dissolveMaterialsCorrectNow[0].GetFloat("AlphaControl_"));
-        }
+            Debug.Log(dissolveMaterials[0].GetFloat("AlphaControl_"));
+        }*/
+    }
+
+    private void AlphaSlider() 
+    {
+        Color color = dissolveMaterials[0].color;
+        color.a -= decreaseSpeed * Time.deltaTime;
+        dissolveMaterials[0].color = color;
+
+        Color color1 = dissolveMaterials[1].color;
+        color1.a -= decreaseSpeed * Time.deltaTime;
+        dissolveMaterials[1].color = color1;
+
+        Color color2 = dissolveMaterials[2].color;
+        color2.a -= decreaseSpeed * Time.deltaTime;
+        dissolveMaterials[2].color = color2;
+
+        Color color3 = dissolveMaterials[3].color;
+        color3.a -= decreaseSpeed * Time.deltaTime;
+        dissolveMaterials[3].color = color3;
+
+        Color color4 = dissolveMaterials[4].color;
+        color4.a -= decreaseSpeed * Time.deltaTime;
+        dissolveMaterials[4].color = color4;
+
+        Color color5 = dissolveMaterials[5].color;
+        color5.a -= decreaseSpeed * Time.deltaTime;
+        dissolveMaterials[5].color = color5;
+
+        Color color6 = dissolveMaterials[6].color;
+        color6.a -= decreaseSpeed * Time.deltaTime;
+        dissolveMaterials[6].color = color6;
+
+        Destroy(meshParts[2].gameObject);
+        Destroy(meshParts[4].gameObject);
+        Destroy(meshParts[6].gameObject);
+
     }
 }
