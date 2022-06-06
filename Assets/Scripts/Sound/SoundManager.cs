@@ -62,7 +62,6 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     public void Play(string name){
         Sounds s = Array.Find(sounds, sound => sound.name == name);
 

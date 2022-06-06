@@ -5250,7 +5250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977533048500822411, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2977533048625895828, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5258,7 +5258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977533048625895828, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2977533048625895828, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMin.x
@@ -14941,7 +14941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1075770760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16083,6 +16083,18 @@ MonoBehaviour:
       - m_Target: {fileID: 259641489}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: StraightToTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4167722961337904840, guid: 1172e19f36d26d9479bb46be95da331f, type: 3}
+        m_TargetAssemblyTypeName: MusicPlayer, Assembly-CSharp
+        m_MethodName: PlayGameMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22825,11 +22837,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977533048500822411, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2977533048625895828, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2977533049761140318, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_text
@@ -24506,11 +24518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2977533048500822411, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2977533048625895828, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2977533049761140318, guid: 340479c6439e6a9429ca80b22aa32c8e, type: 3}
       propertyPath: m_text
@@ -28759,7 +28771,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 725804396391725484, guid: 1481ec420cc1de44097f143ed305d241, type: 3}
-  - {fileID: -2813337366143557646, guid: 1481ec420cc1de44097f143ed305d241, type: 3}
+  - {fileID: 2100000, guid: a3c8fd4fcb226164da92900285460655, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35641,7 +35653,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 725804396391725484, guid: 1481ec420cc1de44097f143ed305d241, type: 3}
-  - {fileID: -2813337366143557646, guid: 1481ec420cc1de44097f143ed305d241, type: 3}
+  - {fileID: 2100000, guid: a3c8fd4fcb226164da92900285460655, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
