@@ -15,7 +15,7 @@ public class Dissolve : MonoBehaviour
         //oldMaterials = new Material[7];
         for(int i = 0; i < dissolveMaterialsCorrectNow.Length; i++)
         {
-            dissolveMaterialsCorrectNow[i].SetFloat("AlphaControl_", -1f);
+            dissolveMaterialsCorrectNow[i].SetFloat("AlphaControl_", -1.0f);
         }
     }
 
@@ -54,7 +54,7 @@ public class Dissolve : MonoBehaviour
         {
             for(int i = 0; i < dissolveMaterialsCorrectNow.Length; i++)
             {
-                dissolveMaterialsCorrectNow[i].SetFloat("AlphaControl_", Mathf.MoveTowards(dissolveMaterialsCorrectNow[i].GetFloat("AlphaControl_"), 1f, Time.deltaTime * dissolveSpeed));
+                dissolveMaterialsCorrectNow[i].SetFloat("AlphaControl_", Mathf.MoveTowards(dissolveMaterialsCorrectNow[i].GetFloat("AlphaControl_"), 1.0f, Time.deltaTime * dissolveSpeed/5));
             }
             Debug.Log(dissolveMaterialsCorrectNow[0].GetFloat("AlphaControl_"));
         }
