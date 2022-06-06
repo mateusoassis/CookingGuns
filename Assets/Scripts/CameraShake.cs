@@ -14,5 +14,9 @@ public class CameraShake : MonoBehaviour
         {
             shock.Invoke();
         }
+        else
+        {
+            Debug.Log("Camera Shake desligado");
+        }
     }
 }

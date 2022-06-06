@@ -14,6 +14,9 @@ public class ShakeListener : MonoBehaviour
 
     public void Shake()
     {
-        source.GenerateImpulse(10f);
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().playerInfo.cameraShake)
+        {
+            source.GenerateImpulse(10f);
+        }
     }
 }
