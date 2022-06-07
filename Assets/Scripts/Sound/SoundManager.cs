@@ -110,4 +110,22 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void SetVol(string name, float vol){
+        Sounds s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null){
+            Debug.Log("Som "+ name + " escrito errado");
+            return;
+        }
+        s.source.volume = vol;
+    }
+
+     public float GetVol(string name){
+        Sounds s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null){
+            Debug.Log("Som "+ name + " escrito errado");
+            return 0f;
+        }
+        return s.source.volume;
+    }
+
 }

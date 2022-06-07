@@ -10,9 +10,10 @@ public class Sounds
 
 
 
+  
+    public string name;
     [Range(0, 1)]
     public int tag;
-    public string name;
     public AudioClip clip;
     
     [Range(0f, 1f)]

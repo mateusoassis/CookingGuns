@@ -125,8 +125,9 @@ public class GameManager : MonoBehaviour
             return;
         }
         else if(roomCleared && !slowdown && !playerManager.isFading && SceneManager.GetActiveScene().buildIndex != 3)
-        {
+        {           
             StartSlowTime();
+            PlayClearRoomAudio();
         }
 
         SlowTime();
@@ -172,6 +173,7 @@ public class GameManager : MonoBehaviour
 
     public void StartSlowTime()
     {
+        
         slowdown = true;
         shakeEffect.Invoke("Shockwave" , 0f);
         Time.timeScale = slowdownFactor;
@@ -184,6 +186,7 @@ public class GameManager : MonoBehaviour
         {
             if(slowdown && !slowdownEnded)
             {
+                
                 Time.timeScale += (1f / slowdownDuration) * Time.unscaledDeltaTime;
                 Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
                 if(Time.timeScale >= 1f)
@@ -372,4 +375,19 @@ public class GameManager : MonoBehaviour
         miniCursor.EnableMiniCursor();
         mainCursor.EnableMainCursor();
     }
+
+    public void PlayClearRoomAudio(){ 
+        StartCoroutine("ChangeVol");
+        FindObjectOfType<SoundManager>().PlayOneShot("Clear Room");
+    }
+    public IEnumerator ChangeVol(){
+        Debug.Log("mamaco");
+        float tempVol = FindObjectOfType<SoundManager>().GetVol("Game Music");
+        FindObjectOfType<SoundManager>().SetVol("Game Music", tempVol/10f);
+        yield return new WaitForSeconds(1.0f);
+        FindObjectOfType<SoundManager>().SetVol("Game Music", tempVol);
+
+    }
+
+
 }
