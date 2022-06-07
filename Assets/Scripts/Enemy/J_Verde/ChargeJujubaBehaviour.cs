@@ -36,6 +36,8 @@ public class ChargeJujubaBehaviour : MonoBehaviour
     public bool isCooldown;
     public float rollDuration;
 
+    [SerializeField] private ParticleSystem enemySpawnParticle;
+
     public ChargeJujubaAnimator chargeJujubaAnimator;
     public ParticleSystem trailParticle;
     private EnemyStats enemyStatsScript;
@@ -55,6 +57,7 @@ public class ChargeJujubaBehaviour : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         navMesh = GetComponent<NavMeshAgent>();
         enemyStatsScript = GetComponent<EnemyStats>();
+        enemySpawnParticle.Play();
     }
 
     void Start()

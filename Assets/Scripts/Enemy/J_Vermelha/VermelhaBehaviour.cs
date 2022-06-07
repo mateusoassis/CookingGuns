@@ -17,6 +17,8 @@ public class VermelhaBehaviour : MonoBehaviour
     [SerializeField] private float speedMultiplier;
     public float enemyMaxSpeed;
 
+    [SerializeField] private ParticleSystem enemySpawnParticle;
+
     [Header("Behaviour 3")]
     public GameObject explosionObject;
     public Transform explosionObjectTransform;
@@ -48,6 +50,11 @@ public class VermelhaBehaviour : MonoBehaviour
     public Vector3 targetWalk;
     public float randomRangeForPatrol;
     private Vector3 previousPosition;
+
+    private void Awake()
+    {
+        enemySpawnParticle.Play();
+    }
 
     void Start()
     {
