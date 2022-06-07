@@ -154,11 +154,11 @@ public class Shieldoca : MonoBehaviour
     public void AttackingFalse()
     {
         attacking = false;
-        FindObjectOfType<SoundManager>().PlayOneShot("ShieldocaKaboom");
     }
 
     public void ActivateAttackParticle() 
     {
         attackParticle.Play();
+        FindObjectOfType<SoundManager>().PlayOneShot("ShieldocaKaboom");
     }
 }

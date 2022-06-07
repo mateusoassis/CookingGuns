@@ -199,4 +199,12 @@ public class EnemyStats : MonoBehaviour
             }
         }
     }
+
+    void OnDestroy()
+    {
+        if(enemyHealth > 0)
+        {
+            Instantiate(smokePrefab, transform.position , Quaternion.identity);
+        }
+    }
 }

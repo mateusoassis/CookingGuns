@@ -216,7 +216,7 @@ public class PudimBehaviour : MonoBehaviour
     public void ShootProjectile()
     {
         enemyStatsScript.EnemyFlash();
-        FindObjectOfType<SoundManager>().StopSound("PudimAttack");
+        FindObjectOfType<SoundManager>().PlayOneShot("PudimAttack");
         Instantiate(enemyBulletPrefab, firePoint.position, Quaternion.identity);
         float u = Random.Range(timeBetweenShots - randomExtraTimeBetweenShots, timeBetweenShots + randomExtraTimeBetweenShots);
         timeBetweenShotsTimer = u;
