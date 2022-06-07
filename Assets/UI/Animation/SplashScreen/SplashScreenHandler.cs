@@ -32,6 +32,7 @@ public class SplashScreenHandler : MonoBehaviour
     {
         FindObjectOfType<SoundManager>().Play("Menu Music");
         FindObjectOfType<SoundManager>().StopSound("Game Music");
+        FindObjectOfType<SoundManager>().StopSound("Credits Music");
         SceneManager.LoadScene("1_MenuScene", LoadSceneMode.Single);
         
     }

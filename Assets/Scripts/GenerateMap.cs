@@ -73,6 +73,7 @@ public class GenerateMap : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<MusicPlayer>().PlayCreditsMusic();
             SceneManager.LoadScene("2_CreditsScene", LoadSceneMode.Single);
         }
     }

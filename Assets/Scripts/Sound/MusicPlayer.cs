@@ -11,6 +11,8 @@ public class MusicPlayer : MonoBehaviour
         FindObjectOfType<SoundManager>().Play("Menu Music");
         
         FindObjectOfType<SoundManager>().StopSound("Game Music");
+
+        FindObjectOfType<SoundManager>().StopSound("Credits Music");
         
     }
 
@@ -18,6 +20,17 @@ public class MusicPlayer : MonoBehaviour
         FindObjectOfType<SoundManager>().Play("Game Music");
         
         FindObjectOfType<SoundManager>().StopSound("Menu Music");
+
+        FindObjectOfType<SoundManager>().StopSound("Credits Music");
+        
+    }
+
+    public void PlayCreditsMusic(){
+        FindObjectOfType<SoundManager>().Play("Credits Music");
+        
+        FindObjectOfType<SoundManager>().StopSound("Menu Music");
+
+        FindObjectOfType<SoundManager>().StopSound("Game Music");
         
     }
 }
