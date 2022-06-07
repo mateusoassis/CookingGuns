@@ -50,7 +50,7 @@ public class MenuManager : MonoBehaviour
         if(isOnMenu)
         {
             ButaoSound();
-            if(!playerInfo.hasPlayedTutorial || !playerInfo.endedTutorial)
+            if(!playerInfo.hasPlayedTutorial)
             {
                 StraightToTutorial();
             }
