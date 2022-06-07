@@ -19,6 +19,8 @@ public class AzulBehaviour : MonoBehaviour
 
     public Transform firePoint;
 
+    [SerializeField] private ParticleSystem enemySpawnParticle;
+
     [Header("Tiros")]
     public float timeBetweenShots;
     private float timeBetweenShotsTimer;
@@ -51,6 +53,7 @@ public class AzulBehaviour : MonoBehaviour
     void Awake()
     {
         navMesh = GetComponent<NavMeshAgent>();
+        enemySpawnParticle.Play();
     }
 
     void Start()

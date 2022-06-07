@@ -23,6 +23,8 @@ public class PudimBehaviour : MonoBehaviour
 
     private EnemyStats enemyStatsScript;
 
+    [SerializeField] private ParticleSystem enemySpawnParticle;
+
     [Header("Tiros")]
     public float timeBetweenShots;
     public float timeBetweenShotsTimer;
@@ -54,6 +56,9 @@ public class PudimBehaviour : MonoBehaviour
         {
             enemyMaxSpeed = 0f;
         }
+
+        enemySpawnParticle.Play();
+
     }
 
     void Start()

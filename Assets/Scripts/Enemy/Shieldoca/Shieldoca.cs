@@ -25,6 +25,7 @@ public class Shieldoca : MonoBehaviour
 
     public Animator anim;
     public ParticleSystem attackParticle;
+    [SerializeField] private ParticleSystem enemySpawnParticle;
 
     private EnemyStats enemyStatsScript;
 
@@ -35,6 +36,11 @@ public class Shieldoca : MonoBehaviour
     public float attackTimer;
     public float attackCooldown;
     public bool attacking;
+
+    private void Awake()
+    {
+        enemySpawnParticle.Play();
+    }
 
     void Start()
     {
