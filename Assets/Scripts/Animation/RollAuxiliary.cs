@@ -38,6 +38,10 @@ public class RollAuxiliary : MonoBehaviour
             newAnimationSpeed = baseAnimationSpeed / (currentRollDuration/baseRollDuration);
             anim.SetFloat("rollSpeedMultiplier", newAnimationSpeed);
         }
+        if(playerWeaponHandler.playerManager.isEndRoomAnimation)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void DeactivateThisObject()
