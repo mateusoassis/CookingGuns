@@ -2,15 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Glow
   m_Shader: {fileID: -6465566751694194690, guid: d6ce18f32a3c05245af19ddf44e93f08, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -36,7 +35,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
     - DistortAmplitude_: 0.5
     - GrainColorBlend_: 0.4
@@ -60,8 +58,6 @@ Material:
     - Vector1_b2b0489b74d14de683457e162d9cd6d6: 3.16
     - Vector1_d9d7d922adac423aa5fe0a39a7dbc953: 0.53
     - Vector1_fb0e7ae5d9c446eca8b81a8c166b2ac4: 1
-    - _QueueControl: 0
-    - _QueueOffset: 0
     m_Colors:
     - Color_11e89221b783494686865bb308dec0a1: {r: 0.38679245, g: 0.21451536, b: 0.18062475, a: 0}
     - Color_d4fcc742c72148c7a4e66bac813d25f8: {r: 1, g: 1, b: 1, a: 1}
@@ -74,16 +70,3 @@ Material:
     - Vector2_422b990400a34746ae89b39ae78b2c63: {r: 2, g: 2, b: 2, a: 2}
     - Vector2_bf11f3c004d040aa9a5e1e76b927e037: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4242610202131437467
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
